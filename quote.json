@@ -26,7 +26,14 @@
       "live": 143.155,
       "session": "OPEN",
       "quote_time_utc": "2026-09-01T18:16:54Z",
-      "source": "finance-query.com"
+      "source": "finance-query.com",
+      "closes_5d": [
+        137.95,
+        139.63,
+        140.87,
+        141.5,
+        143.69
+      ]
     }
   },
   "show_me": [
