@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tesla Daily — TSLA</title>
+  <title>Tesla Daily — TSLA · SPCX</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <style>
     :root {
@@ -60,19 +60,20 @@
       border-top: 1px solid var(--line);
     }
 
-    .mission {
-      margin-top: 8px;
-      font-size: clamp(1.55rem, 4.2vw, 2.35rem);
-      font-weight: 560;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
+    .clock-bar {
+      margin: 0 0 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.86rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.01em;
+      line-height: 1.45;
     }
-
-    a.mission {
-      color: inherit;
-      text-decoration: none;
-    }
-    a.mission:hover { text-decoration: underline; }
+    .clock-bar .sep { margin: 0 0.35em; color: #5c5c58; }
+    .clock-bar .sess { color: var(--muted); font-weight: 650; letter-spacing: 0.06em; }
+    .clock-bar .sess.open { color: var(--up); }
+    .clock-bar .sess.pre { color: var(--warn); }
 
     .kicker {
       display: flex;
@@ -366,6 +367,13 @@
 </head>
 <body>
   <main class="board">
+    <div class="clock-bar" id="clock">
+      <span id="clock-hel">--:--</span> Helsinki
+      <span class="sep">·</span>
+      <span id="clock-ny">--:--</span> New York
+      <span class="sep">·</span>
+      <span id="clock-session" class="sess">—</span>
+    </div>
     <div class="pair">
     <section class="col-tsla">
       <div class="kicker">
@@ -373,63 +381,79 @@
           <h1>Tesla Daily</h1>
           <div class="ticker">TSLA · NASDAQ</div>
         </div>
-        <div id="status" class="status loading" aria-live="polite">Loading</div>
-      </div>
-
-      <div id="clock" class="clock">
-        <span id="clock-hel">--:--</span> Helsinki
-        <span class="sep">·</span>
-        <span id="clock-ny">--:--</span> New York
-        <span class="sep">·</span>
-        <span id="clock-session" class="sess">—</span>
+        <div id="tsla-status" class="status loading" aria-live="polite">Loading</div>
       </div>
 
       <div class="price-block">
-        <div class="label" id="hero-label">Last close</div>
-        <div id="close-price" class="price" aria-busy="true">—</div>
-        <div id="close-date" class="date"></div>
-        <div id="spark" class="spark" aria-hidden="true"></div>
+        <div class="label" id="tsla-hero-label">Last close</div>
+        <div id="tsla-price" class="price" aria-busy="true">—</div>
+        <div id="tsla-date" class="date"></div>
+        <div id="tsla-spark" class="spark" aria-hidden="true"></div>
       </div>
 
-      <div id="today-block" class="today-block flat">
+      <div id="tsla-today" class="today-block flat">
         <div class="today-row">
           <div class="today-label">Today</div>
-          <div id="change" class="today-pct">—</div>
+          <div id="tsla-change" class="today-pct">—</div>
         </div>
-        <div id="gap" class="gap">—</div>
+        <div id="tsla-gap" class="gap">—</div>
       </div>
 
       <dl class="facts">
-        <dt id="last-close-term" hidden>Last close</dt>
-        <dd id="last-close-value" hidden>—</dd>
+        <dt id="tsla-last-close-term" hidden>Last close</dt>
+        <dd id="tsla-last-close-value" hidden>—</dd>
         <dt>Overnight</dt>
-        <dd id="overnight-value">—</dd>
+        <dd id="tsla-overnight">—</dd>
         <dt>Live</dt>
-        <dd id="live-value">—</dd>
-        <dt id="fallback-term" hidden>Note</dt>
-        <dd id="fallback-value" hidden></dd>
+        <dd id="tsla-live">—</dd>
+        <dt id="tsla-fallback-term" hidden>Note</dt>
+        <dd id="tsla-fallback-value" hidden></dd>
         <dt>Quote time</dt>
-        <dd id="when">—</dd>
+        <dd id="tsla-when">—</dd>
         <dt>Source</dt>
-        <dd id="meta">—</dd>
+        <dd id="tsla-meta">—</dd>
       </dl>
-      <p id="note" class="note"></p>
+      <p id="tsla-note" class="note"></p>
     </section>
-
     <section class="col-spcx">
       <div class="kicker">
         <div>
           <h1>SPCX</h1>
           <div class="ticker">SPCX · SPACEX</div>
         </div>
-        <div id="spcx-status" class="status">UNVERIFIED</div>
+        <div id="spcx-status" class="status loading" aria-live="polite">Loading</div>
       </div>
+
       <div class="price-block">
-        <div class="label">Next mission</div>
-        <div id="spcx-hero" class="mission">No dated flight</div>
-        <div id="spcx-when" class="date"></div>
+        <div class="label" id="spcx-hero-label">Last close</div>
+        <div id="spcx-price" class="price" aria-busy="true">—</div>
+        <div id="spcx-date" class="date"></div>
+        <div id="spcx-spark" class="spark" aria-hidden="true"></div>
       </div>
-      <dl class="facts" id="spcx-facts"></dl>
+
+      <div id="spcx-today" class="today-block flat">
+        <div class="today-row">
+          <div class="today-label">Today</div>
+          <div id="spcx-change" class="today-pct">—</div>
+        </div>
+        <div id="spcx-gap" class="gap">—</div>
+      </div>
+
+      <dl class="facts">
+        <dt id="spcx-last-close-term" hidden>Last close</dt>
+        <dd id="spcx-last-close-value" hidden>—</dd>
+        <dt>Overnight</dt>
+        <dd id="spcx-overnight">—</dd>
+        <dt>Live</dt>
+        <dd id="spcx-live">—</dd>
+        <dt id="spcx-fallback-term" hidden>Note</dt>
+        <dd id="spcx-fallback-value" hidden></dd>
+        <dt>Quote time</dt>
+        <dd id="spcx-when">—</dd>
+        <dt>Source</dt>
+        <dd id="spcx-meta">—</dd>
+      </dl>
+      <p id="spcx-note" class="note"></p>
     </section>
     </div>
 
@@ -453,7 +477,7 @@
   <script>
     (function () {
       const DEFAULT_SHOW_ME = [
-        { label: "Cybercab", date: "3 Sep" },
+        { label: "Cybercab", unverified: true },
         { label: "Broadcom", date: "Wed" },
         { label: "Starlink", unverified: true }
       ];
@@ -464,6 +488,10 @@
         { name: "Optimus", status: "quiet" }
       ];
       const DEFAULT_VOICES = "Wood / Baron / Ives — none today";
+      const LIVE_URL = {
+        tsla: "https://finance-query.com/v2/quote/TSLA",
+        spcx: "https://finance-query.com/v2/quote/SPCX"
+      };
 
       const MARKS = {
         Tesla: '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M6 6h20v6H19v14h-6V12H6z"/></svg>',
@@ -471,35 +499,43 @@
         xAI: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" fill="#f3f3f1"/><path fill="#0c0c0d" d="M10 8h3.2L16 13.2 18.8 8H22l-4.4 7.2L22 22.4h-3.2L16 17.2 13.2 22.4H10l4.4-7.2z"/></svg>'
       };
 
+      function bindCard(prefix) {
+        return {
+          prefix: prefix,
+          status: document.getElementById(prefix + "-status"),
+          heroLabel: document.getElementById(prefix + "-hero-label"),
+          price: document.getElementById(prefix + "-price"),
+          date: document.getElementById(prefix + "-date"),
+          lastCloseTerm: document.getElementById(prefix + "-last-close-term"),
+          lastCloseValue: document.getElementById(prefix + "-last-close-value"),
+          fallbackTerm: document.getElementById(prefix + "-fallback-term"),
+          fallbackValue: document.getElementById(prefix + "-fallback-value"),
+          spark: document.getElementById(prefix + "-spark"),
+          todayBlock: document.getElementById(prefix + "-today"),
+          change: document.getElementById(prefix + "-change"),
+          gap: document.getElementById(prefix + "-gap"),
+          overnightValue: document.getElementById(prefix + "-overnight"),
+          liveValue: document.getElementById(prefix + "-live"),
+          when: document.getElementById(prefix + "-when"),
+          meta: document.getElementById(prefix + "-meta"),
+          note: document.getElementById(prefix + "-note"),
+          sparkValues: []
+        };
+      }
+
+      const cards = {
+        tsla: bindCard("tsla"),
+        spcx: bindCard("spcx")
+      };
+
       const el = {
-        status: document.getElementById("status"),
-        heroLabel: document.getElementById("hero-label"),
-        closePrice: document.getElementById("close-price"),
-        closeDate: document.getElementById("close-date"),
-        lastCloseTerm: document.getElementById("last-close-term"),
-        lastCloseValue: document.getElementById("last-close-value"),
-        fallbackTerm: document.getElementById("fallback-term"),
-        fallbackValue: document.getElementById("fallback-value"),
-        spark: document.getElementById("spark"),
-        todayBlock: document.getElementById("today-block"),
-        change: document.getElementById("change"),
-        gap: document.getElementById("gap"),
-        overnightValue: document.getElementById("overnight-value"),
-        liveValue: document.getElementById("live-value"),
-        when: document.getElementById("when"),
-        meta: document.getElementById("meta"),
-        note: document.getElementById("note"),
-        liveRegion: document.getElementById("live-region"),
         chips: document.getElementById("chips"),
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
         clockHel: document.getElementById("clock-hel"),
         clockNy: document.getElementById("clock-ny"),
         clockSession: document.getElementById("clock-session"),
-        spcxStatus: document.getElementById("spcx-status"),
-        spcxHero: document.getElementById("spcx-hero"),
-        spcxWhen: document.getElementById("spcx-when"),
-        spcxFacts: document.getElementById("spcx-facts")
+        liveRegion: document.getElementById("live-region")
       };
 
       function money(n) {
@@ -564,7 +600,6 @@
           second: "2-digit",
           hourCycle: "h23"
         });
-
         function offsetMs(ms) {
           const parts = fmt.formatToParts(new Date(ms));
           const asUTC = Date.UTC(
@@ -577,7 +612,6 @@
           );
           return asUTC - ms;
         }
-
         return new Date(utcGuess - offsetMs(utcGuess - offsetMs(utcGuess)));
       }
 
@@ -629,6 +663,7 @@
         el.clockHel.textContent = formatHm(now, "Europe/Helsinki");
         el.clockNy.textContent = formatHm(now, "America/New_York");
         applyTeslaStatus();
+        setSessionClock(sessionFromClock(now));
       }
 
       function setSessionClock(session) {
@@ -646,28 +681,26 @@
         }
       }
 
-      let sparkValues = [];
-
-      function sparkSvg(values) {
-        sparkValues = values || [];
-        if (!sparkValues || sparkValues.length < 2) {
-          el.spark.innerHTML = "";
+      function sparkSvg(card, values) {
+        card.sparkValues = values || [];
+        if (!card.sparkValues || card.sparkValues.length < 2) {
+          card.spark.innerHTML = "";
           return;
         }
-        const rect = el.spark.getBoundingClientRect();
+        const rect = card.spark.getBoundingClientRect();
         const w = Math.max(Math.round(rect.width) || 320, 160);
         const h = Math.max(Math.round(rect.height) || 52, 40);
         const padX = 7;
         const padY = 8;
-        const min = Math.min.apply(null, sparkValues);
-        const max = Math.max.apply(null, sparkValues);
+        const min = Math.min.apply(null, card.sparkValues);
+        const max = Math.max.apply(null, card.sparkValues);
         const span = max - min || 1;
-        const pts = sparkValues.map(function (v, i) {
-          const x = padX + (i / (sparkValues.length - 1)) * (w - padX * 2);
+        const pts = card.sparkValues.map(function (v, i) {
+          const x = padX + (i / (card.sparkValues.length - 1)) * (w - padX * 2);
           const y = padY + (1 - (v - min) / span) * (h - padY * 2);
           return [x, y];
         });
-        const lastDown = sparkValues[sparkValues.length - 1] < sparkValues[sparkValues.length - 2];
+        const lastDown = card.sparkValues[card.sparkValues.length - 1] < card.sparkValues[card.sparkValues.length - 2];
         const grey = pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ");
         let html = '<svg viewBox="0 0 ' + w + " " + h + '" width="' + w + '" height="' + h + '" preserveAspectRatio="none">';
         if (lastDown) {
@@ -685,7 +718,7 @@
           html += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.7" fill="' + fill + '"/>';
         });
         html += "</svg>";
-        el.spark.innerHTML = html;
+        card.spark.innerHTML = html;
       }
 
       function safeUrl(s) {
@@ -717,44 +750,6 @@
             chip.appendChild(tag);
           }
           el.chips.appendChild(chip);
-        });
-      }
-
-      function renderSpacex(sx) {
-        sx = sx || {};
-        const name = sx.name ? String(sx.name) : "";
-        const href = safeUrl(sx.url);
-        const unverified = !!sx.unverified;
-        let status = sx.status ? String(sx.status) : "";
-        if (unverified) status = "UNVERIFIED";
-        else if (!status) status = "quiet";
-        el.spcxStatus.textContent = status;
-        el.spcxStatus.className = "status";
-        const heroText = name || "No dated flight";
-        el.spcxHero.textContent = "";
-        el.spcxHero.className = "mission";
-        if (href) {
-          const a = document.createElement("a");
-          a.className = "mission";
-          a.href = href;
-          a.target = "_blank";
-          a.rel = "noopener";
-          a.textContent = heroText;
-          el.spcxHero.appendChild(a);
-        } else {
-          el.spcxHero.textContent = heroText;
-        }
-        const when = parseUtc(sx.date_utc);
-        el.spcxWhen.textContent = when ? formatHelsinki(when) : "";
-        el.spcxFacts.innerHTML = "";
-        [["Pad", sx.pad], ["Vehicle", sx.vehicle]].forEach(function (row) {
-          if (!row[1]) return;
-          const dt = document.createElement("dt");
-          dt.textContent = row[0];
-          const dd = document.createElement("dd");
-          dd.textContent = String(row[1]);
-          el.spcxFacts.appendChild(dt);
-          el.spcxFacts.appendChild(dd);
         });
       }
 
@@ -793,34 +788,53 @@
         });
       }
 
-      function renderMissing() {
-        el.closePrice.textContent = "—";
-        el.closePrice.setAttribute("aria-busy", "false");
-        el.closeDate.textContent = "";
-        el.spark.innerHTML = "";
-        el.change.textContent = "—";
-        el.todayBlock.className = "today-block flat";
-        el.gap.textContent = "—";
-        el.overnightValue.textContent = "—";
-        el.liveValue.textContent = "—";
-        el.when.textContent = "—";
-        el.meta.textContent = "—";
-        el.status.textContent = "Closed";
-        el.status.className = "status error";
-        setSessionClock("CLOSED");
-        el.note.className = "note error";
-        el.note.textContent = "The data file is missing.";
-        el.liveRegion.textContent = "The data file is missing.";
-        renderChips(DEFAULT_SHOW_ME);
-        renderStack(DEFAULT_STACK);
-        renderSpacex(null);
-        el.voices.textContent = DEFAULT_VOICES;
+      function renderVoices(file) {
+        const voiceText = file && file.voices ? String(file.voices) : DEFAULT_VOICES;
+        const noneToday = /none today/i.test(voiceText);
+        const vhref = noneToday ? "" : safeUrl(file && file.voices_url);
+        el.voices.textContent = "";
+        if (vhref) {
+          const a = document.createElement("a");
+          a.href = vhref;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = voiceText;
+          el.voices.appendChild(a);
+        } else {
+          el.voices.textContent = voiceText;
+        }
       }
 
-      function render(q) {
+      function blankCard(card, message) {
+        card.price.textContent = "—";
+        card.price.setAttribute("aria-busy", "false");
+        card.date.textContent = "";
+        card.spark.innerHTML = "";
+        card.change.textContent = "—";
+        card.todayBlock.className = "today-block flat";
+        card.gap.textContent = "—";
+        card.overnightValue.textContent = "—";
+        card.liveValue.textContent = "—";
+        card.when.textContent = "—";
+        card.meta.textContent = "—";
+        card.status.textContent = "Closed";
+        card.status.className = "status error";
+        card.note.className = "note error";
+        card.note.textContent = message || "The data file is missing.";
+        card.lastCloseTerm.hidden = true;
+        card.lastCloseValue.hidden = true;
+        card.fallbackTerm.hidden = true;
+        card.fallbackValue.hidden = true;
+      }
+
+      function renderCard(card, q) {
+        if (!q) {
+          blankCard(card, "No quote yet.");
+          return;
+        }
         const lastClose = Number(q.last_close);
         if (!Number.isFinite(lastClose)) {
-          renderMissing();
+          blankCard(card, "The data file is missing.");
           return;
         }
 
@@ -847,27 +861,27 @@
           else { fallback = "No after-hours quote. Showing last close."; }
         }
 
-        el.heroLabel.textContent = heroLabel;
-        el.closePrice.textContent = "$" + money(hero);
-        el.closePrice.setAttribute("aria-busy", "false");
-        el.closeDate.textContent = heroLabel === "Last close" ? formatCloseDate(q.last_close_date) : "";
+        card.heroLabel.textContent = heroLabel;
+        card.price.textContent = "$" + money(hero);
+        card.price.setAttribute("aria-busy", "false");
+        card.date.textContent = heroLabel === "Last close" ? formatCloseDate(q.last_close_date) : "";
 
         const showLastFact = heroLabel !== "Last close";
-        el.lastCloseTerm.hidden = !showLastFact;
-        el.lastCloseValue.hidden = !showLastFact;
-        el.lastCloseValue.textContent = showLastFact ? "$" + money(lastClose) : "—";
-        el.fallbackTerm.hidden = !fallback;
-        el.fallbackValue.hidden = !fallback;
-        el.fallbackTerm.textContent = fallback ? "Note" : "";
-        el.fallbackValue.textContent = fallback;
+        card.lastCloseTerm.hidden = !showLastFact;
+        card.lastCloseValue.hidden = !showLastFact;
+        card.lastCloseValue.textContent = showLastFact ? "$" + money(lastClose) : "—";
+        card.fallbackTerm.hidden = !fallback;
+        card.fallbackValue.hidden = !fallback;
+        card.fallbackTerm.textContent = fallback ? "Note" : "";
+        card.fallbackValue.textContent = fallback;
 
         const series = Array.isArray(q.closes_5d)
           ? q.closes_5d.map(Number).filter(Number.isFinite)
           : [];
-        sparkSvg(series.length ? series : [lastClose]);
+        sparkSvg(card, series);
 
-        el.overnightValue.textContent = hasOvernight ? "$" + money(overnight) : "—";
-        el.liveValue.textContent = hasLive ? "$" + money(live) : "—";
+        card.overnightValue.textContent = hasOvernight ? "$" + money(overnight) : "—";
+        card.liveValue.textContent = hasLive ? "$" + money(live) : "—";
 
         let todayPx = null;
         if (heroLabel !== "Last close") todayPx = hero;
@@ -880,68 +894,37 @@
           const up = pct > 0.005;
           const down = pct < -0.005;
           const sign = up ? "+" : "";
-          el.change.textContent = sign + pct.toFixed(2) + "%";
-          el.todayBlock.className = "today-block " + (up ? "up" : down ? "down" : "flat");
+          card.change.textContent = sign + pct.toFixed(2) + "%";
+          card.todayBlock.className = "today-block " + (up ? "up" : down ? "down" : "flat");
           const gapSign = diff > 0.005 ? "+" : "−";
           const gapAbs = money(Math.abs(diff));
-          el.gap.textContent = "$" + money(lastClose) + " → $" + money(todayPx)
+          card.gap.textContent = "$" + money(lastClose) + " → $" + money(todayPx)
             + " (" + (Math.abs(diff) < 0.005 ? "$0.00" : gapSign + "$" + gapAbs) + ")";
         } else {
-          el.change.textContent = "—";
-          el.todayBlock.className = "today-block flat";
-          el.gap.textContent = "—";
+          card.change.textContent = "—";
+          card.todayBlock.className = "today-block flat";
+          card.gap.textContent = "—";
         }
 
         if (session === "OPEN") {
-          el.status.textContent = "Live";
-          el.status.className = "status live";
+          card.status.textContent = "Live";
+          card.status.className = "status live";
         } else if (session === "PREMARKET") {
-          el.status.textContent = "Premarket";
-          el.status.className = "status";
+          card.status.textContent = "Premarket";
+          card.status.className = "status";
         } else if (session === "AFTERHOURS") {
-          el.status.textContent = "After hours";
-          el.status.className = "status";
+          card.status.textContent = "After hours";
+          card.status.className = "status";
         } else {
-          el.status.textContent = "Last close";
-          el.status.className = "status";
+          card.status.textContent = "Last close";
+          card.status.className = "status";
         }
-        setSessionClock(session);
 
         const when = quoteInstant(q);
-        el.when.textContent = when ? formatHelsinki(when) : "—";
-        el.meta.textContent = q.source ? String(q.source) : "—";
-        el.note.className = "note";
-        el.note.textContent = "";
-
-        renderChips(Array.isArray(q.show_me) ? q.show_me : null);
-        renderStack(Array.isArray(q.musk_stack) ? q.musk_stack : null);
-        renderSpacex(q.spacex);
-        applyTeslaStatus();
-        const voiceText = q.voices ? String(q.voices) : DEFAULT_VOICES;
-        const noneToday = /none today/i.test(voiceText);
-        const vhref = noneToday ? "" : safeUrl(q.voices_url);
-        el.voices.textContent = "";
-        if (vhref) {
-          const a = document.createElement("a");
-          a.href = vhref;
-          a.target = "_blank";
-          a.rel = "noopener";
-          a.textContent = voiceText;
-          el.voices.appendChild(a);
-        } else {
-          el.voices.textContent = voiceText;
-        }
-
-        const parts = ["TSLA last close $" + money(lastClose)];
-        if (q.last_close_date) parts[0] += " (" + formatCloseDate(q.last_close_date) + ")";
-        if (hasOvernight) parts.push("overnight $" + money(overnight));
-        if (hasLive) parts.push("live $" + money(live));
-        if (todayPx != null && lastClose !== 0) {
-          const pct = ((todayPx - lastClose) / lastClose) * 100;
-          const sign = pct > 0.005 ? "+" : "";
-          parts.push("today " + sign + pct.toFixed(2) + "%");
-        }
-        el.liveRegion.textContent = parts.join(", ") + ".";
+        card.when.textContent = when ? formatHelsinki(when) : "—";
+        card.meta.textContent = q.source ? String(q.source) : "—";
+        card.note.className = "note";
+        card.note.textContent = "";
       }
 
       function nyParts(date) {
@@ -970,16 +953,6 @@
         return "CLOSED";
       }
 
-      function sessionFromMarketState(state) {
-        if (state == null || state === "") return null;
-        const s = String(state).toUpperCase();
-        if (s === "REGULAR" || s === "OPEN") return "OPEN";
-        if (s === "PRE" || s === "PREMARKET" || s === "PREPRE") return "PREMARKET";
-        if (s === "POST" || s === "POSTPOST" || s === "AFTERHOURS" || s === "AFTER_HOURS") return "AFTERHOURS";
-        if (s === "CLOSED" || s === "CLOSE") return "CLOSED";
-        return null;
-      }
-
       function num(v) {
         if (typeof v === "number" && Number.isFinite(v)) return v;
         if (v && typeof v === "object" && Number.isFinite(Number(v.raw))) return Number(v.raw);
@@ -1000,43 +973,101 @@
         if (post != null) next.after_hours = post;
         next.session = sessionFromClock(new Date());
         next.quote_time_utc = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+        next.source = "finance-query.com";
         return next;
+      }
+
+      function splitFile(file) {
+        if (file && file.quotes && (file.quotes.tsla || file.quotes.spcx)) {
+          return {
+            quotes: {
+              tsla: file.quotes.tsla || null,
+              spcx: file.quotes.spcx || null
+            },
+            show_me: file.show_me,
+            musk_stack: file.musk_stack,
+            voices: file.voices,
+            voices_url: file.voices_url
+          };
+        }
+        return {
+          quotes: { tsla: file, spcx: null },
+          show_me: file && file.show_me,
+          musk_stack: file && file.musk_stack,
+          voices: file && file.voices,
+          voices_url: file && file.voices_url
+        };
+      }
+
+      function renderAll() {
+        renderCard(cards.tsla, quoteState.quotes.tsla);
+        renderCard(cards.spcx, quoteState.quotes.spcx);
+        renderChips(Array.isArray(quoteState.show_me) ? quoteState.show_me : null);
+        renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
+        renderVoices(quoteState);
+        applyTeslaStatus();
+        const bits = [];
+        ["tsla", "spcx"].forEach(function (key) {
+          const q = quoteState.quotes[key];
+          if (!q || !Number.isFinite(Number(q.last_close))) return;
+          bits.push((q.symbol || key.toUpperCase()) + " last close $" + money(Number(q.last_close)));
+        });
+        el.liveRegion.textContent = bits.join(". ") + (bits.length ? "." : "");
+      }
+
+      function renderMissing() {
+        blankCard(cards.tsla, "The data file is missing.");
+        blankCard(cards.spcx, "The data file is missing.");
+        setSessionClock("CLOSED");
+        renderChips(DEFAULT_SHOW_ME);
+        renderStack(DEFAULT_STACK);
+        el.voices.textContent = DEFAULT_VOICES;
+        el.liveRegion.textContent = "The data file is missing.";
       }
 
       let quoteState = null;
       let refreshTimer = null;
 
-      async function refreshLive() {
-        if (!quoteState) return;
+      async function refreshOne(key) {
+        if (!quoteState || !quoteState.quotes) return;
+        const base = quoteState.quotes[key];
+        if (!base) return;
         try {
-          const res = await fetch("https://finance-query.com/v2/quote/TSLA", { cache: "no-store" });
+          const res = await fetch(LIVE_URL[key], { cache: "no-store" });
           if (!res.ok) throw new Error("live http");
           const data = await res.json();
           const payload = Array.isArray(data) ? data[0] : data;
-          const next = applyLive(quoteState, payload || {});
+          const next = applyLive(base, payload || {});
           if (!next) throw new Error("live shape");
-          quoteState = next;
-          render(quoteState);
+          quoteState.quotes[key] = next;
         } catch (err) {
-          render(quoteState);
+          /* keep JSON numbers */
         }
+      }
+
+      async function refreshLive() {
+        if (!quoteState) return;
+        await Promise.all([refreshOne("tsla"), refreshOne("spcx")]);
+        renderAll();
         scheduleRefresh();
       }
 
       function scheduleRefresh() {
         if (refreshTimer) clearTimeout(refreshTimer);
-        const open = quoteState && quoteState.session === "OPEN";
+        const open = sessionFromClock(new Date()) === "OPEN";
         refreshTimer = setTimeout(refreshLive, open ? 60000 : 5 * 60000);
       }
 
       async function load() {
-        el.status.textContent = "Loading";
-        el.status.className = "status loading";
+        cards.tsla.status.textContent = "Loading";
+        cards.tsla.status.className = "status loading";
+        cards.spcx.status.textContent = "Loading";
+        cards.spcx.status.className = "status loading";
         try {
           const res = await fetch("./quote.json", { cache: "no-store" });
           if (!res.ok) throw new Error("missing");
-          quoteState = await res.json();
-          render(quoteState);
+          quoteState = splitFile(await res.json());
+          renderAll();
           refreshLive();
         } catch (err) {
           renderMissing();
@@ -1046,12 +1077,16 @@
       tickClock();
       setInterval(tickClock, 1000);
       if (window.ResizeObserver) {
-        new ResizeObserver(function () {
-          if (sparkValues.length >= 2) sparkSvg(sparkValues);
-        }).observe(el.spark);
+        Object.keys(cards).forEach(function (key) {
+          const card = cards[key];
+          new ResizeObserver(function () {
+            if (card.sparkValues.length >= 2) sparkSvg(card, card.sparkValues);
+          }).observe(card.spark);
+        });
       }
       load();
     })();
+
   </script>
 </body>
 </html>

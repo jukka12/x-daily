@@ -1,19 +1,34 @@
 {
-  "last_close": 367.95,
-  "last_close_date": "2026-08-31",
-  "overnight": 360.9,
-  "live": 357.81,
-  "session": "OPEN",
-  "quote_time_et": "Sep 1, 2026 11:00 AM ET",
-  "quote_time_utc": "2026-09-01T15:00:00Z",
-  "source": "Nasdaq",
-  "closes_5d": [
-    350.25,
-    345.82,
-    354.81,
-    348.75,
-    367.95
-  ],
+  "quotes": {
+    "tsla": {
+      "symbol": "TSLA",
+      "name": "Tesla",
+      "last_close": 367.95,
+      "last_close_date": "2026-08-31",
+      "overnight": 360.9,
+      "live": 354.96,
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-01T18:16:54Z",
+      "source": "finance-query.com",
+      "closes_5d": [
+        350.25,
+        345.82,
+        354.81,
+        348.75,
+        367.95
+      ]
+    },
+    "spcx": {
+      "symbol": "SPCX",
+      "name": "SpaceX",
+      "last_close": 143.69,
+      "last_close_date": "2026-08-31",
+      "live": 143.155,
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-01T18:16:54Z",
+      "source": "finance-query.com"
+    }
+  },
   "show_me": [
     {
       "label": "Cybercab",
@@ -53,12 +68,5 @@
       "status": "quiet"
     }
   ],
-  "voices": "Wood / Baron / Ives \u2014 none today",
-  "spacex": {
-    "name": "",
-    "date_utc": null,
-    "status": "UNVERIFIED",
-    "url": "https://www.spacex.com/launches",
-    "unverified": true
-  }
+  "voices": "Wood / Baron / Ives \u2014 none today"
 }
