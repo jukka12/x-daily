@@ -39,98 +39,120 @@
   "show_me": [
     {
       "label": "Launches",
-      "unverified": true,
-      "url": "https://www.spacex.com/launches"
+      "url": "https://www.spacex.com/launches",
+      "quote": "quiet"
     },
     {
       "label": "Starlink",
-      "unverified": true,
-      "url": "https://www.starlink.com"
+      "url": "https://www.starlink.com",
+      "quote": "Starlink delivers fast, reliable internet at home and on the go",
+      "quote_url": "https://www.starlink.com"
     },
     {
       "label": "Cybercab",
-      "unverified": true,
-      "url": "https://www.tesla.com/robotaxi"
+      "url": "https://www.tesla.com/robotaxi",
+      "quote": "Autonomous Robotaxi rides in Florida and Texas",
+      "quote_url": "https://www.tesla.com/robotaxi"
     },
     {
       "label": "Broadcom",
-      "date": "Wed",
-      "unverified": false,
-      "url": "https://www.broadcom.com/company/news/financial-releases/64621"
+      "url": "https://www.broadcom.com/company/news/financial-releases/64621",
+      "quote": "Q3 fiscal 2026 results Wednesday, September 2, 2026",
+      "quote_url": "https://www.broadcom.com/company/news/financial-releases/64621"
     }
   ],
   "musk_stack": [
     {
-      "name": "Tesla",
-      "status": "quiet",
-      "url": "https://www.tesla.com"
+      "label": "Tesla",
+      "url": "https://www.tesla.com",
+      "quote": "quiet",
+      "unverified": true
     },
     {
-      "name": "Energy",
-      "status": "Powerwall 3",
-      "url": "https://www.tesla.com/energy"
+      "label": "Energy",
+      "url": "https://www.tesla.com/energy",
+      "quote": "Powerwall is a home battery that stores energy",
+      "quote_url": "https://www.tesla.com/energy"
     },
     {
-      "name": "Robotaxi",
-      "status": "Florida and Texas rides",
-      "url": "https://www.tesla.com/robotaxi"
+      "label": "Robotaxi",
+      "url": "https://www.tesla.com/robotaxi",
+      "quote": "Autonomous Robotaxi rides in Florida and Texas",
+      "quote_url": "https://www.tesla.com/robotaxi"
     },
     {
-      "name": "Optimus",
-      "status": "quiet",
-      "url": "https://www.tesla.com/AI"
+      "label": "Optimus",
+      "url": "https://www.tesla.com/AI",
+      "quote": "quiet",
+      "unverified": true
     },
     {
-      "name": "SpaceX",
-      "status": "quiet",
-      "url": "https://www.spacex.com"
+      "label": "SpaceX",
+      "url": "https://www.spacex.com",
+      "quote": "SpaceX designs, manufactures and launches advanced rockets and spacecraft",
+      "quote_url": "https://www.spacex.com"
     },
     {
-      "name": "Starlink",
-      "status": "quiet",
-      "url": "https://www.starlink.com"
+      "label": "Starlink",
+      "url": "https://www.starlink.com",
+      "quote": "Starlink delivers fast, reliable internet at home and on the go",
+      "quote_url": "https://www.starlink.com"
     },
     {
-      "name": "Starship",
-      "status": "Moon and Mars 2028+",
-      "url": "https://www.spacex.com/vehicles/starship"
+      "label": "Starship",
+      "url": "https://www.spacex.com/vehicles/starship",
+      "quote": "Service to Earth orbit, Moon, Mars and beyond",
+      "quote_url": "https://www.spacex.com/vehicles/starship"
     },
     {
-      "name": "xAI",
-      "status": "Grok 4.6",
-      "url": "https://x.ai"
+      "label": "xAI",
+      "url": "https://x.ai",
+      "quote": "SpaceXAI builds Grok, frontier AI models",
+      "quote_url": "https://x.ai"
     },
     {
-      "name": "X",
-      "status": "quiet",
-      "url": "https://x.com"
+      "label": "X",
+      "url": "https://x.com",
+      "quote": "X. It's what's happening",
+      "quote_url": "https://x.com"
     },
     {
-      "name": "Neuralink",
-      "status": "clinical trials",
-      "url": "https://neuralink.com"
+      "label": "Neuralink",
+      "url": "https://neuralink.com",
+      "quote": "People are using Neuralink devices to control computers",
+      "quote_url": "https://neuralink.com"
     },
     {
-      "name": "Boring",
-      "status": "LVCC Loop",
-      "url": "https://www.boringcompany.com"
+      "label": "Boring",
+      "url": "https://www.boringcompany.com",
+      "quote": "LVCC Loop is the first commercially operating Loop system",
+      "quote_url": "https://www.boringcompany.com"
     }
   ],
   "voices": [
     {
+      "label": "Elon",
+      "url": "https://x.com/elonmusk",
+      "quote": "Starship Flight 14 is likely to deploy operational V3 Starlinks",
+      "quote_url": "https://x.com/elonmusk/status/2094822190961377323"
+    },
+    {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "status": "none today"
+      "quote": "Yes, let's GO!",
+      "quote_url": "https://x.com/CathieDWood/status/2093722206500950293"
     },
     {
       "label": "Baron",
       "url": "https://x.com/RonBaronAnalyst",
-      "status": "none today"
+      "quote": "I attended the Elon Musk and Jamie Dimon SpaceX discussion",
+      "quote_url": "https://x.com/RonBaronAnalyst/status/2065503032578572290"
     },
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "status": "none today"
+      "quote": "Discussing the Cook legacy and the baton handed to Ternus",
+      "quote_url": "https://x.com/DivesTech/status/2094869937860890752"
     }
   ]
 }

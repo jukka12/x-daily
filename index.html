@@ -247,65 +247,40 @@
       width: 100%;
     }
 
-    .chip {
+    .chip, .tile {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 4px;
       width: 100%;
       min-width: 0;
-      padding: 8px 14px;
+      padding: 10px 12px;
       border: 1px solid var(--chip);
-      border-radius: 999px;
+      border-radius: 18px;
       font-size: 0.86rem;
       color: var(--fg);
       line-height: 1.2;
       text-decoration: none;
       box-sizing: border-box;
-    }
-
-    a.chip:hover, a.tile:hover { border-color: #4a4a4c; }
-
-    a.tile {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .voices .chip {
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
       text-align: center;
     }
+
+    .chip:hover, .tile:hover { border-color: #4a4a4c; }
+
     .chip-name {
       font-weight: 560;
       color: var(--fg);
       text-decoration: none;
     }
     a.chip-name:hover { text-decoration: underline; }
-    .chip-status { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
-    a.chip-status:hover { color: var(--fg); }
-    .chip-status.dead { pointer-events: none; }
-    .all-posts {
-      font-size: 0.58rem;
-      font-weight: 650;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+    .chip-status {
+      font-size: 0.78rem;
       color: var(--muted);
       text-decoration: none;
     }
-    a.all-posts:hover { color: var(--fg); }
-    .pip {
-      font-size: 0.58rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 2px 7px;
-      border-radius: 999px;
-      background: var(--live-bg);
-      color: #fff;
-      line-height: 1;
-    }
+    a.chip-status:hover { color: var(--fg); }
+    .chip-status.dead { pointer-events: none; }
 
     .chip .unverified {
       color: #7a7a76;
@@ -332,40 +307,6 @@
     .stack-row.row-a { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .stack-row.row-b { grid-template-columns: repeat(7, minmax(0, 1fr)); }
 
-    .tile {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      min-width: 0;
-      width: 100%;
-      min-height: 0;
-      padding: 8px 14px;
-      border: 1px solid var(--chip);
-      border-radius: 999px;
-    }
-
-    .mark {
-      flex: 0 0 22px;
-      width: 22px;
-      height: 22px;
-      color: var(--fg);
-    }
-
-    .mark svg { display: block; width: 100%; height: 100%; }
-
-    .tile-body { min-width: 0; }
-
-    .tile-name {
-      font-size: 1.02rem;
-      font-weight: 560;
-      letter-spacing: -0.01em;
-    }
-
-    .tile-status {
-      margin-top: 3px;
-      font-size: 0.86rem;
-      color: var(--muted);
-    }
 
     .band, .voices, .chips, .stack, .stack-row {
       width: 100%;
@@ -528,28 +469,28 @@
     (function () {
       const NONE_TODAY = "none today";
       const DEFAULT_SHOW_ME = [
-        { label: "Launches", unverified: true },
-        { label: "Starlink", unverified: true },
-        { label: "Cybercab", unverified: true }
+        { label: "Launches", url: "https://www.spacex.com/launches", quote: "quiet" },
+        { label: "Starlink", url: "https://www.starlink.com", quote: "quiet" },
+        { label: "Cybercab", url: "https://www.tesla.com/robotaxi", quote: "quiet" }
       ];
       const DEFAULT_STACK = [
-        { name: "Tesla", status: "quiet" },
-        { name: "Energy", status: "quiet" },
-        { name: "Robotaxi", status: "quiet" },
-        { name: "Optimus", status: "quiet" },
-        { name: "SpaceX", status: "quiet" },
-        { name: "Starlink", status: "quiet" },
-        { name: "Starship", status: "quiet" },
-        { name: "xAI", status: "quiet" },
-        { name: "X", status: "quiet" },
-        { name: "Neuralink", status: "quiet" },
-        { name: "Boring", status: "quiet" }
+        { label: "Tesla", url: "https://www.tesla.com", quote: "quiet" },
+        { label: "Energy", url: "https://www.tesla.com/energy", quote: "quiet" },
+        { label: "Robotaxi", url: "https://www.tesla.com/robotaxi", quote: "quiet" },
+        { label: "Optimus", url: "https://www.tesla.com/AI", quote: "quiet" },
+        { label: "SpaceX", url: "https://www.spacex.com", quote: "quiet" },
+        { label: "Starlink", url: "https://www.starlink.com", quote: "quiet" },
+        { label: "Starship", url: "https://www.spacex.com/vehicles/starship", quote: "quiet" },
+        { label: "xAI", url: "https://x.ai", quote: "quiet" },
+        { label: "X", url: "https://x.com", quote: "quiet" },
+        { label: "Neuralink", url: "https://neuralink.com", quote: "quiet" },
+        { label: "Boring", url: "https://www.boringcompany.com", quote: "quiet" }
       ];
       const DEFAULT_VOICES = [
-        { id: "elon", label: "Elon", profile: "https://x.com/elonmusk" },
-        { id: "wood", label: "Wood", profile: "https://x.com/CathieDWood" },
-        { id: "baron", label: "Baron", profile: "https://x.com/RonBaronAnalyst" },
-        { id: "ives", label: "Ives", profile: "https://x.com/DivesTech" }
+        { label: "Elon", url: "https://x.com/elonmusk", quote: "none today" },
+        { label: "Wood", url: "https://x.com/CathieDWood", quote: "none today" },
+        { label: "Baron", url: "https://x.com/RonBaronAnalyst", quote: "none today" },
+        { label: "Ives", url: "https://x.com/DivesTech", quote: "none today" }
       ];
       const STACK_ROW_A = ["Tesla", "Energy", "Robotaxi", "Optimus"];
       const LIVE_URL = {
@@ -786,25 +727,57 @@
         return list;
       }
 
-      function makeChip(item) {
-        const href = safeUrl(item && item.url);
-        const chip = document.createElement(href ? "a" : "span");
-        chip.className = "chip";
-        if (href) {
-          chip.href = href;
-          chip.target = "_blank";
-          chip.rel = "noopener";
+      function itemLabel(item) {
+        if (!item) return "";
+        if (item.label != null) return String(item.label);
+        if (item.name != null) return String(item.name);
+        return "";
+      }
+
+      function liveQuote(item, emptyText) {
+        const empty = emptyText || "quiet";
+        if (!item) return empty;
+        const q = item.quote != null ? String(item.quote).trim() : "";
+        if (!q || q === "quiet" || q === "none today" || q === "—") return empty;
+        return q;
+      }
+
+      function twoPartButton(item, emptyText, className) {
+        const empty = emptyText || "quiet";
+        const node = document.createElement("div");
+        node.className = className || "chip";
+        const home = safeUrl(item && item.url);
+        const title = document.createElement(home ? "a" : "span");
+        title.className = "chip-name";
+        title.textContent = itemLabel(item);
+        if (home) {
+          title.href = home;
+          title.target = "_blank";
+          title.rel = "noopener";
         }
-        const label = item && item.label != null ? String(item.label) : "";
-        const date = item && item.date ? String(item.date) : "";
-        chip.appendChild(document.createTextNode(date ? label + " " + date : label));
+        node.appendChild(title);
         if (item && item.unverified) {
           const tag = document.createElement("span");
           tag.className = "unverified";
           tag.textContent = "UNVERIFIED";
-          chip.appendChild(tag);
+          node.appendChild(tag);
         }
-        return chip;
+        const text = liveQuote(item, empty);
+        const qurl = text !== empty ? safeUrl(item && item.quote_url) : "";
+        const q = document.createElement(qurl ? "a" : "span");
+        q.className = "chip-status" + (qurl ? "" : " dead");
+        q.textContent = text;
+        if (qurl) {
+          q.href = qurl;
+          q.target = "_blank";
+          q.rel = "noopener";
+        }
+        node.appendChild(q);
+        return node;
+      }
+
+      function makeChip(item) {
+        return twoPartButton(item, "quiet", "chip");
       }
 
       function renderChipRow(node, items, minCount, maxCount, filler) {
@@ -819,41 +792,21 @@
       }
 
       function makeTile(item) {
-        const name = item && item.name != null ? String(item.name) : "";
-        const status = item && item.status != null && String(item.status) !== "" && String(item.status) !== "—" ? String(item.status) : "quiet";
-        const href = safeUrl(item && item.url);
-        const tile = document.createElement(href ? "a" : "div");
-        tile.className = "tile";
-        if (href) {
-          tile.href = href;
-          tile.target = "_blank";
-          tile.rel = "noopener";
-        }
-        const body = document.createElement("div");
-        body.className = "tile-body";
-        const n = document.createElement("div");
-        n.className = "tile-name";
-        n.textContent = name;
-        const s = document.createElement("div");
-        s.className = "tile-status";
-        s.textContent = status;
-        body.appendChild(n);
-        body.appendChild(s);
-        tile.appendChild(body);
-        return tile;
+        return twoPartButton(item, "quiet", "tile");
       }
 
       function renderStack(items) {
         const list = (items && items.length) ? items : DEFAULT_STACK;
         const byName = {};
         list.forEach(function (item) {
-          if (item && item.name) byName[String(item.name)] = item;
+          const key = itemLabel(item);
+          if (key) byName[key] = item;
         });
         const rowA = STACK_ROW_A.map(function (name) {
-          return byName[name] || { name: name, status: "quiet" };
+          return byName[name] || { label: name, quote: "quiet" };
         });
         const rowB = list.filter(function (item) {
-          return item && STACK_ROW_A.indexOf(String(item.name)) < 0;
+          return STACK_ROW_A.indexOf(itemLabel(item)) < 0;
         });
         el.stack.innerHTML = "";
         const a = document.createElement("div");
@@ -866,74 +819,21 @@
         if (rowB.length) el.stack.appendChild(b);
       }
 
-      function isNewSignal(at) {
-        if (at == null || at === "") return false;
-        const d = new Date(String(at));
-        if (Number.isNaN(d.getTime())) return false;
-        return Date.now() - d.getTime() <= 24 * 3600 * 1000;
-      }
-
-      function featuredItem(src) {
-        const items = src && Array.isArray(src.items) ? src.items : [];
-        return items.length ? items[0] : null;
-      }
-
-      function renderVoices(data) {
-        const sources = (data && Array.isArray(data.sources)) ? data.sources : [];
-        const byId = {};
-        sources.forEach(function (s) {
-          if (s && s.id) byId[String(s.id).toLowerCase()] = s;
+      function renderVoices(file) {
+        let items = [];
+        if (file && Array.isArray(file.voices)) items = file.voices.slice();
+        const byLabel = {};
+        items.forEach(function (item) {
+          const key = itemLabel(item);
+          if (key) byLabel[key] = item;
         });
         el.voices.innerHTML = "";
         el.voices.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
         DEFAULT_VOICES.forEach(function (base) {
-          const src = byId[base.id] || {};
-          const profile = safeUrl(src.profile) || base.profile;
-          const item = featuredItem(src);
-          const quote = item && item.quote ? String(item.quote) : "";
-          const post = item && safeUrl(item.url);
-          const chip = document.createElement("div");
-          chip.className = "chip";
-          const name = document.createElement("a");
-          name.className = "chip-name";
-          name.textContent = base.label;
-          name.href = profile;
-          name.target = "_blank";
-          name.rel = "noopener";
-          chip.appendChild(name);
-          if (item && isNewSignal(item.at_utc)) {
-            const pip = document.createElement("span");
-            pip.className = "pip";
-            pip.textContent = "New";
-            chip.appendChild(pip);
-          }
-          const q = document.createElement(post && quote ? "a" : "span");
-          q.className = "chip-status" + (post && quote ? "" : " dead");
-          q.textContent = quote || "none today";
-          if (post && quote) {
-            q.href = post;
-            q.target = "_blank";
-            q.rel = "noopener";
-          }
-          chip.appendChild(q);
-          const more = document.createElement("a");
-          more.className = "all-posts";
-          more.textContent = "all posts";
-          more.href = "./signals.html?src=" + encodeURIComponent(base.id);
-          chip.appendChild(more);
-          el.voices.appendChild(chip);
+          const item = Object.assign({}, base, byLabel[base.label] || {});
+          if (!item.url) item.url = base.url;
+          el.voices.appendChild(twoPartButton(item, "none today", "chip"));
         });
-      }
-
-      async function loadSignals() {
-        if (!el.voices) return;
-        try {
-          const res = await fetch("./signals.json", { cache: "no-store" });
-          if (!res.ok) throw new Error("missing");
-          renderVoices(await res.json());
-        } catch (err) {
-          renderVoices({ sources: [] });
-        }
       }
 
       function blankCard(card, message) {
@@ -1135,7 +1035,7 @@
         renderCard(cards.spcx, quoteState.quotes.spcx);
         renderChips(Array.isArray(quoteState.show_me) ? quoteState.show_me : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
-        loadSignals();
+        renderVoices(quoteState);
         applyTeslaStatus();
         const bits = [];
         ["tsla", "spcx"].forEach(function (key) {
@@ -1152,7 +1052,7 @@
         setSessionClock("CLOSED");
         renderChips(DEFAULT_SHOW_ME);
         renderStack(DEFAULT_STACK);
-        loadSignals();
+        renderVoices({ voices: DEFAULT_VOICES });
         el.liveRegion.textContent = "The data file is missing.";
       }
 
