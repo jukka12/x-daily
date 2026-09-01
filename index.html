@@ -720,22 +720,21 @@
           const y = padY + (1 - (v - min) / span) * (h - padY * 2);
           return [x, y];
         });
-        const lastDown = card.sparkValues[card.sparkValues.length - 1] < card.sparkValues[card.sparkValues.length - 2];
-        const grey = pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ");
+        const firstClose = card.sparkValues[0];
+        const lastClose = card.sparkValues[card.sparkValues.length - 1];
+        const spanPct = firstClose !== 0 ? ((lastClose - firstClose) / firstClose) * 100 : 0;
+        const styles = getComputedStyle(document.documentElement);
+        const upColor = (styles.getPropertyValue("--up") || "#3ecf8e").trim();
+        const downColor = (styles.getPropertyValue("--down") || "#e24b4b").trim();
+        const flatColor = (styles.getPropertyValue("--spark") || "#8b8b87").trim();
+        let stroke = flatColor;
+        if (spanPct > 0.005) stroke = upColor;
+        else if (spanPct < -0.005) stroke = downColor;
+        const ptsAttr = pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ");
         let html = '<svg viewBox="0 0 ' + w + " " + h + '" width="' + w + '" height="' + h + '" preserveAspectRatio="none">';
-        if (lastDown) {
-          const head = pts.slice(0, -1).map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ");
-          html += '<polyline fill="none" stroke="#8b8b87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="' + head + '"/>';
-          html += '<polyline fill="none" stroke="#e24b4b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="'
-            + pts[pts.length - 2][0].toFixed(1) + "," + pts[pts.length - 2][1].toFixed(1) + " "
-            + pts[pts.length - 1][0].toFixed(1) + "," + pts[pts.length - 1][1].toFixed(1) + '"/>';
-        } else {
-          html += '<polyline fill="none" stroke="#8b8b87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="' + grey + '"/>';
-        }
-        pts.forEach(function (p, i) {
-          const last = i === pts.length - 1;
-          const fill = last && lastDown ? "#e24b4b" : "#8b8b87";
-          html += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.7" fill="' + fill + '"/>';
+        html += '<polyline fill="none" stroke="' + stroke + '" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="' + ptsAttr + '"/>';
+        pts.forEach(function (p) {
+          html += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.7" fill="' + stroke + '"/>';
         });
         html += "</svg>";
         card.spark.innerHTML = html;
