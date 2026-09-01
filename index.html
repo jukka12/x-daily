@@ -271,14 +271,30 @@
       color: inherit;
     }
 
-    .voices a.chip, .signals a.chip {
-      text-decoration: none;
+    .voices .chip {
       flex-direction: column;
       align-items: center;
-      gap: 3px;
+      gap: 4px;
+      text-align: center;
     }
-    .chip-name { font-weight: 560; }
-    .chip-status { font-size: 0.78rem; color: var(--muted); }
+    .chip-name {
+      font-weight: 560;
+      color: var(--fg);
+      text-decoration: none;
+    }
+    a.chip-name:hover { text-decoration: underline; }
+    .chip-status { font-size: 0.78rem; color: var(--muted); text-decoration: none; }
+    a.chip-status:hover { color: var(--fg); }
+    .chip-status.dead { pointer-events: none; }
+    .all-posts {
+      font-size: 0.58rem;
+      font-weight: 650;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    a.all-posts:hover { color: var(--fg); }
     .pip {
       font-size: 0.58rem;
       font-weight: 700;
@@ -496,11 +512,6 @@
       <div id="voices" class="chips"></div>
     </section>
 
-    <section class="band signals">
-      <h2 class="section-label">Signals</h2>
-      <div id="signals" class="chips"></div>
-    </section>
-
     <section class="band">
       <h2 class="section-label">Show-me this week</h2>
       <div id="chips" class="chips"></div>
@@ -535,9 +546,10 @@
         { name: "Boring", status: "quiet" }
       ];
       const DEFAULT_VOICES = [
-        { label: "Wood", url: "https://x.com/CathieDWood", status: "none today" },
-        { label: "Baron", url: "https://x.com/RonBaronAnalyst", status: "none today" },
-        { label: "Ives", url: "https://x.com/DivesTech", status: "none today" }
+        { id: "elon", label: "Elon", profile: "https://x.com/elonmusk" },
+        { id: "wood", label: "Wood", profile: "https://x.com/CathieDWood" },
+        { id: "baron", label: "Baron", profile: "https://x.com/RonBaronAnalyst" },
+        { id: "ives", label: "Ives", profile: "https://x.com/DivesTech" }
       ];
       const STACK_ROW_A = ["Tesla", "Energy", "Robotaxi", "Optimus"];
       const LIVE_URL = {
@@ -578,7 +590,6 @@
         chips: document.getElementById("chips"),
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
-        signals: document.getElementById("signals"),
         clockHel: document.getElementById("clock-hel"),
         clockNy: document.getElementById("clock-ny"),
         clockSession: document.getElementById("clock-session"),
@@ -855,50 +866,6 @@
         if (rowB.length) el.stack.appendChild(b);
       }
 
-      function renderVoices(file) {
-        let items = [];
-        if (file && Array.isArray(file.voices)) items = file.voices.slice();
-        const named = [
-          { label: "Wood", url: "https://x.com/CathieDWood" },
-          { label: "Baron", url: "https://x.com/RonBaronAnalyst" },
-          { label: "Ives", url: "https://x.com/DivesTech" }
-        ];
-        const byLabel = {};
-        items.forEach(function (item) {
-          if (item && item.label) byLabel[String(item.label)] = item;
-        });
-        el.voices.innerHTML = "";
-        el.voices.style.gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
-        named.forEach(function (base) {
-          const item = byLabel[base.label] || base;
-          const href = safeUrl(item.url) || base.url;
-          const chip = document.createElement("a");
-          chip.className = "chip";
-          chip.href = href;
-          chip.target = "_blank";
-          chip.rel = "noopener";
-          const name = document.createElement("span");
-          name.className = "chip-name";
-          name.textContent = base.label;
-          chip.appendChild(name);
-          const st = item.status != null && String(item.status) !== "" ? String(item.status) : "";
-          if (st) {
-            const s = document.createElement("span");
-            s.className = "chip-status";
-            s.textContent = st;
-            chip.appendChild(s);
-          }
-          el.voices.appendChild(chip);
-        });
-      }
-
-      const SIGNAL_SOURCES = [
-        { id: "elon", label: "Elon" },
-        { id: "wood", label: "Wood" },
-        { id: "baron", label: "Baron" },
-        { id: "ives", label: "Ives" }
-      ];
-
       function isNewSignal(at) {
         if (at == null || at === "") return false;
         const d = new Date(String(at));
@@ -906,43 +873,66 @@
         return Date.now() - d.getTime() <= 24 * 3600 * 1000;
       }
 
-      function renderSignals(data) {
+      function featuredItem(src) {
+        const items = src && Array.isArray(src.items) ? src.items : [];
+        return items.length ? items[0] : null;
+      }
+
+      function renderVoices(data) {
         const sources = (data && Array.isArray(data.sources)) ? data.sources : [];
         const byId = {};
         sources.forEach(function (s) {
           if (s && s.id) byId[String(s.id).toLowerCase()] = s;
         });
-        el.signals.innerHTML = "";
-        el.signals.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
-        SIGNAL_SOURCES.forEach(function (base) {
+        el.voices.innerHTML = "";
+        el.voices.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+        DEFAULT_VOICES.forEach(function (base) {
           const src = byId[base.id] || {};
-          const items = Array.isArray(src.items) ? src.items : [];
-          const fresh = items.some(function (it) { return isNewSignal(it && it.at_utc); });
-          const a = document.createElement("a");
-          a.className = "chip";
-          a.href = "./signals.html?src=" + encodeURIComponent(base.id);
-          const name = document.createElement("span");
+          const profile = safeUrl(src.profile) || base.profile;
+          const item = featuredItem(src);
+          const quote = item && item.quote ? String(item.quote) : "";
+          const post = item && safeUrl(item.url);
+          const chip = document.createElement("div");
+          chip.className = "chip";
+          const name = document.createElement("a");
           name.className = "chip-name";
           name.textContent = base.label;
-          a.appendChild(name);
-          if (fresh) {
+          name.href = profile;
+          name.target = "_blank";
+          name.rel = "noopener";
+          chip.appendChild(name);
+          if (item && isNewSignal(item.at_utc)) {
             const pip = document.createElement("span");
             pip.className = "pip";
             pip.textContent = "New";
-            a.appendChild(pip);
+            chip.appendChild(pip);
           }
-          el.signals.appendChild(a);
+          const q = document.createElement(post && quote ? "a" : "span");
+          q.className = "chip-status" + (post && quote ? "" : " dead");
+          q.textContent = quote || "none today";
+          if (post && quote) {
+            q.href = post;
+            q.target = "_blank";
+            q.rel = "noopener";
+          }
+          chip.appendChild(q);
+          const more = document.createElement("a");
+          more.className = "all-posts";
+          more.textContent = "all posts";
+          more.href = "./signals.html?src=" + encodeURIComponent(base.id);
+          chip.appendChild(more);
+          el.voices.appendChild(chip);
         });
       }
 
       async function loadSignals() {
-        if (!el.signals) return;
+        if (!el.voices) return;
         try {
           const res = await fetch("./signals.json", { cache: "no-store" });
           if (!res.ok) throw new Error("missing");
-          renderSignals(await res.json());
+          renderVoices(await res.json());
         } catch (err) {
-          renderSignals({ sources: [] });
+          renderVoices({ sources: [] });
         }
       }
 
@@ -1145,7 +1135,6 @@
         renderCard(cards.spcx, quoteState.quotes.spcx);
         renderChips(Array.isArray(quoteState.show_me) ? quoteState.show_me : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
-        renderVoices(quoteState);
         loadSignals();
         applyTeslaStatus();
         const bits = [];
@@ -1163,7 +1152,6 @@
         setSessionClock("CLOSED");
         renderChips(DEFAULT_SHOW_ME);
         renderStack(DEFAULT_STACK);
-        renderVoices({ voices: DEFAULT_VOICES });
         loadSignals();
         el.liveRegion.textContent = "The data file is missing.";
       }

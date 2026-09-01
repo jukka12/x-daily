@@ -5,28 +5,116 @@
       "label": "Elon",
       "handle": "@elonmusk",
       "profile": "https://x.com/elonmusk",
-      "items": []
+      "items": [
+        {
+          "title": "Starship Flight 14",
+          "quote": "Starship Flight 14 is likely to deploy operational V3 Starlinks",
+          "url": "https://x.com/elonmusk/status/2094822190961377323",
+          "at_utc": "2026-09-01T16:18:24.000Z",
+          "unverified": false
+        },
+        {
+          "title": "Mars base",
+          "quote": "Yes",
+          "url": "https://x.com/elonmusk/status/2094849443506122939",
+          "at_utc": "2026-09-01T18:06:42.000Z",
+          "unverified": false
+        },
+        {
+          "title": "Grok Bot",
+          "quote": "Grok Bot runs on its own computer in the cloud 24/7",
+          "url": "https://x.com/elonmusk/status/2094815195516350754",
+          "at_utc": "2026-09-01T15:50:37.000Z",
+          "unverified": false
+        },
+        {
+          "title": "Grok tokens",
+          "quote": "We're giving all Grok Bot users another free reset",
+          "url": "https://x.com/elonmusk/status/2094813795742847123",
+          "at_utc": "2026-09-01T15:45:03.000Z",
+          "unverified": false
+        },
+        {
+          "title": "Starlink Mini",
+          "quote": "Starlink Mini keeps you connected to high-speed internet on the go",
+          "url": "https://x.com/elonmusk/status/2094810025898217852",
+          "at_utc": "2026-09-01T15:30:04.000Z",
+          "unverified": false
+        },
+        {
+          "title": "X downloads",
+          "quote": "X reaches highest monthly downloads ever",
+          "url": "https://x.com/elonmusk/status/2094866213864354134",
+          "at_utc": "2026-09-01T19:13:20.000Z",
+          "unverified": false
+        }
+      ]
     },
     {
       "id": "wood",
       "label": "Wood",
       "handle": "@CathieDWood",
       "profile": "https://x.com/CathieDWood",
-      "items": []
+      "items": [
+        {
+          "title": "Cybercab",
+          "quote": "Yes, let's GO!",
+          "url": "https://x.com/CathieDWood/status/2093722206500950293",
+          "at_utc": "2026-08-29T15:27:28.000Z",
+          "unverified": false
+        },
+        {
+          "title": "SpaceXAI",
+          "quote": "Thrilled that you have joined SpaceXAI/Cursor, James",
+          "url": "https://x.com/CathieDWood/status/2093718217713725628",
+          "at_utc": "2026-08-29T15:11:37.000Z",
+          "unverified": false
+        },
+        {
+          "title": "In The Know",
+          "quote": "A new In The Know is coming this Friday",
+          "url": "https://x.com/CathieDWood/status/2094499751093850423",
+          "at_utc": "2026-08-31T18:57:09.000Z",
+          "unverified": false
+        }
+      ]
     },
     {
       "id": "baron",
       "label": "Baron",
       "handle": "@RonBaronAnalyst",
       "profile": "https://x.com/RonBaronAnalyst",
-      "items": []
+      "items": [
+        {
+          "title": "SpaceX at J.P. Morgan",
+          "quote": "I attended the Elon Musk and Jamie Dimon SpaceX discussion",
+          "url": "https://x.com/RonBaronAnalyst/status/2065503032578572290",
+          "at_utc": "2026-06-12T18:34:32.000Z",
+          "unverified": false
+        }
+      ]
     },
     {
       "id": "ives",
       "label": "Ives",
       "handle": "@DivesTech",
       "profile": "https://x.com/DivesTech",
-      "items": []
+      "items": [
+        {
+          "title": "Cook and Ternus",
+          "quote": "Discussing the Cook legacy and the baton handed to Ternus",
+          "url": "https://x.com/DivesTech/status/2094869937860890752",
+          "at_utc": "2026-09-01T19:28:08.000Z",
+          "unverified": false
+        },
+        {
+          "title": "Apple on CNBC",
+          "quote": "Look forward to discussing Apple and the Big Tech sector",
+          "url": "https://x.com/DivesTech/status/2094719448154247556",
+          "at_utc": "2026-09-01T09:30:09.000Z",
+          "unverified": false
+        }
+      ]
     }
   ]
 }

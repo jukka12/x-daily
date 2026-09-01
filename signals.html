@@ -71,7 +71,9 @@
       text-decoration: none;
     }
     a.row:hover { border-color: #4a4a4c; }
+    .row-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
     .row-title { color: #d8d8d3; }
+    .row-sub { color: var(--muted); font-size: 0.78rem; }
     .row .unverified {
       color: #7a7a76;
       font-size: 0.62rem;
@@ -164,10 +166,21 @@
         const node = document.createElement(href ? "a" : "div");
         node.className = "row";
         if (href) node.href = href;
+        const body = document.createElement("span");
+        body.className = "row-body";
+        const quote = item && item.quote ? String(item.quote) : "";
+        const headline = item && item.title ? String(item.title) : "";
         const title = document.createElement("span");
         title.className = "row-title";
-        title.textContent = item && item.title ? String(item.title) : "";
-        node.appendChild(title);
+        title.textContent = quote || headline;
+        body.appendChild(title);
+        if (quote && headline && quote !== headline) {
+          const sub = document.createElement("span");
+          sub.className = "row-sub";
+          sub.textContent = headline;
+          body.appendChild(sub);
+        }
+        node.appendChild(body);
         if (item && item.unverified) {
           const tag = document.createElement("span");
           tag.className = "unverified";
