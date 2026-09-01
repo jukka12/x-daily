@@ -11,40 +11,53 @@
       --fg: #f3f3f1;
       --muted: #8a8a86;
       --line: #2a2a2c;
-      --card: #161618;
-      --chip: #1c1c1f;
+      --chip: #3a3a3c;
       --up: #3ecf8e;
       --down: #e24b4b;
-      --live: #6ee0b0;
+      --live-bg: #1f7a4d;
+      --warn: #e6c56a;
+      --spark: #8b8b87;
     }
+
     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       min-height: 100%;
       background: var(--bg);
       color: var(--fg);
+      color-scheme: dark;
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
-    body { padding: 28px 22px 40px; }
+
+    body {
+      padding: 32px 28px 48px;
+    }
+
     .board {
-      max-width: 1080px;
-      margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
-      gap: 0;
+      grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+      gap: 0 0;
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      align-items: stretch;
     }
-    .left { padding-right: 36px; }
-    .right {
-      padding-left: 36px;
-      border-left: 1px solid var(--line);
+
+    .rule {
+      background: var(--line);
+      min-height: 100%;
     }
-    header.top {
+
+    .col-left { padding-right: 40px; }
+    .col-right { padding-left: 40px; }
+
+    .kicker {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 14px;
     }
+
     h1 {
       margin: 0;
       font-size: 0.78rem;
@@ -52,321 +65,475 @@
       letter-spacing: 0.28em;
       text-transform: uppercase;
     }
+
     .ticker {
-      margin-top: 4px;
+      margin-top: 6px;
       font-size: 0.8rem;
       color: var(--muted);
       letter-spacing: 0.12em;
     }
-    .pill {
-      font-size: 0.68rem;
-      font-weight: 650;
-      letter-spacing: 0.14em;
+
+    .status {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       padding: 5px 10px;
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--muted);
       white-space: nowrap;
+      line-height: 1;
     }
-    .pill.live {
-      color: var(--live);
-      border-color: #245c46;
+
+    .status.live {
+      color: #fff;
+      background: var(--live-bg);
+      border-color: var(--live-bg);
     }
+
+    .status.error { color: var(--warn); border-color: #6a5414; }
+    .status.loading { color: var(--muted); }
+
     .clock {
+      margin-top: 16px;
+      font-size: 0.86rem;
       color: var(--muted);
-      font-size: 0.92rem;
-      margin: 0 0 22px;
+      font-variant-numeric: tabular-nums;
       letter-spacing: 0.01em;
+      line-height: 1.45;
     }
-    .clock .open { color: var(--live); font-weight: 650; }
+
+    .clock .sep { margin: 0 0.35em; color: #5c5c58; }
+
+    .clock .sess { color: var(--muted); font-weight: 650; letter-spacing: 0.06em; }
+    .clock .sess.open { color: var(--up); }
+    .clock .sess.pre { color: var(--warn); }
+
+    .price-block { margin-top: 28px; }
+
     .label {
       font-size: 0.68rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
-      margin-bottom: 8px;
     }
+
     .price {
+      margin-top: 8px;
       font-variant-numeric: tabular-nums;
-      font-size: clamp(3rem, 8vw, 4.6rem);
+      font-size: clamp(2.8rem, 7vw, 4.4rem);
       font-weight: 560;
       letter-spacing: -0.04em;
       line-height: 1;
     }
-    .price .currency {
-      font-size: 0.42em;
-      color: var(--muted);
-      margin-right: 4px;
-      vertical-align: 0.42em;
-    }
+
     .date {
-      margin-top: 8px;
+      margin-top: 10px;
+      font-size: 0.85rem;
       color: var(--muted);
+      letter-spacing: 0.04em;
       font-variant-numeric: tabular-nums;
-      font-size: 0.95rem;
     }
+
     .spark {
-      display: block;
-      width: min(240px, 100%);
-      height: 42px;
-      margin: 16px 0 22px;
+      margin: 18px 0 4px;
+      width: 100%;
+      height: 52px;
     }
-    .today {
-      font-size: 1.15rem;
-      font-weight: 650;
-      letter-spacing: 0.08em;
+
+    .spark svg { display: block; width: 100%; height: 100%; }
+    .spark:empty { display: none; }
+
+    .today-block { margin-top: 22px; }
+
+    .today-row {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+    }
+
+    .today-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 8px;
+      font-weight: 650;
     }
-    .today.down { color: var(--down); }
-    .today.up { color: var(--up); }
-    .today.flat { color: var(--fg); }
-    .gap {
-      color: var(--muted);
+
+    .today-pct {
       font-variant-numeric: tabular-nums;
-      font-size: 0.95rem;
-      margin-bottom: 22px;
+      font-size: clamp(1.45rem, 3.4vw, 1.85rem);
+      font-weight: 560;
+      letter-spacing: -0.03em;
+      line-height: 1;
     }
+
+    .today-block.up .today-label,
+    .today-block.up .today-pct { color: var(--up); }
+    .today-block.down .today-label,
+    .today-block.down .today-pct { color: var(--down); }
+    .today-block.flat .today-label { color: var(--muted); }
+    .today-block.flat .today-pct { color: var(--fg); }
+
+    .gap {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-variant-numeric: tabular-nums;
+    }
+
     dl.facts {
-      margin: 0;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
+      margin: 28px 0 0;
       display: grid;
       grid-template-columns: auto 1fr;
-      gap: 10px 18px;
+      gap: 12px 18px;
+      color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.4;
     }
+
     dl.facts dt {
       letter-spacing: 0.12em;
       text-transform: uppercase;
       font-size: 0.68rem;
-      color: var(--muted);
       padding-top: 3px;
     }
-    dl.facts dd { margin: 0; color: #d8d8d3; }
-    .section { margin-bottom: 28px; }
-    .section h2 {
-      margin: 0 0 12px;
+
+    dl.facts dd {
+      margin: 0;
+      color: #d8d8d3;
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .section-label {
       font-size: 0.68rem;
-      font-weight: 650;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
+      margin: 0 0 14px;
     }
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .chip {
-      background: var(--chip);
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.92rem;
       display: inline-flex;
-      align-items: baseline;
+      align-items: center;
       gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--chip);
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: var(--fg);
+      line-height: 1.2;
     }
+
     .chip .unverified {
+      color: #7a7a76;
       font-size: 0.62rem;
+      font-weight: 700;
       letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #6f6f6b;
     }
+
+    .stack-wrap { margin-top: 36px; }
+
     .stack {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      gap: 12px;
     }
+
     .tile {
-      background: var(--card);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 96px;
+      padding: 18px 16px;
+      border: 1px solid var(--line);
       border-radius: 12px;
-      padding: 14px 14px 12px;
-      min-height: 88px;
     }
-    .tile .mark {
-      width: 22px;
-      height: 22px;
-      margin-bottom: 8px;
-      display: block;
+
+    .mark {
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      color: var(--fg);
     }
-    .tile .name { font-weight: 650; }
-    .tile .status {
-      margin-top: 4px;
+
+    .mark svg { display: block; width: 100%; height: 100%; }
+
+    .tile-body { min-width: 0; }
+
+    .tile-name {
+      font-size: 1.02rem;
+      font-weight: 560;
+      letter-spacing: -0.01em;
+    }
+
+    .tile-status {
+      margin-top: 3px;
+      font-size: 0.86rem;
       color: var(--muted);
-      font-size: 0.9rem;
     }
+
     .voices {
-      color: #d8d8d3;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+
+    .voices p {
+      margin: 0;
       font-size: 0.95rem;
+      color: #d8d8d3;
       line-height: 1.45;
     }
+
     .note {
       margin-top: 18px;
+      font-size: 0.82rem;
       color: var(--muted);
-      font-size: 0.85rem;
+      line-height: 1.5;
     }
-    .note.error { color: #e6c56a; }
+
+    .note:empty { display: none; }
+    .note.error { color: var(--warn); }
+
     .sr-only {
-      position: absolute; width: 1px; height: 1px; overflow: hidden;
-      clip: rect(0,0,0,0);
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
-    @media (max-width: 860px) {
-      .board { grid-template-columns: 1fr; }
-      .left { padding-right: 0; }
-      .right {
-        padding-left: 0;
-        padding-top: 28px;
-        margin-top: 8px;
-        border-left: 0;
-        border-top: 1px solid var(--line);
+
+    @media (max-width: 900px) {
+      body { padding: 24px 18px 36px; }
+
+      .board {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1px auto;
       }
+
+      .rule { min-height: 1px; height: 1px; margin: 8px 0; }
+
+      .col-left { padding-right: 0; padding-bottom: 28px; }
+      .col-right { padding-left: 0; padding-top: 28px; }
+
+      .stack { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 520px) {
+      .stack { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <div class="board">
-    <section class="left">
-      <header class="top">
+  <main class="board">
+    <section class="col-left">
+      <div class="kicker">
         <div>
           <h1>Tesla Daily</h1>
           <div class="ticker">TSLA · NASDAQ</div>
         </div>
-        <div id="status" class="pill">Loading</div>
-      </header>
-      <p id="clock" class="clock">—</p>
-      <div class="label">Last close</div>
-      <div id="close-price" class="price">—</div>
-      <div id="close-date" class="date"></div>
-      <svg id="spark" class="spark" viewBox="0 0 240 42" aria-hidden="true"></svg>
-      <div id="today" class="today flat">Today —</div>
-      <div id="gap" class="gap"></div>
+        <div id="status" class="status loading" aria-live="polite">Loading</div>
+      </div>
+
+      <div id="clock" class="clock">
+        <span id="clock-hel">--:--</span> Helsinki
+        <span class="sep">·</span>
+        <span id="clock-ny">--:--</span> New York
+        <span class="sep">·</span>
+        <span id="clock-session" class="sess">—</span>
+      </div>
+
+      <div class="price-block">
+        <div class="label">Last close</div>
+        <div id="close-price" class="price" aria-busy="true">—</div>
+        <div id="close-date" class="date"></div>
+        <div id="spark" class="spark" aria-hidden="true"></div>
+      </div>
+
+      <div id="today-block" class="today-block flat">
+        <div class="today-row">
+          <div class="today-label">Today</div>
+          <div id="change" class="today-pct">—</div>
+        </div>
+        <div id="gap" class="gap">—</div>
+      </div>
+
       <dl class="facts">
-        <dt>Overnight</dt><dd id="overnight">—</dd>
-        <dt>Live</dt><dd id="live">—</dd>
-        <dt>Quote time</dt><dd id="when">—</dd>
-        <dt>Source</dt><dd id="source">—</dd>
+        <dt>Overnight</dt>
+        <dd id="overnight-value">—</dd>
+        <dt>Live</dt>
+        <dd id="live-value">—</dd>
+        <dt>Quote time</dt>
+        <dd id="when">—</dd>
+        <dt>Source</dt>
+        <dd id="meta">—</dd>
       </dl>
       <p id="note" class="note"></p>
     </section>
-    <section class="right">
-      <div class="section">
-        <h2>Show-me this week</h2>
-        <div id="show-me" class="chips"></div>
-      </div>
-      <div class="section">
-        <h2>Musk stack</h2>
+
+    <div class="rule" aria-hidden="true"></div>
+
+    <section class="col-right">
+      <h2 class="section-label">Show-me this week</h2>
+      <div id="chips" class="chips"></div>
+
+      <div class="stack-wrap">
+        <h2 class="section-label">Musk stack</h2>
         <div id="stack" class="stack"></div>
       </div>
-      <div class="section">
-        <h2>Voices</h2>
-        <div id="voices" class="voices"></div>
+
+      <div class="voices">
+        <h2 class="section-label">Voices</h2>
+        <p id="voices">Wood / Baron / Ives — none today</p>
       </div>
     </section>
-  </div>
+  </main>
   <p class="sr-only" id="live-region" aria-live="polite"></p>
+
   <script>
     (function () {
+      const DEFAULT_SHOW_ME = [
+        { label: "Cybercab", date: "3 Sep" },
+        { label: "Broadcom", date: "Wed" },
+        { label: "Starlink", unverified: true }
+      ];
+      const DEFAULT_STACK = [
+        { name: "Tesla", status: "in session" },
+        { name: "SpaceX", status: "no new post" },
+        { name: "xAI", status: "quiet" },
+        { name: "Optimus", status: "—" }
+      ];
+      const DEFAULT_VOICES = "Wood / Baron / Ives — none today";
+
+      const MARKS = {
+        Tesla: '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M6 6h20v6H19v14h-6V12H6z"/></svg>',
+        SpaceX: '<svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 2.5l8.5 15.2h-5.1L16 29.5l-3.4-11.8H7.5z"/></svg>',
+        xAI: '<svg viewBox="0 0 32 32" aria-hidden="true"><rect x="2" y="2" width="28" height="28" rx="6" fill="#f3f3f1"/><path fill="#0c0c0d" d="M10 8h3.2L16 13.2 18.8 8H22l-4.4 7.2L22 22.4h-3.2L16 17.2 13.2 22.4H10l4.4-7.2z"/></svg>'
+      };
+
       const el = {
         status: document.getElementById("status"),
-        clock: document.getElementById("clock"),
         closePrice: document.getElementById("close-price"),
         closeDate: document.getElementById("close-date"),
         spark: document.getElementById("spark"),
-        today: document.getElementById("today"),
+        todayBlock: document.getElementById("today-block"),
+        change: document.getElementById("change"),
         gap: document.getElementById("gap"),
-        overnight: document.getElementById("overnight"),
-        live: document.getElementById("live"),
+        overnightValue: document.getElementById("overnight-value"),
+        liveValue: document.getElementById("live-value"),
         when: document.getElementById("when"),
-        source: document.getElementById("source"),
-        showMe: document.getElementById("show-me"),
+        meta: document.getElementById("meta"),
+        note: document.getElementById("note"),
+        liveRegion: document.getElementById("live-region"),
+        chips: document.getElementById("chips"),
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
-        note: document.getElementById("note"),
-        liveRegion: document.getElementById("live-region")
-      };
-
-      const MARKS = {
-        Tesla: '<svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="3" fill="#E31937"/><path fill="#fff" d="M4 4h14v4H13v10H9V8H4z"/></svg>',
-        SpaceX: '<svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="3" fill="#1c1c1f"/><path fill="none" stroke="#f3f3f1" stroke-width="1.6" d="M5 16 L11 5 L17 16"/><path fill="none" stroke="#f3f3f1" stroke-width="1.6" d="M8 12h6"/></svg>',
-        xAI: '<svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="3" fill="#1c1c1f"/><path stroke="#f3f3f1" stroke-width="1.8" d="M6 6l10 10M16 6L6 16"/></svg>',
-        Optimus: '<svg class="mark" viewBox="0 0 22 22" aria-hidden="true"><rect width="22" height="22" rx="3" fill="#1c1c1f"/><rect x="8" y="4" width="6" height="6" rx="1" fill="#f3f3f1"/><rect x="7" y="11" width="8" height="7" rx="1" fill="#f3f3f1"/></svg>'
+        clockHel: document.getElementById("clock-hel"),
+        clockNy: document.getElementById("clock-ny"),
+        clockSession: document.getElementById("clock-session")
       };
 
       function money(n) {
-        return n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        return n.toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
       }
 
-      function hhmm(timeZone) {
-        const parts = new Intl.DateTimeFormat("en-GB", {
-          timeZone: timeZone, hour: "2-digit", minute: "2-digit", hourCycle: "h23"
-        }).formatToParts(new Date());
-        const get = function (t) {
-          const p = parts.find(function (x) { return x.type === t; });
-          return p ? p.value : "";
-        };
-        return get("hour") + ":" + get("minute");
-      }
-
-      function tickClock(session) {
-        let phase = "CLOSED";
-        let klass = "";
-        if (session === "OPEN") { phase = "CASH OPEN"; klass = "open"; }
-        else if (session === "PREMARKET") phase = "PREMARKET";
-        el.clock.innerHTML = hhmm("Europe/Helsinki") + " Helsinki · "
-          + hhmm("America/New_York") + " New York · "
-          + '<span class="' + klass + '">' + phase + "</span>";
+      function part(parts, type) {
+        const p = parts.find(function (x) { return x.type === type; });
+        return p ? p.value : "";
       }
 
       function formatHelsinki(date) {
         const parts = new Intl.DateTimeFormat("en-GB", {
           timeZone: "Europe/Helsinki",
-          hour: "2-digit", minute: "2-digit", second: "2-digit",
-          day: "2-digit", month: "2-digit", year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
           hourCycle: "h23"
         }).formatToParts(date);
-        const get = function (t) {
-          const p = parts.find(function (x) { return x.type === t; });
-          return p ? p.value : "";
-        };
-        return get("hour") + ":" + get("minute") + ":" + get("second") + " "
-          + get("day") + "." + get("month") + "." + get("year");
+        return part(parts, "hour") + ":" + part(parts, "minute") + ":" + part(parts, "second") + " "
+          + part(parts, "day") + "." + part(parts, "month") + "." + part(parts, "year");
       }
 
-      function isoToDmy(iso) {
-        const m = String(iso || "").match(/^(\d{4})-(\d{2})-(\d{2})/);
-        if (!m) return String(iso || "");
-        return m[3] + "." + m[2] + "." + m[1];
+      function formatHm(date, timeZone) {
+        const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone: timeZone,
+          hour: "2-digit",
+          minute: "2-digit",
+          hourCycle: "h23"
+        }).formatToParts(date);
+        return part(parts, "hour") + ":" + part(parts, "minute");
+      }
+
+      function formatCloseDate(s) {
+        if (s == null || s === "") return "";
+        const m = String(s).trim().match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (m) return m[3] + "." + m[2] + "." + m[1];
+        return String(s);
       }
 
       function parseUtc(s) {
-        if (!s) return null;
+        if (s == null || s === "") return null;
         const d = new Date(String(s));
-        return isNaN(d.getTime()) ? null : d;
+        return Number.isNaN(d.getTime()) ? null : d;
       }
 
       function zonedWallToDate(year, monthIndex, day, hour, minute, timeZone) {
         const utcGuess = Date.UTC(year, monthIndex, day, hour, minute, 0);
         const fmt = new Intl.DateTimeFormat("en-US", {
-          timeZone: timeZone, year: "numeric", month: "2-digit", day: "2-digit",
-          hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23"
+          timeZone: timeZone,
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hourCycle: "h23"
         });
+
         function offsetMs(ms) {
           const parts = fmt.formatToParts(new Date(ms));
-          const get = function (type) {
-            const part = parts.find(function (p) { return p.type === type; });
-            return part ? Number(part.value) : NaN;
-          };
-          const asUTC = Date.UTC(get("year"), get("month") - 1, get("day"), get("hour"), get("minute"), get("second"));
+          const asUTC = Date.UTC(
+            Number(part(parts, "year")),
+            Number(part(parts, "month")) - 1,
+            Number(part(parts, "day")),
+            Number(part(parts, "hour")),
+            Number(part(parts, "minute")),
+            Number(part(parts, "second"))
+          );
           return asUTC - ms;
         }
+
         return new Date(utcGuess - offsetMs(utcGuess - offsetMs(utcGuess)));
       }
 
       function parseQuoteTimeEt(s) {
-        if (!s) return null;
+        if (s == null || s === "") return null;
         const m = String(s).trim().match(
           /^([A-Za-z]{3})\s+(\d{1,2}),\s+(\d{4})\s+(\d{1,2}):(\d{2})\s*(AM|PM)\s*ET$/i
         );
         if (!m) return null;
-        const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+        const months = {
+          Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
+          Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11
+        };
         const monthKey = m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase();
         const month = months[monthKey];
         if (month == null) return null;
@@ -381,161 +548,320 @@
         return parseUtc(q.quote_time_utc) || parseQuoteTimeEt(q.quote_time_et);
       }
 
-      function drawSpark(values) {
-        const nums = (values || []).map(Number).filter(function (n) { return Number.isFinite(n); });
-        el.spark.innerHTML = "";
-        if (nums.length < 2) return;
-        const w = 240, h = 42, pad = 4;
-        const min = Math.min.apply(null, nums);
-        const max = Math.max.apply(null, nums);
+      function tickClock() {
+        const now = new Date();
+        el.clockHel.textContent = formatHm(now, "Europe/Helsinki");
+        el.clockNy.textContent = formatHm(now, "America/New_York");
+      }
+
+      function setSessionClock(session) {
+        el.clockSession.className = "sess";
+        if (session === "OPEN") {
+          el.clockSession.textContent = "CASH OPEN";
+          el.clockSession.classList.add("open");
+        } else if (session === "PREMARKET") {
+          el.clockSession.textContent = "PREMARKET";
+          el.clockSession.classList.add("pre");
+        } else {
+          el.clockSession.textContent = "CLOSED";
+        }
+      }
+
+      let sparkValues = [];
+
+      function sparkSvg(values) {
+        sparkValues = values || [];
+        if (!sparkValues || sparkValues.length < 2) {
+          el.spark.innerHTML = "";
+          return;
+        }
+        const rect = el.spark.getBoundingClientRect();
+        const w = Math.max(Math.round(rect.width) || 320, 160);
+        const h = Math.max(Math.round(rect.height) || 52, 40);
+        const padX = 7;
+        const padY = 8;
+        const min = Math.min.apply(null, sparkValues);
+        const max = Math.max.apply(null, sparkValues);
         const span = max - min || 1;
-        const pts = nums.map(function (n, i) {
-          const x = pad + (i / (nums.length - 1)) * (w - pad * 2);
-          const y = pad + (1 - (n - min) / span) * (h - pad * 2);
-          return { x: x, y: y, n: n };
+        const pts = sparkValues.map(function (v, i) {
+          const x = padX + (i / (sparkValues.length - 1)) * (w - padX * 2);
+          const y = padY + (1 - (v - min) / span) * (h - padY * 2);
+          return [x, y];
         });
-        const lastDown = nums[nums.length - 1] < nums[nums.length - 2];
-        const grey = pts.slice(0, lastDown ? pts.length - 1 : pts.length);
-        function path(list) {
-          return list.map(function (p, i) { return (i ? "L" : "M") + p.x.toFixed(1) + " " + p.y.toFixed(1); }).join(" ");
-        }
-        const ns = "http://www.w3.org/2000/svg";
-        function add(tag, attrs) {
-          const node = document.createElementNS(ns, tag);
-          Object.keys(attrs).forEach(function (k) { node.setAttribute(k, attrs[k]); });
-          el.spark.appendChild(node);
-          return node;
-        }
-        if (grey.length > 1) add("path", { d: path(grey), fill: "none", stroke: "#8a8a86", "stroke-width": "1.5" });
+        const lastDown = sparkValues[sparkValues.length - 1] < sparkValues[sparkValues.length - 2];
+        const grey = pts.map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ");
+        let html = '<svg viewBox="0 0 ' + w + " " + h + '" width="' + w + '" height="' + h + '" preserveAspectRatio="none">';
         if (lastDown) {
-          add("path", {
-            d: path(pts.slice(-2)), fill: "none", stroke: "#e24b4b", "stroke-width": "1.5"
-          });
+          const head = pts.slice(0, -1).map(function (p) { return p[0].toFixed(1) + "," + p[1].toFixed(1); }).join(" ");
+          html += '<polyline fill="none" stroke="#8b8b87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="' + head + '"/>';
+          html += '<polyline fill="none" stroke="#e24b4b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="'
+            + pts[pts.length - 2][0].toFixed(1) + "," + pts[pts.length - 2][1].toFixed(1) + " "
+            + pts[pts.length - 1][0].toFixed(1) + "," + pts[pts.length - 1][1].toFixed(1) + '"/>';
+        } else {
+          html += '<polyline fill="none" stroke="#8b8b87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" points="' + grey + '"/>';
         }
         pts.forEach(function (p, i) {
           const last = i === pts.length - 1;
-          add("circle", {
-            cx: p.x, cy: p.y, r: last ? 2.4 : 1.7,
-            fill: last && lastDown ? "#e24b4b" : "#8a8a86"
-          });
+          const fill = last && lastDown ? "#e24b4b" : "#8b8b87";
+          html += '<circle cx="' + p[0].toFixed(1) + '" cy="' + p[1].toFixed(1) + '" r="2.7" fill="' + fill + '"/>';
+        });
+        html += "</svg>";
+        el.spark.innerHTML = html;
+      }
+
+      function renderChips(items) {
+        const list = (items && items.length) ? items : DEFAULT_SHOW_ME;
+        el.chips.innerHTML = "";
+        list.forEach(function (item) {
+          const chip = document.createElement("span");
+          chip.className = "chip";
+          const label = item && item.label != null ? String(item.label) : "";
+          const date = item && item.date ? String(item.date) : "";
+          chip.appendChild(document.createTextNode(date ? label + " " + date : label));
+          if (item && item.unverified) {
+            const tag = document.createElement("span");
+            tag.className = "unverified";
+            tag.textContent = "UNVERIFIED";
+            chip.appendChild(tag);
+          }
+          el.chips.appendChild(chip);
+        });
+      }
+
+      function renderStack(items) {
+        const list = (items && items.length) ? items : DEFAULT_STACK;
+        el.stack.innerHTML = "";
+        list.forEach(function (item) {
+          const name = item && item.name != null ? String(item.name) : "";
+          const status = item && item.status != null && String(item.status) !== "" ? String(item.status) : "—";
+          const tile = document.createElement("div");
+          tile.className = "tile";
+          if (MARKS[name]) {
+            const mark = document.createElement("div");
+            mark.className = "mark";
+            mark.innerHTML = MARKS[name];
+            tile.appendChild(mark);
+          }
+          const body = document.createElement("div");
+          body.className = "tile-body";
+          const n = document.createElement("div");
+          n.className = "tile-name";
+          n.textContent = name;
+          const s = document.createElement("div");
+          s.className = "tile-status";
+          s.textContent = status;
+          body.appendChild(n);
+          body.appendChild(s);
+          tile.appendChild(body);
+          el.stack.appendChild(tile);
         });
       }
 
       function renderMissing() {
+        el.closePrice.textContent = "—";
+        el.closePrice.setAttribute("aria-busy", "false");
+        el.closeDate.textContent = "";
+        el.spark.innerHTML = "";
+        el.change.textContent = "—";
+        el.todayBlock.className = "today-block flat";
+        el.gap.textContent = "—";
+        el.overnightValue.textContent = "—";
+        el.liveValue.textContent = "—";
+        el.when.textContent = "—";
+        el.meta.textContent = "—";
         el.status.textContent = "Closed";
-        el.status.className = "pill";
+        el.status.className = "status error";
+        setSessionClock("CLOSED");
         el.note.className = "note error";
         el.note.textContent = "The data file is missing.";
         el.liveRegion.textContent = "The data file is missing.";
-      }
-
-      function seedShowMe(list) {
-        if (list && list.length) return list;
-        return [
-          { label: "Cybercab", date: "3 Sep" },
-          { label: "Broadcom", date: "Wed" },
-          { label: "Starlink", unverified: true }
-        ];
-      }
-
-      function seedStack(list) {
-        if (list && list.length) return list;
-        return [
-          { name: "Tesla", status: "in session" },
-          { name: "SpaceX", status: "no new post" },
-          { name: "xAI", status: "quiet" },
-          { name: "Optimus", status: "—" }
-        ];
+        renderChips(DEFAULT_SHOW_ME);
+        renderStack(DEFAULT_STACK);
+        el.voices.textContent = DEFAULT_VOICES;
       }
 
       function render(q) {
         const lastClose = Number(q.last_close);
-        if (!Number.isFinite(lastClose)) { renderMissing(); return; }
+        if (!Number.isFinite(lastClose)) {
+          renderMissing();
+          return;
+        }
+
         const overnight = q.overnight == null ? null : Number(q.overnight);
         const live = q.live == null ? null : Number(q.live);
         const hasOvernight = Number.isFinite(overnight);
         const hasLive = Number.isFinite(live);
         const session = String(q.session || "");
 
-        if (session === "OPEN") {
-          el.status.textContent = "Live";
-          el.status.className = "pill live";
-        } else if (session === "PREMARKET") {
-          el.status.textContent = "Overnight";
-          el.status.className = "pill";
-        } else {
-          el.status.textContent = "Closed";
-          el.status.className = "pill";
-        }
-        tickClock(session);
-        if (window.__clock) clearInterval(window.__clock);
-        window.__clock = setInterval(function () { tickClock(session); }, 1000);
+        el.closePrice.textContent = "$" + money(lastClose);
+        el.closePrice.setAttribute("aria-busy", "false");
+        el.closeDate.textContent = formatCloseDate(q.last_close_date);
 
-        el.closePrice.innerHTML = '<span class="currency">$</span>' + money(lastClose);
-        el.closeDate.textContent = isoToDmy(q.last_close_date);
-        drawSpark(q.closes_5d);
+        const series = Array.isArray(q.closes_5d)
+          ? q.closes_5d.map(Number).filter(Number.isFinite)
+          : [];
+        sparkSvg(series.length ? series : [lastClose]);
+
+        el.overnightValue.textContent = hasOvernight ? "$" + money(overnight) : "—";
+        el.liveValue.textContent = hasLive ? "$" + money(live) : "—";
 
         let todayPx = null;
         if (session === "OPEN" && hasLive) todayPx = live;
         else if (hasOvernight) todayPx = overnight;
+
         if (todayPx != null && lastClose !== 0) {
-          const pct = ((todayPx - lastClose) / lastClose) * 100;
+          const diff = todayPx - lastClose;
+          const pct = (diff / lastClose) * 100;
           const up = pct > 0.005;
           const down = pct < -0.005;
           const sign = up ? "+" : "";
-          el.today.textContent = "Today " + sign + pct.toFixed(2) + "%";
-          el.today.className = "today " + (up ? "up" : down ? "down" : "flat");
-          const delta = todayPx - lastClose;
-          const dSign = delta > 0 ? "+" : delta < 0 ? "−" : "";
+          el.change.textContent = sign + pct.toFixed(2) + "%";
+          el.todayBlock.className = "today-block " + (up ? "up" : down ? "down" : "flat");
+          const gapSign = diff > 0.005 ? "+" : "−";
+          const gapAbs = money(Math.abs(diff));
           el.gap.textContent = "$" + money(lastClose) + " → $" + money(todayPx)
-            + " (" + dSign + "$" + money(Math.abs(delta)) + ")";
+            + " (" + (Math.abs(diff) < 0.005 ? "$0.00" : gapSign + "$" + gapAbs) + ")";
         } else {
-          el.today.textContent = "Today —";
-          el.today.className = "today flat";
-          el.gap.textContent = "";
+          el.change.textContent = "—";
+          el.todayBlock.className = "today-block flat";
+          el.gap.textContent = "—";
         }
 
-        el.overnight.textContent = hasOvernight ? "$" + money(overnight) : "—";
-        el.live.textContent = hasLive ? "$" + money(live) : "—";
+        if (session === "OPEN") {
+          el.status.textContent = "Live";
+          el.status.className = "status live";
+        } else if (session === "PREMARKET") {
+          el.status.textContent = "Overnight";
+          el.status.className = "status";
+        } else {
+          el.status.textContent = "Closed";
+          el.status.className = "status";
+        }
+        setSessionClock(session);
+
         const when = quoteInstant(q);
         el.when.textContent = when ? formatHelsinki(when) : "—";
-        el.source.textContent = q.source ? String(q.source) : "—";
+        el.meta.textContent = q.source ? String(q.source) : "—";
+        el.note.className = "note";
         el.note.textContent = "";
 
-        el.showMe.innerHTML = "";
-        seedShowMe(q.show_me).forEach(function (chip) {
-          const node = document.createElement("div");
-          node.className = "chip";
-          const text = [chip.label, chip.date].filter(Boolean).join(" ");
-          node.appendChild(document.createTextNode(text));
-          if (chip.unverified) {
-            const u = document.createElement("span");
-            u.className = "unverified";
-            u.textContent = "UNVERIFIED";
-            node.appendChild(u);
-          }
-          el.showMe.appendChild(node);
-        });
+        renderChips(Array.isArray(q.show_me) ? q.show_me : null);
+        renderStack(Array.isArray(q.musk_stack) ? q.musk_stack : null);
+        el.voices.textContent = q.voices ? String(q.voices) : DEFAULT_VOICES;
 
-        el.stack.innerHTML = "";
-        seedStack(q.musk_stack).forEach(function (item) {
-          const tile = document.createElement("div");
-          tile.className = "tile";
-          tile.innerHTML = (MARKS[item.name] || "")
-            + '<div class="name"></div><div class="status"></div>';
-          tile.querySelector(".name").textContent = item.name || "";
-          tile.querySelector(".status").textContent = item.status || "—";
-          el.stack.appendChild(tile);
-        });
-
-        el.voices.textContent = q.voices || "Wood / Baron / Ives — none today";
-        el.liveRegion.textContent = "TSLA last close $" + money(lastClose);
+        const parts = ["TSLA last close $" + money(lastClose)];
+        if (q.last_close_date) parts[0] += " (" + formatCloseDate(q.last_close_date) + ")";
+        if (hasOvernight) parts.push("overnight $" + money(overnight));
+        if (hasLive) parts.push("live $" + money(live));
+        if (todayPx != null && lastClose !== 0) {
+          const pct = ((todayPx - lastClose) / lastClose) * 100;
+          const sign = pct > 0.005 ? "+" : "";
+          parts.push("today " + sign + pct.toFixed(2) + "%");
+        }
+        el.liveRegion.textContent = parts.join(", ") + ".";
       }
 
-      fetch("./quote.json", { cache: "no-store" })
-        .then(function (res) { if (!res.ok) throw new Error("missing"); return res.json(); })
-        .then(render)
-        .catch(renderMissing);
+      function nyParts(date) {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/New_York",
+          weekday: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+          hourCycle: "h23"
+        }).formatToParts(date);
+        return {
+          weekday: part(parts, "weekday"),
+          hour: Number(part(parts, "hour")),
+          minute: Number(part(parts, "minute"))
+        };
+      }
+
+      function sessionFromClock(date) {
+        const ny = nyParts(date || new Date());
+        const mins = ny.hour * 60 + ny.minute;
+        const weekday = ["Mon", "Tue", "Wed", "Thu", "Fri"].indexOf(ny.weekday) >= 0;
+        if (weekday && mins >= 9 * 60 + 30 && mins < 16 * 60) return "OPEN";
+        if (weekday && mins >= 4 * 60 && mins < 9 * 60 + 30) return "PREMARKET";
+        return "CLOSED";
+      }
+
+      function sessionFromMarketState(state) {
+        if (state == null || state === "") return null;
+        const s = String(state).toUpperCase();
+        if (s === "REGULAR" || s === "OPEN") return "OPEN";
+        if (s === "PRE" || s === "PREMARKET" || s === "PREPRE") return "PREMARKET";
+        if (s === "POST" || s === "POSTPOST" || s === "CLOSED" || s === "CLOSE") return "CLOSED";
+        return null;
+      }
+
+      function num(v) {
+        if (typeof v === "number" && Number.isFinite(v)) return v;
+        if (v && typeof v === "object" && Number.isFinite(Number(v.raw))) return Number(v.raw);
+        const n = Number(v);
+        return Number.isFinite(n) ? n : null;
+      }
+
+      function applyLive(base, data) {
+        const next = Object.assign({}, base);
+        const live = num(data.regularMarketPrice);
+        const close = num(data.previousClose != null ? data.previousClose : data.regularMarketPreviousClose);
+        if (live == null || close == null) return null;
+        next.live = live;
+        next.last_close = close;
+        const mapped = sessionFromMarketState(data.marketState);
+        next.session = mapped || sessionFromClock(new Date());
+        next.quote_time_utc = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
+        return next;
+      }
+
+      let quoteState = null;
+      let refreshTimer = null;
+
+      async function refreshLive() {
+        if (!quoteState) return;
+        try {
+          const res = await fetch("https://finance-query.com/v2/quote/TSLA", { cache: "no-store" });
+          if (!res.ok) throw new Error("live http");
+          const data = await res.json();
+          const payload = Array.isArray(data) ? data[0] : data;
+          const next = applyLive(quoteState, payload || {});
+          if (!next) throw new Error("live shape");
+          quoteState = next;
+          render(quoteState);
+        } catch (err) {
+          render(quoteState);
+        }
+        scheduleRefresh();
+      }
+
+      function scheduleRefresh() {
+        if (refreshTimer) clearTimeout(refreshTimer);
+        const open = quoteState && quoteState.session === "OPEN";
+        refreshTimer = setTimeout(refreshLive, open ? 60000 : 5 * 60000);
+      }
+
+      async function load() {
+        el.status.textContent = "Loading";
+        el.status.className = "status loading";
+        try {
+          const res = await fetch("./quote.json", { cache: "no-store" });
+          if (!res.ok) throw new Error("missing");
+          quoteState = await res.json();
+          render(quoteState);
+          refreshLive();
+        } catch (err) {
+          renderMissing();
+        }
+      }
+
+      tickClock();
+      setInterval(tickClock, 1000);
+      if (window.ResizeObserver) {
+        new ResizeObserver(function () {
+          if (sparkValues.length >= 2) sparkSvg(sparkValues);
+        }).observe(el.spark);
+      }
+      load();
     })();
   </script>
 </body>

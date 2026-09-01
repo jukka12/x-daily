@@ -2,49 +2,22 @@
   "last_close": 367.95,
   "last_close_date": "2026-08-31",
   "overnight": 360.9,
-  "live": 358.275,
+  "live": 357.81,
   "session": "OPEN",
-  "quote_time_et": "Sep 1, 2026 11:03 AM ET",
-  "quote_time_utc": "2026-09-01T15:03:00Z",
+  "quote_time_et": "Sep 1, 2026 11:00 AM ET",
+  "quote_time_utc": "2026-09-01T15:00:00Z",
   "source": "Nasdaq",
-  "closes_5d": [
-    350.25,
-    345.82,
-    354.81,
-    348.75,
-    367.95
-  ],
+  "closes_5d": [350.25, 345.82, 354.81, 348.75, 367.95],
   "show_me": [
-    {
-      "label": "Cybercab",
-      "date": "3 Sep"
-    },
-    {
-      "label": "Broadcom",
-      "date": "Wed"
-    },
-    {
-      "label": "Starlink",
-      "unverified": true
-    }
+    { "label": "Cybercab", "date": "3 Sep" },
+    { "label": "Broadcom", "date": "Wed" },
+    { "label": "Starlink", "unverified": true }
   ],
   "musk_stack": [
-    {
-      "name": "Tesla",
-      "status": "in session"
-    },
-    {
-      "name": "SpaceX",
-      "status": "no new post"
-    },
-    {
-      "name": "xAI",
-      "status": "quiet"
-    },
-    {
-      "name": "Optimus",
-      "status": "\u2014"
-    }
+    { "name": "Tesla", "status": "in session" },
+    { "name": "SpaceX", "status": "no new post" },
+    { "name": "xAI", "status": "quiet" },
+    { "name": "Optimus", "status": "—" }
   ],
-  "voices": "Wood / Baron / Ives \u2014 none today"
+  "voices": "Wood / Baron / Ives — none today"
 }
