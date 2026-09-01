@@ -40,8 +40,8 @@
     {
       "label": "Launches",
       "url": "https://x.com/SpaceX",
-      "quote": "Falcon Heavy launches NASA's Nancy Grace Roman Space Telescope",
-      "quote_url": "https://x.com/SpaceX/status/2094081879150403768"
+      "quote": "Falcon 9 launches 27 Starlink satellites from California",
+      "quote_url": "https://x.com/SpaceX/status/2092638642745336187"
     },
     {
       "label": "Starlink",
@@ -72,8 +72,7 @@
     {
       "label": "Energy",
       "url": "https://x.com/Tesla",
-      "quote": "FSD Supervised is like a guardian angel for you",
-      "quote_url": "https://x.com/Tesla/status/2092426452679663769"
+      "quote": "quiet"
     },
     {
       "label": "Robotaxi",
@@ -84,8 +83,7 @@
     {
       "label": "Optimus",
       "url": "https://x.com/Tesla",
-      "quote": "FSD Supervised makes traffic safer for cyclists",
-      "quote_url": "https://x.com/Tesla/status/2093089329950368007"
+      "quote": "quiet"
     },
     {
       "label": "SpaceX",
@@ -102,8 +100,8 @@
     {
       "label": "Starship",
       "url": "https://x.com/SpaceX",
-      "quote": "Falcon Heavy lifts off from pad 39A in Florida",
-      "quote_url": "https://x.com/SpaceX/status/2094024852881469477"
+      "quote": "Full duration 33-engine static fire with the Super Heavy booster",
+      "quote_url": "https://x.com/SpaceX/status/2093477720638341395"
     },
     {
       "label": "xAI",
@@ -152,8 +150,8 @@
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "Discussing the Cook legacy and the baton handed to Ternus",
-      "quote_url": "https://x.com/DivesTech/status/2094869937860890752"
+      "quote": "SpaceX and Tesla are each building 100GW/year of solar",
+      "quote_url": "https://x.com/DivesTech/status/2093815359929274753"
     }
   ]
 }
