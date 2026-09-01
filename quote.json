@@ -6,9 +6,10 @@
       "last_close": 367.95,
       "last_close_date": "2026-08-31",
       "overnight": 360.9,
-      "live": 354.96,
-      "session": "OPEN",
-      "quote_time_utc": "2026-09-01T18:16:54Z",
+      "live": 356.09,
+      "after_hours": 355.67,
+      "session": "AFTERHOURS",
+      "quote_time_utc": "2026-09-01T21:04:03Z",
       "source": "finance-query.com",
       "closes_5d": [
         350.25,
@@ -23,9 +24,10 @@
       "name": "SpaceX",
       "last_close": 143.69,
       "last_close_date": "2026-08-31",
-      "live": 143.155,
-      "session": "OPEN",
-      "quote_time_utc": "2026-09-01T18:16:54Z",
+      "live": 142.23,
+      "after_hours": 142.14,
+      "session": "AFTERHOURS",
+      "quote_time_utc": "2026-09-01T21:04:03Z",
       "source": "finance-query.com",
       "closes_5d": [
         137.95,
@@ -40,34 +42,33 @@
     {
       "label": "Launches",
       "url": "https://x.com/SpaceX",
-      "quote": "Falcon 9 launches 27 Starlink satellites from California",
-      "quote_url": "https://x.com/SpaceX/status/2092638642745336187"
+      "quote": "quiet"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink Mini keeps you connected to high-speed internet on the go",
-      "quote_url": "https://x.com/Starlink/status/2094506552669684028"
+      "quote": "Starlink's high-speed, low-latency internet is now available in Uganda!",
+      "quote_url": "https://x.com/Starlink/status/2094882783915295062",
+      "unverified": true
     },
     {
       "label": "Cybercab",
       "url": "https://x.com/Tesla",
-      "quote": "Less than a week away",
-      "quote_url": "https://x.com/Tesla/status/2093585372920123522"
+      "quote": "quiet",
+      "unverified": true
     },
     {
       "label": "Broadcom",
       "url": "https://x.com/Broadcom",
-      "quote": "Broadcom unveiled AgentMinder, the first Agentic Fabric",
-      "quote_url": "https://x.com/Broadcom/status/2094508904046641250"
+      "quote": "Broadcom unveiled AgentMinder, an enterprise solution for AI agent governance",
+      "quote_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-unveils-agentminder-enterprise-solution-ai-agent"
     }
   ],
   "musk_stack": [
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "FSD Supervised makes traffic safer for cyclists",
-      "quote_url": "https://x.com/Tesla/status/2093089329950368007"
+      "quote": "after hours"
     },
     {
       "label": "Energy",
@@ -77,8 +78,7 @@
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
-      "quote": "Less than a week away",
-      "quote_url": "https://x.com/Tesla/status/2093585372920123522"
+      "quote": "quiet"
     },
     {
       "label": "Optimus",
@@ -88,70 +88,63 @@
     {
       "label": "SpaceX",
       "url": "https://x.com/SpaceX",
-      "quote": "Falcon Heavy's two side boosters land at LZ-2 and LZ-40",
-      "quote_url": "https://x.com/SpaceX/status/2094231957257273647"
+      "quote": "quiet"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink Mini keeps you connected to high-speed internet on the go",
-      "quote_url": "https://x.com/Starlink/status/2094506552669684028"
+      "quote": "Starlink's high-speed, low-latency internet is now available in Uganda!",
+      "quote_url": "https://x.com/Starlink/status/2094882783915295062"
     },
     {
       "label": "Starship",
       "url": "https://x.com/SpaceX",
-      "quote": "Full duration 33-engine static fire with the Super Heavy booster",
-      "quote_url": "https://x.com/SpaceX/status/2093477720638341395"
+      "quote": "quiet"
     },
     {
       "label": "xAI",
       "url": "https://x.com/SpaceXAI",
-      "quote": "At Starlink, we're using Grok Voice to resolve over 15,000",
-      "quote_url": "https://x.com/SpaceXAI/status/2091987541272543406"
+      "quote": "LatchBio evaluated Grok's performance on biosecurity monitoring",
+      "quote_url": "https://x.com/SpaceXAI/status/2094820933689295076"
     },
     {
       "label": "X",
       "url": "https://x.com/X",
-      "quote": "Grok Bot now has improved support for X",
-      "quote_url": "https://x.com/X/status/2093829017128374366"
+      "quote": "quiet"
     },
     {
       "label": "Neuralink",
       "url": "https://x.com/neuralink",
-      "quote": "With Neuralink, Audrey is creating art with her mind",
-      "quote_url": "https://x.com/neuralink/status/2092732695180955790"
+      "quote": "quiet"
     },
     {
       "label": "Boring",
       "url": "https://x.com/boringcompany",
-      "quote": "Vegas Loop is now entitled for 123 stations",
-      "quote_url": "https://x.com/boringcompany/status/2092396130361606374"
+      "quote": "Thanks to Secretary of Labor Sonderling for visiting Las Vegas to see progress on Vegas Loop!",
+      "quote_url": "https://x.com/boringcompany/status/2094669478848262284"
     }
   ],
   "voices": [
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Starship Flight 14 is likely to deploy operational V3 Starlinks",
-      "quote_url": "https://x.com/elonmusk/status/2094822190961377323"
+      "quote": "Grok Bot runs on its own computer in the cloud 24/7",
+      "quote_url": "https://x.com/elonmusk/status/2094815195516350754"
     },
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "quote": "Yes, let's GO!",
-      "quote_url": "https://x.com/CathieDWood/status/2093722206500950293"
+      "quote": "none today"
     },
     {
       "label": "Baron",
       "url": "https://x.com/RonBaronAnalyst",
-      "quote": "I attended the Elon Musk and Jamie Dimon SpaceX discussion",
-      "quote_url": "https://x.com/RonBaronAnalyst/status/2065503032578572290"
+      "quote": "none today"
     },
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "SpaceX and Tesla are each building 100GW/year of solar",
-      "quote_url": "https://x.com/DivesTech/status/2093815359929274753"
+      "quote": "none today"
     }
   ]
 }
