@@ -161,13 +161,15 @@
     }
 
     .spark {
+      display: block;
       margin: 18px 0 4px;
       width: 100%;
       height: 52px;
+      min-height: 52px;
     }
 
     .spark svg { display: block; width: 100%; height: 100%; }
-    .spark:empty { display: none; }
+    .spark:empty { visibility: hidden; }
 
     .today-block { margin-top: 22px; }
 
@@ -239,15 +241,19 @@
     }
 
     .chips {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 10px;
+      width: 100%;
     }
 
     .chip {
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
+      width: 100%;
+      min-width: 0;
       padding: 8px 14px;
       border: 1px solid var(--chip);
       border-radius: 999px;
@@ -255,6 +261,7 @@
       color: var(--fg);
       line-height: 1.2;
       text-decoration: none;
+      box-sizing: border-box;
     }
 
     a.chip:hover, a.tile:hover { border-color: #4a4a4c; }
@@ -322,7 +329,13 @@
       color: var(--muted);
     }
 
+    .band, .voices, .voices p, .chips, .stack {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
     .voices p {
+      display: block;
       margin: 0;
       font-size: 0.95rem;
       color: #d8d8d3;
@@ -367,6 +380,7 @@
 
     @media (max-width: 600px) {
       .stack { grid-template-columns: 1fr 1fr; }
+      .chips { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
@@ -688,13 +702,14 @@
 
       function sparkSvg(card, values) {
         card.sparkValues = values || [];
-        if (!card.sparkValues || card.sparkValues.length < 2) {
-          card.spark.innerHTML = "";
+        if (!card.spark || !card.sparkValues || card.sparkValues.length < 2) {
+          if (card.spark) card.spark.innerHTML = "";
           return;
         }
-        const rect = card.spark.getBoundingClientRect();
-        const w = Math.max(Math.round(rect.width) || 320, 160);
-        const h = Math.max(Math.round(rect.height) || 52, 40);
+        const host = card.spark.parentElement || card.spark;
+        const rect = host.getBoundingClientRect();
+        const w = Math.max(Math.round(card.spark.clientWidth || rect.width) || 320, 160);
+        const h = 52;
         const padX = 7;
         const padY = 8;
         const min = Math.min.apply(null, card.sparkValues);
@@ -1063,6 +1078,42 @@
         refreshTimer = setTimeout(refreshLive, open ? 60000 : 5 * 60000);
       }
 
+      function chartCloses(data) {
+        let candles = null;
+        if (Array.isArray(data)) candles = data;
+        else if (data && Array.isArray(data.candles)) candles = data.candles;
+        else if (data && data.chart && data.chart.result && data.chart.result[0]) {
+          const r = data.chart.result[0];
+          const q = r.indicators && r.indicators.quote && r.indicators.quote[0];
+          candles = q && Array.isArray(q.close) ? q.close.map(function (c) { return { close: c }; }) : [];
+        }
+        const closes = [];
+        (candles || []).forEach(function (c) {
+          const n = num(c && (c.close != null ? c.close : c));
+          if (n != null) closes.push(n);
+        });
+        if (closes.length >= 6) return closes.slice(-6, -1);
+        if (closes.length >= 5) return closes.slice(-5);
+        return closes;
+      }
+
+      async function ensureCloses(key) {
+        if (!quoteState || !quoteState.quotes) return;
+        const q = quoteState.quotes[key];
+        if (!q) return;
+        const have = Array.isArray(q.closes_5d) ? q.closes_5d.map(Number).filter(Number.isFinite) : [];
+        if (have.length >= 2) return;
+        const sym = q.symbol || String(key).toUpperCase();
+        try {
+          const res = await fetch("https://finance-query.com/v2/chart/" + encodeURIComponent(sym) + "?interval=1d&range=1mo", { cache: "no-store" });
+          if (!res.ok) throw new Error("chart http");
+          const series = chartCloses(await res.json());
+          if (series.length >= 2) q.closes_5d = series;
+        } catch (err) {
+          /* keep missing rather than invent */
+        }
+      }
+
       async function load() {
         cards.tsla.status.textContent = "Loading";
         cards.tsla.status.className = "status loading";
@@ -1072,7 +1123,14 @@
           const res = await fetch("./quote.json", { cache: "no-store" });
           if (!res.ok) throw new Error("missing");
           quoteState = splitFile(await res.json());
+          await ensureCloses("spcx");
           renderAll();
+          requestAnimationFrame(function () {
+            Object.keys(cards).forEach(function (key) {
+              const card = cards[key];
+              if (card.sparkValues.length >= 2) sparkSvg(card, card.sparkValues);
+            });
+          });
           refreshLive();
         } catch (err) {
           renderMissing();
