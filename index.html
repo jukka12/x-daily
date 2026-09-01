@@ -371,7 +371,7 @@
       </div>
 
       <div class="price-block">
-        <div class="label">Last close</div>
+        <div class="label" id="hero-label">Last close</div>
         <div id="close-price" class="price" aria-busy="true">—</div>
         <div id="close-date" class="date"></div>
         <div id="spark" class="spark" aria-hidden="true"></div>
@@ -386,10 +386,14 @@
       </div>
 
       <dl class="facts">
+        <dt id="last-close-term" hidden>Last close</dt>
+        <dd id="last-close-value" hidden>—</dd>
         <dt>Overnight</dt>
         <dd id="overnight-value">—</dd>
         <dt>Live</dt>
         <dd id="live-value">—</dd>
+        <dt id="fallback-term" hidden>Note</dt>
+        <dd id="fallback-value" hidden></dd>
         <dt>Quote time</dt>
         <dd id="when">—</dd>
         <dt>Source</dt>
@@ -440,8 +444,13 @@
 
       const el = {
         status: document.getElementById("status"),
+        heroLabel: document.getElementById("hero-label"),
         closePrice: document.getElementById("close-price"),
         closeDate: document.getElementById("close-date"),
+        lastCloseTerm: document.getElementById("last-close-term"),
+        lastCloseValue: document.getElementById("last-close-value"),
+        fallbackTerm: document.getElementById("fallback-term"),
+        fallbackValue: document.getElementById("fallback-value"),
         spark: document.getElementById("spark"),
         todayBlock: document.getElementById("today-block"),
         change: document.getElementById("change"),
@@ -567,6 +576,7 @@
         const s = sessionFromClock(new Date());
         if (s === "OPEN") return "in session";
         if (s === "PREMARKET") return "premarket";
+        if (s === "AFTERHOURS") return "after hours";
         return "closed";
       }
 
@@ -596,6 +606,8 @@
         } else if (session === "PREMARKET") {
           el.clockSession.textContent = "PREMARKET";
           el.clockSession.classList.add("pre");
+        } else if (session === "AFTERHOURS") {
+          el.clockSession.textContent = "AFTER HOURS";
         } else {
           el.clockSession.textContent = "CLOSED";
         }
@@ -742,13 +754,40 @@
 
         const overnight = q.overnight == null ? null : Number(q.overnight);
         const live = q.live == null ? null : Number(q.live);
+        const afterHours = q.after_hours == null ? null : Number(q.after_hours);
         const hasOvernight = Number.isFinite(overnight);
         const hasLive = Number.isFinite(live);
-        const session = String(q.session || "");
+        const hasAfter = Number.isFinite(afterHours);
+        const session = sessionFromClock(new Date());
 
-        el.closePrice.textContent = "$" + money(lastClose);
+        let hero = lastClose;
+        let heroLabel = "Last close";
+        let fallback = "";
+        if (session === "PREMARKET") {
+          if (hasOvernight) { hero = overnight; heroLabel = "Premarket"; }
+          else { fallback = "No premarket quote. Showing last close."; }
+        } else if (session === "OPEN") {
+          if (hasLive) { hero = live; heroLabel = "Live"; }
+          else { fallback = "No live quote. Showing last close."; }
+        } else if (session === "AFTERHOURS") {
+          if (hasAfter) { hero = afterHours; heroLabel = "After hours"; }
+          else if (hasLive) { hero = live; heroLabel = "After hours"; }
+          else { fallback = "No after-hours quote. Showing last close."; }
+        }
+
+        el.heroLabel.textContent = heroLabel;
+        el.closePrice.textContent = "$" + money(hero);
         el.closePrice.setAttribute("aria-busy", "false");
-        el.closeDate.textContent = formatCloseDate(q.last_close_date);
+        el.closeDate.textContent = heroLabel === "Last close" ? formatCloseDate(q.last_close_date) : "";
+
+        const showLastFact = heroLabel !== "Last close";
+        el.lastCloseTerm.hidden = !showLastFact;
+        el.lastCloseValue.hidden = !showLastFact;
+        el.lastCloseValue.textContent = showLastFact ? "$" + money(lastClose) : "—";
+        el.fallbackTerm.hidden = !fallback;
+        el.fallbackValue.hidden = !fallback;
+        el.fallbackTerm.textContent = fallback ? "Note" : "";
+        el.fallbackValue.textContent = fallback;
 
         const series = Array.isArray(q.closes_5d)
           ? q.closes_5d.map(Number).filter(Number.isFinite)
@@ -759,7 +798,8 @@
         el.liveValue.textContent = hasLive ? "$" + money(live) : "—";
 
         let todayPx = null;
-        if (session === "OPEN" && hasLive) todayPx = live;
+        if (heroLabel !== "Last close") todayPx = hero;
+        else if (hasLive) todayPx = live;
         else if (hasOvernight) todayPx = overnight;
 
         if (todayPx != null && lastClose !== 0) {
@@ -784,10 +824,13 @@
           el.status.textContent = "Live";
           el.status.className = "status live";
         } else if (session === "PREMARKET") {
-          el.status.textContent = "Overnight";
+          el.status.textContent = "Premarket";
+          el.status.className = "status";
+        } else if (session === "AFTERHOURS") {
+          el.status.textContent = "After hours";
           el.status.className = "status";
         } else {
-          el.status.textContent = "Closed";
+          el.status.textContent = "Last close";
           el.status.className = "status";
         }
         setSessionClock(session);
@@ -847,8 +890,10 @@
         const ny = nyParts(date || new Date());
         const mins = ny.hour * 60 + ny.minute;
         const weekday = ["Mon", "Tue", "Wed", "Thu", "Fri"].indexOf(ny.weekday) >= 0;
-        if (weekday && mins >= 9 * 60 + 30 && mins < 16 * 60) return "OPEN";
-        if (weekday && mins >= 4 * 60 && mins < 9 * 60 + 30) return "PREMARKET";
+        if (!weekday) return "CLOSED";
+        if (mins >= 4 * 60 && mins < 9 * 60 + 30) return "PREMARKET";
+        if (mins >= 9 * 60 + 30 && mins < 16 * 60) return "OPEN";
+        if (mins >= 16 * 60 && mins < 20 * 60) return "AFTERHOURS";
         return "CLOSED";
       }
 
@@ -857,7 +902,8 @@
         const s = String(state).toUpperCase();
         if (s === "REGULAR" || s === "OPEN") return "OPEN";
         if (s === "PRE" || s === "PREMARKET" || s === "PREPRE") return "PREMARKET";
-        if (s === "POST" || s === "POSTPOST" || s === "CLOSED" || s === "CLOSE") return "CLOSED";
+        if (s === "POST" || s === "POSTPOST" || s === "AFTERHOURS" || s === "AFTER_HOURS") return "AFTERHOURS";
+        if (s === "CLOSED" || s === "CLOSE") return "CLOSED";
         return null;
       }
 
@@ -872,11 +918,14 @@
         const next = Object.assign({}, base);
         const live = num(data.regularMarketPrice);
         const close = num(data.previousClose != null ? data.previousClose : data.regularMarketPreviousClose);
-        if (live == null || close == null) return null;
-        next.live = live;
-        next.last_close = close;
-        const mapped = sessionFromMarketState(data.marketState);
-        next.session = mapped || sessionFromClock(new Date());
+        if (close == null && live == null) return null;
+        if (live != null) next.live = live;
+        if (close != null) next.last_close = close;
+        const pre = num(data.preMarketPrice);
+        const post = num(data.postMarketPrice);
+        if (pre != null) next.overnight = pre;
+        if (post != null) next.after_hours = post;
+        next.session = sessionFromClock(new Date());
         next.quote_time_utc = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
         return next;
       }
