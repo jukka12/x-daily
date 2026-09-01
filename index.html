@@ -230,7 +230,22 @@
       font-size: 0.86rem;
       color: var(--fg);
       line-height: 1.2;
+      text-decoration: none;
     }
+
+    a.chip:hover, a.tile:hover { border-color: #4a4a4c; }
+
+    a.tile {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .voices a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .voices a:hover { text-decoration: underline; }
 
     .chip .unverified {
       color: #7a7a76;
@@ -628,12 +643,25 @@
         el.spark.innerHTML = html;
       }
 
+      function safeUrl(s) {
+        if (s == null || s === "") return "";
+        const u = String(s);
+        if (u.indexOf("https://") === 0 || u.indexOf("http://") === 0) return u;
+        return "";
+      }
+
       function renderChips(items) {
         const list = (items && items.length) ? items : DEFAULT_SHOW_ME;
         el.chips.innerHTML = "";
         list.forEach(function (item) {
-          const chip = document.createElement("span");
+          const href = safeUrl(item && item.url);
+          const chip = document.createElement(href ? "a" : "span");
           chip.className = "chip";
+          if (href) {
+            chip.href = href;
+            chip.target = "_blank";
+            chip.rel = "noopener";
+          }
           const label = item && item.label != null ? String(item.label) : "";
           const date = item && item.date ? String(item.date) : "";
           chip.appendChild(document.createTextNode(date ? label + " " + date : label));
@@ -653,8 +681,14 @@
         list.forEach(function (item) {
           const name = item && item.name != null ? String(item.name) : "";
           const status = item && item.status != null && String(item.status) !== "" && String(item.status) !== "—" ? String(item.status) : "quiet";
-          const tile = document.createElement("div");
+          const href = safeUrl(item && item.url);
+          const tile = document.createElement(href ? "a" : "div");
           tile.className = "tile";
+          if (href) {
+            tile.href = href;
+            tile.target = "_blank";
+            tile.rel = "noopener";
+          }
           if (MARKS[name]) {
             const mark = document.createElement("div");
             mark.className = "mark";
@@ -767,7 +801,20 @@
         renderChips(Array.isArray(q.show_me) ? q.show_me : null);
         renderStack(Array.isArray(q.musk_stack) ? q.musk_stack : null);
         applyTeslaStatus();
-        el.voices.textContent = q.voices ? String(q.voices) : DEFAULT_VOICES;
+        const voiceText = q.voices ? String(q.voices) : DEFAULT_VOICES;
+        const noneToday = /none today/i.test(voiceText);
+        const vhref = noneToday ? "" : safeUrl(q.voices_url);
+        el.voices.textContent = "";
+        if (vhref) {
+          const a = document.createElement("a");
+          a.href = vhref;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = voiceText;
+          el.voices.appendChild(a);
+        } else {
+          el.voices.textContent = voiceText;
+        }
 
         const parts = ["TSLA last close $" + money(lastClose)];
         if (q.last_close_date) parts[0] += " (" + formatCloseDate(q.last_close_date) + ")";

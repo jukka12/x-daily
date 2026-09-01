@@ -17,31 +17,36 @@
   "show_me": [
     {
       "label": "Cybercab",
-      "date": "3 Sep",
-      "unverified": true
+      "unverified": true,
+      "url": "https://www.tesla.com/robotaxi"
     },
     {
       "label": "Broadcom",
       "date": "Wed",
-      "unverified": false
+      "unverified": false,
+      "url": "https://www.broadcom.com/company/news/financial-releases/64621"
     },
     {
       "label": "Starlink",
-      "unverified": true
+      "unverified": true,
+      "url": "https://www.spacex.com/launches"
     }
   ],
   "musk_stack": [
     {
       "name": "Tesla",
-      "status": "in session"
+      "status": "in session",
+      "url": "https://www.tesla.com/robotaxi"
     },
     {
       "name": "SpaceX",
-      "status": "no new post"
+      "status": "no new post",
+      "url": "https://www.spacex.com/launches"
     },
     {
       "name": "xAI",
-      "status": "quiet"
+      "status": "quiet",
+      "url": "https://x.ai"
     },
     {
       "name": "Optimus",
