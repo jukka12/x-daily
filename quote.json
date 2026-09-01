@@ -39,94 +39,95 @@
   "show_me": [
     {
       "label": "Launches",
-      "url": "https://www.spacex.com/launches",
-      "quote": "quiet"
+      "url": "https://x.com/SpaceX",
+      "quote": "Falcon Heavy launches NASA's Nancy Grace Roman Space Telescope",
+      "quote_url": "https://x.com/SpaceX/status/2094081879150403768"
     },
     {
       "label": "Starlink",
-      "url": "https://www.starlink.com",
-      "quote": "Starlink delivers fast, reliable internet at home and on the go",
-      "quote_url": "https://www.starlink.com"
+      "url": "https://x.com/Starlink",
+      "quote": "Starlink Mini keeps you connected to high-speed internet on the go",
+      "quote_url": "https://x.com/Starlink/status/2094506552669684028"
     },
     {
       "label": "Cybercab",
-      "url": "https://www.tesla.com/robotaxi",
-      "quote": "Autonomous Robotaxi rides in Florida and Texas",
-      "quote_url": "https://www.tesla.com/robotaxi"
+      "url": "https://x.com/Tesla",
+      "quote": "Less than a week away",
+      "quote_url": "https://x.com/Tesla/status/2093585372920123522"
     },
     {
       "label": "Broadcom",
-      "url": "https://www.broadcom.com/company/news/financial-releases/64621",
-      "quote": "Q3 fiscal 2026 results Wednesday, September 2, 2026",
-      "quote_url": "https://www.broadcom.com/company/news/financial-releases/64621"
+      "url": "https://x.com/Broadcom",
+      "quote": "Broadcom unveiled AgentMinder, the first Agentic Fabric",
+      "quote_url": "https://x.com/Broadcom/status/2094508904046641250"
     }
   ],
   "musk_stack": [
     {
       "label": "Tesla",
-      "url": "https://www.tesla.com",
-      "quote": "quiet",
-      "unverified": true
+      "url": "https://x.com/Tesla",
+      "quote": "FSD Supervised makes traffic safer for cyclists",
+      "quote_url": "https://x.com/Tesla/status/2093089329950368007"
     },
     {
       "label": "Energy",
-      "url": "https://www.tesla.com/energy",
-      "quote": "Powerwall is a home battery that stores energy",
-      "quote_url": "https://www.tesla.com/energy"
+      "url": "https://x.com/Tesla",
+      "quote": "FSD Supervised is like a guardian angel for you",
+      "quote_url": "https://x.com/Tesla/status/2092426452679663769"
     },
     {
       "label": "Robotaxi",
-      "url": "https://www.tesla.com/robotaxi",
-      "quote": "Autonomous Robotaxi rides in Florida and Texas",
-      "quote_url": "https://www.tesla.com/robotaxi"
+      "url": "https://x.com/Tesla",
+      "quote": "Less than a week away",
+      "quote_url": "https://x.com/Tesla/status/2093585372920123522"
     },
     {
       "label": "Optimus",
-      "url": "https://www.tesla.com/AI",
-      "quote": "quiet",
-      "unverified": true
+      "url": "https://x.com/Tesla",
+      "quote": "FSD Supervised makes traffic safer for cyclists",
+      "quote_url": "https://x.com/Tesla/status/2093089329950368007"
     },
     {
       "label": "SpaceX",
-      "url": "https://www.spacex.com",
-      "quote": "SpaceX designs, manufactures and launches advanced rockets and spacecraft",
-      "quote_url": "https://www.spacex.com"
+      "url": "https://x.com/SpaceX",
+      "quote": "Falcon Heavy's two side boosters land at LZ-2 and LZ-40",
+      "quote_url": "https://x.com/SpaceX/status/2094231957257273647"
     },
     {
       "label": "Starlink",
-      "url": "https://www.starlink.com",
-      "quote": "Starlink delivers fast, reliable internet at home and on the go",
-      "quote_url": "https://www.starlink.com"
+      "url": "https://x.com/Starlink",
+      "quote": "Starlink Mini keeps you connected to high-speed internet on the go",
+      "quote_url": "https://x.com/Starlink/status/2094506552669684028"
     },
     {
       "label": "Starship",
-      "url": "https://www.spacex.com/vehicles/starship",
-      "quote": "Service to Earth orbit, Moon, Mars and beyond",
-      "quote_url": "https://www.spacex.com/vehicles/starship"
+      "url": "https://x.com/SpaceX",
+      "quote": "Falcon Heavy lifts off from pad 39A in Florida",
+      "quote_url": "https://x.com/SpaceX/status/2094024852881469477"
     },
     {
       "label": "xAI",
-      "url": "https://x.ai",
-      "quote": "SpaceXAI builds Grok, frontier AI models",
-      "quote_url": "https://x.ai"
+      "url": "https://x.com/SpaceXAI",
+      "quote": "At Starlink, we're using Grok Voice to resolve over 15,000",
+      "quote_url": "https://x.com/SpaceXAI/status/2091987541272543406"
     },
     {
       "label": "X",
-      "url": "https://x.com",
-      "quote": "X. It's what's happening",
-      "quote_url": "https://x.com"
+      "url": "https://x.com/X",
+      "quote": "Grok Bot now has improved support for X",
+      "quote_url": "https://x.com/X/status/2093829017128374366"
     },
     {
       "label": "Neuralink",
-      "url": "https://neuralink.com",
-      "quote": "People are using Neuralink devices to control computers",
-      "quote_url": "https://neuralink.com"
+      "url": "https://x.com/neuralink",
+      "quote": "With Neuralink, Audrey is creating art with her mind",
+      "quote_url": "https://x.com/neuralink/status/2092732695180955790"
     },
     {
       "label": "Boring",
-      "url": "https://www.boringcompany.com",
-      "quote": "LVCC Loop is the first commercially operating Loop system",
-      "quote_url": "https://www.boringcompany.com"
+      "url": "https://x.com/boringcompany",
+      "quote": "Vegas Loop is now entitled for 123 stations",
+      "quote_url": "https://x.com/boringcompany/status/2092396130361606374"
     }
   ],
   "voices": [
