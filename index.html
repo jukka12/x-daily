@@ -35,21 +35,44 @@
     }
 
     .board {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-      gap: 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
       width: min(1180px, 100%);
       margin: 0 auto;
+    }
+
+    .pair {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       align-items: stretch;
     }
 
-    .rule {
-      background: var(--line);
-      min-height: 100%;
+    .col-tsla {
+      padding-right: 40px;
+      border-right: 1px solid var(--line);
+    }
+    .col-spcx { padding-left: 40px; }
+
+    .band {
+      margin-top: 32px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
     }
 
-    .col-left { padding-right: 40px; }
-    .col-right { padding-left: 40px; }
+    .mission {
+      margin-top: 8px;
+      font-size: clamp(1.55rem, 4.2vw, 2.35rem);
+      font-weight: 560;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    a.mission {
+      color: inherit;
+      text-decoration: none;
+    }
+    a.mission:hover { text-decoration: underline; }
 
     .kicker {
       display: flex;
@@ -254,28 +277,28 @@
       letter-spacing: 0.12em;
     }
 
-    .stack-wrap { margin-top: 36px; }
+    .stack-wrap { margin-top: 0; }
 
     .stack {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .tile {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 14px;
-      min-height: 96px;
-      padding: 18px 16px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
+      gap: 10px;
+      min-height: 0;
+      padding: 8px 14px;
+      border: 1px solid var(--chip);
+      border-radius: 999px;
     }
 
     .mark {
-      flex: 0 0 40px;
-      width: 40px;
-      height: 40px;
+      flex: 0 0 22px;
+      width: 22px;
+      height: 22px;
       color: var(--fg);
     }
 
@@ -295,11 +318,7 @@
       color: var(--muted);
     }
 
-    .voices {
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-    }
+    .voices { margin-top: 0; padding-top: 0; border-top: 0; }
 
     .voices p {
       margin: 0;
@@ -333,27 +352,22 @@
     @media (max-width: 900px) {
       body { padding: 24px 18px 36px; }
 
-      .board {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1px auto;
+      .pair { grid-template-columns: 1fr; }
+
+      .col-tsla {
+        padding-right: 0;
+        padding-bottom: 28px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
       }
-
-      .rule { min-height: 1px; height: 1px; margin: 8px 0; }
-
-      .col-left { padding-right: 0; padding-bottom: 28px; }
-      .col-right { padding-left: 0; padding-top: 28px; }
-
-      .stack { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 520px) {
-      .stack { grid-template-columns: 1fr; }
+      .col-spcx { padding-left: 0; padding-top: 28px; }
     }
   </style>
 </head>
 <body>
   <main class="board">
-    <section class="col-left">
+    <div class="pair">
+    <section class="col-tsla">
       <div class="kicker">
         <div>
           <h1>Tesla Daily</h1>
@@ -402,21 +416,36 @@
       <p id="note" class="note"></p>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <section class="col-spcx">
+      <div class="kicker">
+        <div>
+          <h1>SPCX</h1>
+          <div class="ticker">SPCX · SPACEX</div>
+        </div>
+        <div id="spcx-status" class="status">UNVERIFIED</div>
+      </div>
+      <div class="price-block">
+        <div class="label">Next mission</div>
+        <div id="spcx-hero" class="mission">No dated flight</div>
+        <div id="spcx-when" class="date"></div>
+      </div>
+      <dl class="facts" id="spcx-facts"></dl>
+    </section>
+    </div>
 
-    <section class="col-right">
+    <section class="band voices">
+      <h2 class="section-label">Voices</h2>
+      <p id="voices">Wood / Baron / Ives — none today</p>
+    </section>
+
+    <section class="band">
       <h2 class="section-label">Show-me this week</h2>
       <div id="chips" class="chips"></div>
+    </section>
 
-      <div class="stack-wrap">
-        <h2 class="section-label">Musk stack</h2>
-        <div id="stack" class="stack"></div>
-      </div>
-
-      <div class="voices">
-        <h2 class="section-label">Voices</h2>
-        <p id="voices">Wood / Baron / Ives — none today</p>
-      </div>
+    <section class="band">
+      <h2 class="section-label">Musk stack</h2>
+      <div id="stack" class="stack"></div>
     </section>
   </main>
   <p class="sr-only" id="live-region" aria-live="polite"></p>
@@ -466,7 +495,11 @@
         voices: document.getElementById("voices"),
         clockHel: document.getElementById("clock-hel"),
         clockNy: document.getElementById("clock-ny"),
-        clockSession: document.getElementById("clock-session")
+        clockSession: document.getElementById("clock-session"),
+        spcxStatus: document.getElementById("spcx-status"),
+        spcxHero: document.getElementById("spcx-hero"),
+        spcxWhen: document.getElementById("spcx-when"),
+        spcxFacts: document.getElementById("spcx-facts")
       };
 
       function money(n) {
@@ -687,6 +720,44 @@
         });
       }
 
+      function renderSpacex(sx) {
+        sx = sx || {};
+        const name = sx.name ? String(sx.name) : "";
+        const href = safeUrl(sx.url);
+        const unverified = !!sx.unverified;
+        let status = sx.status ? String(sx.status) : "";
+        if (unverified) status = "UNVERIFIED";
+        else if (!status) status = "quiet";
+        el.spcxStatus.textContent = status;
+        el.spcxStatus.className = "status";
+        const heroText = name || "No dated flight";
+        el.spcxHero.textContent = "";
+        el.spcxHero.className = "mission";
+        if (href) {
+          const a = document.createElement("a");
+          a.className = "mission";
+          a.href = href;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = heroText;
+          el.spcxHero.appendChild(a);
+        } else {
+          el.spcxHero.textContent = heroText;
+        }
+        const when = parseUtc(sx.date_utc);
+        el.spcxWhen.textContent = when ? formatHelsinki(when) : "";
+        el.spcxFacts.innerHTML = "";
+        [["Pad", sx.pad], ["Vehicle", sx.vehicle]].forEach(function (row) {
+          if (!row[1]) return;
+          const dt = document.createElement("dt");
+          dt.textContent = row[0];
+          const dd = document.createElement("dd");
+          dd.textContent = String(row[1]);
+          el.spcxFacts.appendChild(dt);
+          el.spcxFacts.appendChild(dd);
+        });
+      }
+
       function renderStack(items) {
         const list = (items && items.length) ? items : DEFAULT_STACK;
         el.stack.innerHTML = "";
@@ -742,6 +813,7 @@
         el.liveRegion.textContent = "The data file is missing.";
         renderChips(DEFAULT_SHOW_ME);
         renderStack(DEFAULT_STACK);
+        renderSpacex(null);
         el.voices.textContent = DEFAULT_VOICES;
       }
 
@@ -843,6 +915,7 @@
 
         renderChips(Array.isArray(q.show_me) ? q.show_me : null);
         renderStack(Array.isArray(q.musk_stack) ? q.musk_stack : null);
+        renderSpacex(q.spacex);
         applyTeslaStatus();
         const voiceText = q.voices ? String(q.voices) : DEFAULT_VOICES;
         const noneToday = /none today/i.test(voiceText);

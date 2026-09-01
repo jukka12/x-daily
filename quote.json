@@ -53,5 +53,12 @@
       "status": "quiet"
     }
   ],
-  "voices": "Wood / Baron / Ives \u2014 none today"
+  "voices": "Wood / Baron / Ives \u2014 none today",
+  "spacex": {
+    "name": "",
+    "date_utc": null,
+    "status": "UNVERIFIED",
+    "url": "https://www.spacex.com/launches",
+    "unverified": true
+  }
 }
