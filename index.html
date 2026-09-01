@@ -281,15 +281,18 @@
     .stack-wrap { margin-top: 0; }
 
     .stack {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 10px;
+      width: 100%;
     }
 
     .tile {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 10px;
+      min-width: 0;
+      width: 100%;
       min-height: 0;
       padding: 8px 14px;
       border: 1px solid var(--chip);
@@ -318,8 +321,6 @@
       font-size: 0.86rem;
       color: var(--muted);
     }
-
-    .voices { margin-top: 0; padding-top: 0; border-top: 0; }
 
     .voices p {
       margin: 0;
@@ -362,6 +363,10 @@
         border-bottom: 1px solid var(--line);
       }
       .col-spcx { padding-left: 0; padding-top: 28px; }
+    }
+
+    @media (max-width: 600px) {
+      .stack { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
