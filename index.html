@@ -271,9 +271,25 @@
       color: inherit;
     }
 
-    .voices a.chip { text-decoration: none; flex-direction: column; align-items: center; gap: 3px; }
+    .voices a.chip, .signals a.chip {
+      text-decoration: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
     .chip-name { font-weight: 560; }
     .chip-status { font-size: 0.78rem; color: var(--muted); }
+    .pip {
+      font-size: 0.58rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--live-bg);
+      color: #fff;
+      line-height: 1;
+    }
 
     .chip .unverified {
       color: #7a7a76;
@@ -480,6 +496,11 @@
       <div id="voices" class="chips"></div>
     </section>
 
+    <section class="band signals">
+      <h2 class="section-label">Signals</h2>
+      <div id="signals" class="chips"></div>
+    </section>
+
     <section class="band">
       <h2 class="section-label">Show-me this week</h2>
       <div id="chips" class="chips"></div>
@@ -557,6 +578,7 @@
         chips: document.getElementById("chips"),
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
+        signals: document.getElementById("signals"),
         clockHel: document.getElementById("clock-hel"),
         clockNy: document.getElementById("clock-ny"),
         clockSession: document.getElementById("clock-session"),
@@ -870,6 +892,60 @@
         });
       }
 
+      const SIGNAL_SOURCES = [
+        { id: "elon", label: "Elon" },
+        { id: "wood", label: "Wood" },
+        { id: "baron", label: "Baron" },
+        { id: "ives", label: "Ives" }
+      ];
+
+      function isNewSignal(at) {
+        if (at == null || at === "") return false;
+        const d = new Date(String(at));
+        if (Number.isNaN(d.getTime())) return false;
+        return Date.now() - d.getTime() <= 24 * 3600 * 1000;
+      }
+
+      function renderSignals(data) {
+        const sources = (data && Array.isArray(data.sources)) ? data.sources : [];
+        const byId = {};
+        sources.forEach(function (s) {
+          if (s && s.id) byId[String(s.id).toLowerCase()] = s;
+        });
+        el.signals.innerHTML = "";
+        el.signals.style.gridTemplateColumns = "repeat(4, minmax(0, 1fr))";
+        SIGNAL_SOURCES.forEach(function (base) {
+          const src = byId[base.id] || {};
+          const items = Array.isArray(src.items) ? src.items : [];
+          const fresh = items.some(function (it) { return isNewSignal(it && it.at_utc); });
+          const a = document.createElement("a");
+          a.className = "chip";
+          a.href = "./signals.html?src=" + encodeURIComponent(base.id);
+          const name = document.createElement("span");
+          name.className = "chip-name";
+          name.textContent = base.label;
+          a.appendChild(name);
+          if (fresh) {
+            const pip = document.createElement("span");
+            pip.className = "pip";
+            pip.textContent = "New";
+            a.appendChild(pip);
+          }
+          el.signals.appendChild(a);
+        });
+      }
+
+      async function loadSignals() {
+        if (!el.signals) return;
+        try {
+          const res = await fetch("./signals.json", { cache: "no-store" });
+          if (!res.ok) throw new Error("missing");
+          renderSignals(await res.json());
+        } catch (err) {
+          renderSignals({ sources: [] });
+        }
+      }
+
       function blankCard(card, message) {
         card.price.textContent = "—";
         card.price.setAttribute("aria-busy", "false");
@@ -1070,6 +1146,7 @@
         renderChips(Array.isArray(quoteState.show_me) ? quoteState.show_me : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
         renderVoices(quoteState);
+        loadSignals();
         applyTeslaStatus();
         const bits = [];
         ["tsla", "spcx"].forEach(function (key) {
@@ -1087,6 +1164,7 @@
         renderChips(DEFAULT_SHOW_ME);
         renderStack(DEFAULT_STACK);
         renderVoices({ voices: DEFAULT_VOICES });
+        loadSignals();
         el.liveRegion.textContent = "The data file is missing.";
       }
 

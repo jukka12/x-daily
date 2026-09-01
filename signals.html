@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Signals — Tesla Daily</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #0c0c0d;
+      --fg: #f3f3f1;
+      --muted: #8a8a86;
+      --line: #2a2a2c;
+      --chip: #3a3a3c;
+      --up: #3ecf8e;
+      --down: #e24b4b;
+      --live-bg: #1f7a4d;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      color-scheme: dark;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body { padding: 32px 28px 48px; }
+    .board { width: min(1180px, 100%); margin: 0 auto; }
+    .back {
+      display: inline-block;
+      margin-bottom: 22px;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back:hover { color: var(--fg); }
+    h1 {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+    }
+    .handle {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 32px 0 14px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .rows { display: flex; flex-direction: column; gap: 8px; }
+    .row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: inherit;
+      text-decoration: none;
+    }
+    a.row:hover { border-color: #4a4a4c; }
+    .row-title { color: #d8d8d3; }
+    .row .unverified {
+      color: #7a7a76;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
+    .empty { color: var(--muted); font-size: 0.92rem; }
+    .note { margin-top: 18px; font-size: 0.82rem; color: var(--muted); }
+    .note.error { color: #e6c56a; }
+  </style>
+</head>
+<body>
+  <main class="board">
+    <a class="back" href="./index.html">Tesla Daily</a>
+    <h1 id="label">Signals</h1>
+    <div class="handle" id="handle"></div>
+    <h2 class="section-label">NEW</h2>
+    <div id="fresh" class="rows"></div>
+    <h2 class="section-label">OLDER</h2>
+    <div id="older" class="rows"></div>
+    <p id="note" class="note"></p>
+  </main>
+  <script>
+    (function () {
+      const src = (new URLSearchParams(location.search).get("src") || "elon").toLowerCase();
+
+      function parseUtc(s) {
+        if (s == null || s === "") return null;
+        const d = new Date(String(s));
+        return Number.isNaN(d.getTime()) ? null : d;
+      }
+
+      function helsinkiParts(date) {
+        const parts = new Intl.DateTimeFormat("en-US", {
+          timeZone: "Europe/Helsinki",
+          weekday: "short",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          hourCycle: "h23"
+        }).formatToParts(date);
+        const get = function (t) {
+          const p = parts.find(function (x) { return x.type === t; });
+          return p ? p.value : "";
+        };
+        return {
+          weekday: get("weekday"),
+          year: Number(get("year")),
+          month: Number(get("month")),
+          day: Number(get("day"))
+        };
+      }
+
+      function weekStartMs(now) {
+        const h = helsinkiParts(now);
+        const map = { Mon: 0, Tue: 1, Wed: 2, Thu: 3, Fri: 4, Sat: 5, Sun: 6 };
+        const back = map[h.weekday] != null ? map[h.weekday] : 0;
+        const monday = new Date(Date.UTC(h.year, h.month - 1, h.day - back, 0, 0, 0));
+        const guess = Date.UTC(h.year, h.month - 1, h.day - back, 21, 0, 0);
+        const fmt = new Intl.DateTimeFormat("en-US", {
+          timeZone: "Europe/Helsinki", year: "numeric", month: "2-digit", day: "2-digit",
+          hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+        });
+        function offset(ms) {
+          const p = fmt.formatToParts(new Date(ms));
+          const g = function (t) { const x = p.find(function (y) { return y.type === t; }); return x ? Number(x.value) : 0; };
+          return Date.UTC(g("year"), g("month") - 1, g("day"), g("hour"), g("minute"), 0) - ms;
+        }
+        const utcGuess = Date.UTC(h.year, h.month - 1, h.day - back, 0, 0, 0);
+        return utcGuess - offset(utcGuess - offset(utcGuess));
+      }
+
+      function isNew(at) {
+        const d = parseUtc(at);
+        return d && (Date.now() - d.getTime()) <= 24 * 3600 * 1000;
+      }
+
+      function isThisWeek(at, now) {
+        const d = parseUtc(at);
+        if (!d) return false;
+        const t = d.getTime();
+        return t >= weekStartMs(now) && t <= now.getTime();
+      }
+
+      function row(item) {
+        const href = item && typeof item.url === "string" && (item.url.indexOf("https://") === 0 || item.url.indexOf("http://") === 0) ? item.url : "";
+        const node = document.createElement(href ? "a" : "div");
+        node.className = "row";
+        if (href) node.href = href;
+        const title = document.createElement("span");
+        title.className = "row-title";
+        title.textContent = item && item.title ? String(item.title) : "";
+        node.appendChild(title);
+        if (item && item.unverified) {
+          const tag = document.createElement("span");
+          tag.className = "unverified";
+          tag.textContent = "UNVERIFIED";
+          node.appendChild(tag);
+        }
+        return node;
+      }
+
+      function fill(node, items) {
+        node.innerHTML = "";
+        if (!items.length) {
+          const p = document.createElement("p");
+          p.className = "empty";
+          p.textContent = "None.";
+          node.appendChild(p);
+          return;
+        }
+        items.forEach(function (item) { node.appendChild(row(item)); });
+      }
+
+      async function load() {
+        const label = document.getElementById("label");
+        const handle = document.getElementById("handle");
+        const note = document.getElementById("note");
+        try {
+          const res = await fetch("./signals.json", { cache: "no-store" });
+          if (!res.ok) throw new Error("missing");
+          const data = await res.json();
+          const sources = Array.isArray(data.sources) ? data.sources : [];
+          const source = sources.find(function (s) { return s && String(s.id).toLowerCase() === src; }) || null;
+          if (!source) {
+            label.textContent = "Signals";
+            handle.textContent = "";
+            note.className = "note error";
+            note.textContent = "Unknown source.";
+            fill(document.getElementById("fresh"), []);
+            fill(document.getElementById("older"), []);
+            return;
+          }
+          document.title = source.label + " — Signals";
+          label.textContent = source.label;
+          handle.textContent = source.handle ? String(source.handle) : "";
+          const now = new Date();
+          const items = Array.isArray(source.items) ? source.items : [];
+          const fresh = items.filter(function (it) { return isNew(it && it.at_utc); });
+          const older = items.filter(function (it) {
+            return !isNew(it && it.at_utc) && isThisWeek(it && it.at_utc, now);
+          });
+          fill(document.getElementById("fresh"), fresh);
+          fill(document.getElementById("older"), older);
+        } catch (err) {
+          note.className = "note error";
+          note.textContent = "The data file is missing.";
+        }
+      }
+      load();
+    })();
+  </script>
+</body>
+</html>

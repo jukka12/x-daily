@@ -1,0 +1,32 @@
+{
+  "sources": [
+    {
+      "id": "elon",
+      "label": "Elon",
+      "handle": "@elonmusk",
+      "profile": "https://x.com/elonmusk",
+      "items": []
+    },
+    {
+      "id": "wood",
+      "label": "Wood",
+      "handle": "@CathieDWood",
+      "profile": "https://x.com/CathieDWood",
+      "items": []
+    },
+    {
+      "id": "baron",
+      "label": "Baron",
+      "handle": "@RonBaronAnalyst",
+      "profile": "https://x.com/RonBaronAnalyst",
+      "items": []
+    },
+    {
+      "id": "ives",
+      "label": "Ives",
+      "handle": "@DivesTech",
+      "profile": "https://x.com/DivesTech",
+      "items": []
+    }
+  ]
+}
