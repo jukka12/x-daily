@@ -271,7 +271,9 @@
       color: inherit;
     }
 
-    .voices a.chip { text-decoration: none; }
+    .voices a.chip { text-decoration: none; flex-direction: column; align-items: center; gap: 3px; }
+    .chip-name { font-weight: 560; }
+    .chip-status { font-size: 0.78rem; color: var(--muted); }
 
     .chip .unverified {
       color: #7a7a76;
@@ -492,7 +494,7 @@
 
   <script>
     (function () {
-      const NONE_TODAY = "Wood / Baron / Ives — none today";
+      const NONE_TODAY = "none today";
       const DEFAULT_SHOW_ME = [
         { label: "Launches", unverified: true },
         { label: "Starlink", unverified: true },
@@ -512,9 +514,9 @@
         { name: "Boring", status: "quiet" }
       ];
       const DEFAULT_VOICES = [
-        { label: NONE_TODAY },
-        { label: NONE_TODAY },
-        { label: NONE_TODAY }
+        { label: "Wood", url: "https://x.com/CathieDWood", status: "none today" },
+        { label: "Baron", url: "https://x.com/RonBaronAnalyst", status: "none today" },
+        { label: "Ives", url: "https://x.com/DivesTech", status: "none today" }
       ];
       const STACK_ROW_A = ["Tesla", "Energy", "Robotaxi", "Optimus"];
       const LIVE_URL = {
@@ -833,11 +835,39 @@
 
       function renderVoices(file) {
         let items = [];
-        if (file && Array.isArray(file.voices)) items = file.voices;
-        else if (file && typeof file.voices === "string" && file.voices) {
-          items = [{ label: String(file.voices) }];
-        }
-        renderChipRow(el.voices, items, 3, 6, { label: NONE_TODAY });
+        if (file && Array.isArray(file.voices)) items = file.voices.slice();
+        const named = [
+          { label: "Wood", url: "https://x.com/CathieDWood" },
+          { label: "Baron", url: "https://x.com/RonBaronAnalyst" },
+          { label: "Ives", url: "https://x.com/DivesTech" }
+        ];
+        const byLabel = {};
+        items.forEach(function (item) {
+          if (item && item.label) byLabel[String(item.label)] = item;
+        });
+        el.voices.innerHTML = "";
+        el.voices.style.gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
+        named.forEach(function (base) {
+          const item = byLabel[base.label] || base;
+          const href = safeUrl(item.url) || base.url;
+          const chip = document.createElement("a");
+          chip.className = "chip";
+          chip.href = href;
+          chip.target = "_blank";
+          chip.rel = "noopener";
+          const name = document.createElement("span");
+          name.className = "chip-name";
+          name.textContent = base.label;
+          chip.appendChild(name);
+          const st = item.status != null && String(item.status) !== "" ? String(item.status) : "";
+          if (st) {
+            const s = document.createElement("span");
+            s.className = "chip-status";
+            s.textContent = st;
+            chip.appendChild(s);
+          }
+          el.voices.appendChild(chip);
+        });
       }
 
       function blankCard(card, message) {

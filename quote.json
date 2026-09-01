@@ -118,13 +118,19 @@
   ],
   "voices": [
     {
-      "label": "Wood / Baron / Ives \u2014 none today"
+      "label": "Wood",
+      "url": "https://x.com/CathieDWood",
+      "status": "none today"
     },
     {
-      "label": "Wood / Baron / Ives \u2014 none today"
+      "label": "Baron",
+      "url": "https://x.com/RonBaronAnalyst",
+      "status": "none today"
     },
     {
-      "label": "Wood / Baron / Ives \u2014 none today"
+      "label": "Ives",
+      "url": "https://x.com/DivesTech",
+      "status": "none today"
     }
   ]
 }
