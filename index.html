@@ -413,7 +413,7 @@
         { name: "Tesla", status: "in session" },
         { name: "SpaceX", status: "no new post" },
         { name: "xAI", status: "quiet" },
-        { name: "Optimus", status: "—" }
+        { name: "Optimus", status: "quiet" }
       ];
       const DEFAULT_VOICES = "Wood / Baron / Ives — none today";
 
@@ -548,10 +548,29 @@
         return parseUtc(q.quote_time_utc) || parseQuoteTimeEt(q.quote_time_et);
       }
 
+      function teslaSessionLabel() {
+        const s = sessionFromClock(new Date());
+        if (s === "OPEN") return "in session";
+        if (s === "PREMARKET") return "premarket";
+        return "closed";
+      }
+
+      function applyTeslaStatus() {
+        if (!el.stack) return;
+        el.stack.querySelectorAll(".tile").forEach(function (tile) {
+          const name = tile.querySelector(".tile-name");
+          const status = tile.querySelector(".tile-status");
+          if (name && status && name.textContent === "Tesla") {
+            status.textContent = teslaSessionLabel();
+          }
+        });
+      }
+
       function tickClock() {
         const now = new Date();
         el.clockHel.textContent = formatHm(now, "Europe/Helsinki");
         el.clockNy.textContent = formatHm(now, "America/New_York");
+        applyTeslaStatus();
       }
 
       function setSessionClock(session) {
@@ -633,7 +652,7 @@
         el.stack.innerHTML = "";
         list.forEach(function (item) {
           const name = item && item.name != null ? String(item.name) : "";
-          const status = item && item.status != null && String(item.status) !== "" ? String(item.status) : "—";
+          const status = item && item.status != null && String(item.status) !== "" && String(item.status) !== "—" ? String(item.status) : "quiet";
           const tile = document.createElement("div");
           tile.className = "tile";
           if (MARKS[name]) {
@@ -747,6 +766,7 @@
 
         renderChips(Array.isArray(q.show_me) ? q.show_me : null);
         renderStack(Array.isArray(q.musk_stack) ? q.musk_stack : null);
+        applyTeslaStatus();
         el.voices.textContent = q.voices ? String(q.voices) : DEFAULT_VOICES;
 
         const parts = ["TSLA last close $" + money(lastClose)];
