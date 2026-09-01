@@ -38,6 +38,16 @@
   },
   "show_me": [
     {
+      "label": "Launches",
+      "unverified": true,
+      "url": "https://www.spacex.com/launches"
+    },
+    {
+      "label": "Starlink",
+      "unverified": true,
+      "url": "https://www.starlink.com"
+    },
+    {
       "label": "Cybercab",
       "unverified": true,
       "url": "https://www.tesla.com/robotaxi"
@@ -47,33 +57,74 @@
       "date": "Wed",
       "unverified": false,
       "url": "https://www.broadcom.com/company/news/financial-releases/64621"
-    },
-    {
-      "label": "Starlink",
-      "unverified": true,
-      "url": "https://www.spacex.com/launches"
     }
   ],
   "musk_stack": [
     {
       "name": "Tesla",
-      "status": "in session",
+      "status": "quiet",
+      "url": "https://www.tesla.com"
+    },
+    {
+      "name": "Energy",
+      "status": "Powerwall 3",
+      "url": "https://www.tesla.com/energy"
+    },
+    {
+      "name": "Robotaxi",
+      "status": "Florida and Texas rides",
       "url": "https://www.tesla.com/robotaxi"
     },
     {
+      "name": "Optimus",
+      "status": "quiet",
+      "url": "https://www.tesla.com/AI"
+    },
+    {
       "name": "SpaceX",
-      "status": "no new post",
-      "url": "https://www.spacex.com/launches"
+      "status": "quiet",
+      "url": "https://www.spacex.com"
+    },
+    {
+      "name": "Starlink",
+      "status": "quiet",
+      "url": "https://www.starlink.com"
+    },
+    {
+      "name": "Starship",
+      "status": "Moon and Mars 2028+",
+      "url": "https://www.spacex.com/vehicles/starship"
     },
     {
       "name": "xAI",
-      "status": "quiet",
+      "status": "Grok 4.6",
       "url": "https://x.ai"
     },
     {
-      "name": "Optimus",
-      "status": "quiet"
+      "name": "X",
+      "status": "quiet",
+      "url": "https://x.com"
+    },
+    {
+      "name": "Neuralink",
+      "status": "clinical trials",
+      "url": "https://neuralink.com"
+    },
+    {
+      "name": "Boring",
+      "status": "LVCC Loop",
+      "url": "https://www.boringcompany.com"
     }
   ],
-  "voices": "Wood / Baron / Ives \u2014 none today"
+  "voices": [
+    {
+      "label": "Wood / Baron / Ives \u2014 none today"
+    },
+    {
+      "label": "Wood / Baron / Ives \u2014 none today"
+    },
+    {
+      "label": "Wood / Baron / Ives \u2014 none today"
+    }
+  ]
 }
