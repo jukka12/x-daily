@@ -282,6 +282,11 @@
     }
     a.chip-status:hover { color: var(--fg); }
     .chip-status.dead { pointer-events: none; }
+    .chip-date {
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
 
     .chip .unverified {
       color: #7a7a76;
@@ -470,28 +475,28 @@
     (function () {
       const NONE_TODAY = "none today";
       const DEFAULT_SHOW_ME = [
-        { label: "Launches", url: "https://x.com/SpaceX", quote: "quiet" },
-        { label: "Starlink", url: "https://x.com/Starlink", quote: "quiet" },
-        { label: "Cybercab", url: "https://x.com/Tesla", quote: "quiet" }
+        { label: "Launches", url: "https://x.com/SpaceX" },
+        { label: "Starlink", url: "https://x.com/Starlink" },
+        { label: "Cybercab", url: "https://x.com/Tesla" }
       ];
       const DEFAULT_STACK = [
-        { label: "Tesla", url: "https://x.com/Tesla", quote: "quiet" },
-        { label: "Energy", url: "https://x.com/Tesla", quote: "quiet" },
-        { label: "Robotaxi", url: "https://x.com/Tesla", quote: "quiet" },
-        { label: "Optimus", url: "https://x.com/Tesla", quote: "quiet" },
-        { label: "SpaceX", url: "https://x.com/SpaceX", quote: "quiet" },
-        { label: "Starlink", url: "https://x.com/Starlink", quote: "quiet" },
-        { label: "Starship", url: "https://x.com/SpaceX", quote: "quiet" },
-        { label: "xAI", url: "https://x.com/SpaceXAI", quote: "quiet" },
-        { label: "X", url: "https://x.com/X", quote: "quiet" },
-        { label: "Neuralink", url: "https://x.com/neuralink", quote: "quiet" },
-        { label: "Boring", url: "https://x.com/boringcompany", quote: "quiet" }
+        { label: "Tesla", url: "https://x.com/Tesla" },
+        { label: "Energy", url: "https://x.com/Tesla" },
+        { label: "Robotaxi", url: "https://x.com/Tesla" },
+        { label: "Optimus", url: "https://x.com/Tesla" },
+        { label: "SpaceX", url: "https://x.com/SpaceX" },
+        { label: "Starlink", url: "https://x.com/Starlink" },
+        { label: "Starship", url: "https://x.com/SpaceX" },
+        { label: "xAI", url: "https://x.com/SpaceXAI" },
+        { label: "X", url: "https://x.com/X" },
+        { label: "Neuralink", url: "https://x.com/neuralink" },
+        { label: "Boring", url: "https://x.com/boringcompany" }
       ];
       const DEFAULT_VOICES = [
-        { label: "Elon", url: "https://x.com/elonmusk", quote: "none today" },
-        { label: "Wood", url: "https://x.com/CathieDWood", quote: "none today" },
-        { label: "Baron", url: "https://x.com/RonBaronAnalyst", quote: "none today" },
-        { label: "Ives", url: "https://x.com/DivesTech", quote: "none today" }
+        { label: "Elon", url: "https://x.com/elonmusk" },
+        { label: "Wood", url: "https://x.com/CathieDWood" },
+        { label: "Baron", url: "https://x.com/RonBaronAnalyst" },
+        { label: "Ives", url: "https://x.com/DivesTech" }
       ];
       const STACK_ROW_A = ["Tesla", "Energy", "Robotaxi", "Optimus"];
       const LIVE_URL = {
@@ -735,16 +740,31 @@
         return "";
       }
 
-      function liveQuote(item, emptyText) {
-        const empty = emptyText || "quiet";
-        if (!item) return empty;
+      function liveQuote(item) {
+        if (!item) return "";
         const q = item.quote != null ? String(item.quote).trim() : "";
-        if (!q || q === "quiet" || q === "none today" || q === "—") return empty;
+        const low = q.toLowerCase();
+        if (!q || low === "quiet" || low === "none today" || low === "after hours" || q === "—") return "";
         return q;
       }
 
+      function quoteDay(item) {
+        const raw = item && item.quote_date != null ? String(item.quote_date).trim() : "";
+        const m = raw.match(/^(\d{4})-(\d{2})-(\d{2})/);
+        if (!m) return "";
+        const iso = m[1] + "-" + m[2] + "-" + m[3];
+        const parts = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Europe/Helsinki",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(new Date());
+        const today = part(parts, "year") + "-" + part(parts, "month") + "-" + part(parts, "day");
+        if (iso === today) return "";
+        return m[3] + "." + m[2];
+      }
+
       function twoPartButton(item, emptyText, className) {
-        const empty = emptyText || "quiet";
         const node = document.createElement("div");
         node.className = className || "chip";
         const home = safeUrl(item && item.url);
@@ -763,8 +783,8 @@
           tag.textContent = "UNVERIFIED";
           node.appendChild(tag);
         }
-        const text = liveQuote(item, empty);
-        const qurl = text !== empty ? safeUrl(item && item.quote_url) : "";
+        const text = liveQuote(item);
+        const qurl = text ? safeUrl(item && item.quote_url) : "";
         const q = document.createElement(qurl ? "a" : "span");
         q.className = "chip-status" + (qurl ? "" : " dead");
         q.textContent = text;
@@ -773,12 +793,20 @@
           q.target = "_blank";
           q.rel = "noopener";
         }
-        node.appendChild(q);
+        if (text) node.appendChild(q);
+        const day = text ? quoteDay(item) : "";
+        if (day) {
+          const d = document.createElement("span");
+          d.className = "chip-date";
+          d.textContent = day;
+          node.appendChild(d);
+        }
         return node;
       }
 
+
       function makeChip(item) {
-        return twoPartButton(item, "quiet", "chip");
+        return twoPartButton(item, "", "chip");
       }
 
       function renderChipRow(node, items, minCount, maxCount, filler) {
@@ -789,11 +817,11 @@
       }
 
       function renderChips(items) {
-        renderChipRow(el.chips, items, 3, 6, { label: "quiet" });
+        renderChipRow(el.chips, items, 3, 6, { label: "" });
       }
 
       function makeTile(item) {
-        return twoPartButton(item, "quiet", "tile");
+        return twoPartButton(item, "", "tile");
       }
 
       function renderStack(items) {
@@ -804,7 +832,7 @@
           if (key) byName[key] = item;
         });
         const rowA = STACK_ROW_A.map(function (name) {
-          return byName[name] || { label: name, quote: "quiet" };
+          return byName[name] || { label: name };
         });
         const rowB = list.filter(function (item) {
           return STACK_ROW_A.indexOf(itemLabel(item)) < 0;
@@ -833,7 +861,7 @@
         DEFAULT_VOICES.forEach(function (base) {
           const item = Object.assign({}, base, byLabel[base.label] || {});
           if (!item.url) item.url = base.url;
-          el.voices.appendChild(twoPartButton(item, "none today", "chip"));
+          el.voices.appendChild(twoPartButton(item, "", "chip"));
         });
       }
 

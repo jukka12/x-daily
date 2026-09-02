@@ -42,85 +42,97 @@
     {
       "label": "Launches",
       "url": "https://x.com/SpaceX",
-      "quote": "quiet"
+      "quote": "Falcon 9 launches 27 Starlink satellites from California",
+      "quote_url": "https://x.com/SpaceX/status/2092638642745336187",
+      "quote_date": "2026-08-26"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink's high-speed, low-latency internet is now available in Uganda!",
-      "quote_url": "https://x.com/Starlink/status/2094882783915295062",
-      "unverified": true
+      "quote": "Starlink high-speed internet is now available in Uganda",
+      "quote_url": "https://x.com/Starlink/status/2094882783915295062"
     },
     {
       "label": "Cybercab",
       "url": "https://x.com/Tesla",
-      "quote": "quiet",
+      "quote": "Less than a week away",
+      "quote_url": "https://x.com/Tesla/status/2093585372920123522",
       "unverified": true
     },
     {
       "label": "Broadcom",
       "url": "https://x.com/Broadcom",
-      "quote": "Broadcom unveiled AgentMinder, an enterprise solution for AI agent governance",
-      "quote_url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-unveils-agentminder-enterprise-solution-ai-agent"
+      "quote": "Broadcom unveiled AgentMinder, the first Agentic Fabric",
+      "quote_url": "https://x.com/Broadcom/status/2094508904046641250"
     }
   ],
   "musk_stack": [
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "after hours"
+      "quote": "FSD Supervised makes traffic safer for cyclists",
+      "quote_url": "https://x.com/Tesla/status/2093089329950368007"
     },
     {
       "label": "Energy",
       "url": "https://x.com/Tesla",
-      "quote": "quiet"
+      "quote": "Gigawatts of capacity exist within the millions of Powerwalls",
+      "quote_url": "https://x.com/teslaenergy/status/2094870107285815648"
     },
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
-      "quote": "quiet"
+      "quote": "Less than a week away",
+      "quote_url": "https://x.com/Tesla/status/2093585372920123522"
     },
     {
       "label": "Optimus",
       "url": "https://x.com/Tesla",
-      "quote": "quiet"
+      "quote": "One day, Optimus + Grok will provide incredible medical care",
+      "quote_url": "https://x.com/elonmusk/status/2090546861073449189",
+      "quote_date": "2026-08-20"
     },
     {
       "label": "SpaceX",
       "url": "https://x.com/SpaceX",
-      "quote": "quiet"
+      "quote": "Falcon Heavy two side boosters land at LZ-2 and LZ-40",
+      "quote_url": "https://x.com/SpaceX/status/2094231957257273647"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink's high-speed, low-latency internet is now available in Uganda!",
+      "quote": "Starlink high-speed internet is now available in Uganda",
       "quote_url": "https://x.com/Starlink/status/2094882783915295062"
     },
     {
       "label": "Starship",
       "url": "https://x.com/SpaceX",
-      "quote": "quiet"
+      "quote": "Full duration 33-engine static fire with the Super Heavy booster",
+      "quote_url": "https://x.com/SpaceX/status/2093477720638341395",
+      "quote_date": "2026-08-28"
     },
     {
       "label": "xAI",
       "url": "https://x.com/SpaceXAI",
-      "quote": "LatchBio evaluated Grok's performance on biosecurity monitoring",
+      "quote": "LatchBio evaluated Grok performance on biosecurity monitoring",
       "quote_url": "https://x.com/SpaceXAI/status/2094820933689295076"
     },
     {
       "label": "X",
       "url": "https://x.com/X",
-      "quote": "quiet"
+      "quote": "Grok Bot now has improved support for X",
+      "quote_url": "https://x.com/X/status/2093829017128374366"
     },
     {
       "label": "Neuralink",
       "url": "https://x.com/neuralink",
-      "quote": "quiet"
+      "quote": "With Neuralink, Audrey is creating art with her mind",
+      "quote_url": "https://x.com/neuralink/status/2092732695180955790"
     },
     {
       "label": "Boring",
       "url": "https://x.com/boringcompany",
-      "quote": "Thanks to Secretary of Labor Sonderling for visiting Las Vegas to see progress on Vegas Loop!",
+      "quote": "Thanks to Secretary of Labor Sonderling for visiting Las Vegas",
       "quote_url": "https://x.com/boringcompany/status/2094669478848262284"
     }
   ],
@@ -128,23 +140,28 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Grok Bot runs on its own computer in the cloud 24/7",
-      "quote_url": "https://x.com/elonmusk/status/2094815195516350754"
+      "quote": "Grok 4.7 comes out in 10 days",
+      "quote_url": "https://x.com/elonmusk/status/2094983639780204846"
     },
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "quote": "none today"
+      "quote": "Slowly, slowly then all at once",
+      "quote_url": "https://x.com/CathieDWood/status/2094974179892252801"
     },
     {
       "label": "Baron",
       "url": "https://x.com/RonBaronAnalyst",
-      "quote": "none today"
+      "quote": "I attended the Elon Musk and Jamie Dimon SpaceX discussion",
+      "quote_url": "https://x.com/RonBaronAnalyst/status/2065503032578572290",
+      "quote_date": "2026-06-12"
     },
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "none today"
+      "quote": "SpaceX and Tesla are each building 100GW/year of solar",
+      "quote_url": "https://x.com/DivesTech/status/2093815359929274753",
+      "quote_date": "2026-08-29"
     }
   ]
 }
