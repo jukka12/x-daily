@@ -6,11 +6,11 @@
       "last_close": 356.09,
       "last_close_date": "2026-09-01",
       "overnight": 360.9,
-      "live": 356.09,
+      "live": 352.38,
       "after_hours": 355.967,
-      "session": "CLOSED",
-      "quote_time_utc": "2026-09-02T03:13:32Z",
-      "source": "finance-query.com",
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-02T13:58:55Z",
+      "source": "query2.finance.yahoo.com",
       "closes_5d": [
         345.82,
         354.81,
@@ -24,11 +24,11 @@
       "name": "SpaceX",
       "last_close": 142.23,
       "last_close_date": "2026-09-01",
-      "live": 142.23,
+      "live": 138.77,
       "after_hours": 142.15,
-      "session": "CLOSED",
-      "quote_time_utc": "2026-09-02T03:13:32Z",
-      "source": "finance-query.com",
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-02T13:58:55Z",
+      "source": "query2.finance.yahoo.com",
       "closes_5d": [
         139.63,
         140.87,
@@ -63,8 +63,8 @@
     {
       "label": "Broadcom",
       "url": "https://x.com/Broadcom",
-      "quote": "Announced AgentMinder for agentic AI governance at VMware Explore",
-      "quote_url": "https://x.com/Broadcom/status/2095136937036148949",
+      "quote": "Agentic Zero Trust and Threat Defense for vDefend and Avi at VMware Explore",
+      "quote_url": "https://x.com/Broadcom/status/2095146766618316925",
       "quote_date": "2026-09-02"
     }
   ],
@@ -72,8 +72,7 @@
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "FSD Supervised makes traffic safer for cyclists",
-      "quote_url": "https://x.com/Tesla/status/2093089329950368007"
+      "quote": "Cash open"
     },
     {
       "label": "Energy",
@@ -164,8 +163,8 @@
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "On CNBC China Connection discussing Apple and the tech sector",
-      "quote_url": "https://x.com/DivesTech/status/2095105767342785015",
+      "quote": "In Nebraska seeing the AI Revolution and data center buildout",
+      "quote_url": "https://x.com/DivesTech/status/2095143062531952696",
       "quote_date": "2026-09-02"
     }
   ]
