@@ -889,8 +889,7 @@
           else { fallback = "No live quote. Showing last close."; }
         } else if (session === "AFTERHOURS") {
           if (hasAfter) { hero = afterHours; heroLabel = "After hours"; }
-          else if (hasLive) { hero = live; heroLabel = "After hours"; }
-          else { fallback = "No after-hours quote. Showing last close."; }
+          else { hero = lastClose; heroLabel = "After hours"; }
         }
 
         card.heroLabel.textContent = heroLabel;
@@ -916,9 +915,10 @@
         card.liveValue.textContent = hasLive ? "$" + money(live) : "—";
 
         let todayPx = null;
-        if (heroLabel !== "Last close") todayPx = hero;
-        else if (hasLive) todayPx = live;
-        else if (hasOvernight) todayPx = overnight;
+        if (session === "PREMARKET") todayPx = hasOvernight ? overnight : null;
+        else if (session === "OPEN") todayPx = hasLive ? live : null;
+        else if (session === "AFTERHOURS") todayPx = hasAfter ? afterHours : lastClose;
+        else todayPx = hasAfter ? afterHours : lastClose;
 
         if (todayPx != null && lastClose !== 0) {
           const diff = todayPx - lastClose;
@@ -992,18 +992,80 @@
         return Number.isFinite(n) ? n : null;
       }
 
+      function nyYmd(date) {
+        const parts = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "America/New_York",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).formatToParts(date);
+        return part(parts, "year") + "-" + part(parts, "month") + "-" + part(parts, "day");
+      }
+
+      function epochToNyYmd(epoch) {
+        const n = Number(epoch);
+        if (!Number.isFinite(n) || n <= 0) return null;
+        const ms = n < 1e12 ? n * 1000 : n;
+        return nyYmd(new Date(ms));
+      }
+
+      function priorNyWeekday(ymd) {
+        const bits = String(ymd).split("-").map(Number);
+        let t = Date.UTC(bits[0], bits[1] - 1, bits[2], 16, 0, 0) - 24 * 3600 * 1000;
+        for (let i = 0; i < 8; i++) {
+          const dt = new Date(t);
+          const ny = nyParts(dt);
+          if (["Mon", "Tue", "Wed", "Thu", "Fri"].indexOf(ny.weekday) >= 0) return nyYmd(dt);
+          t -= 24 * 3600 * 1000;
+        }
+        return ymd;
+      }
+
+      function appendCloseIfNew(q, price, date) {
+        if (!Number.isFinite(price) || !date) return;
+        if (q.last_close_date === date) return;
+        const series = Array.isArray(q.closes_5d) ? q.closes_5d.map(Number).filter(Number.isFinite) : [];
+        series.push(price);
+        q.closes_5d = series.slice(-5);
+      }
+
+      function applyLastClose(next, data, session) {
+        const prev = num(data.previousClose != null ? data.previousClose : data.regularMarketPreviousClose);
+        const cash = num(data.regularMarketPrice);
+        const cashDate = epochToNyYmd(data.regularMarketTime);
+        const todayNy = nyYmd(new Date());
+        if (session === "AFTERHOURS" || session === "CLOSED") {
+          if (cash != null) {
+            appendCloseIfNew(next, cash, cashDate || todayNy);
+            next.last_close = cash;
+            if (cashDate) next.last_close_date = cashDate;
+          }
+        } else {
+          if (prev != null) next.last_close = prev;
+          if (!next.last_close_date || next.last_close_date >= todayNy) {
+            next.last_close_date = (cashDate && cashDate < todayNy) ? cashDate : priorNyWeekday(todayNy);
+          } else if (cashDate && next.last_close_date < cashDate && cashDate < todayNy) {
+            next.last_close_date = cashDate;
+          }
+        }
+        if ((session === "AFTERHOURS" || session === "CLOSED") && cashDate && (!next.last_close_date || next.last_close_date < cashDate)) {
+          next.last_close_date = cashDate;
+        }
+      }
+
       function applyLive(base, data) {
         const next = Object.assign({}, base);
         const live = num(data.regularMarketPrice);
-        const close = num(data.previousClose != null ? data.previousClose : data.regularMarketPreviousClose);
-        if (close == null && live == null) return null;
+        const prev = num(data.previousClose != null ? data.previousClose : data.regularMarketPreviousClose);
+        if (prev == null && live == null) return null;
         if (live != null) next.live = live;
-        if (close != null) next.last_close = close;
         const pre = num(data.preMarketPrice);
         const post = num(data.postMarketPrice);
         if (pre != null) next.overnight = pre;
         if (post != null) next.after_hours = post;
-        next.session = sessionFromClock(new Date());
+        const session = sessionFromClock(new Date());
+        next.session = session;
+        applyLastClose(next, data, session);
         next.quote_time_utc = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
         next.source = "finance-query.com";
         return next;

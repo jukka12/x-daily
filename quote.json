@@ -3,38 +3,38 @@
     "tsla": {
       "symbol": "TSLA",
       "name": "Tesla",
-      "last_close": 367.95,
-      "last_close_date": "2026-08-31",
+      "last_close": 356.09,
+      "last_close_date": "2026-09-01",
       "overnight": 360.9,
       "live": 356.09,
-      "after_hours": 355.67,
-      "session": "AFTERHOURS",
-      "quote_time_utc": "2026-09-01T21:04:03Z",
+      "after_hours": 355.967,
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-02T03:13:32Z",
       "source": "finance-query.com",
       "closes_5d": [
-        350.25,
         345.82,
         354.81,
         348.75,
-        367.95
+        367.95,
+        356.09
       ]
     },
     "spcx": {
       "symbol": "SPCX",
       "name": "SpaceX",
-      "last_close": 143.69,
-      "last_close_date": "2026-08-31",
+      "last_close": 142.23,
+      "last_close_date": "2026-09-01",
       "live": 142.23,
-      "after_hours": 142.14,
-      "session": "AFTERHOURS",
-      "quote_time_utc": "2026-09-01T21:04:03Z",
+      "after_hours": 142.15,
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-02T03:13:32Z",
       "source": "finance-query.com",
       "closes_5d": [
-        137.95,
         139.63,
         140.87,
         141.5,
-        143.69
+        143.69,
+        142.23
       ]
     }
   },
