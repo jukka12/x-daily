@@ -6,10 +6,10 @@
       "last_close": 356.09,
       "last_close_date": "2026-09-01",
       "overnight": 360.9,
-      "live": 352.29,
+      "live": 353.04,
       "after_hours": 355.967,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-02T18:15:47Z",
+      "quote_time_utc": "2026-09-02T19:10:05Z",
       "source": "query2.finance.yahoo.com",
       "closes_5d": [
         345.82,
@@ -24,10 +24,10 @@
       "name": "SpaceX",
       "last_close": 142.23,
       "last_close_date": "2026-09-01",
-      "live": 140.65,
+      "live": 140.09,
       "after_hours": 142.15,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-02T18:15:47Z",
+      "quote_time_utc": "2026-09-02T19:10:05Z",
       "source": "query2.finance.yahoo.com",
       "closes_5d": [
         139.63,
@@ -56,9 +56,9 @@
     {
       "label": "Cybercab",
       "url": "https://x.com/Tesla",
-      "quote": "Less than a week away",
-      "quote_url": "https://x.com/Tesla/status/2093585372920123522",
-      "unverified": true
+      "quote": "No steering wheel, no pedals",
+      "quote_url": "https://x.com/Tesla/status/2095202789031067918",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Broadcom",
@@ -83,8 +83,9 @@
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
-      "quote": "Less than a week away",
-      "quote_url": "https://x.com/Tesla/status/2093585372920123522"
+      "quote": "No steering wheel, no pedals",
+      "quote_url": "https://x.com/Tesla/status/2095202789031067918",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Optimus",
@@ -143,8 +144,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Grok Bot now on Android",
-      "quote_url": "https://x.com/elonmusk/status/2095208414196674930",
+      "quote": "Alex Gibney is going to make a terrible hit piece",
+      "quote_url": "https://x.com/elonmusk/status/2095224843641987295",
       "quote_date": "2026-09-02"
     },
     {
