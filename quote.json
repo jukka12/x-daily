@@ -6,10 +6,10 @@
       "last_close": 356.09,
       "last_close_date": "2026-09-01",
       "overnight": 360.9,
-      "live": 352.38,
+      "live": 352.29,
       "after_hours": 355.967,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-02T13:58:55Z",
+      "quote_time_utc": "2026-09-02T18:15:47Z",
       "source": "query2.finance.yahoo.com",
       "closes_5d": [
         345.82,
@@ -24,10 +24,10 @@
       "name": "SpaceX",
       "last_close": 142.23,
       "last_close_date": "2026-09-01",
-      "live": 138.77,
+      "live": 140.65,
       "after_hours": 142.15,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-02T13:58:55Z",
+      "quote_time_utc": "2026-09-02T18:15:47Z",
       "source": "query2.finance.yahoo.com",
       "closes_5d": [
         139.63,
@@ -143,8 +143,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "X is reaching new all-time highs in usage almost every week",
-      "quote_url": "https://x.com/elonmusk/status/2095064324477960594",
+      "quote": "Grok Bot now on Android",
+      "quote_url": "https://x.com/elonmusk/status/2095208414196674930",
       "quote_date": "2026-09-02"
     },
     {
