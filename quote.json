@@ -43,14 +43,15 @@
       "label": "Launches",
       "url": "https://x.com/SpaceX",
       "quote": "Falcon 9 launches 27 Starlink satellites from California",
-      "quote_url": "https://x.com/SpaceX/status/2092638642745336187",
-      "quote_date": "2026-08-26"
+      "quote_url": "https://x.com/SpaceX/status/2095087210479382726",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink high-speed internet is now available in Uganda",
-      "quote_url": "https://x.com/Starlink/status/2094882783915295062"
+      "quote": "Starlink Mobile is expanding in Europe with 4iG Group",
+      "quote_url": "https://x.com/Starlink/status/2095024421585166727",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Cybercab",
@@ -62,8 +63,9 @@
     {
       "label": "Broadcom",
       "url": "https://x.com/Broadcom",
-      "quote": "Broadcom unveiled AgentMinder, the first Agentic Fabric",
-      "quote_url": "https://x.com/Broadcom/status/2094508904046641250"
+      "quote": "The safe zone is gone, you cannot sit this one out",
+      "quote_url": "https://x.com/Broadcom/status/2094827655681978661",
+      "quote_date": "2026-09-01"
     }
   ],
   "musk_stack": [
@@ -75,7 +77,7 @@
     },
     {
       "label": "Energy",
-      "url": "https://x.com/Tesla",
+      "url": "https://x.com/teslaenergy",
       "quote": "Gigawatts of capacity exist within the millions of Powerwalls",
       "quote_url": "https://x.com/teslaenergy/status/2094870107285815648"
     },
@@ -95,14 +97,16 @@
     {
       "label": "SpaceX",
       "url": "https://x.com/SpaceX",
-      "quote": "Falcon Heavy two side boosters land at LZ-2 and LZ-40",
-      "quote_url": "https://x.com/SpaceX/status/2094231957257273647"
+      "quote": "Falcon 9 launches 27 Starlink satellites from California",
+      "quote_url": "https://x.com/SpaceX/status/2095087210479382726",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink high-speed internet is now available in Uganda",
-      "quote_url": "https://x.com/Starlink/status/2094882783915295062"
+      "quote": "Starlink Mobile is expanding in Europe with 4iG Group",
+      "quote_url": "https://x.com/Starlink/status/2095024421585166727",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Starship",
@@ -140,8 +144,9 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Grok 4.7 comes out in 10 days",
-      "quote_url": "https://x.com/elonmusk/status/2094983639780204846"
+      "quote": "X is reaching new all-time highs in usage almost every week",
+      "quote_url": "https://x.com/elonmusk/status/2095064324477960594",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Wood",
@@ -159,9 +164,9 @@
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "SpaceX and Tesla are each building 100GW/year of solar",
-      "quote_url": "https://x.com/DivesTech/status/2093815359929274753",
-      "quote_date": "2026-08-29"
+      "quote": "Discussing the Cook legacy and Ternus as CEO in Cupertino",
+      "quote_url": "https://x.com/DivesTech/status/2094869937860890752",
+      "quote_date": "2026-09-01"
     }
   ]
 }
