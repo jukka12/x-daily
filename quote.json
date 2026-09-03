@@ -7,9 +7,9 @@
       "last_close_date": "2026-09-02",
       "overnight": 360.9,
       "live": 357.01,
-      "after_hours": 357.05,
-      "session": "AFTERHOURS",
-      "quote_time_utc": "2026-09-02T20:10:30Z",
+      "after_hours": 356.85,
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-03T02:04:19Z",
       "source": "finance-query.com",
       "closes_5d": [
         354.81,
@@ -25,9 +25,9 @@
       "last_close": 140.71,
       "last_close_date": "2026-09-02",
       "live": 140.71,
-      "after_hours": 140.53,
-      "session": "AFTERHOURS",
-      "quote_time_utc": "2026-09-02T20:10:30Z",
+      "after_hours": 140.51,
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-03T02:04:19Z",
       "source": "finance-query.com",
       "closes_5d": [
         140.87,
@@ -49,8 +49,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink Mobile is expanding in Europe with 4iG Group",
-      "quote_url": "https://x.com/Starlink/status/2095024421585166727",
+      "quote": "Stay connected to Grok and Grok Bot with Starlink",
+      "quote_url": "https://x.com/Starlink/status/2095292134245163088",
       "quote_date": "2026-09-02"
     },
     {
@@ -63,8 +63,8 @@
     {
       "label": "Broadcom",
       "url": "https://x.com/Broadcom",
-      "quote": "Agentic Zero Trust and Threat Defense for vDefend and Avi at VMware Explore",
-      "quote_url": "https://x.com/Broadcom/status/2095146766618316925",
+      "quote": "AI at Scale Ethernet is the Universal Fabric at ODCC",
+      "quote_url": "https://x.com/Broadcom/status/2095291957681508667",
       "quote_date": "2026-09-02"
     }
   ],
@@ -104,8 +104,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink Mobile is expanding in Europe with 4iG Group",
-      "quote_url": "https://x.com/Starlink/status/2095024421585166727",
+      "quote": "Stay connected to Grok and Grok Bot with Starlink",
+      "quote_url": "https://x.com/Starlink/status/2095292134245163088",
       "quote_date": "2026-09-02"
     },
     {
@@ -151,8 +151,9 @@
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "quote": "Slowly, slowly then all at once",
-      "quote_url": "https://x.com/CathieDWood/status/2094974179892252801"
+      "quote": "Grokbot",
+      "quote_url": "https://x.com/CathieDWood/status/2095278487456149674",
+      "quote_date": "2026-09-02"
     },
     {
       "label": "Baron",
@@ -164,8 +165,8 @@
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "In Nebraska seeing the AI Revolution and data center buildout",
-      "quote_url": "https://x.com/DivesTech/status/2095143062531952696",
+      "quote": "Looking forward to FutureProof in HB in a few weeks",
+      "quote_url": "https://x.com/DivesTech/status/2095245435250315749",
       "quote_date": "2026-09-02"
     }
   ]
