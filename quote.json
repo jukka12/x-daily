@@ -6,11 +6,11 @@
       "last_close": 357.01,
       "last_close_date": "2026-09-02",
       "overnight": 360.0,
-      "live": 382.42,
+      "live": 377.89,
       "after_hours": 356.85,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-03T18:11:36Z",
-      "source": "finance-query.com",
+      "quote_time_utc": "2026-09-03T19:54:43Z",
+      "source": "Yahoo",
       "closes_5d": [
         354.81,
         348.75,
@@ -24,11 +24,11 @@
       "name": "SpaceX",
       "last_close": 140.71,
       "last_close_date": "2026-09-02",
-      "live": 151.3,
+      "live": 150.0,
       "after_hours": 140.51,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-03T18:11:36Z",
-      "source": "finance-query.com",
+      "quote_time_utc": "2026-09-03T19:54:43Z",
+      "source": "Yahoo",
       "closes_5d": [
         140.87,
         141.5,
@@ -49,8 +49,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink high-speed internet now available in the UAE",
-      "quote_url": "https://x.com/Starlink/status/2095379512959860943",
+      "quote": "Starlink customers can now earn cash for referrals",
+      "quote_url": "https://x.com/Starlink/status/2095577810014511311",
       "quote_date": "2026-09-03"
     },
     {
@@ -63,8 +63,8 @@
     {
       "label": "Broadcom",
       "url": "https://x.com/Broadcom",
-      "quote": "TrueSource closes OSS patch window from weeks to hours",
-      "quote_url": "https://x.com/Broadcom/status/2095479191680503935",
+      "quote": "Ram Velaga at VMware Explore on Broadcom networking",
+      "quote_url": "https://x.com/Broadcom/status/2095596825315070112",
       "quote_date": "2026-09-03"
     }
   ],
@@ -72,8 +72,8 @@
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "Talk to Grok in your Tesla",
-      "quote_url": "https://x.com/Tesla/status/2095513199135088756",
+      "quote": "The future has arrived in Austin",
+      "quote_url": "https://x.com/Tesla/status/2095588745936298039",
       "quote_date": "2026-09-03"
     },
     {
@@ -85,9 +85,9 @@
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
-      "quote": "No steering wheel, no pedals",
-      "quote_url": "https://x.com/Tesla/status/2095202789031067918",
-      "quote_date": "2026-09-02"
+      "quote": "The future has arrived in Austin",
+      "quote_url": "https://x.com/Tesla/status/2095588745936298039",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "Optimus",
@@ -106,8 +106,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink high-speed internet now available in the UAE",
-      "quote_url": "https://x.com/Starlink/status/2095379512959860943",
+      "quote": "Starlink customers can now earn cash for referrals",
+      "quote_url": "https://x.com/Starlink/status/2095577810014511311",
       "quote_date": "2026-09-03"
     },
     {
@@ -120,8 +120,9 @@
     {
       "label": "xAI",
       "url": "https://x.com/SpaceXAI",
-      "quote": "LatchBio evaluated Grok performance on biosecurity monitoring",
-      "quote_url": "https://x.com/SpaceXAI/status/2094820933689295076"
+      "quote": "Sorry for Grok issues after Memphis compute outage",
+      "quote_url": "https://x.com/SpaceXAI/status/2095597264043717014",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "X",
@@ -146,8 +147,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Humans writing code as seen by future AI",
-      "quote_url": "https://x.com/elonmusk/status/2095541022365266094",
+      "quote": "Cybercab is a lounge on wheels with great TV",
+      "quote_url": "https://x.com/elonmusk/status/2095584908852805643",
       "quote_date": "2026-09-03"
     },
     {
