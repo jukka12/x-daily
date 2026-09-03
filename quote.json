@@ -6,10 +6,10 @@
       "last_close": 357.01,
       "last_close_date": "2026-09-02",
       "overnight": 360.0,
-      "live": 363.0,
+      "live": 380.15,
       "after_hours": 356.85,
-      "session": "PREMARKET",
-      "quote_time_utc": "2026-09-03T13:12:44Z",
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-03T15:25:20Z",
       "source": "Yahoo Finance",
       "closes_5d": [
         354.81,
@@ -24,10 +24,10 @@
       "name": "SpaceX",
       "last_close": 140.71,
       "last_close_date": "2026-09-02",
-      "live": 141.24,
+      "live": 149.24,
       "after_hours": 140.51,
-      "session": "PREMARKET",
-      "quote_time_utc": "2026-09-03T13:12:44Z",
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-03T15:25:20Z",
       "source": "Yahoo Finance",
       "closes_5d": [
         140.87,
@@ -72,7 +72,9 @@
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "Cash open"
+      "quote": "Talk to Grok in your Tesla",
+      "quote_url": "https://x.com/Tesla/status/2095513199135088756",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "Energy",
