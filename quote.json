@@ -3,38 +3,38 @@
     "tsla": {
       "symbol": "TSLA",
       "name": "Tesla",
-      "last_close": 357.01,
-      "last_close_date": "2026-09-02",
+      "last_close": 376.36,
+      "last_close_date": "2026-09-03",
       "overnight": 360.0,
-      "live": 377.89,
-      "after_hours": 356.85,
-      "session": "OPEN",
-      "quote_time_utc": "2026-09-03T19:54:43Z",
+      "live": 376.36,
+      "after_hours": 376.80,
+      "session": "AFTERHOURS",
+      "quote_time_utc": "2026-09-03T20:08:02Z",
       "source": "Yahoo",
       "closes_5d": [
-        354.81,
         348.75,
         367.95,
         356.09,
-        357.01
+        357.01,
+        376.36
       ]
     },
     "spcx": {
       "symbol": "SPCX",
       "name": "SpaceX",
-      "last_close": 140.71,
-      "last_close_date": "2026-09-02",
-      "live": 150.0,
-      "after_hours": 140.51,
-      "session": "OPEN",
-      "quote_time_utc": "2026-09-03T19:54:43Z",
+      "last_close": 149.74,
+      "last_close_date": "2026-09-03",
+      "live": 149.74,
+      "after_hours": 149.23,
+      "session": "AFTERHOURS",
+      "quote_time_utc": "2026-09-03T20:08:02Z",
       "source": "Yahoo",
       "closes_5d": [
-        140.87,
         141.5,
         143.69,
         142.23,
-        140.71
+        140.71,
+        149.74
       ]
     }
   },
@@ -147,8 +147,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Cybercab is a lounge on wheels with great TV",
-      "quote_url": "https://x.com/elonmusk/status/2095584908852805643",
+      "quote": "That's why Cybercab is gold",
+      "quote_url": "https://x.com/elonmusk/status/2095598839860285551",
       "quote_date": "2026-09-03"
     },
     {
