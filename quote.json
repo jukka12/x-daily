@@ -9,7 +9,7 @@
       "live": 357.01,
       "after_hours": 356.85,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-03T05:12:46Z",
+      "quote_time_utc": "2026-09-03T06:15:12Z",
       "source": "Yahoo Finance",
       "closes_5d": [
         354.81,
@@ -27,7 +27,7 @@
       "live": 140.71,
       "after_hours": 140.51,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-03T05:12:46Z",
+      "quote_time_utc": "2026-09-03T06:15:12Z",
       "source": "Yahoo Finance",
       "closes_5d": [
         140.87,
@@ -49,9 +49,9 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Stay connected to Grok and Grok Bot with Starlink",
-      "quote_url": "https://x.com/Starlink/status/2095292134245163088",
-      "quote_date": "2026-09-02"
+      "quote": "Starlink high-speed internet now available in the UAE",
+      "quote_url": "https://x.com/Starlink/status/2095379512959860943",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "Cybercab",
@@ -104,9 +104,9 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Stay connected to Grok and Grok Bot with Starlink",
-      "quote_url": "https://x.com/Starlink/status/2095292134245163088",
-      "quote_date": "2026-09-02"
+      "quote": "Starlink high-speed internet now available in the UAE",
+      "quote_url": "https://x.com/Starlink/status/2095379512959860943",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "Starship",
@@ -144,8 +144,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "A Storm of Cybercabs",
-      "quote_url": "https://x.com/elonmusk/status/2095364595326263447",
+      "quote": "Starlink now in UAE!",
+      "quote_url": "https://x.com/elonmusk/status/2095382960337997885",
       "quote_date": "2026-09-03"
     },
     {
