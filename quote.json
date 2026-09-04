@@ -6,10 +6,10 @@
       "last_close": 376.36,
       "last_close_date": "2026-09-03",
       "overnight": 360.0,
-      "live": 353.26,
+      "live": 354.18,
       "after_hours": 376.8,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-04T18:12:55Z",
+      "quote_time_utc": "2026-09-04T19:11:35Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -24,10 +24,10 @@
       "name": "SpaceX",
       "last_close": 149.74,
       "last_close_date": "2026-09-03",
-      "live": 148.5,
+      "live": 148.76,
       "after_hours": 149.23,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-04T18:12:55Z",
+      "quote_time_utc": "2026-09-04T19:11:35Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
@@ -40,12 +40,6 @@
   },
   "x_news": [
     {
-      "title": "Tesla Shares Drop 6% After Low-Key Cybercab Launch",
-      "url": "https://x.com/i/trending/2095936236955595105",
-      "id": "2095936236955595105",
-      "date": "2026-09-04"
-    },
-    {
       "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
       "url": "https://x.com/i/trending/2095681903084876202",
       "id": "2095681903084876202",
@@ -55,12 +49,6 @@
       "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
       "url": "https://x.com/i/trending/2095887783898530045",
       "id": "2095887783898530045",
-      "date": "2026-09-04"
-    },
-    {
-      "title": "Tesla Cybercab Starts Carrying Passengers in Austin Robotaxi Launch",
-      "url": "https://x.com/i/trending/2095481807009423790",
-      "id": "2095481807009423790",
       "date": "2026-09-04"
     },
     {
@@ -82,10 +70,22 @@
       "date": "2026-09-03"
     },
     {
+      "title": "Tesla Cybercabs Open for Public Rides in Austin Amid High Demand",
+      "url": "https://x.com/i/trending/2095948458884501873",
+      "id": "2095948458884501873",
+      "date": "2026-09-04"
+    },
+    {
       "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
       "url": "https://x.com/i/trending/2095521581237735706",
       "id": "2095521581237735706",
       "date": "2026-09-03"
+    },
+    {
+      "title": "Tesla Cybercab Launches Paid Rides in Austin",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
+      "date": "2026-09-04"
     },
     {
       "title": "Golden Tesla Cybercabs Spotted Testing in San Diego Ahead of Launch",
@@ -94,16 +94,22 @@
       "date": "2026-09-03"
     },
     {
+      "title": "Tesla's Gold Cybercabs Line Austin Streets Before Launch Event",
+      "url": "https://x.com/i/trending/2094476412228948025",
+      "id": "2094476412228948025",
+      "date": "2026-09-02"
+    },
+    {
       "title": "Uber Partners with Unions to Slow Robotaxi Rollout",
       "url": "https://x.com/i/trending/2095551385429319853",
       "id": "2095551385429319853",
       "date": "2026-09-04"
     },
     {
-      "title": "Tesla's Gold Cybercabs Line Austin Streets Before Launch Event",
-      "url": "https://x.com/i/trending/2094476412228948025",
-      "id": "2094476412228948025",
-      "date": "2026-09-02"
+      "title": "Daily Life's Miracles from Self-Driving Cars to Cancer Vaccines",
+      "url": "https://x.com/i/trending/2095944393748574227",
+      "id": "2095944393748574227",
+      "date": "2026-09-04"
     },
     {
       "title": "Uber Launches Supervised Self-Driving Rides in London with Wayve AI",
@@ -112,22 +118,16 @@
       "date": "2026-09-04"
     },
     {
-      "title": "Base Adds Six New Coinbase Tokenized Stocks Including Tesla and Microsoft",
-      "url": "https://x.com/i/trending/2095911621679874080",
-      "id": "2095911621679874080",
-      "date": "2026-09-04"
-    },
-    {
-      "title": "Marques Brownlee Doubles Down on Cybercab Bet with Head-Shaving Wager",
-      "url": "https://x.com/i/trending/2095864217224282566",
-      "id": "2095864217224282566",
-      "date": "2026-09-04"
-    },
-    {
       "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
       "url": "https://x.com/i/trending/2095240823449563229",
       "id": "2095240823449563229",
       "date": "2026-09-02"
+    },
+    {
+      "title": "Marques Brownlee Doubles Down on Cybercab Bet with Tesla",
+      "url": "https://x.com/i/trending/2095864217224282566",
+      "id": "2095864217224282566",
+      "date": "2026-09-04"
     }
   ],
   "musk_stack": [
@@ -169,8 +169,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Get fast, reliable home internet for seamless streaming and gaming",
-      "quote_url": "https://x.com/Starlink/status/2095932674674401614",
+      "quote": "Starlink V5 soon integrated directly into Cybercab",
+      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
       "quote_date": "2026-09-04"
     },
     {
