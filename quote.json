@@ -6,10 +6,10 @@
       "last_close": 376.36,
       "last_close_date": "2026-09-03",
       "overnight": 360.0,
-      "live": 353.92,
+      "live": 353.72,
       "after_hours": 376.8,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-04T14:58:26Z",
+      "quote_time_utc": "2026-09-04T15:38:51Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -27,7 +27,7 @@
       "live": 149.08,
       "after_hours": 149.23,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-04T14:58:26Z",
+      "quote_time_utc": "2026-09-04T15:38:51Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
@@ -79,9 +79,9 @@
     {
       "label": "Energy",
       "url": "https://x.com/teslaenergy",
-      "quote": "Thousands of Powerwalls will meet energy demand in San Jose",
-      "quote_url": "https://x.com/teslaenergy/status/2095630570638516501",
-      "quote_date": "2026-09-03"
+      "quote": "Three-phase Powerwall 3P now available to order in Portugal",
+      "quote_url": "https://x.com/teslaenergy/status/2095890603695649088",
+      "quote_date": "2026-09-04"
     },
     {
       "label": "Robotaxi",
