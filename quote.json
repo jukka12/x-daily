@@ -7,9 +7,9 @@
       "last_close_date": "2026-09-03",
       "overnight": 360.0,
       "live": 376.36,
-      "after_hours": 376.80,
+      "after_hours": 376.8,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-04T02:11:26Z",
+      "quote_time_utc": "2026-09-04T04:03:24Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -27,7 +27,7 @@
       "live": 149.74,
       "after_hours": 149.23,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-04T02:11:26Z",
+      "quote_time_utc": "2026-09-04T04:03:24Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
@@ -148,8 +148,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Starlink will allow 4k live video while riding in Cybercab",
-      "quote_url": "https://x.com/elonmusk/status/2095669235993252297",
+      "quote": "Cybercab motor uses no rare earth metals, same range",
+      "quote_url": "https://x.com/elonmusk/status/2095720611695759704",
       "quote_date": "2026-09-04"
     },
     {
