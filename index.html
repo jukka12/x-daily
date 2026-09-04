@@ -460,11 +460,6 @@
     </section>
 
     <section class="band">
-      <h2 class="section-label">Show-me this week</h2>
-      <div id="chips" class="chips"></div>
-    </section>
-
-    <section class="band">
       <h2 class="section-label">Musk stack</h2>
       <div id="stack" class="stack"></div>
     </section>
@@ -474,11 +469,6 @@
   <script>
     (function () {
       const NONE_TODAY = "none today";
-      const DEFAULT_SHOW_ME = [
-        { label: "Launches", url: "https://x.com/SpaceX" },
-        { label: "Starlink", url: "https://x.com/Starlink" },
-        { label: "Cybercab", url: "https://x.com/Tesla" }
-      ];
       const DEFAULT_STACK = [
         { label: "Tesla", url: "https://x.com/Tesla" },
         { label: "Energy", url: "https://x.com/Tesla" },
@@ -534,7 +524,6 @@
       };
 
       const el = {
-        chips: document.getElementById("chips"),
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
         clockHel: document.getElementById("clock-hel"),
@@ -814,10 +803,6 @@
         node.innerHTML = "";
         node.style.gridTemplateColumns = "repeat(" + list.length + ", minmax(0, 1fr))";
         list.forEach(function (item) { node.appendChild(makeChip(item)); });
-      }
-
-      function renderChips(items) {
-        renderChipRow(el.chips, items, 3, 6, { label: "" });
       }
 
       function makeTile(item) {
@@ -1106,7 +1091,6 @@
               tsla: file.quotes.tsla || null,
               spcx: file.quotes.spcx || null
             },
-            show_me: file.show_me,
             musk_stack: file.musk_stack,
             voices: file.voices,
             voices_url: file.voices_url
@@ -1114,7 +1098,6 @@
         }
         return {
           quotes: { tsla: file, spcx: null },
-          show_me: file && file.show_me,
           musk_stack: file && file.musk_stack,
           voices: file && file.voices,
           voices_url: file && file.voices_url
@@ -1124,7 +1107,6 @@
       function renderAll() {
         renderCard(cards.tsla, quoteState.quotes.tsla);
         renderCard(cards.spcx, quoteState.quotes.spcx);
-        renderChips(Array.isArray(quoteState.show_me) ? quoteState.show_me : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
         renderVoices(quoteState);
         applyTeslaStatus();
@@ -1141,7 +1123,6 @@
         blankCard(cards.tsla, "The data file is missing.");
         blankCard(cards.spcx, "The data file is missing.");
         setSessionClock("CLOSED");
-        renderChips(DEFAULT_SHOW_ME);
         renderStack(DEFAULT_STACK);
         renderVoices({ voices: DEFAULT_VOICES });
         el.liveRegion.textContent = "The data file is missing.";

@@ -38,36 +38,6 @@
       ]
     }
   },
-  "show_me": [
-    {
-      "label": "Launches",
-      "url": "https://x.com/SpaceX",
-      "quote": "Falcon 9 launches 27 Starlink satellites from California",
-      "quote_url": "https://x.com/SpaceX/status/2095087210479382726",
-      "quote_date": "2026-09-02"
-    },
-    {
-      "label": "Starlink",
-      "url": "https://x.com/Starlink",
-      "quote": "Starlink V5 will soon be integrated directly into Cybercab",
-      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
-      "quote_date": "2026-09-04"
-    },
-    {
-      "label": "Cybercab",
-      "url": "https://x.com/Tesla",
-      "quote": "Cybercab is democratizing clean transportation for all",
-      "quote_url": "https://x.com/Tesla/status/2095649775064395860",
-      "quote_date": "2026-09-03"
-    },
-    {
-      "label": "Broadcom",
-      "url": "https://x.com/Broadcom",
-      "quote": "Ram Velaga at VMware Explore on Broadcom networking",
-      "quote_url": "https://x.com/Broadcom/status/2095596825315070112",
-      "quote_date": "2026-09-03"
-    }
-  ],
   "musk_stack": [
     {
       "label": "Tesla",
