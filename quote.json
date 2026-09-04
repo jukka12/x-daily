@@ -40,46 +40,94 @@
   },
   "x_news": [
     {
-      "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
-      "url": "https://x.com/i/trending/2095887783898530045",
-      "hook": "Investors hoped for a splashy reveal of Tesla's driverless future, but the invite-only Austin rides left many wanting more details.",
-      "date": "2026-09-04",
-      "id": "2095887783898530045"
-    },
-    {
-      "title": "Jason Calacanis Calls for Quiet Rollout of Self-Driving Cars",
-      "url": "https://x.com/i/trending/2095920033314570687",
-      "hook": "Deploy 100 vehicles in each of the 100 biggest cities over two years — no hype, no fanfare.",
-      "date": "2026-09-04",
-      "id": "2095920033314570687"
-    },
-    {
-      "title": "Tesla's Cybercab Video Highlights Wheelchair Accessibility Features",
-      "url": "https://x.com/i/trending/2095727430975787242",
-      "hook": "Promo shows wheelchair-height seating and Braille controls in the two-seater cabin.",
-      "date": "2026-09-04",
-      "id": "2095727430975787242"
+      "title": "Tesla Shares Drop 6% After Low-Key Cybercab Launch",
+      "url": "https://x.com/i/trending/2095936236955595105",
+      "id": "2095936236955595105",
+      "date": "2026-09-04"
     },
     {
       "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
       "url": "https://x.com/i/trending/2095681903084876202",
-      "hook": "Chamath Palihapitiya: 'Let’s build a huge fleet. Put me in coach!' as Tesla invites companies to expand robotaxi.",
-      "date": "2026-09-04",
-      "id": "2095681903084876202"
+      "id": "2095681903084876202",
+      "date": "2026-09-04"
     },
     {
-      "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
-      "url": "https://x.com/i/trending/2095521581237735706",
-      "hook": "Shares hit near $382 Thursday as traders geared up for the Austin showcase.",
-      "date": "2026-09-03",
-      "id": "2095521581237735706"
+      "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
+      "url": "https://x.com/i/trending/2095887783898530045",
+      "id": "2095887783898530045",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Tesla Cybercab Starts Carrying Passengers in Austin Robotaxi Launch",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
+      "date": "2026-09-04"
     },
     {
       "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
       "url": "https://x.com/i/trending/2094845548868305106",
-      "hook": "Purpose-built Cybercab joins Robotaxi app for unsupervised Austin rides after Model Y service.",
-      "date": "2026-09-03",
-      "id": "2094845548868305106"
+      "id": "2094845548868305106",
+      "date": "2026-09-03"
+    },
+    {
+      "title": "Jason Calacanis Calls for Quiet Rollout of Self-Driving Cars",
+      "url": "https://x.com/i/trending/2095920033314570687",
+      "id": "2095920033314570687",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Tesla Cybercab Debuts in Austin with Sleek Design and Low Price Tag",
+      "url": "https://x.com/i/trending/2095400577987494094",
+      "id": "2095400577987494094",
+      "date": "2026-09-03"
+    },
+    {
+      "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
+      "url": "https://x.com/i/trending/2095521581237735706",
+      "id": "2095521581237735706",
+      "date": "2026-09-03"
+    },
+    {
+      "title": "Golden Tesla Cybercabs Spotted Testing in San Diego Ahead of Launch",
+      "url": "https://x.com/i/trending/2095375598218862951",
+      "id": "2095375598218862951",
+      "date": "2026-09-03"
+    },
+    {
+      "title": "Uber Partners with Unions to Slow Robotaxi Rollout",
+      "url": "https://x.com/i/trending/2095551385429319853",
+      "id": "2095551385429319853",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Tesla's Gold Cybercabs Line Austin Streets Before Launch Event",
+      "url": "https://x.com/i/trending/2094476412228948025",
+      "id": "2094476412228948025",
+      "date": "2026-09-02"
+    },
+    {
+      "title": "Uber Launches Supervised Self-Driving Rides in London with Wayve AI",
+      "url": "https://x.com/i/trending/2095830525931847997",
+      "id": "2095830525931847997",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Base Adds Six New Coinbase Tokenized Stocks Including Tesla and Microsoft",
+      "url": "https://x.com/i/trending/2095911621679874080",
+      "id": "2095911621679874080",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Marques Brownlee Doubles Down on Cybercab Bet with Head-Shaving Wager",
+      "url": "https://x.com/i/trending/2095864217224282566",
+      "id": "2095864217224282566",
+      "date": "2026-09-04"
+    },
+    {
+      "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
+      "url": "https://x.com/i/trending/2095240823449563229",
+      "id": "2095240823449563229",
+      "date": "2026-09-02"
     }
   ],
   "musk_stack": [

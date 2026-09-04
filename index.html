@@ -299,43 +299,36 @@
     .headlines {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 0;
       width: 100%;
       margin: 0;
       padding: 0;
       list-style: none;
+      border-top: 1px solid var(--chip);
+    }
+
+    .headlines li {
+      border-bottom: 1px solid var(--chip);
+      margin: 0;
+      padding: 0;
     }
 
     .headline {
       display: block;
-      padding: 12px 14px;
-      border: 1px solid var(--chip);
-      border-radius: 14px;
+      padding: 10px 0;
+      border: 0;
+      border-radius: 0;
       color: var(--fg);
       text-decoration: none;
-      line-height: 1.35;
-      font-size: 0.92rem;
-      font-weight: 520;
+      line-height: 1.4;
+      font-size: 0.95rem;
+      font-weight: 450;
       box-sizing: border-box;
     }
 
-    .headline:hover { border-color: #4a4a4c; }
-
-    .headline-hook {
-      display: block;
-      margin-top: 4px;
-      font-size: 0.74rem;
-      font-weight: 400;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    .headline-meta {
-      display: block;
-      margin-top: 6px;
-      font-size: 0.62rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
+    .headline:hover {
+      color: #fff;
+      text-decoration: underline;
     }
 
     .stack-wrap { margin-top: 0; }
@@ -897,7 +890,7 @@
         node.innerHTML = "";
         const list = Array.isArray(items) ? items.filter(function (it) {
           return it && it.title && it.url;
-        }).slice(0, 6) : [];
+        }).slice(0, 15) : [];
         if (!list.length) {
           const empty = document.createElement("li");
           empty.className = "note";
@@ -913,19 +906,6 @@
           a.target = "_blank";
           a.rel = "noopener";
           a.textContent = item.title;
-          if (item.hook) {
-            const hook = document.createElement("span");
-            hook.className = "headline-hook";
-            hook.textContent = item.hook;
-            a.appendChild(hook);
-          }
-          const day = headlineDay(item);
-          if (day) {
-            const meta = document.createElement("span");
-            meta.className = "headline-meta";
-            meta.textContent = day;
-            a.appendChild(meta);
-          }
           li.appendChild(a);
           node.appendChild(li);
         });
