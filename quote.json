@@ -6,10 +6,10 @@
       "last_close": 376.36,
       "last_close_date": "2026-09-03",
       "overnight": 360.0,
-      "live": 353.72,
+      "live": 353.26,
       "after_hours": 376.8,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-04T15:38:51Z",
+      "quote_time_utc": "2026-09-04T18:12:55Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -24,10 +24,10 @@
       "name": "SpaceX",
       "last_close": 149.74,
       "last_close_date": "2026-09-03",
-      "live": 149.08,
+      "live": 148.5,
       "after_hours": 149.23,
       "session": "OPEN",
-      "quote_time_utc": "2026-09-04T15:38:51Z",
+      "quote_time_utc": "2026-09-04T18:12:55Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
@@ -47,11 +47,11 @@
       "id": "2095887783898530045"
     },
     {
-      "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
-      "url": "https://x.com/i/trending/2095681903084876202",
-      "hook": "Chamath Palihapitiya: 'Let’s build a huge fleet. Put me in coach!' as Tesla invites companies to expand robotaxi.",
+      "title": "Jason Calacanis Calls for Quiet Rollout of Self-Driving Cars",
+      "url": "https://x.com/i/trending/2095920033314570687",
+      "hook": "Deploy 100 vehicles in each of the 100 biggest cities over two years — no hype, no fanfare.",
       "date": "2026-09-04",
-      "id": "2095681903084876202"
+      "id": "2095920033314570687"
     },
     {
       "title": "Tesla's Cybercab Video Highlights Wheelchair Accessibility Features",
@@ -61,11 +61,11 @@
       "id": "2095727430975787242"
     },
     {
-      "title": "Jason Calacanis Calls for Quiet Rollout of Self-Driving Cars",
-      "url": "https://x.com/i/trending/2095920033314570687",
-      "hook": "Deploy 100 vehicles in each of the 100 biggest cities over two years — no hype, no fanfare.",
+      "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
+      "url": "https://x.com/i/trending/2095681903084876202",
+      "hook": "Chamath Palihapitiya: 'Let’s build a huge fleet. Put me in coach!' as Tesla invites companies to expand robotaxi.",
       "date": "2026-09-04",
-      "id": "2095920033314570687"
+      "id": "2095681903084876202"
     },
     {
       "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
@@ -73,6 +73,13 @@
       "hook": "Shares hit near $382 Thursday as traders geared up for the Austin showcase.",
       "date": "2026-09-03",
       "id": "2095521581237735706"
+    },
+    {
+      "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
+      "url": "https://x.com/i/trending/2094845548868305106",
+      "hook": "Purpose-built Cybercab joins Robotaxi app for unsupervised Austin rides after Model Y service.",
+      "date": "2026-09-03",
+      "id": "2094845548868305106"
     }
   ],
   "musk_stack": [
@@ -114,8 +121,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink V5 will soon be integrated directly into Cybercab",
-      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
+      "quote": "Get fast, reliable home internet for seamless streaming and gaming",
+      "quote_url": "https://x.com/Starlink/status/2095932674674401614",
       "quote_date": "2026-09-04"
     },
     {
