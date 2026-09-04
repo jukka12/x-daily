@@ -8,8 +8,8 @@
       "overnight": 360.0,
       "live": 376.36,
       "after_hours": 376.8,
-      "session": "CLOSED",
-      "quote_time_utc": "2026-09-04T04:03:24Z",
+      "session": "PREMARKET",
+      "quote_time_utc": "2026-09-04T09:09:27Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -26,8 +26,8 @@
       "last_close_date": "2026-09-03",
       "live": 149.74,
       "after_hours": 149.23,
-      "session": "CLOSED",
-      "quote_time_utc": "2026-09-04T04:03:24Z",
+      "session": "PREMARKET",
+      "quote_time_utc": "2026-09-04T09:09:27Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
