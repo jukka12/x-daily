@@ -241,6 +241,20 @@
       margin: 0 0 14px;
     }
 
+    .section-source {
+      margin-left: 0.6em;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .section-source:hover {
+      color: var(--fg);
+      text-decoration: underline;
+    }
+
     .chips {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
@@ -501,6 +515,11 @@
     </section>
 
     <section class="band">
+      <h2 class="section-label">Optimus wire <a class="section-source" href="https://optimustracker.ai/" target="_blank" rel="noopener">optimustracker.ai</a></h2>
+      <ul id="optimus-headlines" class="headlines"></ul>
+    </section>
+
+    <section class="band">
       <h2 class="section-label">Musk stack</h2>
       <div id="stack" class="stack"></div>
     </section>
@@ -568,6 +587,7 @@
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
         headlines: document.getElementById("headlines"),
+        optimusHeadlines: document.getElementById("optimus-headlines"),
         clockHel: document.getElementById("clock-hel"),
         clockNy: document.getElementById("clock-ny"),
         clockSession: document.getElementById("clock-session"),
@@ -884,8 +904,7 @@
         return m[3] + "." + m[2];
       }
 
-      function renderHeadlines(items) {
-        const node = el.headlines;
+      function renderHeadlineList(node, items, emptyText) {
         if (!node) return;
         node.innerHTML = "";
         const list = Array.isArray(items) ? items.filter(function (it) {
@@ -894,7 +913,7 @@
         if (!list.length) {
           const empty = document.createElement("li");
           empty.className = "note";
-          empty.textContent = "No X News headlines yet.";
+          empty.textContent = emptyText || "No headlines yet.";
           node.appendChild(empty);
           return;
         }
@@ -909,6 +928,14 @@
           li.appendChild(a);
           node.appendChild(li);
         });
+      }
+
+      function renderHeadlines(items) {
+        renderHeadlineList(el.headlines, items, "No X News headlines yet.");
+      }
+
+      function renderOptimusWire(items) {
+        renderHeadlineList(el.optimusHeadlines, items, "No Optimus wire headlines yet.");
       }
 
       function renderVoices(file) {
@@ -1171,6 +1198,7 @@
             },
             musk_stack: file.musk_stack,
             x_news: file.x_news,
+            optimus_wire: file.optimus_wire,
             voices: file.voices,
             voices_url: file.voices_url
           };
@@ -1179,6 +1207,7 @@
           quotes: { tsla: file, spcx: null },
           musk_stack: file && file.musk_stack,
           x_news: file && file.x_news,
+          optimus_wire: file && file.optimus_wire,
           voices: file && file.voices,
           voices_url: file && file.voices_url
         };
@@ -1189,6 +1218,7 @@
         renderCard(cards.spcx, quoteState.quotes.spcx);
         renderVoices(quoteState);
         renderHeadlines(Array.isArray(quoteState.x_news) ? quoteState.x_news : null);
+        renderOptimusWire(Array.isArray(quoteState.optimus_wire) ? quoteState.optimus_wire : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
         applyTeslaStatus();
         const bits = [];
@@ -1206,6 +1236,7 @@
         setSessionClock("CLOSED");
         renderVoices({ voices: DEFAULT_VOICES });
         renderHeadlines(null);
+        renderOptimusWire(null);
         renderStack(DEFAULT_STACK);
         el.liveRegion.textContent = "The data file is missing.";
       }
