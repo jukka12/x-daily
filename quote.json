@@ -38,6 +38,43 @@
       ]
     }
   },
+  "x_news": [
+    {
+      "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
+      "url": "https://x.com/i/trending/2095887783898530045",
+      "hook": "Investors hoped for a splashy reveal of Tesla's driverless future, but the invite-only Austin rides left many wanting more details.",
+      "date": "2026-09-04",
+      "id": "2095887783898530045"
+    },
+    {
+      "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
+      "url": "https://x.com/i/trending/2095681903084876202",
+      "hook": "Chamath Palihapitiya: 'Let’s build a huge fleet. Put me in coach!' as Tesla invites companies to expand robotaxi.",
+      "date": "2026-09-04",
+      "id": "2095681903084876202"
+    },
+    {
+      "title": "Tesla's Cybercab Video Highlights Wheelchair Accessibility Features",
+      "url": "https://x.com/i/trending/2095727430975787242",
+      "hook": "Promo shows wheelchair-height seating and Braille controls in the two-seater cabin.",
+      "date": "2026-09-04",
+      "id": "2095727430975787242"
+    },
+    {
+      "title": "Jason Calacanis Calls for Quiet Rollout of Self-Driving Cars",
+      "url": "https://x.com/i/trending/2095920033314570687",
+      "hook": "Deploy 100 vehicles in each of the 100 biggest cities over two years — no hype, no fanfare.",
+      "date": "2026-09-04",
+      "id": "2095920033314570687"
+    },
+    {
+      "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
+      "url": "https://x.com/i/trending/2095521581237735706",
+      "hook": "Shares hit near $382 Thursday as traders geared up for the Austin showcase.",
+      "date": "2026-09-03",
+      "id": "2095521581237735706"
+    }
+  ],
   "musk_stack": [
     {
       "label": "Tesla",
