@@ -6,10 +6,10 @@
       "last_close": 376.36,
       "last_close_date": "2026-09-03",
       "overnight": 360.0,
-      "live": 376.36,
+      "live": 353.92,
       "after_hours": 376.8,
-      "session": "PREMARKET",
-      "quote_time_utc": "2026-09-04T09:09:27Z",
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-04T14:58:26Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -24,10 +24,10 @@
       "name": "SpaceX",
       "last_close": 149.74,
       "last_close_date": "2026-09-03",
-      "live": 149.74,
+      "live": 149.08,
       "after_hours": 149.23,
-      "session": "PREMARKET",
-      "quote_time_utc": "2026-09-04T09:09:27Z",
+      "session": "OPEN",
+      "quote_time_utc": "2026-09-04T14:58:26Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
@@ -148,8 +148,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Cybercab motor uses no rare earth metals, same range",
-      "quote_url": "https://x.com/elonmusk/status/2095720611695759704",
+      "quote": "Tesla IPO value was a thousandth of its current value",
+      "quote_url": "https://x.com/elonmusk/status/2095882235027014076",
       "quote_date": "2026-09-04"
     },
     {
