@@ -8,8 +8,8 @@
       "overnight": 360.0,
       "live": 376.36,
       "after_hours": 376.80,
-      "session": "AFTERHOURS",
-      "quote_time_utc": "2026-09-03T20:08:02Z",
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-04T02:11:26Z",
       "source": "Yahoo",
       "closes_5d": [
         348.75,
@@ -26,8 +26,8 @@
       "last_close_date": "2026-09-03",
       "live": 149.74,
       "after_hours": 149.23,
-      "session": "AFTERHOURS",
-      "quote_time_utc": "2026-09-03T20:08:02Z",
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-04T02:11:26Z",
       "source": "Yahoo",
       "closes_5d": [
         141.5,
@@ -49,16 +49,16 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink customers can now earn cash for referrals",
-      "quote_url": "https://x.com/Starlink/status/2095577810014511311",
-      "quote_date": "2026-09-03"
+      "quote": "Starlink V5 will soon be integrated directly into Cybercab",
+      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
+      "quote_date": "2026-09-04"
     },
     {
       "label": "Cybercab",
       "url": "https://x.com/Tesla",
-      "quote": "No steering wheel, no pedals",
-      "quote_url": "https://x.com/Tesla/status/2095202789031067918",
-      "quote_date": "2026-09-02"
+      "quote": "Cybercab is democratizing clean transportation for all",
+      "quote_url": "https://x.com/Tesla/status/2095649775064395860",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "Broadcom",
@@ -72,21 +72,22 @@
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "The future has arrived in Austin",
-      "quote_url": "https://x.com/Tesla/status/2095588745936298039",
+      "quote": "Cybercab is democratizing clean transportation for all",
+      "quote_url": "https://x.com/Tesla/status/2095649775064395860",
       "quote_date": "2026-09-03"
     },
     {
       "label": "Energy",
       "url": "https://x.com/teslaenergy",
-      "quote": "Gigawatts of capacity exist within the millions of Powerwalls",
-      "quote_url": "https://x.com/teslaenergy/status/2094870107285815648"
+      "quote": "Thousands of Powerwalls will meet energy demand in San Jose",
+      "quote_url": "https://x.com/teslaenergy/status/2095630570638516501",
+      "quote_date": "2026-09-03"
     },
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
-      "quote": "The future has arrived in Austin",
-      "quote_url": "https://x.com/Tesla/status/2095588745936298039",
+      "quote": "Cybercab is democratizing clean transportation for all",
+      "quote_url": "https://x.com/Tesla/status/2095649775064395860",
       "quote_date": "2026-09-03"
     },
     {
@@ -106,9 +107,9 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink customers can now earn cash for referrals",
-      "quote_url": "https://x.com/Starlink/status/2095577810014511311",
-      "quote_date": "2026-09-03"
+      "quote": "Starlink V5 will soon be integrated directly into Cybercab",
+      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
+      "quote_date": "2026-09-04"
     },
     {
       "label": "Starship",
@@ -147,9 +148,9 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "That's why Cybercab is gold",
-      "quote_url": "https://x.com/elonmusk/status/2095598839860285551",
-      "quote_date": "2026-09-03"
+      "quote": "Starlink will allow 4k live video while riding in Cybercab",
+      "quote_url": "https://x.com/elonmusk/status/2095669235993252297",
+      "quote_date": "2026-09-04"
     },
     {
       "label": "Wood",
@@ -168,9 +169,9 @@
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
-      "quote": "Discussing tech and AI Revolution on CNBC Closing Bell",
-      "quote_url": "https://x.com/DivesTech/status/2095474509725806837",
-      "quote_date": "2026-09-03"
+      "quote": "A deep dive discussion on the AI datacenter debate",
+      "quote_url": "https://x.com/DivesTech/status/2095678872222110049",
+      "quote_date": "2026-09-04"
     }
   ]
 }
