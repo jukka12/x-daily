@@ -818,14 +818,8 @@
         <dd id="tsla-last-close-value" hidden>—</dd>
         <dt>Overnight</dt>
         <dd id="tsla-overnight">—</dd>
-        <dt>Live</dt>
-        <dd id="tsla-live">—</dd>
         <dt id="tsla-fallback-term" hidden>Note</dt>
         <dd id="tsla-fallback-value" hidden></dd>
-        <dt>Quote time</dt>
-        <dd id="tsla-when">—</dd>
-        <dt>Source</dt>
-        <dd id="tsla-meta">—</dd>
       </dl>
       <p id="tsla-note" class="note"></p>
     </section>
@@ -858,14 +852,8 @@
         <dd id="spcx-last-close-value" hidden>—</dd>
         <dt>Overnight</dt>
         <dd id="spcx-overnight">—</dd>
-        <dt>Live</dt>
-        <dd id="spcx-live">—</dd>
         <dt id="spcx-fallback-term" hidden>Note</dt>
         <dd id="spcx-fallback-value" hidden></dd>
-        <dt>Quote time</dt>
-        <dd id="spcx-when">—</dd>
-        <dt>Source</dt>
-        <dd id="spcx-meta">—</dd>
       </dl>
       <p id="spcx-note" class="note"></p>
     </section>
@@ -1701,10 +1689,7 @@
         card.change.textContent = "—";
         card.todayBlock.className = "today-block flat";
         card.gap.textContent = "—";
-        card.overnightValue.textContent = "—";
-        card.liveValue.textContent = "—";
-        card.when.textContent = "—";
-        card.meta.textContent = "—";
+        if (card.overnightValue) card.overnightValue.textContent = "—";
         card.status.textContent = "Closed";
         card.status.className = "status error";
         card.note.className = "note error";
@@ -1767,8 +1752,7 @@
           : [];
         sparkSvg(card, series);
 
-        card.overnightValue.textContent = hasOvernight ? "$" + money(overnight) : "—";
-        card.liveValue.textContent = hasLive ? "$" + money(live) : "—";
+        if (card.overnightValue) card.overnightValue.textContent = hasOvernight ? "$" + money(overnight) : "—";
 
         let todayPx = null;
         let refClose = lastClose;
@@ -1824,9 +1808,7 @@
           card.status.className = "status";
         }
 
-        const when = quoteInstant(q);
-        card.when.textContent = when ? formatHelsinki(when) : "—";
-        card.meta.textContent = q.source ? String(q.source) : "—";
+        /* Quote time / Source rows removed from cards */
         card.note.className = "note";
         card.note.textContent = "";
       }
