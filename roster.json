@@ -6,13 +6,13 @@
       "name": "Sawyer Merritt",
       "handle": "SawyerMerritt",
       "url": "https://x.com/SawyerMerritt",
-      "note": "Primary Tesla/SpaceX news pulse"
+      "note": "Main Tesla/SpaceX news pulse"
     },
     {
       "name": "Farzad Mesbahi",
       "handle": "farzyness",
       "url": "https://x.com/farzyness",
-      "note": "Autonomy / robotaxi framing"
+      "note": "Robotaxi / self-driving framing"
     },
     {
       "name": "Whole Mars Catalog",
@@ -24,31 +24,31 @@
       "name": "Troy Teslike",
       "handle": "TroyTeslike",
       "url": "https://x.com/TroyTeslike",
-      "note": "Delivery / estimate trackers"
+      "note": "Delivery estimates"
     },
     {
       "name": "Brian Wang",
       "handle": "nextbigfuture",
       "url": "https://x.com/nextbigfuture",
-      "note": "Tech scale and energy/AI adjacent"
+      "note": "Tech scale, energy, AI"
     },
     {
       "name": "Kirsten Korosec",
       "handle": "kirstenkorosec",
       "url": "https://x.com/kirstenkorosec",
-      "note": "Transport journalism; cite when reporting"
+      "note": "Transport reporting — cite when she covers it"
     },
     {
       "name": "Chamath Palihapitiya",
       "handle": "chamath",
       "url": "https://x.com/chamath",
-      "note": "All-In; macro / markets when TSLA-relevant"
+      "note": "All-In; big-picture markets when Tesla-relevant"
     },
     {
       "name": "David Sacks",
       "handle": "DavidSacks",
       "url": "https://x.com/DavidSacks",
-      "note": "All-In; AI / policy / xAI-adjacent"
+      "note": "All-In; AI / policy"
     },
     {
       "name": "David Friedberg",
@@ -60,13 +60,13 @@
       "name": "Jason Calacanis",
       "handle": "Jason",
       "url": "https://x.com/Jason",
-      "note": "All-In; startup / markets color"
+      "note": "All-In; startups / markets"
     }
   ],
   "status_legend": {
-    "included": "Green — already used somewhere on X Daily (Voices, Briefing, PT, Musk stack, or Commentators allowlist)",
-    "candidate": "Yellow — candidate for inclusion; name tint = usual sentiment (green optimistic / red critical)",
-    "excluded": "Red — do not use; reason in Fit / why"
+    "included": "Green — already used somewhere on X Daily (Voices, Briefing, price targets, Musk stack, or Commentators allowlist)",
+    "candidate": "Yellow — possible add later; name color = usual tone (green upbeat / red critical)",
+    "excluded": "Red — do not use; reason is in Fit / why"
   },
   "people": [
     {
@@ -79,8 +79,8 @@
         "musk-stack"
       ],
       "status": "included",
-      "blurb": "Tesla / SpaceX / xAI / X principal voice.",
-      "why": "On Voices chip. Core of the page.",
+      "blurb": "Main voice for Tesla, SpaceX, xAI, and X.",
+      "why": "Already on the Voices row — core of the page.",
       "lean": "up"
     },
     {
@@ -93,8 +93,8 @@
         "briefing-analysts"
       ],
       "status": "included",
-      "blurb": "ARK; long-duration Tesla / autonomy / AI narrative.",
-      "why": "Voices chip + Briefing Analysts.",
+      "blurb": "Runs ARK. Often bullish on Tesla, self-driving, and AI for the long run.",
+      "why": "On Voices and in Briefing Analysts.",
       "lean": "up"
     },
     {
@@ -107,8 +107,8 @@
         "briefing-analysts"
       ],
       "status": "included",
-      "blurb": "Baron Capital; long-term Tesla holder commentary.",
-      "why": "Voices chip + Briefing Analysts.",
+      "blurb": "Long-term Tesla investor (Baron Capital).",
+      "why": "On Voices and in Briefing Analysts.",
       "lean": "up"
     },
     {
@@ -122,8 +122,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Wedbush; high-visibility TSLA / AI datacenter takes.",
-      "why": "Voices + Briefing Analysts + price-target roster.",
+      "blurb": "Wedbush analyst. Often on TV about Tesla and AI.",
+      "why": "On Voices, Briefing Analysts, and the price-target list.",
       "lean": "up"
     },
     {
@@ -135,8 +135,8 @@
         "briefing-analysts"
       ],
       "status": "included",
-      "blurb": "Active Tesla bull/bear debate on X; valuation and event reactions.",
-      "why": "Briefing Analysts only (not a Voices chip).",
+      "blurb": "Active Tesla bull/bear debate on X — valuation and big events.",
+      "why": "Briefing Analysts only (not a Voices button).",
       "lean": "flat"
     },
     {
@@ -148,8 +148,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Piper Sandler; accuracy-first PT strip.",
-      "why": "On the locked 12 PT roster (shown as Potter)."
+      "blurb": "Piper Sandler analyst on the price-target strip.",
+      "why": "On the locked list of 12 targets (shown as Potter)."
     },
     {
       "name": "Tom Narayan",
@@ -160,8 +160,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "RBC; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "RBC analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Chris Gengaro",
@@ -172,8 +172,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Stifel; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "Stifel analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Vijay Rakesh",
@@ -184,8 +184,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Mizuho; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "Mizuho analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Jeff Michaeli",
@@ -196,8 +196,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "TD Cowen; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "TD Cowen analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Ben Kallo",
@@ -208,8 +208,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Baird; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "Baird analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "George Gianarikas",
@@ -220,8 +220,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Canaccord; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "Canaccord analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Dan Levy",
@@ -232,8 +232,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Barclays; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "Barclays analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Joseph Spak",
@@ -244,8 +244,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "UBS; PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "UBS analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Edison Yu",
@@ -256,8 +256,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "Deutsche Bank; filled the Rusch slot.",
-      "why": "Locked PT roster."
+      "blurb": "Deutsche Bank analyst. Took the open slot after Rusch.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Adam Legg",
@@ -268,8 +268,8 @@
         "price-targets"
       ],
       "status": "included",
-      "blurb": "PT strip.",
-      "why": "Locked PT roster."
+      "blurb": "Analyst on the price-target strip.",
+      "why": "On the locked price-target list."
     },
     {
       "name": "Chris Rusch",
@@ -280,8 +280,8 @@
         "price-targets"
       ],
       "status": "candidate",
-      "blurb": "Earlier PT candidate.",
-      "why": "Dropped — no published price target when the accuracy-first 12 was locked.",
+      "blurb": "Was looked at for the price-target strip.",
+      "why": "Dropped — no published price target when the list of 12 was locked.",
       "lean": "flat"
     },
     {
@@ -294,8 +294,8 @@
         "x-news"
       ],
       "status": "included",
-      "blurb": "Fast Tesla/SpaceX news aggregation on X.",
-      "why": "Allowlist + already used in Briefing Commentators. Not a Voices chip (keeps Voices small).",
+      "blurb": "Fast Tesla and SpaceX news on X.",
+      "why": "On the Commentators allowlist and already used in Briefing. Not a Voices button (keeps Voices small).",
       "lean": "up"
     },
     {
@@ -307,8 +307,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "Robotaxi / autonomy narrative.",
-      "why": "Allowlist; Briefing Commentators.",
+      "blurb": "Talks a lot about robotaxis and self-driving.",
+      "why": "On the Commentators allowlist; used in Briefing.",
       "lean": "up"
     },
     {
@@ -321,8 +321,8 @@
         "x-news"
       ],
       "status": "included",
-      "blurb": "Product, Cybercab, and delivery color.",
-      "why": "Allowlist; Briefing + often surfaces in X News.",
+      "blurb": "Product and delivery color — Cybercab cabin notes, etc.",
+      "why": "On the allowlist; Briefing and often in X News.",
       "lean": "up"
     },
     {
@@ -334,8 +334,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "Delivery and estimate trackers.",
-      "why": "Allowlist; Briefing Commentators when numbers move.",
+      "blurb": "Tracks Tesla delivery estimates.",
+      "why": "On the allowlist; use in Briefing when the numbers move.",
       "lean": "flat"
     },
     {
@@ -347,8 +347,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "NextBigFuture; energy / AI / scale takes.",
-      "why": "Allowlist; Briefing when on-topic.",
+      "blurb": "NextBigFuture — energy, AI, and big tech scale.",
+      "why": "On the allowlist; Briefing when the topic fits.",
       "lean": "up"
     },
     {
@@ -360,8 +360,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "Transport / autonomy journalist.",
-      "why": "Added to allowlist after review — cite when reporting, not as a permanent Voices chip.",
+      "blurb": "Transport and self-driving reporter.",
+      "why": "On the allowlist — cite when she reports; not a permanent Voices button.",
       "lean": "flat"
     },
     {
@@ -373,8 +373,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "All-In co-host; markets / tech macro.",
-      "why": "Allowlist for occasional Briefing cites when TSLA/SpaceX/AI-relevant — not a Voices chip.",
+      "blurb": "All-In podcast host; markets and tech big-picture.",
+      "why": "On the allowlist for occasional Briefing cites when Tesla/SpaceX/AI is the topic — not a Voices button.",
       "lean": "flat"
     },
     {
@@ -386,8 +386,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "All-In; AI and policy.",
-      "why": "Allowlist; Briefing when on-topic.",
+      "blurb": "All-In host; AI and policy.",
+      "why": "On the allowlist; Briefing when the topic fits.",
       "lean": "up"
     },
     {
@@ -399,8 +399,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "All-In; science / climate / markets.",
-      "why": "Allowlist; Briefing when on-topic.",
+      "blurb": "All-In host; science, climate, markets.",
+      "why": "On the allowlist; Briefing when the topic fits.",
       "lean": "flat"
     },
     {
@@ -412,8 +412,8 @@
         "briefing-commentators"
       ],
       "status": "included",
-      "blurb": "All-In; startups / markets.",
-      "why": "Allowlist; Briefing when on-topic.",
+      "blurb": "All-In host; startups and markets.",
+      "why": "On the allowlist; Briefing when the topic fits.",
       "lean": "up"
     },
     {
@@ -425,8 +425,8 @@
         "x-news"
       ],
       "status": "candidate",
-      "blurb": "High-volume Tesla news site.",
-      "why": "Not on Commentators allowlist (repackaging / headline risk). OK as X News signal only.",
+      "blurb": "Busy Tesla news site.",
+      "why": "Not on the Commentators allowlist (headline risk). OK as an X News signal only.",
       "lean": "down"
     },
     {
@@ -450,7 +450,7 @@
       "slots": [],
       "status": "candidate",
       "blurb": "Community / investor voice.",
-      "why": "Discussed 2026-09-05; not yet on allowlist — cite only if a post is clearly material.",
+      "why": "Talked about 2026-09-05; not on the allowlist yet — only cite if a post really matters.",
       "lean": "up"
     },
     {
@@ -460,8 +460,8 @@
       "kind": "commentator",
       "slots": [],
       "status": "excluded",
-      "blurb": "Off-domain / brand-risk for this page.",
-      "why": "Explicitly excluded from Commentators allowlist — weak Tesla/SpaceX signal fit.",
+      "blurb": "Off-topic for this page; weak fit.",
+      "why": "Excluded from the Commentators allowlist.",
       "lean": "down"
     },
     {
@@ -472,7 +472,7 @@
       "slots": [],
       "status": "candidate",
       "blurb": "Retail Tesla community voice.",
-      "why": "On the Friday salkkuyhteenveto watchlist; not wired into x-daily yet.",
+      "why": "On the Friday watchlist; not wired into X Daily yet.",
       "lean": "up"
     },
     {
@@ -482,8 +482,8 @@
       "kind": "commentator",
       "slots": [],
       "status": "candidate",
-      "blurb": "Investor; AI / tech.",
-      "why": "Friday list; not on x-daily Voices/Briefing yet.",
+      "blurb": "Investor; AI and tech.",
+      "why": "On the Friday list; not on X Daily Voices/Briefing yet.",
       "lean": "flat"
     },
     {
@@ -494,7 +494,7 @@
       "slots": [],
       "status": "candidate",
       "blurb": "Tesla commentary (Friday list).",
-      "why": "Friday list; not wired yet.",
+      "why": "On the Friday list; not wired yet.",
       "lean": "up"
     },
     {
@@ -505,7 +505,7 @@
       "slots": [],
       "status": "candidate",
       "blurb": "Investor commentary.",
-      "why": "Friday list; not wired yet.",
+      "why": "On the Friday list; not wired yet.",
       "lean": "up"
     },
     {
@@ -516,7 +516,7 @@
       "slots": [],
       "status": "candidate",
       "blurb": "Tesla commentary (Friday list).",
-      "why": "Friday list; not wired yet.",
+      "why": "On the Friday list; not wired yet.",
       "lean": "up"
     },
     {
@@ -527,7 +527,7 @@
       "slots": [],
       "status": "candidate",
       "blurb": "Tesla news / community.",
-      "why": "Friday list; not wired yet.",
+      "why": "On the Friday list; not wired yet.",
       "lean": "up"
     },
     {
@@ -538,7 +538,7 @@
       "slots": [],
       "status": "excluded",
       "blurb": "Tesla Daily podcast.",
-      "why": "Explicitly not on the Friday salkkuyhteenveto list — keep off x-daily unless Jukka says otherwise.",
+      "why": "Explicitly not on the Friday list — keep off X Daily unless Jukka says otherwise.",
       "lean": "up"
     },
     {
@@ -563,7 +563,7 @@
       ],
       "status": "included",
       "blurb": "Energy products.",
-      "why": "Musk stack Energy tile (prefer this handle when the post is Energy)."
+      "why": "Musk stack Energy tile (prefer this handle for Energy posts)."
     },
     {
       "name": "SpaceX",
@@ -575,7 +575,7 @@
       ],
       "status": "included",
       "blurb": "Launch company.",
-      "why": "Musk stack + Starship tile source."
+      "why": "Musk stack tile; also Starship posts."
     },
     {
       "name": "Starlink",
@@ -586,7 +586,7 @@
         "musk-stack"
       ],
       "status": "included",
-      "blurb": "Connectivity.",
+      "blurb": "Satellite internet.",
       "why": "Musk stack tile."
     },
     {
@@ -610,7 +610,7 @@
         "musk-stack"
       ],
       "status": "included",
-      "blurb": "Platform.",
+      "blurb": "The X platform.",
       "why": "Musk stack tile."
     },
     {
@@ -622,7 +622,7 @@
         "musk-stack"
       ],
       "status": "included",
-      "blurb": "BCI.",
+      "blurb": "Brain–computer implants.",
       "why": "Musk stack tile."
     },
     {
@@ -639,8 +639,8 @@
     }
   ],
   "lean_legend": {
-    "up": "Usually optimistic / bullish tone",
-    "down": "Usually critical / cautious tone",
-    "flat": "Mixed or analytical tone"
+    "up": "Usually upbeat / bullish",
+    "down": "Usually critical / cautious",
+    "flat": "Mixed or more neutral"
   }
 }
