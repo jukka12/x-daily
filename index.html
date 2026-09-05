@@ -160,14 +160,12 @@
     html.theme-light .theme-toggle .icon-sun { display: block; }
     html.theme-light .theme-toggle .icon-moon { display: none; }
 
+    /* Colors ball: same visual size as theme icon, grey off / green on */
     .tone-toggle { color: var(--muted); }
     html.tone-on .tone-toggle { color: var(--up); }
-    .tone-toggle .swatch-up { fill: currentColor; opacity: 0.4; }
-    .tone-toggle .swatch-flat { fill: currentColor; opacity: 0.65; }
-    .tone-toggle .swatch-down { fill: currentColor; opacity: 0.9; }
-    html.tone-on .tone-toggle .swatch-up { fill: var(--up); opacity: 1; }
-    html.tone-on .tone-toggle .swatch-flat { fill: var(--flat); opacity: 1; }
-    html.tone-on .tone-toggle .swatch-down { fill: var(--down); opacity: 1; }
+    .tone-toggle .tone-ball {
+      fill: currentColor;
+    }
 
 
     /* Tone colors only when html.tone-on — stock cards keep always-on colors */
@@ -938,9 +936,7 @@
       <div class="clock-bar-right">
       <button type="button" class="tone-toggle" id="tone-toggle" title="Toggle colors" aria-label="Toggle tone colors" aria-pressed="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">
-          <circle class="swatch-up" cx="7" cy="12" r="3.2"/>
-          <circle class="swatch-flat" cx="12" cy="12" r="3.2"/>
-          <circle class="swatch-down" cx="17" cy="12" r="3.2"/>
+          <circle class="tone-ball" cx="12" cy="12" r="7"/>
         </svg>
       </button>
       <button type="button" class="theme-toggle" id="theme-toggle" title="Switch light / dark" aria-label="Switch light and dark theme">
