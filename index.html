@@ -940,12 +940,18 @@
         </svg>
       </button>
       <button type="button" class="theme-toggle" id="theme-toggle" title="Switch light / dark" aria-label="Switch light and dark theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-          <path d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3z"/>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <defs>
+            <mask id="xdaily-moon-cut">
+              <rect width="24" height="24" fill="#fff"/>
+              <circle cx="7.5" cy="10" r="7.2" fill="#000"/>
+            </mask>
+          </defs>
+          <circle cx="12.5" cy="12" r="8.2" fill="currentColor" mask="url(#xdaily-moon-cut)"/>
         </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round">
+          <circle cx="12" cy="12" r="4.4"/>
+          <path d="M12 2.2v2.3M12 19.5v2.3M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2.2 12h2.3M19.5 12h2.3M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/>
         </svg>
       </button>
       </div>
