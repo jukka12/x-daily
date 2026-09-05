@@ -642,7 +642,6 @@
       font-weight: 450;
       box-sizing: border-box;
       overflow: hidden;
-      text-overflow: ellipsis;
       white-space: nowrap;
       max-width: 100%;
     }
@@ -1467,6 +1466,30 @@
         return m[3] + "." + m[2];
       }
 
+      function fitHeadlineDots(a) {
+        if (!a) return;
+        const full = a.getAttribute("data-full-title") || "";
+        if (!full) return;
+        a.textContent = full;
+        if (a.scrollWidth <= a.clientWidth + 1) return;
+        const dots = "...";
+        let lo = 0;
+        let hi = full.length;
+        while (lo < hi) {
+          const mid = Math.ceil((lo + hi) / 2);
+          a.textContent = full.slice(0, mid).replace(/\s+$/, "") + dots;
+          if (a.scrollWidth <= a.clientWidth + 1) lo = mid;
+          else hi = mid - 1;
+        }
+        const cut = full.slice(0, lo).replace(/\s+$/, "");
+        a.textContent = cut ? cut + dots : dots;
+      }
+
+      function fitAllHeadlines() {
+        if (!el.headlines) return;
+        el.headlines.querySelectorAll("a.headline[data-full-title]").forEach(fitHeadlineDots);
+      }
+
       function renderHeadlineList(node, items, emptyText) {
         if (!node) return;
         node.innerHTML = "";
@@ -1489,10 +1512,14 @@
           a.href = item.url;
           a.target = "_blank";
           a.rel = "noopener";
-          a.textContent = item.title;
+          const title = String(item.title);
+          a.setAttribute("data-full-title", title);
+          a.title = title;
+          a.textContent = title;
           li.appendChild(a);
           node.appendChild(li);
         });
+        requestAnimationFrame(fitAllHeadlines);
       }
 
       function renderHeadlines(items) {
@@ -2342,6 +2369,12 @@
           apply(!document.documentElement.classList.contains("theme-light"));
         });
       })();
+
+      let headlineFitTimer = null;
+      window.addEventListener("resize", function () {
+        if (headlineFitTimer) clearTimeout(headlineFitTimer);
+        headlineFitTimer = setTimeout(fitAllHeadlines, 80);
+      });
 
       tickClock();
       setInterval(tickClock, 1000);
