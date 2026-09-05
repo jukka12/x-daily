@@ -270,7 +270,7 @@
   "briefing": {
     "generated_at_utc": "2026-09-05T05:18:56Z",
     "analysts": {
-      "body": "Wall Street voices this week stayed fixed on Tesla\u2019s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.\n\nGary Black assessed Tesla\u2019s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.\n\nCathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth\u2014described as multiplying many-fold in a year\u2014remains poorly grasped across clients and companies even as frontier AI revenue scales.",
+      "body": "Wall Street voices this week stayed fixed on Tesla’s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.\n\nGary Black assessed Tesla’s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.\n\nCathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth—described as multiplying many-fold in a year—remains poorly grasped across clients and companies even as frontier AI revenue scales.",
       "sources": [
         {
           "name": "Ives",
@@ -305,22 +305,22 @@
       ],
       "paragraphs": [
         {
-          "text": "Wall Street voices this week stayed fixed on Tesla\u2019s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.",
+          "text": "Wall Street voices this week stayed fixed on Tesla’s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.",
           "tone": "flat"
         },
         {
-          "text": "Gary Black assessed Tesla\u2019s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.",
+          "text": "Gary Black assessed Tesla’s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.",
           "tone": "down"
         },
         {
-          "text": "Cathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth\u2014described as multiplying many-fold in a year\u2014remains poorly grasped across clients and companies even as frontier AI revenue scales.",
+          "text": "Cathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth—described as multiplying many-fold in a year—remains poorly grasped across clients and companies even as frontier AI revenue scales.",
           "tone": "up"
         }
       ],
       "tone": "flat"
     },
     "commentators": {
-      "body": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51\u2014versus an estimated $200 for comparable Uber trips\u2014and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.\n\nFarzad previewed subscriber video asking whether Cybercab can displace Uber and said he hopes Tesla reaches the safety validation needed to drop thousands of units in Austin and expand the geofence far enough to hail from home. Separately he continued covering AI infrastructure topics such as advanced-node chip lithography and U.S. data-center build economics.\n\nWhole Mars Catalog posted a stream of Austin cabin impressions\u2014with Sawyer Merritt among ride companions\u2014praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab\u2019s 22-inch display.",
+      "body": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51—versus an estimated $200 for comparable Uber trips—and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.\n\nFarzad previewed subscriber video asking whether Cybercab can displace Uber and said he hopes Tesla reaches the safety validation needed to drop thousands of units in Austin and expand the geofence far enough to hail from home. Separately he continued covering AI infrastructure topics such as advanced-node chip lithography and U.S. data-center build economics.\n\nWhole Mars Catalog posted a stream of Austin cabin impressions—with Sawyer Merritt among ride companions—praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab’s 22-inch display.",
       "sources": [
         {
           "name": "Sawyer Merritt",
@@ -361,7 +361,7 @@
       ],
       "paragraphs": [
         {
-          "text": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51\u2014versus an estimated $200 for comparable Uber trips\u2014and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.",
+          "text": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51—versus an estimated $200 for comparable Uber trips—and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.",
           "tone": "down"
         },
         {
@@ -369,7 +369,7 @@
           "tone": "flat"
         },
         {
-          "text": "Whole Mars Catalog posted a stream of Austin cabin impressions\u2014with Sawyer Merritt among ride companions\u2014praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab\u2019s 22-inch display.",
+          "text": "Whole Mars Catalog posted a stream of Austin cabin impressions—with Sawyer Merritt among ride companions—praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab’s 22-inch display.",
           "tone": "flat"
         }
       ],
@@ -516,7 +516,7 @@
     "markets": [
       {
         "id": "merger-dec26",
-        "label": "TSLA\u2013SPCX merge",
+        "label": "TSLA–SPCX merge",
         "slug": "tesla-and-spacex-merger-officially-announced-by-december-31",
         "url": "https://polymarket.com/event/tesla-and-spacex-merger-officially-announced-by-june-30",
         "yes_pct": 16.5,
@@ -563,5 +563,67 @@
         "as_of_utc": "2026-09-05T07:20:23Z"
       }
     ]
-  }
+  },
+  "commentators_allowlist": [
+    {
+      "name": "Sawyer Merritt",
+      "handle": "SawyerMerritt",
+      "url": "https://x.com/SawyerMerritt",
+      "note": "Primary Tesla/SpaceX news pulse"
+    },
+    {
+      "name": "Farzad Mesbahi",
+      "handle": "farzyness",
+      "url": "https://x.com/farzyness",
+      "note": "Autonomy / robotaxi framing"
+    },
+    {
+      "name": "Whole Mars Catalog",
+      "handle": "wholemars",
+      "url": "https://x.com/wholemars",
+      "note": "Product and delivery color"
+    },
+    {
+      "name": "Troy Teslike",
+      "handle": "TroyTeslike",
+      "url": "https://x.com/TroyTeslike",
+      "note": "Delivery / estimate trackers"
+    },
+    {
+      "name": "Brian Wang",
+      "handle": "nextbigfuture",
+      "url": "https://x.com/nextbigfuture",
+      "note": "Tech scale and energy/AI adjacent"
+    },
+    {
+      "name": "Kirsten Korosec",
+      "handle": "kirstenkorosec",
+      "url": "https://x.com/kirstenkorosec",
+      "note": "Transport journalism; cite when reporting"
+    },
+    {
+      "name": "Chamath Palihapitiya",
+      "handle": "chamath",
+      "url": "https://x.com/chamath",
+      "note": "All-In; macro / markets when TSLA-relevant"
+    },
+    {
+      "name": "David Sacks",
+      "handle": "DavidSacks",
+      "url": "https://x.com/DavidSacks",
+      "note": "All-In; AI / policy / xAI-adjacent"
+    },
+    {
+      "name": "David Friedberg",
+      "handle": "friedberg",
+      "url": "https://x.com/friedberg",
+      "note": "All-In; science / climate / markets"
+    },
+    {
+      "name": "Jason Calacanis",
+      "handle": "Jason",
+      "url": "https://x.com/Jason",
+      "note": "All-In; startup / markets color"
+    }
+  ]
 }

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>X Daily — Roster</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #0e0e10;
+      --fg: #f2f2ee;
+      --muted: #8a8a84;
+      --line: #2a2a2c;
+      --chip: #3a3a3c;
+      --up: #3ecf8e;
+      --down: #f07178;
+      --flat: #e6c56a;
+      --purple: #b794f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px 28px 48px;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.45;
+    }
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    h1 {
+      margin: 0;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .back { color: var(--muted); font-size: 0.86rem; letter-spacing: 0.04em; }
+    .lede {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      max-width: 62rem;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      margin: 0 0 28px;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--chip);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 650;
+      font-size: 0.62rem;
+    }
+    .pill.active { color: var(--up); border-color: #1a3d2c; }
+    .pill.allowlist { color: var(--flat); border-color: #4a4020; }
+    .pill.watch { color: var(--muted); }
+    .pill.excluded { color: var(--down); border-color: #4a2024; }
+    .pill.alumni { color: #9a8a6a; }
+
+    h2 {
+      margin: 28px 0 12px;
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .allow {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .allow a, .allow span {
+      display: block;
+      padding: 10px 12px;
+      border: 1px solid var(--chip);
+      border-radius: 12px;
+      color: var(--fg);
+      font-size: 0.9rem;
+    }
+    .allow a:hover { border-color: #4a4a4c; text-decoration: none; }
+    .allow .h { color: var(--muted); font-size: 0.72rem; margin-top: 2px; }
+    .allow .n { color: var(--muted); font-size: 0.75rem; margin-top: 6px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+    }
+    th {
+      color: var(--muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 650;
+    }
+    td.name { font-weight: 560; white-space: nowrap; }
+    td.why { color: #c8c8c3; }
+    td.blurb { color: var(--muted); }
+    .slots { color: var(--muted); font-size: 0.75rem; }
+    .empty { color: var(--muted); }
+    @media (max-width: 720px) {
+      body { padding: 20px 16px 36px; }
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      tr {
+        margin: 0 0 14px;
+        padding: 0 0 14px;
+        border-bottom: 1px solid var(--line);
+      }
+      td { border: 0; padding: 4px 0; }
+      td.name { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <h1>X Daily · Roster</h1>
+    <a class="back" href="./">← X Daily</a>
+  </div>
+  <p class="lede" id="lede">Names that have come up while building X Daily — who is live, who is on the Commentators allowlist, and who is still watch/excluded.</p>
+  <div class="legend" id="legend"></div>
+
+  <h2>Commentators allowlist</h2>
+  <div class="allow" id="allow"></div>
+
+  <h2>Full list</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Slots</th>
+        <th>Who</th>
+        <th>Fit / why</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+  <script>
+    (function () {
+      const order = ["active", "allowlist", "watch", "alumni", "excluded"];
+      function statusRank(s) {
+        const i = order.indexOf(s);
+        return i < 0 ? 99 : i;
+      }
+      fetch("./roster.json", { cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error("missing"); return r.json(); })
+        .then(function (data) {
+          const legend = document.getElementById("legend");
+          const leg = data.status_legend || {};
+          order.forEach(function (k) {
+            if (!leg[k]) return;
+            const span = document.createElement("span");
+            span.innerHTML = '<span class="pill ' + k + '">' + k + "</span> " + leg[k];
+            legend.appendChild(span);
+          });
+          if (data.updated) {
+            document.getElementById("lede").textContent += " Updated " + data.updated + ".";
+          }
+
+          const allow = document.getElementById("allow");
+          (data.commentators_allowlist || []).forEach(function (row) {
+            const el = row.url ? document.createElement("a") : document.createElement("span");
+            if (row.url) { el.href = row.url; el.target = "_blank"; el.rel = "noopener"; }
+            el.innerHTML = "<div>" + (row.name || "") + "</div>"
+              + (row.handle ? '<div class="h">@' + row.handle + "</div>" : "")
+              + (row.note ? '<div class="n">' + row.note + "</div>" : "");
+            allow.appendChild(el);
+          });
+
+          const people = (data.people || []).slice().sort(function (a, b) {
+            const d = statusRank(a.status) - statusRank(b.status);
+            if (d) return d;
+            return String(a.name || "").localeCompare(String(b.name || ""));
+          });
+          const tbody = document.getElementById("rows");
+          people.forEach(function (p) {
+            const tr = document.createElement("tr");
+            const nameCell = document.createElement("td");
+            nameCell.className = "name";
+            if (p.url) {
+              const a = document.createElement("a");
+              a.href = p.url;
+              a.target = "_blank";
+              a.rel = "noopener";
+              a.textContent = p.name || "—";
+              nameCell.appendChild(a);
+              if (p.handle) {
+                const h = document.createElement("div");
+                h.className = "slots";
+                h.textContent = "@" + p.handle;
+                nameCell.appendChild(h);
+              }
+            } else {
+              nameCell.textContent = p.name || "—";
+            }
+
+            const st = document.createElement("td");
+            st.innerHTML = '<span class="pill ' + (p.status || "") + '">' + (p.status || "—") + "</span>";
+
+            const slots = document.createElement("td");
+            slots.className = "slots";
+            slots.textContent = (p.slots && p.slots.length) ? p.slots.join(" · ") : "—";
+
+            const blurb = document.createElement("td");
+            blurb.className = "blurb";
+            blurb.textContent = p.blurb || "";
+
+            const why = document.createElement("td");
+            why.className = "why";
+            why.textContent = p.why || "";
+
+            tr.appendChild(nameCell);
+            tr.appendChild(st);
+            tr.appendChild(slots);
+            tr.appendChild(blurb);
+            tr.appendChild(why);
+            tbody.appendChild(tr);
+          });
+        })
+        .catch(function () {
+          document.getElementById("rows").innerHTML =
+            '<tr><td class="empty" colspan="5">Could not load roster.json</td></tr>';
+        });
+    })();
+  </script>
+</body>
+</html>

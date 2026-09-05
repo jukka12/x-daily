@@ -1,0 +1,616 @@
+{
+  "updated": "2026-09-05",
+  "title": "X Daily roster",
+  "commentators_allowlist": [
+    {
+      "name": "Sawyer Merritt",
+      "handle": "SawyerMerritt",
+      "url": "https://x.com/SawyerMerritt",
+      "note": "Primary Tesla/SpaceX news pulse"
+    },
+    {
+      "name": "Farzad Mesbahi",
+      "handle": "farzyness",
+      "url": "https://x.com/farzyness",
+      "note": "Autonomy / robotaxi framing"
+    },
+    {
+      "name": "Whole Mars Catalog",
+      "handle": "wholemars",
+      "url": "https://x.com/wholemars",
+      "note": "Product and delivery color"
+    },
+    {
+      "name": "Troy Teslike",
+      "handle": "TroyTeslike",
+      "url": "https://x.com/TroyTeslike",
+      "note": "Delivery / estimate trackers"
+    },
+    {
+      "name": "Brian Wang",
+      "handle": "nextbigfuture",
+      "url": "https://x.com/nextbigfuture",
+      "note": "Tech scale and energy/AI adjacent"
+    },
+    {
+      "name": "Kirsten Korosec",
+      "handle": "kirstenkorosec",
+      "url": "https://x.com/kirstenkorosec",
+      "note": "Transport journalism; cite when reporting"
+    },
+    {
+      "name": "Chamath Palihapitiya",
+      "handle": "chamath",
+      "url": "https://x.com/chamath",
+      "note": "All-In; macro / markets when TSLA-relevant"
+    },
+    {
+      "name": "David Sacks",
+      "handle": "DavidSacks",
+      "url": "https://x.com/DavidSacks",
+      "note": "All-In; AI / policy / xAI-adjacent"
+    },
+    {
+      "name": "David Friedberg",
+      "handle": "friedberg",
+      "url": "https://x.com/friedberg",
+      "note": "All-In; science / climate / markets"
+    },
+    {
+      "name": "Jason Calacanis",
+      "handle": "Jason",
+      "url": "https://x.com/Jason",
+      "note": "All-In; startup / markets color"
+    }
+  ],
+  "status_legend": {
+    "active": "Already used on the live page in the listed slots",
+    "allowlist": "Approved for Briefing Commentators (and noted slots) when regenerating Briefing",
+    "watch": "Discussed or on a side list — not default Briefing sources yet",
+    "excluded": "Do not use for x-daily Briefing / Voices",
+    "alumni": "Was considered; removed from a locked roster"
+  },
+  "people": [
+    {
+      "name": "Elon Musk",
+      "handle": "elonmusk",
+      "url": "https://x.com/elonmusk",
+      "kind": "voice",
+      "slots": [
+        "voices",
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Tesla / SpaceX / xAI / X principal voice.",
+      "why": "On Voices chip. Core of the page."
+    },
+    {
+      "name": "Cathie Wood",
+      "handle": "CathieDWood",
+      "url": "https://x.com/CathieDWood",
+      "kind": "voice",
+      "slots": [
+        "voices",
+        "briefing-analysts"
+      ],
+      "status": "active",
+      "blurb": "ARK; long-duration Tesla / autonomy / AI narrative.",
+      "why": "Voices chip + Briefing Analysts."
+    },
+    {
+      "name": "Ron Baron",
+      "handle": "RonBaronAnalyst",
+      "url": "https://x.com/RonBaronAnalyst",
+      "kind": "voice",
+      "slots": [
+        "voices",
+        "briefing-analysts"
+      ],
+      "status": "active",
+      "blurb": "Baron Capital; long-term Tesla holder commentary.",
+      "why": "Voices chip + Briefing Analysts."
+    },
+    {
+      "name": "Dan Ives",
+      "handle": "DivesTech",
+      "url": "https://x.com/DivesTech",
+      "kind": "analyst",
+      "slots": [
+        "voices",
+        "briefing-analysts",
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Wedbush; high-visibility TSLA / AI datacenter takes.",
+      "why": "Voices + Briefing Analysts + price-target roster."
+    },
+    {
+      "name": "Gary Black",
+      "handle": "garyblack00",
+      "url": "https://x.com/garyblack00",
+      "kind": "analyst",
+      "slots": [
+        "briefing-analysts"
+      ],
+      "status": "active",
+      "blurb": "Active Tesla bull/bear debate on X; valuation and event reactions.",
+      "why": "Briefing Analysts only (not a Voices chip)."
+    },
+    {
+      "name": "Alexander Potter",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Piper Sandler; accuracy-first PT strip.",
+      "why": "On the locked 12 PT roster (shown as Potter)."
+    },
+    {
+      "name": "Tom Narayan",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "RBC; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Chris Gengaro",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Stifel; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Vijay Rakesh",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Mizuho; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Jeff Michaeli",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "TD Cowen; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Ben Kallo",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Baird; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "George Gianarikas",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Canaccord; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Dan Levy",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Barclays; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Joseph Spak",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "UBS; PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Edison Yu",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "Deutsche Bank; filled the Rusch slot.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Adam Legg",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "active",
+      "blurb": "PT strip.",
+      "why": "Locked PT roster."
+    },
+    {
+      "name": "Chris Rusch",
+      "handle": null,
+      "url": null,
+      "kind": "analyst",
+      "slots": [
+        "price-targets"
+      ],
+      "status": "alumni",
+      "blurb": "Earlier PT candidate.",
+      "why": "Dropped — no published price target when the accuracy-first 12 was locked."
+    },
+    {
+      "name": "Sawyer Merritt",
+      "handle": "SawyerMerritt",
+      "url": "https://x.com/SawyerMerritt",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators",
+        "x-news"
+      ],
+      "status": "allowlist",
+      "blurb": "Fast Tesla/SpaceX news aggregation on X.",
+      "why": "Allowlist + already used in Briefing Commentators. Not a Voices chip (keeps Voices small)."
+    },
+    {
+      "name": "Farzad Mesbahi",
+      "handle": "farzyness",
+      "url": "https://x.com/farzyness",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "Robotaxi / autonomy narrative.",
+      "why": "Allowlist; Briefing Commentators."
+    },
+    {
+      "name": "Whole Mars Catalog",
+      "handle": "wholemars",
+      "url": "https://x.com/wholemars",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators",
+        "x-news"
+      ],
+      "status": "allowlist",
+      "blurb": "Product, Cybercab, and delivery color.",
+      "why": "Allowlist; Briefing + often surfaces in X News."
+    },
+    {
+      "name": "Troy Teslike",
+      "handle": "TroyTeslike",
+      "url": "https://x.com/TroyTeslike",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "Delivery and estimate trackers.",
+      "why": "Allowlist; Briefing Commentators when numbers move."
+    },
+    {
+      "name": "Brian Wang",
+      "handle": "nextbigfuture",
+      "url": "https://x.com/nextbigfuture",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "NextBigFuture; energy / AI / scale takes.",
+      "why": "Allowlist; Briefing when on-topic."
+    },
+    {
+      "name": "Kirsten Korosec",
+      "handle": "kirstenkorosec",
+      "url": "https://x.com/kirstenkorosec",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "Transport / autonomy journalist.",
+      "why": "Added to allowlist after review — cite when reporting, not as a permanent Voices chip."
+    },
+    {
+      "name": "Chamath Palihapitiya",
+      "handle": "chamath",
+      "url": "https://x.com/chamath",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "All-In co-host; markets / tech macro.",
+      "why": "Allowlist for occasional Briefing cites when TSLA/SpaceX/AI-relevant — not a Voices chip."
+    },
+    {
+      "name": "David Sacks",
+      "handle": "DavidSacks",
+      "url": "https://x.com/DavidSacks",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "All-In; AI and policy.",
+      "why": "Allowlist; Briefing when on-topic."
+    },
+    {
+      "name": "David Friedberg",
+      "handle": "friedberg",
+      "url": "https://x.com/friedberg",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "All-In; science / climate / markets.",
+      "why": "Allowlist; Briefing when on-topic."
+    },
+    {
+      "name": "Jason Calacanis",
+      "handle": "Jason",
+      "url": "https://x.com/Jason",
+      "kind": "commentator",
+      "slots": [
+        "briefing-commentators"
+      ],
+      "status": "allowlist",
+      "blurb": "All-In; startups / markets.",
+      "why": "Allowlist; Briefing when on-topic."
+    },
+    {
+      "name": "Electrek (Fred Lambert)",
+      "handle": "ElectrekCo",
+      "url": "https://x.com/ElectrekCo",
+      "kind": "outlet",
+      "slots": [
+        "x-news"
+      ],
+      "status": "watch",
+      "blurb": "High-volume Tesla news site.",
+      "why": "Not on Commentators allowlist (repackaging / headline risk). OK as X News signal only."
+    },
+    {
+      "name": "Teslarati",
+      "handle": "Teslarati",
+      "url": "https://x.com/Teslarati",
+      "kind": "outlet",
+      "slots": [
+        "x-news"
+      ],
+      "status": "watch",
+      "blurb": "Enthusiast Tesla news.",
+      "why": "Same as Electrek — X News only, not Briefing Commentators."
+    },
+    {
+      "name": "Scott Nordlund",
+      "handle": "ScottNordlund",
+      "url": "https://x.com/ScottNordlund",
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Community / investor voice.",
+      "why": "Discussed 2026-09-05; not yet on allowlist — cite only if a post is clearly material."
+    },
+    {
+      "name": "Jo Bhakdi",
+      "handle": "jo_bhakdi",
+      "url": "https://x.com/jo_bhakdi",
+      "kind": "commentator",
+      "slots": [],
+      "status": "excluded",
+      "blurb": "Off-domain / brand-risk for this page.",
+      "why": "Explicitly excluded from Commentators allowlist — weak Tesla/SpaceX signal fit."
+    },
+    {
+      "name": "Tesla Boomer Mama",
+      "handle": "boomerteama",
+      "url": "https://x.com/boomerteama",
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Retail Tesla community voice.",
+      "why": "On the Friday salkkuyhteenveto watchlist; not wired into x-daily yet."
+    },
+    {
+      "name": "Gavin Baker",
+      "handle": "GavinSBaker",
+      "url": "https://x.com/GavinSBaker",
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Investor; AI / tech.",
+      "why": "Friday list; not on x-daily Voices/Briefing yet."
+    },
+    {
+      "name": "Nicholas Gibbs",
+      "handle": null,
+      "url": null,
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Tesla commentary (Friday list).",
+      "why": "Friday list; not wired yet."
+    },
+    {
+      "name": "Phil Beisel",
+      "handle": "philbeisel",
+      "url": "https://x.com/philbeisel",
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Investor commentary.",
+      "why": "Friday list; not wired yet."
+    },
+    {
+      "name": "Brian White",
+      "handle": null,
+      "url": null,
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Tesla commentary (Friday list).",
+      "why": "Friday list; not wired yet."
+    },
+    {
+      "name": "Herbert Ong",
+      "handle": "herbertong",
+      "url": "https://x.com/herbertong",
+      "kind": "commentator",
+      "slots": [],
+      "status": "watch",
+      "blurb": "Tesla news / community.",
+      "why": "Friday list; not wired yet."
+    },
+    {
+      "name": "Rob Maurer",
+      "handle": null,
+      "url": null,
+      "kind": "commentator",
+      "slots": [],
+      "status": "excluded",
+      "blurb": "Tesla Daily podcast.",
+      "why": "Explicitly not on the Friday salkkuyhteenveto list — keep off x-daily unless Jukka says otherwise."
+    },
+    {
+      "name": "Tesla",
+      "handle": "Tesla",
+      "url": "https://x.com/Tesla",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Company account.",
+      "why": "Musk stack tile."
+    },
+    {
+      "name": "Tesla Energy",
+      "handle": "teslaenergy",
+      "url": "https://x.com/teslaenergy",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Energy products.",
+      "why": "Musk stack Energy tile (prefer this handle when the post is Energy)."
+    },
+    {
+      "name": "SpaceX",
+      "handle": "SpaceX",
+      "url": "https://x.com/SpaceX",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Launch company.",
+      "why": "Musk stack + Starship tile source."
+    },
+    {
+      "name": "Starlink",
+      "handle": "Starlink",
+      "url": "https://x.com/Starlink",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Connectivity.",
+      "why": "Musk stack tile."
+    },
+    {
+      "name": "xAI",
+      "handle": "SpaceXAI",
+      "url": "https://x.com/SpaceXAI",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "xAI / Grok.",
+      "why": "Musk stack tile (handle SpaceXAI)."
+    },
+    {
+      "name": "X",
+      "handle": "X",
+      "url": "https://x.com/X",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Platform.",
+      "why": "Musk stack tile."
+    },
+    {
+      "name": "Neuralink",
+      "handle": "neuralink",
+      "url": "https://x.com/neuralink",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "BCI.",
+      "why": "Musk stack tile."
+    },
+    {
+      "name": "The Boring Company",
+      "handle": "boringcompany",
+      "url": "https://x.com/boringcompany",
+      "kind": "org",
+      "slots": [
+        "musk-stack"
+      ],
+      "status": "active",
+      "blurb": "Tunnels.",
+      "why": "Musk stack tile."
+    }
+  ]
+}

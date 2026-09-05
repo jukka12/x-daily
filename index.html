@@ -738,6 +738,21 @@
       color: var(--muted);
     }
 
+    .page-foot {
+      margin: 36px 0 0;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      text-align: right;
+    }
+    .page-foot a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 0.28em;
+      line-height: 1;
+    }
+    .page-foot a:hover { color: var(--fg); }
+
     @media (max-width: 900px) {
       body { padding: 24px 18px 36px; }
 
@@ -895,6 +910,7 @@
       <h2 class="section-label">Musk stack</h2>
       <div id="stack" class="stack"></div>
     </section>
+    <p class="page-foot"><a href="./roster.html" title="Roster — names &amp; allowlist">…</a></p>
   </main>
   <p class="sr-only" id="live-region" aria-live="polite"></p>
 
