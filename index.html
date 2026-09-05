@@ -1907,13 +1907,15 @@
           return;
         }
 
-        const overnight = q.overnight == null ? null : Number(q.overnight);
+        const overnightRaw = q.overnight == null ? null : Number(q.overnight);
         const live = q.live == null ? null : Number(q.live);
         const afterHours = q.after_hours == null ? null : Number(q.after_hours);
+        const session = sessionFromClock(new Date());
+        /* Never show a leftover premarket print after the cash day is done */
+        const overnight = (session === "CLOSED") ? null : overnightRaw;
         const hasOvernight = Number.isFinite(overnight);
         const hasLive = Number.isFinite(live);
         const hasAfter = Number.isFinite(afterHours);
-        const session = sessionFromClock(new Date());
 
         let hero = lastClose;
         let heroLabel = "Last close";
