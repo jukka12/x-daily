@@ -40,14 +40,14 @@
   },
   "x_news": [
     {
-      "title": "Tesla Owners to Rent Cybercabs Like Airbnb Hosts",
-      "url": "https://x.com/i/trending/2096196069210435756",
-      "id": "2096196069210435756",
+      "title": "Tesla Owners Could Earn Robotaxi Income to Cover Car Payments",
+      "url": "https://x.com/i/trending/2096191712880107545",
+      "id": "2096191712880107545",
       "date": "2026-09-05",
       "tone": "up"
     },
     {
-      "title": "Tesla Cybercab Delivers Driverless Rides in Austin",
+      "title": "Austin Riders Love Tesla Cybercab's Serene Robotaxi Rides",
       "url": "https://x.com/i/trending/2096148546315837465",
       "id": "2096148546315837465",
       "date": "2026-09-05",
@@ -82,6 +82,13 @@
       "tone": "up"
     },
     {
+      "title": "We've Quietly Adapted to a Miraculous Future",
+      "url": "https://x.com/i/trending/2096009330462019817",
+      "id": "2096009330462019817",
+      "date": "2026-09-04",
+      "tone": "up"
+    },
+    {
       "title": "Jason Calacanis Calls for Slow Rollout of Self-Driving Cars",
       "url": "https://x.com/i/trending/2095920033314570687",
       "id": "2095920033314570687",
@@ -96,18 +103,11 @@
       "tone": "down"
     },
     {
-      "title": "Uber Partners with Unions to Slow Robotaxi Rollout",
-      "url": "https://x.com/i/trending/2095551385429319853",
-      "id": "2095551385429319853",
-      "date": "2026-09-04",
-      "tone": "flat"
-    },
-    {
       "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
       "url": "https://x.com/i/trending/2095681903084876202",
       "id": "2095681903084876202",
       "date": "2026-09-04",
-      "tone": "flat"
+      "tone": "up"
     },
     {
       "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
@@ -189,9 +189,9 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Start earning for sharing fast, reliable internet",
-      "quote_url": "https://x.com/Starlink/status/2096097404680630528",
-      "quote_date": "2026-09-05",
+      "quote": "Starlink V5 soon built into Cybercab for seamless connectivity",
+      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
+      "quote_date": "2026-09-04",
       "tone": "up"
     },
     {
@@ -506,11 +506,11 @@
       }
     ],
     "consensus_previous": 401.74,
-    "consensus_change": 0,
+    "consensus_change": 0.0,
     "consensus_direction": "flat"
   },
   "odds": {
-    "as_of_utc": "2026-09-05T12:11:49Z",
+    "as_of_utc": "2026-09-05T15:09:47Z",
     "source": "Polymarket",
     "source_url": "https://polymarket.com",
     "markets": [
@@ -524,7 +524,7 @@
         "change_pp": 0.0,
         "direction": "flat",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T12:11:49Z"
+        "as_of_utc": "2026-09-05T15:09:47Z"
       },
       {
         "id": "ca-robotaxi-26",
@@ -532,11 +532,11 @@
         "slug": "will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
         "url": "https://polymarket.com/event/will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
         "yes_pct": 22.0,
-        "previous_pct": 21.0,
-        "change_pp": 5.5,
+        "previous_pct": 22.0,
+        "change_pp": 4.5,
         "direction": "up",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T12:11:49Z"
+        "as_of_utc": "2026-09-05T15:09:47Z"
       },
       {
         "id": "optimus-26",
@@ -544,11 +544,11 @@
         "slug": "will-tesla-release-optimus-by-december-31-2026",
         "url": "https://polymarket.com/event/will-tesla-release-optimus-by-june-30-2026",
         "yes_pct": 3.3,
-        "previous_pct": 3.6,
-        "change_pp": -0.3,
+        "previous_pct": 3.3,
+        "change_pp": -0.35,
         "direction": "down",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T12:11:49Z"
+        "as_of_utc": "2026-09-05T15:09:47Z"
       },
       {
         "id": "starship-fl-26",
@@ -557,10 +557,10 @@
         "url": "https://polymarket.com/event/spacex-starship-florida-launch-by-20260617154757803",
         "yes_pct": 18.0,
         "previous_pct": 18.0,
-        "change_pp": 0.0,
-        "direction": "flat",
+        "change_pp": -18.5,
+        "direction": "down",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T12:11:49Z"
+        "as_of_utc": "2026-09-05T15:09:47Z"
       }
     ]
   },
