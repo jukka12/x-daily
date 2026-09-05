@@ -63,6 +63,10 @@
     }
 
     .clock-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
       margin: 0 0 22px;
       padding-bottom: 18px;
       border-bottom: 1px solid var(--line);
@@ -72,10 +76,98 @@
       letter-spacing: 0.01em;
       line-height: 1.45;
     }
+    .clock-bar-left { min-width: 0; }
     .clock-bar .sep { margin: 0 0.35em; color: #5c5c58; }
     .clock-bar .sess { color: var(--muted); font-weight: 650; letter-spacing: 0.06em; }
     .clock-bar .sess.open { color: var(--up); }
     .clock-bar .sess.pre { color: var(--warn); }
+
+    .tone-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      cursor: pointer;
+      user-select: none;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 650;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .tone-switch input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .tone-switch-track {
+      position: relative;
+      width: 34px;
+      height: 18px;
+      border-radius: 999px;
+      background: #2a2a2c;
+      border: 1px solid var(--chip);
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+    .tone-switch-track::after {
+      content: "";
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #c8c8c3;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .tone-switch input:checked + .tone-switch-track {
+      background: #1a3d2c;
+      border-color: var(--up);
+    }
+    .tone-switch input:checked + .tone-switch-track::after {
+      transform: translateX(16px);
+      background: var(--up);
+    }
+    .tone-switch input:focus-visible + .tone-switch-track {
+      outline: 1px solid var(--flat);
+      outline-offset: 2px;
+    }
+
+    /* Tone colors only when html.tone-on — stock cards keep always-on colors */
+    html:not(.tone-on) .headline.up,
+    html:not(.tone-on) .headline.down,
+    html:not(.tone-on) .headline.flat { color: var(--fg); }
+    html:not(.tone-on) .headline.up:hover,
+    html:not(.tone-on) .headline.down:hover { filter: none; color: #fff; }
+
+    html:not(.tone-on) .chip-status.up,
+    html:not(.tone-on) .chip-status.down,
+    html:not(.tone-on) .chip-status.flat { color: var(--muted); }
+    html:not(.tone-on) a.chip-status.up:hover,
+    html:not(.tone-on) a.chip-status.down:hover,
+    html:not(.tone-on) a.chip-status.flat:hover { filter: none; color: var(--fg); }
+
+    html:not(.tone-on) .briefing-p.up,
+    html:not(.tone-on) .briefing-p.down,
+    html:not(.tone-on) .briefing-p.flat { color: #c8c8c3; }
+
+    html:not(.tone-on) .odds-pct.up,
+    html:not(.tone-on) .odds-pct.down,
+    html:not(.tone-on) .odds-pct.flat { color: var(--fg); }
+    html:not(.tone-on) .odds-delta.up,
+    html:not(.tone-on) .odds-delta.down { color: var(--muted); }
+
+    html:not(.tone-on) .pt-target.up,
+    html:not(.tone-on) .pt-target.down,
+    html:not(.tone-on) .pt-target.flat { color: var(--fg); }
+    html:not(.tone-on) .pt-delta.up,
+    html:not(.tone-on) .pt-delta.down { color: var(--muted); }
+    html:not(.tone-on) .pt-consensus.up,
+    html:not(.tone-on) .pt-consensus.down,
+    html:not(.tone-on) .pt-consensus.flat { color: var(--fg); }
+    html:not(.tone-on) .pt-consensus .pt-delta.up,
+    html:not(.tone-on) .pt-consensus .pt-delta.down { color: var(--muted); }
 
     .kicker {
       display: flex;
@@ -655,13 +747,27 @@
   </style>
 </head>
 <body>
+  <script>
+    try {
+      if (localStorage.getItem("xdaily-tone-on") === "1") {
+        document.documentElement.classList.add("tone-on");
+      }
+    } catch (e) {}
+  </script>
   <main class="board">
     <div class="clock-bar" id="clock">
+      <div class="clock-bar-left">
       <span id="clock-hel">--:--</span> Helsinki
       <span class="sep">·</span>
       <span id="clock-ny">--:--</span> New York
       <span class="sep">·</span>
       <span id="clock-session" class="sess">—</span>
+      </div>
+      <label class="tone-switch" for="tone-toggle" title="Toggle tone colors">
+        <span>Colors</span>
+        <input type="checkbox" id="tone-toggle" />
+        <span class="tone-switch-track" aria-hidden="true"></span>
+      </label>
     </div>
     <div class="pair">
     <section class="col-tsla">
@@ -1952,6 +2058,20 @@
           renderMissing();
         }
       }
+
+      (function initToneSwitch() {
+        const box = document.getElementById("tone-toggle");
+        if (!box) return;
+        let on = false;
+        try { on = localStorage.getItem("xdaily-tone-on") === "1"; } catch (e) {}
+        box.checked = on;
+        document.documentElement.classList.toggle("tone-on", on);
+        box.addEventListener("change", function () {
+          const next = !!box.checked;
+          document.documentElement.classList.toggle("tone-on", next);
+          try { localStorage.setItem("xdaily-tone-on", next ? "1" : "0"); } catch (e) {}
+        });
+      })();
 
       tickClock();
       setInterval(tickClock, 1000);
