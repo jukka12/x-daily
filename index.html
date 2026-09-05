@@ -170,6 +170,17 @@
     html:not(.tone-on) .pt-consensus .pt-delta.up,
     html:not(.tone-on) .pt-consensus .pt-delta.down { color: var(--muted); }
 
+    /* Stock cards: green/red always — never gated by Colors */
+    html:not(.tone-on) .price.up { color: var(--up); }
+    html:not(.tone-on) .price.down { color: var(--down); }
+    html:not(.tone-on) .price.flat { color: var(--fg); }
+    html:not(.tone-on) .today-block.up .today-label,
+    html:not(.tone-on) .today-block.up .today-pct { color: var(--up); }
+    html:not(.tone-on) .today-block.down .today-label,
+    html:not(.tone-on) .today-block.down .today-pct { color: var(--down); }
+    html:not(.tone-on) .today-block.flat .today-label { color: var(--muted); }
+    html:not(.tone-on) .today-block.flat .today-pct { color: var(--fg); }
+
     .kicker {
       display: flex;
       align-items: flex-start;
@@ -1760,14 +1771,27 @@
         card.liveValue.textContent = hasLive ? "$" + money(live) : "—";
 
         let todayPx = null;
+        let refClose = lastClose;
         if (session === "PREMARKET") todayPx = hasOvernight ? overnight : null;
         else if (session === "OPEN") todayPx = hasLive ? live : null;
         else if (session === "AFTERHOURS") todayPx = hasAfter ? afterHours : lastClose;
-        else todayPx = hasAfter ? afterHours : lastClose;
+        else {
+          /* CLOSED: show last session move vs prior close (weekend / overnight) */
+          todayPx = lastClose;
+          if (series.length >= 2) {
+            const tip = series[series.length - 1];
+            const prior = series[series.length - 2];
+            if (Math.abs(tip - lastClose) < 0.05 && Number.isFinite(prior) && prior !== 0) {
+              refClose = prior;
+            } else if (Number.isFinite(tip) && tip !== 0 && Math.abs(tip - lastClose) >= 0.05) {
+              refClose = tip;
+            }
+          }
+        }
 
-        if (todayPx != null && lastClose !== 0) {
-          const diff = todayPx - lastClose;
-          const pct = (diff / lastClose) * 100;
+        if (todayPx != null && refClose !== 0) {
+          const diff = todayPx - refClose;
+          const pct = (diff / refClose) * 100;
           const up = pct > 0.005;
           const down = pct < -0.005;
           const dir = up ? "up" : down ? "down" : "flat";
@@ -1777,7 +1801,7 @@
           card.price.className = "price " + dir;
           const gapSign = diff > 0.005 ? "+" : "−";
           const gapAbs = money(Math.abs(diff));
-          card.gap.textContent = "$" + money(lastClose) + " → $" + money(todayPx)
+          card.gap.textContent = "$" + money(refClose) + " → $" + money(todayPx)
             + " (" + (Math.abs(diff) < 0.005 ? "$0.00" : gapSign + "$" + gapAbs) + ")";
         } else {
           card.change.textContent = "—";
