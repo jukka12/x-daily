@@ -240,7 +240,7 @@
   "briefing": {
     "generated_at_utc": "2026-09-05T05:18:56Z",
     "analysts": {
-      "body": "Wall Street voices this week stayed fixed on Tesla’s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.\n\nGary Black assessed Tesla’s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.\n\nCathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth—described as multiplying many-fold in a year—remains poorly grasped across clients and companies even as frontier AI revenue scales.",
+      "body": "Wall Street voices this week stayed fixed on Tesla\u2019s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.\n\nGary Black assessed Tesla\u2019s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.\n\nCathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth\u2014described as multiplying many-fold in a year\u2014remains poorly grasped across clients and companies even as frontier AI revenue scales.",
       "sources": [
         {
           "name": "Ives",
@@ -275,7 +275,7 @@
       ]
     },
     "commentators": {
-      "body": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51—versus an estimated $200 for comparable Uber trips—and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.\n\nFarzad previewed subscriber video asking whether Cybercab can displace Uber and said he hopes Tesla reaches the safety validation needed to drop thousands of units in Austin and expand the geofence far enough to hail from home. Separately he continued covering AI infrastructure topics such as advanced-node chip lithography and U.S. data-center build economics.\n\nWhole Mars Catalog posted a stream of Austin cabin impressions—with Sawyer Merritt among ride companions—praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab’s 22-inch display.",
+      "body": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51\u2014versus an estimated $200 for comparable Uber trips\u2014and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.\n\nFarzad previewed subscriber video asking whether Cybercab can displace Uber and said he hopes Tesla reaches the safety validation needed to drop thousands of units in Austin and expand the geofence far enough to hail from home. Separately he continued covering AI infrastructure topics such as advanced-node chip lithography and U.S. data-center build economics.\n\nWhole Mars Catalog posted a stream of Austin cabin impressions\u2014with Sawyer Merritt among ride companions\u2014praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab\u2019s 22-inch display.",
       "sources": [
         {
           "name": "Sawyer Merritt",
@@ -317,21 +317,32 @@
     }
   },
   "price_targets": {
-    "as_of": "2026-09-04",
-    "source": "MarketBeat",
+    "as_of": "2026-09-05",
+    "source": "MarketBeat / AnaChart / Price-Target.com",
     "source_url": "https://www.marketbeat.com/stocks/NASDAQ/TSLA/price-target/",
     "spot": 354.08,
     "consensus": 401.74,
+    "roster": "accuracy-first",
     "analysts": [
       {
-        "name": "Ives",
-        "firm": "Wedbush",
-        "target": 600,
-        "previous": null,
+        "name": "Potter",
+        "firm": "Piper",
+        "target": 450,
+        "previous": 500,
+        "rating": "Overweight",
+        "date": "2026-07-24",
+        "change": -50,
+        "direction": "down"
+      },
+      {
+        "name": "Narayan",
+        "firm": "RBC",
+        "target": 480,
+        "previous": 500,
         "rating": "Outperform",
-        "date": "2026-04-21",
-        "change": null,
-        "direction": "flat"
+        "date": "2026-07-27",
+        "change": -20,
+        "direction": "down"
       },
       {
         "name": "Gengaro",
@@ -341,26 +352,6 @@
         "rating": "Buy",
         "date": "2026-08-03",
         "change": -17,
-        "direction": "down"
-      },
-      {
-        "name": "Narayan",
-        "firm": "RBC",
-        "target": 500,
-        "previous": null,
-        "rating": "Outperform",
-        "date": "2026-07-28",
-        "change": null,
-        "direction": "flat"
-      },
-      {
-        "name": "Potter",
-        "firm": "Piper",
-        "target": 450,
-        "previous": 500,
-        "rating": "Overweight",
-        "date": "2026-07-24",
-        "change": -50,
         "direction": "down"
       },
       {
@@ -374,13 +365,23 @@
         "direction": "down"
       },
       {
-        "name": "Sheppard",
-        "firm": "Cantor",
-        "target": 485,
-        "previous": 510,
-        "rating": "Overweight",
+        "name": "Michaeli",
+        "firm": "TD Cowen",
+        "target": 460,
+        "previous": 490,
+        "rating": "Buy",
         "date": "2026-07-23",
-        "change": -25,
+        "change": -30,
+        "direction": "down"
+      },
+      {
+        "name": "Kallo",
+        "firm": "Baird",
+        "target": 475,
+        "previous": 522,
+        "rating": "Outperform",
+        "date": "2026-07-27",
+        "change": -47,
         "direction": "down"
       },
       {
@@ -394,14 +395,14 @@
         "direction": "down"
       },
       {
-        "name": "Gupta",
-        "firm": "JPM",
-        "target": 445,
-        "previous": 475,
-        "rating": "Neutral",
-        "date": "2026-07-23",
-        "change": -30,
-        "direction": "down"
+        "name": "Ives",
+        "firm": "Wedbush",
+        "target": 600,
+        "previous": null,
+        "rating": "Outperform",
+        "date": "2026-04-21",
+        "change": null,
+        "direction": "flat"
       },
       {
         "name": "Levy",
@@ -414,34 +415,34 @@
         "direction": "up"
       },
       {
-        "name": "Stein",
-        "firm": "Truist",
-        "target": 370,
-        "previous": 430,
-        "rating": "Hold",
+        "name": "Spak",
+        "firm": "UBS",
+        "target": 385,
+        "previous": 442,
+        "rating": "Neutral",
         "date": "2026-07-23",
-        "change": -60,
+        "change": -57,
         "direction": "down"
       },
       {
-        "name": "Langan",
-        "firm": "Wells Fargo",
-        "target": 130,
-        "previous": 125,
-        "rating": "Underweight",
-        "date": "2026-07-14",
-        "change": 5,
-        "direction": "up"
+        "name": "Yu",
+        "firm": "Deutsche",
+        "target": 420,
+        "previous": 465,
+        "rating": "Buy",
+        "date": "2026-07-27",
+        "change": -45,
+        "direction": "down"
       },
       {
-        "name": "Houchois",
-        "firm": "Jefferies",
-        "target": 400,
-        "previous": 375,
-        "rating": "Hold",
-        "date": "2026-07-13",
-        "change": 25,
-        "direction": "up"
+        "name": "Legg",
+        "firm": "Benchmark",
+        "target": 475,
+        "previous": 475,
+        "rating": "Buy",
+        "date": "2026-09-02",
+        "change": 0,
+        "direction": "flat"
       }
     ]
   }
