@@ -381,6 +381,9 @@
       font-variant-numeric: tabular-nums;
       text-align: right;
     }
+    dl.facts dd.up { color: var(--up); }
+    dl.facts dd.down { color: var(--down); }
+    dl.facts dd.flat { color: var(--fg); }
 
     .section-label {
       font-size: 0.68rem;
@@ -1885,7 +1888,10 @@
         card.change.textContent = "—";
         card.todayBlock.className = "today-block flat";
         card.gap.textContent = "—";
-        if (card.overnightValue) card.overnightValue.textContent = "—";
+        if (card.overnightValue) {
+          card.overnightValue.textContent = "—";
+          card.overnightValue.className = "";
+        }
         card.status.textContent = "Closed";
         card.status.className = "status error";
         card.note.className = "note error";
@@ -1950,7 +1956,17 @@
           : [];
         sparkSvg(card, series);
 
-        if (card.overnightValue) card.overnightValue.textContent = hasOvernight ? "$" + money(overnight) : "—";
+        if (card.overnightValue) {
+          if (hasOvernight && lastClose !== 0) {
+            const oPct = ((overnight - lastClose) / lastClose) * 100;
+            const oDir = oPct > 0.005 ? "up" : oPct < -0.005 ? "down" : "flat";
+            card.overnightValue.className = oDir;
+            card.overnightValue.textContent = "$" + money(overnight);
+          } else {
+            card.overnightValue.className = "";
+            card.overnightValue.textContent = "—";
+          }
+        }
 
         let todayPx = null;
         let refClose = lastClose;
