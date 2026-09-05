@@ -119,66 +119,15 @@
     .clock-bar .sess.open { color: var(--up); }
     .clock-bar .sess.pre { color: var(--warn); }
 
-    .tone-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      flex-shrink: 0;
-      cursor: pointer;
-      user-select: none;
-      color: var(--muted);
-      font-size: 0.68rem;
-      font-weight: 650;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-    .tone-switch input {
-      position: absolute;
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    .tone-switch-track {
-      position: relative;
-      width: 34px;
-      height: 18px;
-      border-radius: 999px;
-      background: var(--track);
-      border: 1px solid var(--chip);
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-    .tone-switch-track::after {
-      content: "";
-      position: absolute;
-      top: 1px;
-      left: 1px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--knob);
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-    .tone-switch input:checked + .tone-switch-track {
-      background: color-mix(in srgb, var(--up) 28%, var(--track));
-      border-color: var(--up);
-    }
-    .tone-switch input:checked + .tone-switch-track::after {
-      transform: translateX(16px);
-      background: var(--up);
-    }
-    .tone-switch input:focus-visible + .tone-switch-track {
-      outline: 1px solid var(--flat);
-      outline-offset: 2px;
-    }
-
     .clock-bar-right {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       flex-shrink: 0;
     }
 
-    .theme-toggle {
+    .theme-toggle,
+    .tone-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -188,20 +137,43 @@
       border-radius: 999px;
       border: 1px solid var(--chip);
       background: var(--track);
-      color: var(--fg);
+      color: var(--muted);
       cursor: pointer;
       flex-shrink: 0;
+      transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
     }
-    .theme-toggle:hover { border-color: var(--hover-line); }
-    .theme-toggle:focus-visible {
+    .theme-toggle { color: var(--fg); }
+    .theme-toggle:hover,
+    .tone-toggle:hover { border-color: var(--hover-line); }
+    .theme-toggle:focus-visible,
+    .tone-toggle:focus-visible {
       outline: 1px solid var(--flat);
       outline-offset: 2px;
     }
-    .theme-toggle svg { width: 18px; height: 18px; display: block; }
+    .theme-toggle svg,
+    .tone-toggle svg { width: 18px; height: 18px; display: block; }
     .theme-toggle .icon-sun { display: none; }
     .theme-toggle .icon-moon { display: block; }
     html.theme-light .theme-toggle .icon-sun { display: block; }
     html.theme-light .theme-toggle .icon-moon { display: none; }
+
+    /* Colors off = grey; Colors on = green */
+    .tone-toggle {
+      color: var(--muted);
+      border-color: var(--chip);
+      background: var(--track);
+    }
+    html.tone-on .tone-toggle {
+      color: var(--up);
+      border-color: var(--up);
+      background: color-mix(in srgb, var(--up) 22%, var(--track));
+    }
+    .tone-toggle .swatch-up { fill: currentColor; opacity: 0.45; }
+    .tone-toggle .swatch-flat { fill: currentColor; opacity: 0.7; }
+    .tone-toggle .swatch-down { fill: currentColor; opacity: 0.9; }
+    html.tone-on .tone-toggle .swatch-up { fill: var(--up); opacity: 1; }
+    html.tone-on .tone-toggle .swatch-flat { fill: var(--flat); opacity: 1; }
+    html.tone-on .tone-toggle .swatch-down { fill: var(--down); opacity: 1; }
 
 
     /* Tone colors only when html.tone-on — stock cards keep always-on colors */
@@ -962,11 +934,13 @@
       <span id="clock-session" class="sess">—</span>
       </div>
       <div class="clock-bar-right">
-      <label class="tone-switch" for="tone-toggle" title="Toggle tone colors">
-        <span>Colors</span>
-        <input type="checkbox" id="tone-toggle" />
-        <span class="tone-switch-track" aria-hidden="true"></span>
-      </label>
+      <button type="button" class="tone-toggle" id="tone-toggle" title="Toggle colors" aria-label="Toggle tone colors" aria-pressed="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle class="swatch-up" cx="7" cy="12" r="3.2"/>
+          <circle class="swatch-flat" cx="12" cy="12" r="3.2"/>
+          <circle class="swatch-down" cx="17" cy="12" r="3.2"/>
+        </svg>
+      </button>
       <button type="button" class="theme-toggle" id="theme-toggle" title="Switch light / dark" aria-label="Switch light and dark theme">
         <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
           <path d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3z"/>
@@ -2295,17 +2269,20 @@
         }
       }
 
-      (function initToneSwitch() {
-        const box = document.getElementById("tone-toggle");
-        if (!box) return;
+      (function initToneToggle() {
+        const btn = document.getElementById("tone-toggle");
+        if (!btn) return;
+        function apply(on) {
+          document.documentElement.classList.toggle("tone-on", on);
+          try { localStorage.setItem("xdaily-tone-on", on ? "1" : "0"); } catch (e) {}
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
+          btn.title = on ? "Turn colors off" : "Turn colors on";
+        }
         let on = false;
         try { on = localStorage.getItem("xdaily-tone-on") === "1"; } catch (e) {}
-        box.checked = on;
-        document.documentElement.classList.toggle("tone-on", on);
-        box.addEventListener("change", function () {
-          const next = !!box.checked;
-          document.documentElement.classList.toggle("tone-on", next);
-          try { localStorage.setItem("xdaily-tone-on", next ? "1" : "0"); } catch (e) {}
+        apply(on);
+        btn.addEventListener("click", function () {
+          apply(!document.documentElement.classList.contains("tone-on"));
         });
       })();
 
