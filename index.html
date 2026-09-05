@@ -433,6 +433,98 @@
       border: 0;
     }
 
+
+    .pt-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 14px;
+      margin: 0 0 12px;
+    }
+
+    .pt-consensus {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border: 1px solid var(--chip);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 650;
+      letter-spacing: 0.02em;
+      color: var(--fg);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pt-source {
+      margin: 0;
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+    .pt-source a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .pt-source a:hover { text-decoration: underline; }
+
+    .pt-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+
+    .pt-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      min-width: 0;
+      padding: 8px 6px;
+      border: 1px solid var(--chip);
+      border-radius: 12px;
+      text-align: center;
+      line-height: 1.15;
+    }
+
+    .pt-name {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .pt-target {
+      font-size: 0.92rem;
+      font-weight: 650;
+      font-variant-numeric: tabular-nums;
+    }
+    .pt-target.up { color: var(--up); }
+    .pt-target.down { color: var(--down); }
+    .pt-target.flat { color: var(--up); }
+
+    .pt-delta {
+      font-size: 0.58rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.02em;
+      min-height: 0.7em;
+    }
+    .pt-delta.up { color: var(--up); }
+    .pt-delta.down { color: var(--down); }
+
+    .pt-empty {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
     @media (max-width: 900px) {
       body { padding: 24px 18px 36px; }
 
@@ -449,12 +541,14 @@
 
     @media (max-width: 720px) {
       .briefing-grid { grid-template-columns: 1fr; }
+      .pt-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     @media (max-width: 600px) {
       .chips,
       .stack-row.row-a,
       .stack-row.row-b { grid-template-columns: 1fr 1fr !important; }
+      .pt-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     }
   </style>
 </head>
@@ -555,6 +649,15 @@
       <div id="voices" class="chips"></div>
     </section>
 
+    <section class="band price-targets" id="price-targets-band">
+      <h2 class="section-label">Price targets</h2>
+      <div class="pt-head">
+        <span class="pt-consensus" id="pt-consensus">Consensus —</span>
+        <p class="pt-source" id="pt-source"></p>
+      </div>
+      <div id="price-targets" class="pt-grid"></div>
+    </section>
+
     <section class="band briefing" id="briefing-band">
       <h2 class="section-label">Briefing</h2>
       <p class="briefing-meta" id="briefing-meta" hidden></p>
@@ -633,6 +736,9 @@
       const el = {
         stack: document.getElementById("stack"),
         voices: document.getElementById("voices"),
+        priceTargets: document.getElementById("price-targets"),
+        ptConsensus: document.getElementById("pt-consensus"),
+        ptSource: document.getElementById("pt-source"),
         briefing: document.getElementById("briefing"),
         briefingMeta: document.getElementById("briefing-meta"),
         headlines: document.getElementById("headlines"),
@@ -1080,6 +1186,106 @@
         return col;
       }
 
+
+      function formatPtDelta(change) {
+        if (!Number.isFinite(change) || change === 0) return "";
+        const abs = Math.abs(Math.round(change));
+        return (change > 0 ? "+" : "\u2212") + abs;
+      }
+
+      function renderPriceTargets(file) {
+        if (!el.priceTargets) return;
+        const pt = file && file.price_targets;
+        if (!pt || typeof pt !== "object" || Array.isArray(pt)) {
+          if (el.ptConsensus) el.ptConsensus.textContent = "Consensus —";
+          if (el.ptSource) el.ptSource.textContent = "";
+          el.priceTargets.innerHTML = "";
+          const p = document.createElement("p");
+          p.className = "pt-empty";
+          p.textContent = "No price targets yet.";
+          el.priceTargets.appendChild(p);
+          return;
+        }
+
+        const consensus = Number(pt.consensus);
+        if (el.ptConsensus) {
+          el.ptConsensus.textContent = Number.isFinite(consensus)
+            ? "Consensus $" + Math.round(consensus)
+            : "Consensus —";
+        }
+
+        if (el.ptSource) {
+          el.ptSource.innerHTML = "";
+          const src = pt.source != null ? String(pt.source).trim() : "";
+          const asOf = pt.as_of != null ? String(pt.as_of).trim() : "";
+          const url = safeUrl(pt.source_url);
+          const label = [src, asOf].filter(Boolean).join(" · ");
+          if (label && url) {
+            const a = document.createElement("a");
+            a.href = url;
+            a.target = "_blank";
+            a.rel = "noopener";
+            a.textContent = label;
+            el.ptSource.appendChild(a);
+          } else {
+            el.ptSource.textContent = label;
+          }
+        }
+
+        const analysts = Array.isArray(pt.analysts) ? pt.analysts : [];
+        el.priceTargets.innerHTML = "";
+        if (!analysts.length) {
+          const p = document.createElement("p");
+          p.className = "pt-empty";
+          p.textContent = "No price targets yet.";
+          el.priceTargets.appendChild(p);
+          return;
+        }
+
+        analysts.forEach(function (row) {
+          if (!row) return;
+          const name = row.name != null ? String(row.name).trim() : "";
+          const target = Number(row.target);
+          if (!name || !Number.isFinite(target)) return;
+
+          let direction = row.direction;
+          const change = row.change;
+          if (direction !== "up" && direction !== "down" && direction !== "flat") {
+            if (typeof change === "number" && Number.isFinite(change)) {
+              direction = change > 0 ? "up" : change < 0 ? "down" : "flat";
+            } else {
+              direction = "flat";
+            }
+          }
+
+          const cell = document.createElement("div");
+          cell.className = "pt-cell";
+
+          const nameEl = document.createElement("span");
+          nameEl.className = "pt-name";
+          nameEl.textContent = name;
+          cell.appendChild(nameEl);
+
+          const tgt = document.createElement("span");
+          tgt.className = "pt-target " + direction;
+          tgt.textContent = String(Math.round(target));
+          cell.appendChild(tgt);
+
+          const delta = document.createElement("span");
+          delta.className = "pt-delta";
+          if (direction === "up" || direction === "down") {
+            const text = formatPtDelta(Number(change));
+            if (text) {
+              delta.className = "pt-delta " + direction;
+              delta.textContent = text;
+            }
+          }
+          cell.appendChild(delta);
+
+          el.priceTargets.appendChild(cell);
+        });
+      }
+
       function renderBriefing(file) {
         if (!el.briefing) return;
         const briefing = file && file.briefing;
@@ -1355,7 +1561,8 @@
             x_news: file.x_news,
             voices: file.voices,
             voices_url: file.voices_url,
-            briefing: file.briefing
+            briefing: file.briefing,
+            price_targets: file.price_targets
           };
         }
         return {
@@ -1364,7 +1571,8 @@
           x_news: file && file.x_news,
           voices: file && file.voices,
           voices_url: file && file.voices_url,
-          briefing: file && file.briefing
+          briefing: file && file.briefing,
+          price_targets: file && file.price_targets
         };
       }
 
@@ -1372,6 +1580,7 @@
         renderCard(cards.tsla, quoteState.quotes.tsla);
         renderCard(cards.spcx, quoteState.quotes.spcx);
         renderVoices(quoteState);
+        renderPriceTargets(quoteState);
         renderBriefing(quoteState);
         renderHeadlines(Array.isArray(quoteState.x_news) ? quoteState.x_news : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
@@ -1390,6 +1599,7 @@
         blankCard(cards.spcx, "The data file is missing.");
         setSessionClock("CLOSED");
         renderVoices({ voices: DEFAULT_VOICES });
+        renderPriceTargets(null);
         renderBriefing(null);
         renderHeadlines(null);
         renderStack(DEFAULT_STACK);
