@@ -433,6 +433,9 @@
       text-overflow: ellipsis;
       max-width: 100%;
     }
+    html.tone-on .odds-cell:has(.odds-pct.up) .odds-label,
+    html.tone-on .odds-cell:has(.odds-pct.flat) .odds-label { color: var(--up); }
+    html.tone-on .odds-cell:has(.odds-pct.down) .odds-label { color: var(--down); }
     .odds-pct {
       font-size: 1.05rem;
       font-weight: 650;
@@ -761,6 +764,9 @@
       text-overflow: ellipsis;
       max-width: 100%;
     }
+    html.tone-on .pt-cell:has(.pt-target.up) .pt-name,
+    html.tone-on .pt-cell:has(.pt-target.flat) .pt-name { color: var(--up); }
+    html.tone-on .pt-cell:has(.pt-target.down) .pt-name { color: var(--down); }
 
     .pt-target {
       font-size: 0.92rem;
