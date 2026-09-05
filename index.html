@@ -37,7 +37,7 @@
       --bg: #f4f3ef;
       --fg: #1c1c1e;
       --muted: #6a6a64;
-      --line: #d8d7d0;
+      --line: #c4c3bb;
       --chip: #9e9d94;
       --up: #0b8f62;
       --down: #c62828;
@@ -56,7 +56,6 @@
       --error-border: #c9a227;
       --unverified: #8a8a84;
       --border-w: 2px;
-      --line: #c4c3bb;
       color-scheme: light;
     }
 
@@ -92,14 +91,14 @@
 
     .col-tsla {
       padding-right: 40px;
-      border-right: 1px solid var(--line);
+      border-right: var(--border-w) solid var(--line);
     }
     .col-spcx { padding-left: 40px; }
 
     .band {
       margin-top: 32px;
       padding-top: 22px;
-      border-top: 1px solid var(--line);
+      border-top: var(--border-w) solid var(--line);
     }
 
     .clock-bar {
@@ -109,7 +108,7 @@
       gap: 12px;
       margin: 0 0 22px;
       padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: var(--border-w) solid var(--line);
       font-size: 0.86rem;
       color: var(--muted);
       font-variant-numeric: tabular-nums;
