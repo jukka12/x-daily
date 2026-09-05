@@ -40,16 +40,30 @@
   },
   "x_news": [
     {
-      "title": "Whole Mars Predicts Cybercab to Boost Tesla Earnings Faster Than Model 3",
-      "url": "https://x.com/i/trending/2096029458906194253",
-      "id": "2096029458906194253",
+      "title": "Tesla Owners to Rent Cybercabs Like Airbnb Hosts",
+      "url": "https://x.com/i/trending/2096196069210435756",
+      "id": "2096196069210435756",
       "date": "2026-09-05",
       "tone": "up"
     },
     {
-      "title": "Tesla Cybercab Robotaxi Launches Public Rides in Austin with Low Fares and High Praise",
+      "title": "Tesla Cybercab Delivers Driverless Rides in Austin",
       "url": "https://x.com/i/trending/2096148546315837465",
       "id": "2096148546315837465",
+      "date": "2026-09-05",
+      "tone": "up"
+    },
+    {
+      "title": "Tesla Cybercab Robotaxis Launch Public Rides in Austin",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
+      "date": "2026-09-05",
+      "tone": "up"
+    },
+    {
+      "title": "Tesla Cybercab Robotaxis Launch in Austin with Fares Half of Uber's",
+      "url": "https://x.com/i/trending/2096181430271270917",
+      "id": "2096181430271270917",
       "date": "2026-09-05",
       "tone": "up"
     },
@@ -61,30 +75,23 @@
       "tone": "down"
     },
     {
-      "title": "Tesla Cybercab Offers Public Rides in Austin with No Driver Needed",
-      "url": "https://x.com/i/trending/2095481807009423790",
-      "id": "2095481807009423790",
+      "title": "Whole Mars Predicts Cybercab to Boost Tesla Earnings Faster Than Model 3",
+      "url": "https://x.com/i/trending/2096029458906194253",
+      "id": "2096029458906194253",
       "date": "2026-09-05",
       "tone": "up"
-    },
-    {
-      "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
-      "url": "https://x.com/i/trending/2095681903084876202",
-      "id": "2095681903084876202",
-      "date": "2026-09-04",
-      "tone": "flat"
-    },
-    {
-      "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
-      "url": "https://x.com/i/trending/2095887783898530045",
-      "id": "2095887783898530045",
-      "date": "2026-09-04",
-      "tone": "down"
     },
     {
       "title": "Jason Calacanis Calls for Slow Rollout of Self-Driving Cars",
       "url": "https://x.com/i/trending/2095920033314570687",
       "id": "2095920033314570687",
+      "date": "2026-09-04",
+      "tone": "down"
+    },
+    {
+      "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
+      "url": "https://x.com/i/trending/2095887783898530045",
+      "id": "2095887783898530045",
       "date": "2026-09-04",
       "tone": "down"
     },
@@ -96,30 +103,23 @@
       "tone": "flat"
     },
     {
-      "title": "We've Quietly Adapted to a Miraculous Future",
-      "url": "https://x.com/i/trending/2096009330462019817",
-      "id": "2096009330462019817",
+      "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
+      "url": "https://x.com/i/trending/2095681903084876202",
+      "id": "2095681903084876202",
       "date": "2026-09-04",
       "tone": "flat"
-    },
-    {
-      "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
-      "url": "https://x.com/i/trending/2094845548868305106",
-      "id": "2094845548868305106",
-      "date": "2026-09-03",
-      "tone": "up"
-    },
-    {
-      "title": "Tesla Cybercab Debuts in Austin with Sleek Design and Low Price Tag",
-      "url": "https://x.com/i/trending/2095400577987494094",
-      "id": "2095400577987494094",
-      "date": "2026-09-03",
-      "tone": "up"
     },
     {
       "title": "Tesla Stock Surges 7% Ahead of Cybercab Robotaxi Event",
       "url": "https://x.com/i/trending/2095521581237735706",
       "id": "2095521581237735706",
+      "date": "2026-09-03",
+      "tone": "up"
+    },
+    {
+      "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
+      "url": "https://x.com/i/trending/2094845548868305106",
+      "id": "2094845548868305106",
       "date": "2026-09-03",
       "tone": "up"
     },
@@ -131,18 +131,18 @@
       "tone": "up"
     },
     {
+      "title": "Tesla Cybercab Debuts in Austin with Sleek Design and Low Price Tag",
+      "url": "https://x.com/i/trending/2095400577987494094",
+      "id": "2095400577987494094",
+      "date": "2026-09-03",
+      "tone": "up"
+    },
+    {
       "title": "Tesla's Gold Cybercabs Line Austin Streets Before Launch Event",
       "url": "https://x.com/i/trending/2094476412228948025",
       "id": "2094476412228948025",
       "date": "2026-09-02",
       "tone": "up"
-    },
-    {
-      "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
-      "url": "https://x.com/i/trending/2095240823449563229",
-      "id": "2095240823449563229",
-      "date": "2026-09-02",
-      "tone": "flat"
     }
   ],
   "musk_stack": [
@@ -152,7 +152,7 @@
       "quote": "Cybercab for everyone on every corner of earth",
       "quote_url": "https://x.com/Tesla/status/2095879718142611723",
       "quote_date": "2026-09-04",
-      "tone": "flat"
+      "tone": "up"
     },
     {
       "label": "Energy",
@@ -168,7 +168,7 @@
       "quote": "Cybercab for everyone on every corner of earth",
       "quote_url": "https://x.com/Tesla/status/2095879718142611723",
       "quote_date": "2026-09-04",
-      "tone": "flat"
+      "tone": "up"
     },
     {
       "label": "Optimus",
@@ -245,8 +245,8 @@
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "quote": "Yes, welcome to the US Revolut",
-      "quote_url": "https://x.com/CathieDWood/status/2096130073837322361",
+      "quote": "Human-driven cars will be seen as weapons of mass destruction",
+      "quote_url": "https://x.com/CathieDWood/status/2096167207705174265",
       "quote_date": "2026-09-05",
       "tone": "up"
     },
@@ -510,7 +510,7 @@
     "consensus_direction": "flat"
   },
   "odds": {
-    "as_of_utc": "2026-09-05T09:03:45Z",
+    "as_of_utc": "2026-09-05T12:11:49Z",
     "source": "Polymarket",
     "source_url": "https://polymarket.com",
     "markets": [
@@ -524,31 +524,31 @@
         "change_pp": 0.0,
         "direction": "flat",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T09:03:45Z"
+        "as_of_utc": "2026-09-05T12:11:49Z"
       },
       {
         "id": "ca-robotaxi-26",
         "label": "CA robotaxi",
         "slug": "will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
         "url": "https://polymarket.com/event/will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
-        "yes_pct": 21.0,
-        "previous_pct": 18.5,
-        "change_pp": 2.5,
+        "yes_pct": 22.0,
+        "previous_pct": 21.0,
+        "change_pp": 5.5,
         "direction": "up",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T09:03:45Z"
+        "as_of_utc": "2026-09-05T12:11:49Z"
       },
       {
         "id": "optimus-26",
         "label": "Optimus release",
         "slug": "will-tesla-release-optimus-by-december-31-2026",
         "url": "https://polymarket.com/event/will-tesla-release-optimus-by-june-30-2026",
-        "yes_pct": 3.6,
-        "previous_pct": 4.6,
-        "change_pp": -1.0,
+        "yes_pct": 3.3,
+        "previous_pct": 3.6,
+        "change_pp": -0.3,
         "direction": "down",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T09:03:45Z"
+        "as_of_utc": "2026-09-05T12:11:49Z"
       },
       {
         "id": "starship-fl-26",
@@ -560,7 +560,7 @@
         "change_pp": 0.0,
         "direction": "flat",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T09:03:45Z"
+        "as_of_utc": "2026-09-05T12:11:49Z"
       }
     ]
   },
