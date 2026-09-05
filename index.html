@@ -464,6 +464,13 @@
       text-decoration: underline;
     }
 
+    .headline.up { color: var(--up); }
+    .headline.down { color: var(--down); }
+    .headline.flat { color: var(--fg); }
+    .headline.up:hover,
+    .headline.down:hover { filter: brightness(1.15); text-decoration: underline; }
+
+
     .stack-wrap { margin-top: 0; }
 
     .stack {
@@ -1164,7 +1171,9 @@
         list.forEach(function (item) {
           const li = document.createElement("li");
           const a = document.createElement("a");
-          a.className = "headline";
+          let tone = item.tone;
+          if (tone !== "up" && tone !== "down" && tone !== "flat") tone = "flat";
+          a.className = "headline " + tone;
           a.href = item.url;
           a.target = "_blank";
           a.rel = "noopener";
