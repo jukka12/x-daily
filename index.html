@@ -17,6 +17,7 @@
       --down: #e24b4b;
       --live-bg: #1f7a4d;
       --warn: #e6c56a;
+      --flat: #e6c56a;
       --spark: #8b8b87;
     }
 
@@ -343,6 +344,11 @@
       line-height: 1.55;
       color: #c8c8c3;
     }
+
+    .briefing-p.up { color: var(--up); }
+    .briefing-p.down { color: var(--down); }
+    .briefing-p.flat { color: var(--flat); }
+
     .briefing-p:last-child { margin-bottom: 0; }
 
     .briefing-sources {
@@ -405,6 +411,14 @@
       text-decoration: none;
     }
     a.chip-status:hover { color: var(--fg); }
+
+    .chip-status.up { color: var(--up); }
+    .chip-status.down { color: var(--down); }
+    .chip-status.flat { color: var(--flat); }
+    a.chip-status.up:hover,
+    a.chip-status.down:hover,
+    a.chip-status.flat:hover { filter: brightness(1.12); }
+
     .chip-status.dead { pointer-events: none; }
     .chip-date {
       font-size: 0.62rem;
@@ -466,7 +480,7 @@
 
     .headline.up { color: var(--up); }
     .headline.down { color: var(--down); }
-    .headline.flat { color: var(--fg); }
+    .headline.flat { color: var(--flat); }
     .headline.up:hover,
     .headline.down:hover { filter: brightness(1.15); text-decoration: underline; }
 
@@ -1088,7 +1102,9 @@
         const text = liveQuote(item);
         const qurl = text ? safeUrl(item && item.quote_url) : "";
         const q = document.createElement(qurl ? "a" : "span");
-        q.className = "chip-status" + (qurl ? "" : " dead");
+        let qTone = item && item.tone;
+        if (qTone !== "up" && qTone !== "down" && qTone !== "flat") qTone = "flat";
+        q.className = "chip-status " + qTone + (qurl ? "" : " dead");
         q.textContent = text;
         if (qurl) {
           q.href = qurl;
@@ -1232,11 +1248,22 @@
       function renderBriefingCol(title, section) {
         if (!section || typeof section !== "object") return null;
         const paras = [];
-        const raw = section.body != null ? String(section.body) : "";
-        raw.split("\n\n").forEach(function (chunk) {
-          const t = chunk.trim();
-          if (t) paras.push(t);
-        });
+        if (Array.isArray(section.paragraphs) && section.paragraphs.length) {
+          section.paragraphs.forEach(function (row) {
+            if (!row) return;
+            const t = row.text != null ? String(row.text).trim() : "";
+            if (!t) return;
+            let tone = row.tone;
+            if (tone !== "up" && tone !== "down" && tone !== "flat") tone = "flat";
+            paras.push({ text: t, tone: tone });
+          });
+        } else {
+          const raw = section.body != null ? String(section.body) : "";
+          raw.split("\n\n").forEach(function (chunk) {
+            const t = chunk.trim();
+            if (t) paras.push({ text: t, tone: "flat" });
+          });
+        }
         const links = [];
         const sources = Array.isArray(section.sources) ? section.sources : [];
         sources.forEach(function (src) {
@@ -1259,10 +1286,10 @@
         if (paras.length) {
           const body = document.createElement("div");
           body.className = "briefing-body";
-          paras.forEach(function (t) {
+          paras.forEach(function (row) {
             const p = document.createElement("p");
-            p.className = "briefing-p";
-            p.textContent = t;
+            p.className = "briefing-p " + row.tone;
+            p.textContent = row.text;
             body.appendChild(p);
           });
           col.appendChild(body);

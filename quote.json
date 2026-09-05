@@ -93,7 +93,7 @@
       "url": "https://x.com/i/trending/2096044416654016638",
       "id": "2096044416654016638",
       "date": "2026-09-05",
-      "tone": "flat"
+      "tone": "down"
     },
     {
       "title": "Tesla Cybercab Launches Paid Robotaxi Rides in Austin",
@@ -151,75 +151,86 @@
       "url": "https://x.com/Tesla",
       "quote": "Cybercab for everyone on every corner of earth",
       "quote_url": "https://x.com/Tesla/status/2095879718142611723",
-      "quote_date": "2026-09-04"
+      "quote_date": "2026-09-04",
+      "tone": "flat"
     },
     {
       "label": "Energy",
       "url": "https://x.com/teslaenergy",
       "quote": "Three-phase Powerwall 3P now available to order in Portugal",
       "quote_url": "https://x.com/teslaenergy/status/2095890603695649088",
-      "quote_date": "2026-09-04"
+      "quote_date": "2026-09-04",
+      "tone": "flat"
     },
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
       "quote": "Cybercab for everyone on every corner of earth",
       "quote_url": "https://x.com/Tesla/status/2095879718142611723",
-      "quote_date": "2026-09-04"
+      "quote_date": "2026-09-04",
+      "tone": "flat"
     },
     {
       "label": "Optimus",
       "url": "https://x.com/Tesla",
       "quote": "One day, Optimus + Grok will provide incredible medical care",
       "quote_url": "https://x.com/elonmusk/status/2090546861073449189",
-      "quote_date": "2026-08-20"
+      "quote_date": "2026-08-20",
+      "tone": "up"
     },
     {
       "label": "SpaceX",
       "url": "https://x.com/SpaceX",
       "quote": "Falcon 9 launches 27 Starlink satellites from California",
       "quote_url": "https://x.com/SpaceX/status/2095087210479382726",
-      "quote_date": "2026-09-02"
+      "quote_date": "2026-09-02",
+      "tone": "up"
     },
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
       "quote": "Start earning for sharing fast, reliable internet",
       "quote_url": "https://x.com/Starlink/status/2096097404680630528",
-      "quote_date": "2026-09-05"
+      "quote_date": "2026-09-05",
+      "tone": "up"
     },
     {
       "label": "Starship",
       "url": "https://x.com/SpaceX",
       "quote": "Full duration 33-engine static fire with the Super Heavy booster",
       "quote_url": "https://x.com/SpaceX/status/2093477720638341395",
-      "quote_date": "2026-08-28"
+      "quote_date": "2026-08-28",
+      "tone": "flat"
     },
     {
       "label": "xAI",
       "url": "https://x.com/SpaceXAI",
       "quote": "Sorry for Grok issues after Memphis compute outage",
       "quote_url": "https://x.com/SpaceXAI/status/2095597264043717014",
-      "quote_date": "2026-09-03"
+      "quote_date": "2026-09-03",
+      "tone": "flat"
     },
     {
       "label": "X",
       "url": "https://x.com/X",
       "quote": "Grok Bot now has improved support for X",
-      "quote_url": "https://x.com/X/status/2093829017128374366"
+      "quote_url": "https://x.com/X/status/2093829017128374366",
+      "tone": "flat"
     },
     {
       "label": "Neuralink",
       "url": "https://x.com/neuralink",
       "quote": "With Neuralink, Audrey is creating art with her mind",
-      "quote_url": "https://x.com/neuralink/status/2092732695180955790"
+      "quote_url": "https://x.com/neuralink/status/2092732695180955790",
+      "tone": "flat"
     },
     {
       "label": "Boring",
       "url": "https://x.com/boringcompany",
       "quote": "Pay with XMoney live for Vegas Loop",
       "quote_url": "https://x.com/boringcompany/status/2096043319927402728",
-      "quote_date": "2026-09-05"
+      "quote_date": "2026-09-05",
+      "tone": "flat"
     }
   ],
   "voices": [
@@ -228,28 +239,32 @@
       "url": "https://x.com/elonmusk",
       "quote": "The Sun is ~100% of solar system mass",
       "quote_url": "https://x.com/elonmusk/status/2096079231214113027",
-      "quote_date": "2026-09-05"
+      "quote_date": "2026-09-05",
+      "tone": "flat"
     },
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
       "quote": "Good for Robinhood: net new users build liquidity and crypto credibility",
       "quote_url": "https://x.com/CathieDWood/status/2096108671180673044",
-      "quote_date": "2026-09-05"
+      "quote_date": "2026-09-05",
+      "tone": "up"
     },
     {
       "label": "Baron",
       "url": "https://x.com/RonBaronAnalyst",
       "quote": "I attended the Elon Musk and Jamie Dimon SpaceX discussion",
       "quote_url": "https://x.com/RonBaronAnalyst/status/2065503032578572290",
-      "quote_date": "2026-06-12"
+      "quote_date": "2026-06-12",
+      "tone": "flat"
     },
     {
       "label": "Ives",
       "url": "https://x.com/DivesTech",
       "quote": "A deep dive discussion on the AI datacenter debate",
       "quote_url": "https://x.com/DivesTech/status/2095678872222110049",
-      "quote_date": "2026-09-04"
+      "quote_date": "2026-09-04",
+      "tone": "down"
     }
   ],
   "briefing": {
@@ -287,7 +302,22 @@
           "url": "https://x.com/CathieDWood/status/2093739536509436149",
           "date": "2026-08-29"
         }
-      ]
+      ],
+      "paragraphs": [
+        {
+          "text": "Wall Street voices this week stayed fixed on Tesla\u2019s Cybercab debut and the broader AI buildout. Dan Ives used CNBC Closing Bell appearances to spotlight an intensifying U.S. AI datacenter debate, casting the tech-versus-Beltway clash as a major theme into year-end as hyperscale construction accelerates.",
+          "tone": "flat"
+        },
+        {
+          "text": "Gary Black assessed Tesla\u2019s Austin Cybercab event as largely falling short of pre-event expectations: a brief formal note that the vehicle joins the robotaxi fleet, then attendee rides in the two-seat, no-pedals cabin. He also flagged how unusual it is for a company near a $1.3 trillion market cap to trade at such elevated forward multiples for so long, with bulls and bears still deadlocked over unsupervised autonomy timelines.",
+          "tone": "down"
+        },
+        {
+          "text": "Cathie Wood leaned into the autonomy and AI narrative, amplifying commentary on robotaxi share-shift flywheels versus traditional ride-hail and reiterating that token inference growth\u2014described as multiplying many-fold in a year\u2014remains poorly grasped across clients and companies even as frontier AI revenue scales.",
+          "tone": "up"
+        }
+      ],
+      "tone": "flat"
     },
     "commentators": {
       "body": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51\u2014versus an estimated $200 for comparable Uber trips\u2014and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.\n\nFarzad previewed subscriber video asking whether Cybercab can displace Uber and said he hopes Tesla reaches the safety validation needed to drop thousands of units in Austin and expand the geofence far enough to hail from home. Separately he continued covering AI infrastructure topics such as advanced-node chip lithography and U.S. data-center build economics.\n\nWhole Mars Catalog posted a stream of Austin cabin impressions\u2014with Sawyer Merritt among ride companions\u2014praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab\u2019s 22-inch display.",
@@ -328,7 +358,22 @@
           "url": "https://x.com/wholemars/status/2096033131308437777",
           "date": "2026-09-05"
         }
-      ]
+      ],
+      "paragraphs": [
+        {
+          "text": "On-the-ground Tesla commentators flooded X with Cybercab ride reports as paid service opened more widely in Austin. Sawyer Merritt said he logged about three hours in Cybercab for roughly $92.51\u2014versus an estimated $200 for comparable Uber trips\u2014and called FSD V15 free of major complaints after rides including a ~40-minute downtown-to-north Austin run. He also noted wait times jumping from minutes to over an hour once public demand spiked.",
+          "tone": "down"
+        },
+        {
+          "text": "Farzad previewed subscriber video asking whether Cybercab can displace Uber and said he hopes Tesla reaches the safety validation needed to drop thousands of units in Austin and expand the geofence far enough to hail from home. Separately he continued covering AI infrastructure topics such as advanced-node chip lithography and U.S. data-center build economics.",
+          "tone": "flat"
+        },
+        {
+          "text": "Whole Mars Catalog posted a stream of Austin cabin impressions\u2014with Sawyer Merritt among ride companions\u2014praising legroom and the absence of a dividing console, highlighting the Robotaxi app as a primary control surface for vents, seats, ambient light, and Grok, and joking that a Model Y screen feels tiny after Cybercab\u2019s 22-inch display.",
+          "tone": "flat"
+        }
+      ],
+      "tone": "flat"
     }
   },
   "price_targets": {
