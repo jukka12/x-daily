@@ -9,7 +9,7 @@
       "live": 354.08,
       "after_hours": 354.08,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-05T05:07:47Z",
+      "quote_time_utc": "2026-09-05T06:03:19Z",
       "source": "Yahoo",
       "closes_5d": [
         367.95,
@@ -27,7 +27,7 @@
       "live": 147.95,
       "after_hours": 147.95,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-05T05:07:47Z",
+      "quote_time_utc": "2026-09-05T06:03:19Z",
       "source": "Yahoo",
       "closes_5d": [
         143.69,
@@ -58,12 +58,6 @@
       "date": "2026-09-04"
     },
     {
-      "title": "Tesla Cybercab Launches Paid Robotaxi Rides in Austin",
-      "url": "https://x.com/i/trending/2095481807009423790",
-      "id": "2095481807009423790",
-      "date": "2026-09-05"
-    },
-    {
       "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
       "url": "https://x.com/i/trending/2094845548868305106",
       "id": "2094845548868305106",
@@ -82,9 +76,9 @@
       "date": "2026-09-03"
     },
     {
-      "title": "Tesla Cybercab Trained on 16,000 Human Lifetimes of Driving Data",
-      "url": "https://x.com/i/trending/2096041508818518389",
-      "id": "2096041508818518389",
+      "title": "Tesla Owners Could Earn from Idle Cars in Robotaxi Fleet",
+      "url": "https://x.com/i/trending/2096080249897501162",
+      "id": "2096080249897501162",
       "date": "2026-09-05"
     },
     {
@@ -94,9 +88,9 @@
       "date": "2026-09-05"
     },
     {
-      "title": "Tesla Owners Could Earn from Idle Cars in Robotaxi Fleet",
-      "url": "https://x.com/i/trending/2096080249897501162",
-      "id": "2096080249897501162",
+      "title": "Tesla Cybercab Launches Paid Robotaxi Rides in Austin",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
       "date": "2026-09-05"
     },
     {
@@ -128,15 +122,21 @@
       "url": "https://x.com/i/trending/2096009330462019817",
       "id": "2096009330462019817",
       "date": "2026-09-04"
+    },
+    {
+      "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
+      "url": "https://x.com/i/trending/2095240823449563229",
+      "id": "2095240823449563229",
+      "date": "2026-09-02"
     }
   ],
   "musk_stack": [
     {
       "label": "Tesla",
       "url": "https://x.com/Tesla",
-      "quote": "Cybercab is democratizing clean transportation for all",
-      "quote_url": "https://x.com/Tesla/status/2095649775064395860",
-      "quote_date": "2026-09-03"
+      "quote": "Cybercab for everyone on every corner of earth",
+      "quote_url": "https://x.com/Tesla/status/2095879718142611723",
+      "quote_date": "2026-09-04"
     },
     {
       "label": "Energy",
@@ -148,9 +148,9 @@
     {
       "label": "Robotaxi",
       "url": "https://x.com/Tesla",
-      "quote": "Cybercab is democratizing clean transportation for all",
-      "quote_url": "https://x.com/Tesla/status/2095649775064395860",
-      "quote_date": "2026-09-03"
+      "quote": "Cybercab for everyone on every corner of earth",
+      "quote_url": "https://x.com/Tesla/status/2095879718142611723",
+      "quote_date": "2026-09-04"
     },
     {
       "label": "Optimus",
@@ -169,8 +169,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink restored fast internet for Futaba Town after Fukushima",
-      "quote_url": "https://x.com/Starlink/status/2096039486929219645",
+      "quote": "Start earning for sharing fast, reliable internet",
+      "quote_url": "https://x.com/Starlink/status/2096097404680630528",
       "quote_date": "2026-09-05"
     },
     {
@@ -202,8 +202,9 @@
     {
       "label": "Boring",
       "url": "https://x.com/boringcompany",
-      "quote": "Thanks to Secretary of Labor Sonderling for visiting Las Vegas",
-      "quote_url": "https://x.com/boringcompany/status/2094669478848262284"
+      "quote": "Pay with XMoney live for Vegas Loop",
+      "quote_url": "https://x.com/boringcompany/status/2096043319927402728",
+      "quote_date": "2026-09-05"
     }
   ],
   "voices": [
@@ -217,9 +218,9 @@
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "quote": "Grokbot",
-      "quote_url": "https://x.com/CathieDWood/status/2095278487456149674",
-      "quote_date": "2026-09-02"
+      "quote": "Good for Robinhood: net new users build liquidity and crypto credibility",
+      "quote_url": "https://x.com/CathieDWood/status/2096108671180673044",
+      "quote_date": "2026-09-05"
     },
     {
       "label": "Baron",
