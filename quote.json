@@ -9,7 +9,7 @@
       "live": 354.08,
       "after_hours": 354.08,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-05T03:05:54Z",
+      "quote_time_utc": "2026-09-05T04:07:05Z",
       "source": "Yahoo",
       "closes_5d": [
         367.95,
@@ -27,7 +27,7 @@
       "live": 147.95,
       "after_hours": 147.95,
       "session": "CLOSED",
-      "quote_time_utc": "2026-09-05T03:05:54Z",
+      "quote_time_utc": "2026-09-05T04:07:05Z",
       "source": "Yahoo",
       "closes_5d": [
         143.69,
@@ -52,16 +52,16 @@
       "date": "2026-09-04"
     },
     {
-      "title": "Tesla Cybercab Robotaxi Launches to Public in Austin",
-      "url": "https://x.com/i/trending/2095481807009423790",
-      "id": "2095481807009423790",
-      "date": "2026-09-05"
-    },
-    {
       "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
       "url": "https://x.com/i/trending/2095887783898530045",
       "id": "2095887783898530045",
       "date": "2026-09-04"
+    },
+    {
+      "title": "Tesla Cybercab Robotaxis Carry Paying Riders in Austin",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
+      "date": "2026-09-05"
     },
     {
       "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
@@ -80,6 +80,18 @@
       "url": "https://x.com/i/trending/2095521581237735706",
       "id": "2095521581237735706",
       "date": "2026-09-03"
+    },
+    {
+      "title": "Tesla Cybercab Trained on 16,000 Human Lifetimes of Driving Data",
+      "url": "https://x.com/i/trending/2096041508818518389",
+      "id": "2096041508818518389",
+      "date": "2026-09-05"
+    },
+    {
+      "title": "Tesla Owners Could Earn from Idle Cars in Robotaxi Fleet",
+      "url": "https://x.com/i/trending/2096080249897501162",
+      "id": "2096080249897501162",
+      "date": "2026-09-05"
     },
     {
       "title": "Cybercab's Butterfly Doors Spark Debate in Austin Rides",
@@ -112,22 +124,10 @@
       "date": "2026-09-04"
     },
     {
-      "title": "Tesla Cybercab Trained on 16,000 Human Lifetimes of Driving Data",
-      "url": "https://x.com/i/trending/2096041508818518389",
-      "id": "2096041508818518389",
-      "date": "2026-09-05"
-    },
-    {
       "title": "We've Quietly Adapted to a Miraculous Future",
       "url": "https://x.com/i/trending/2096009330462019817",
       "id": "2096009330462019817",
       "date": "2026-09-04"
-    },
-    {
-      "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
-      "url": "https://x.com/i/trending/2095240823449563229",
-      "id": "2095240823449563229",
-      "date": "2026-09-02"
     }
   ],
   "musk_stack": [
@@ -169,9 +169,9 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink customers can earn cash for each eligible referral",
-      "quote_url": "https://x.com/Starlink/status/2096016018028323111",
-      "quote_date": "2026-09-04"
+      "quote": "Starlink restored fast internet for Futaba Town after Fukushima",
+      "quote_url": "https://x.com/Starlink/status/2096039486929219645",
+      "quote_date": "2026-09-05"
     },
     {
       "label": "Starship",
@@ -210,8 +210,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Cybercab factory system unlike any other automotive production line",
-      "quote_url": "https://x.com/elonmusk/status/2096059393376678391",
+      "quote": "The Sun is ~100% of solar system mass",
+      "quote_url": "https://x.com/elonmusk/status/2096079231214113027",
       "quote_date": "2026-09-05"
     },
     {
