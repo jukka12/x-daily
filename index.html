@@ -149,6 +149,13 @@
     html:not(.tone-on) a.chip-status.down:hover,
     html:not(.tone-on) a.chip-status.flat:hover { filter: none; color: var(--fg); }
 
+    html:not(.tone-on) .chip-name.up,
+    html:not(.tone-on) .chip-name.down,
+    html:not(.tone-on) .chip-name.flat { color: var(--fg); }
+    html:not(.tone-on) a.chip-name.up:hover,
+    html:not(.tone-on) a.chip-name.down:hover,
+    html:not(.tone-on) a.chip-name.flat:hover { filter: none; color: var(--fg); }
+
     html:not(.tone-on) .briefing-p.up,
     html:not(.tone-on) .briefing-p.down,
     html:not(.tone-on) .briefing-p.flat { color: #c8c8c3; }
@@ -514,8 +521,13 @@
       color: var(--fg);
       text-decoration: none;
     }
-    html.tone-on .chip-name { color: var(--flat); }
+    .chip-name.up { color: var(--up); }
+    .chip-name.down { color: var(--down); }
+    .chip-name.flat { color: var(--flat); }
     a.chip-name:hover { text-decoration: underline; }
+    a.chip-name.up:hover,
+    a.chip-name.down:hover,
+    a.chip-name.flat:hover { filter: brightness(1.12); }
     .chip-status {
       font-size: 0.78rem;
       color: var(--muted);
@@ -1213,8 +1225,10 @@
         const node = document.createElement("div");
         node.className = className || "chip";
         const home = safeUrl(item && item.url);
+        let qTone = item && item.tone;
+        if (qTone !== "up" && qTone !== "down" && qTone !== "flat") qTone = "flat";
         const title = document.createElement(home ? "a" : "span");
-        title.className = "chip-name";
+        title.className = "chip-name " + qTone;
         title.textContent = itemLabel(item);
         if (home) {
           title.href = home;
@@ -1231,8 +1245,6 @@
         const text = liveQuote(item);
         const qurl = text ? safeUrl(item && item.quote_url) : "";
         const q = document.createElement(qurl ? "a" : "span");
-        let qTone = item && item.tone;
-        if (qTone !== "up" && qTone !== "down" && qTone !== "flat") qTone = "flat";
         q.className = "chip-status " + qTone + (qurl ? "" : " dead");
         q.textContent = text;
         if (qurl) {
