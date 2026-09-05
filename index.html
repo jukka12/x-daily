@@ -2114,6 +2114,7 @@
         if (pre != null) next.overnight = pre;
         if (post != null) next.after_hours = post;
         const session = sessionFromClock(new Date());
+        if (session === "CLOSED" && pre == null) next.overnight = null;
         next.session = session;
         applyLastClose(next, data, session);
         next.quote_time_utc = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");

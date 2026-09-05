@@ -5,7 +5,7 @@
       "name": "Tesla",
       "last_close": 354.08,
       "last_close_date": "2026-09-04",
-      "overnight": 360.0,
+      "overnight": null,
       "live": 354.08,
       "after_hours": 354.08,
       "session": "CLOSED",
