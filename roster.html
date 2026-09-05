@@ -26,7 +26,7 @@
       color: var(--fg);
       line-height: 1.45;
     }
-    a { color: var(--purple); text-decoration: none; }
+    a { color: inherit; text-decoration: none; }
     a:hover { text-decoration: underline; }
     .top {
       display: flex;
@@ -47,7 +47,7 @@
     }
     .back { color: var(--muted); font-size: 0.86rem; letter-spacing: 0.04em; }
     .lede {
-      margin: 0 0 22px;
+      margin: 0 0 14px;
       color: var(--muted);
       font-size: 0.92rem;
       max-width: 62rem;
@@ -55,7 +55,12 @@
     .legend {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px 14px;
+      gap: 8px 16px;
+      margin: 0 0 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .legend-lean {
       margin: 0 0 28px;
       font-size: 0.72rem;
       color: var(--muted);
@@ -70,11 +75,15 @@
       font-weight: 650;
       font-size: 0.62rem;
     }
-    .pill.active { color: var(--up); border-color: #1a3d2c; }
-    .pill.allowlist { color: var(--flat); border-color: #4a4020; }
-    .pill.watch { color: var(--muted); }
-    .pill.excluded { color: var(--down); border-color: #4a2024; }
-    .pill.alumni { color: #9a8a6a; }
+    .pill.included { color: var(--up); border-color: #1a3d2c; background: rgba(62, 207, 142, 0.08); }
+    .pill.candidate { color: var(--flat); border-color: #4a4020; background: rgba(230, 197, 106, 0.08); }
+    .pill.excluded { color: var(--down); border-color: #4a2024; background: rgba(240, 113, 120, 0.08); }
+
+    .name-included, .name-included a { color: var(--up); }
+    .name-candidate.lean-up, .name-candidate.lean-up a { color: var(--up); }
+    .name-candidate.lean-down, .name-candidate.lean-down a { color: var(--down); }
+    .name-candidate.lean-flat, .name-candidate.lean-flat a { color: var(--flat); }
+    .name-excluded, .name-excluded a { color: var(--down); }
 
     h2 {
       margin: 28px 0 12px;
@@ -92,12 +101,13 @@
     .allow a, .allow span {
       display: block;
       padding: 10px 12px;
-      border: 1px solid var(--chip);
+      border: 1px solid #1a3d2c;
       border-radius: 12px;
-      color: var(--fg);
+      color: var(--up);
       font-size: 0.9rem;
+      background: rgba(62, 207, 142, 0.06);
     }
-    .allow a:hover { border-color: #4a4a4c; text-decoration: none; }
+    .allow a:hover { border-color: var(--up); text-decoration: none; }
     .allow .h { color: var(--muted); font-size: 0.72rem; margin-top: 2px; }
     .allow .n { color: var(--muted); font-size: 0.75rem; margin-top: 6px; }
 
@@ -119,10 +129,11 @@
       text-transform: uppercase;
       font-weight: 650;
     }
-    td.name { font-weight: 560; white-space: nowrap; }
+    td.name { font-weight: 560; }
     td.why { color: #c8c8c3; }
+    td.why.excluded-why { color: var(--down); }
     td.blurb { color: var(--muted); }
-    .slots { color: var(--muted); font-size: 0.75rem; }
+    .slots { color: var(--muted); font-size: 0.75rem; margin-top: 2px; }
     .empty { color: var(--muted); }
     @media (max-width: 720px) {
       body { padding: 20px 16px 36px; }
@@ -143,8 +154,9 @@
     <h1>X Daily · Roster</h1>
     <a class="back" href="./">← X Daily</a>
   </div>
-  <p class="lede" id="lede">Names that have come up while building X Daily — who is live, who is on the Commentators allowlist, and who is still watch/excluded.</p>
+  <p class="lede" id="lede">Names that have come up while building X Daily.</p>
   <div class="legend" id="legend"></div>
+  <p class="legend-lean" id="lean-legend"></p>
 
   <h2>Commentators allowlist</h2>
   <div class="allow" id="allow"></div>
@@ -165,7 +177,7 @@
 
   <script>
     (function () {
-      const order = ["active", "allowlist", "watch", "alumni", "excluded"];
+      const order = ["included", "candidate", "excluded"];
       function statusRank(s) {
         const i = order.indexOf(s);
         return i < 0 ? 99 : i;
@@ -181,6 +193,12 @@
             span.innerHTML = '<span class="pill ' + k + '">' + k + "</span> " + leg[k];
             legend.appendChild(span);
           });
+          const leanLeg = data.lean_legend || {};
+          const leanEl = document.getElementById("lean-legend");
+          leanEl.textContent = "Candidate name tint: "
+            + "green = " + (leanLeg.up || "optimistic")
+            + " · red = " + (leanLeg.down || "critical")
+            + " · yellow = " + (leanLeg.flat || "mixed");
           if (data.updated) {
             document.getElementById("lede").textContent += " Updated " + data.updated + ".";
           }
@@ -202,9 +220,12 @@
           });
           const tbody = document.getElementById("rows");
           people.forEach(function (p) {
+            const st = p.status || "candidate";
+            const lean = (p.lean === "up" || p.lean === "down" || p.lean === "flat") ? p.lean : "flat";
             const tr = document.createElement("tr");
+
             const nameCell = document.createElement("td");
-            nameCell.className = "name";
+            nameCell.className = "name name-" + st + (st === "candidate" ? " lean-" + lean : "");
             if (p.url) {
               const a = document.createElement("a");
               a.href = p.url;
@@ -222,8 +243,8 @@
               nameCell.textContent = p.name || "—";
             }
 
-            const st = document.createElement("td");
-            st.innerHTML = '<span class="pill ' + (p.status || "") + '">' + (p.status || "—") + "</span>";
+            const stCell = document.createElement("td");
+            stCell.innerHTML = '<span class="pill ' + st + '">' + st + "</span>";
 
             const slots = document.createElement("td");
             slots.className = "slots";
@@ -234,11 +255,11 @@
             blurb.textContent = p.blurb || "";
 
             const why = document.createElement("td");
-            why.className = "why";
-            why.textContent = p.why || "";
+            why.className = "why" + (st === "excluded" ? " excluded-why" : "");
+            why.textContent = p.why || (st === "excluded" ? "Excluded." : "");
 
             tr.appendChild(nameCell);
-            tr.appendChild(st);
+            tr.appendChild(stCell);
             tr.appendChild(slots);
             tr.appendChild(blurb);
             tr.appendChild(why);
