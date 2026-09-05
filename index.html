@@ -1047,7 +1047,7 @@
     </section>
 
     <section class="band price-targets" id="price-targets-band">
-      <h2 class="section-label">Price targets</h2>
+      <h2 class="section-label">TSLA targets</h2>
       <div class="pt-head">
         <span class="pt-consensus" id="pt-consensus">Consensus —</span>
         <p class="pt-source" id="pt-source"></p>
@@ -1055,6 +1055,14 @@
       <div id="price-targets" class="pt-grid"></div>
     </section>
 
+    <section class="band price-targets" id="spcx-price-targets-band">
+      <h2 class="section-label">SPCX targets</h2>
+      <div class="pt-head">
+        <span class="pt-consensus" id="spcx-pt-consensus">Consensus —</span>
+        <p class="pt-source" id="spcx-pt-source"></p>
+      </div>
+      <div id="spcx-price-targets" class="pt-grid"></div>
+    </section>
 
     <section class="band" id="odds-band">
       <h2 class="section-label">Odds</h2>
@@ -1143,9 +1151,12 @@
         voices: document.getElementById("voices"),
         priceTargets: document.getElementById("price-targets"),
         ptConsensus: document.getElementById("pt-consensus"),
+        ptSource: document.getElementById("pt-source"),
+        spcxPriceTargets: document.getElementById("spcx-price-targets"),
+        spcxPtConsensus: document.getElementById("spcx-pt-consensus"),
+        spcxPtSource: document.getElementById("spcx-pt-source"),
         odds: document.getElementById("odds"),
         oddsMeta: document.getElementById("odds-meta"),
-        ptSource: document.getElementById("pt-source"),
         briefing: document.getElementById("briefing"),
         briefingMeta: document.getElementById("briefing-meta"),
         headlines: document.getElementById("headlines"),
@@ -1643,26 +1654,26 @@
         return (change > 0 ? "+" : "\u2212") + abs;
       }
 
-      function renderPriceTargets(file) {
-        if (!el.priceTargets) return;
-        const pt = file && file.price_targets;
+      function renderPriceTargetStrip(file, key, nodes, emptyMsg) {
+        if (!nodes || !nodes.grid) return;
+        const pt = file && file[key];
         if (!pt || typeof pt !== "object" || Array.isArray(pt)) {
-          if (el.ptConsensus) { el.ptConsensus.className = "pt-consensus"; el.ptConsensus.textContent = "Consensus —"; }
-          if (el.ptSource) el.ptSource.textContent = "";
-          el.priceTargets.innerHTML = "";
+          if (nodes.consensus) { nodes.consensus.className = "pt-consensus"; nodes.consensus.textContent = "Consensus —"; }
+          if (nodes.source) nodes.source.textContent = "";
+          nodes.grid.innerHTML = "";
           const p = document.createElement("p");
           p.className = "pt-empty";
-          p.textContent = "No price targets yet.";
-          el.priceTargets.appendChild(p);
+          p.textContent = emptyMsg || "No price targets yet.";
+          nodes.grid.appendChild(p);
           return;
         }
 
         const consensus = Number(pt.consensus);
-        if (el.ptConsensus) {
-          el.ptConsensus.className = "pt-consensus";
-          el.ptConsensus.innerHTML = "";
+        if (nodes.consensus) {
+          nodes.consensus.className = "pt-consensus";
+          nodes.consensus.innerHTML = "";
           if (!Number.isFinite(consensus)) {
-            el.ptConsensus.textContent = "Consensus —";
+            nodes.consensus.textContent = "Consensus —";
           } else {
             let cDir = pt.consensus_direction;
             const cChange = pt.consensus_change;
@@ -1677,25 +1688,25 @@
                 cDir = "flat";
               }
             }
-            el.ptConsensus.className = "pt-consensus " + cDir;
-            el.ptConsensus.appendChild(document.createTextNode("Consensus $" + Math.round(consensus)));
+            nodes.consensus.className = "pt-consensus " + cDir;
+            nodes.consensus.appendChild(document.createTextNode("Consensus $" + Math.round(consensus)));
             if (cDir === "up" || cDir === "down") {
               const delta = document.createElement("span");
               const ch = Number.isFinite(Number(cChange))
                 ? Number(cChange)
                 : (Number.isFinite(cPrev) ? consensus - cPrev : NaN);
-              const text = formatPtDelta(ch);
-              if (text) {
+              const textDelta = formatPtDelta(ch);
+              if (textDelta) {
                 delta.className = "pt-delta " + cDir;
-                delta.textContent = text;
-                el.ptConsensus.appendChild(delta);
+                delta.textContent = textDelta;
+                nodes.consensus.appendChild(delta);
               }
             }
           }
         }
 
-        if (el.ptSource) {
-          el.ptSource.innerHTML = "";
+        if (nodes.source) {
+          nodes.source.innerHTML = "";
           const src = pt.source != null ? String(pt.source).trim() : "";
           const asOf = pt.as_of != null ? String(pt.as_of).trim() : "";
           const url = safeUrl(pt.source_url);
@@ -1706,19 +1717,19 @@
             a.target = "_blank";
             a.rel = "noopener";
             a.textContent = label;
-            el.ptSource.appendChild(a);
+            nodes.source.appendChild(a);
           } else {
-            el.ptSource.textContent = label;
+            nodes.source.textContent = label;
           }
         }
 
         const analysts = Array.isArray(pt.analysts) ? pt.analysts : [];
-        el.priceTargets.innerHTML = "";
+        nodes.grid.innerHTML = "";
         if (!analysts.length) {
           const p = document.createElement("p");
           p.className = "pt-empty";
-          p.textContent = "No price targets yet.";
-          el.priceTargets.appendChild(p);
+          p.textContent = emptyMsg || "No price targets yet.";
+          nodes.grid.appendChild(p);
           return;
         }
 
@@ -1754,16 +1765,32 @@
           const delta = document.createElement("span");
           delta.className = "pt-delta";
           if (direction === "up" || direction === "down") {
-            const text = formatPtDelta(Number(change));
-            if (text) {
+            const textDelta = formatPtDelta(Number(change));
+            if (textDelta) {
               delta.className = "pt-delta " + direction;
-              delta.textContent = text;
+              delta.textContent = textDelta;
             }
           }
           cell.appendChild(delta);
 
-          el.priceTargets.appendChild(cell);
+          nodes.grid.appendChild(cell);
         });
+      }
+
+      function renderPriceTargets(file) {
+        renderPriceTargetStrip(file, "price_targets", {
+          grid: el.priceTargets,
+          consensus: el.ptConsensus,
+          source: el.ptSource
+        }, "No TSLA targets yet.");
+      }
+
+      function renderSpcxPriceTargets(file) {
+        renderPriceTargetStrip(file, "spcx_price_targets", {
+          grid: el.spcxPriceTargets,
+          consensus: el.spcxPtConsensus,
+          source: el.spcxPtSource
+        }, "No SPCX targets yet.");
       }
 
 
@@ -2165,6 +2192,7 @@
             voices_url: file.voices_url,
             briefing: file.briefing,
             price_targets: file.price_targets,
+            spcx_price_targets: file.spcx_price_targets,
             odds: file.odds
           };
         }
@@ -2176,6 +2204,7 @@
           voices_url: file && file.voices_url,
           briefing: file && file.briefing,
           price_targets: file && file.price_targets,
+          spcx_price_targets: file && file.spcx_price_targets,
           odds: file && file.odds
         };
       }
@@ -2185,6 +2214,7 @@
         renderCard(cards.spcx, quoteState.quotes.spcx);
         renderVoices(quoteState);
         renderPriceTargets(quoteState);
+        renderSpcxPriceTargets(quoteState);
         renderOdds(quoteState);
         renderBriefing(quoteState);
         renderHeadlines(Array.isArray(quoteState.x_news) ? quoteState.x_news : null);
@@ -2205,6 +2235,7 @@
         setSessionClock("CLOSED");
         renderVoices({ voices: DEFAULT_VOICES });
         renderPriceTargets(null);
+        renderSpcxPriceTargets(null);
         renderOdds(null);
         renderBriefing(null);
         renderHeadlines(null);

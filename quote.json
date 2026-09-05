@@ -625,5 +625,139 @@
       "url": "https://x.com/Jason",
       "note": "All-In; startup / markets color"
     }
-  ]
+  ],
+  "spcx_price_targets": {
+    "as_of": "2026-08-18",
+    "source": "Panke Tape",
+    "source_url": "https://tape.panke.app/targets",
+    "spot": 147.95,
+    "consensus": 229.13,
+    "consensus_previous": null,
+    "consensus_change": null,
+    "consensus_direction": "flat",
+    "roster": "desk-spread-12",
+    "note": "12 desks from Panke SpaceX board; Street mean of 31 sell-side PTs",
+    "analysts": [
+      {
+        "name": "Gesuale",
+        "firm": "Raymond James",
+        "analyst": "Brian Gesuale",
+        "target": 800.0,
+        "previous": null,
+        "rating": "Strong Buy",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Jonas",
+        "firm": "Morgan Stanley",
+        "analyst": "Adam Jonas",
+        "target": 300.0,
+        "previous": null,
+        "rating": "Overweight",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Anmuth",
+        "firm": "JPMorgan",
+        "analyst": "Doug Anmuth",
+        "target": 240.0,
+        "previous": null,
+        "rating": "Overweight",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Yu",
+        "firm": "Deutsche Bank",
+        "analyst": "Edison Yu",
+        "target": 235.0,
+        "previous": 255,
+        "rating": "Buy",
+        "change": -20.0,
+        "direction": "down"
+      },
+      {
+        "name": "Sheridan",
+        "firm": "Goldman Sachs",
+        "analyst": "Eric Sheridan",
+        "target": 220.0,
+        "previous": 205,
+        "rating": "Buy",
+        "change": 15.0,
+        "direction": "up"
+      },
+      {
+        "name": "Hodulik",
+        "firm": "UBS",
+        "analyst": "John Hodulik",
+        "target": 210.0,
+        "previous": null,
+        "rating": "Buy",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Ives",
+        "firm": "Wedbush",
+        "analyst": "Dan Ives",
+        "target": 190.0,
+        "previous": null,
+        "rating": "Outperform",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Siegmann",
+        "firm": "Stifel",
+        "analyst": "Jonathan Siegmann",
+        "target": 190.0,
+        "previous": null,
+        "rating": "Buy",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Potter",
+        "firm": "Piper Sandler",
+        "analyst": "Alexander Potter",
+        "target": 140.0,
+        "previous": 156,
+        "rating": "Neutral",
+        "change": -16.0,
+        "direction": "down"
+      },
+      {
+        "name": "Zhu",
+        "firm": "MoffettNathanson",
+        "analyst": "Julie Zhu",
+        "target": 131.0,
+        "previous": null,
+        "rating": "Neutral",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Snyder",
+        "firm": "CFRA",
+        "analyst": "Keith Snyder",
+        "target": 115.0,
+        "previous": null,
+        "rating": "Sell",
+        "change": null,
+        "direction": "flat"
+      },
+      {
+        "name": "Thum",
+        "firm": "Phillip Securities",
+        "analyst": "Glenn Thum",
+        "target": 75.0,
+        "previous": null,
+        "rating": "Sell",
+        "change": null,
+        "direction": "flat"
+      }
+    ]
+  }
 }
