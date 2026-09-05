@@ -8,8 +8,8 @@
       "overnight": 360.0,
       "live": 354.08,
       "after_hours": 354.08,
-      "session": "AH",
-      "quote_time_utc": "2026-09-04T20:17:28Z",
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-05T02:09:31Z",
       "source": "Yahoo",
       "closes_5d": [
         367.95,
@@ -26,8 +26,8 @@
       "last_close_date": "2026-09-04",
       "live": 147.95,
       "after_hours": 147.95,
-      "session": "AH",
-      "quote_time_utc": "2026-09-04T20:17:28Z",
+      "session": "CLOSED",
+      "quote_time_utc": "2026-09-05T02:09:31Z",
       "source": "Yahoo",
       "closes_5d": [
         143.69,
@@ -40,16 +40,22 @@
   },
   "x_news": [
     {
-      "title": "Jason Calacanis Calls for Slow Rollout of Self-Driving Cars",
-      "url": "https://x.com/i/trending/2095920033314570687",
-      "id": "2095920033314570687",
-      "date": "2026-09-04"
+      "title": "Whole Mars Predicts Cybercab to Boost Tesla Earnings Faster Than Model 3",
+      "url": "https://x.com/i/trending/2096029458906194253",
+      "id": "2096029458906194253",
+      "date": "2026-09-05"
     },
     {
       "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
       "url": "https://x.com/i/trending/2095681903084876202",
       "id": "2095681903084876202",
       "date": "2026-09-04"
+    },
+    {
+      "title": "Tesla Cybercab Launches Driverless Rides in Austin",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
+      "date": "2026-09-05"
     },
     {
       "title": "Tesla Shares Drop 4% After Low-Key Cybercab Event",
@@ -76,10 +82,16 @@
       "date": "2026-09-03"
     },
     {
-      "title": "Tesla Cybercab Launches Public Rides in Austin with Big Savings",
-      "url": "https://x.com/i/trending/2095481807009423790",
-      "id": "2095481807009423790",
-      "date": "2026-09-04"
+      "title": "Cybercab's Butterfly Doors Spark Debate in Austin Rides",
+      "url": "https://x.com/i/trending/2096044416654016638",
+      "id": "2096044416654016638",
+      "date": "2026-09-05"
+    },
+    {
+      "title": "Tesla Cybercab Trained on 16,000 Human Lifetimes of Driving Data",
+      "url": "https://x.com/i/trending/2096041508818518389",
+      "id": "2096041508818518389",
+      "date": "2026-09-05"
     },
     {
       "title": "Golden Tesla Cybercabs Spotted Testing in San Diego Ahead of Launch",
@@ -94,9 +106,9 @@
       "date": "2026-09-02"
     },
     {
-      "title": "Daily Life's Miracles from Self-Driving Cars to Cancer Vaccines",
-      "url": "https://x.com/i/trending/2095944393748574227",
-      "id": "2095944393748574227",
+      "title": "Jason Calacanis Calls for Slow Rollout of Self-Driving Cars",
+      "url": "https://x.com/i/trending/2095920033314570687",
+      "id": "2095920033314570687",
       "date": "2026-09-04"
     },
     {
@@ -106,28 +118,16 @@
       "date": "2026-09-04"
     },
     {
+      "title": "We've Quietly Adapted to a Miraculous Future",
+      "url": "https://x.com/i/trending/2096009330462019817",
+      "id": "2096009330462019817",
+      "date": "2026-09-04"
+    },
+    {
       "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
       "url": "https://x.com/i/trending/2095240823449563229",
       "id": "2095240823449563229",
       "date": "2026-09-02"
-    },
-    {
-      "title": "Base Adds Six New Coinbase Tokenized Stocks Including Tesla and Microsoft",
-      "url": "https://x.com/i/trending/2095911621679874080",
-      "id": "2095911621679874080",
-      "date": "2026-09-04"
-    },
-    {
-      "title": "Tesla Cybercab Ditches Hydraulic Brakes for Electric Actuators",
-      "url": "https://x.com/i/trending/2095858498600923360",
-      "id": "2095858498600923360",
-      "date": "2026-09-04"
-    },
-    {
-      "title": "Horses and Tesla Cybercabs Share Austin Streets",
-      "url": "https://x.com/i/trending/2095775978840793497",
-      "id": "2095775978840793497",
-      "date": "2026-09-04"
     }
   ],
   "musk_stack": [
@@ -169,8 +169,8 @@
     {
       "label": "Starlink",
       "url": "https://x.com/Starlink",
-      "quote": "Starlink V5 soon integrated directly into Cybercab",
-      "quote_url": "https://x.com/Starlink/status/2095667919493779512",
+      "quote": "Starlink customers can earn cash for each eligible referral",
+      "quote_url": "https://x.com/Starlink/status/2096016018028323111",
       "quote_date": "2026-09-04"
     },
     {
@@ -210,8 +210,8 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "Tesla IPO value was a thousandth of its current value",
-      "quote_url": "https://x.com/elonmusk/status/2095882235027014076",
+      "quote": "Lithium made in America",
+      "quote_url": "https://x.com/elonmusk/status/2096019186510094759",
       "quote_date": "2026-09-04"
     },
     {
