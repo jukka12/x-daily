@@ -1424,17 +1424,44 @@
           col.appendChild(body);
         }
         if (links.length) {
+          const groups = [];
+          const byLabel = {};
+          links.forEach(function (item) {
+            const key = item.label;
+            if (!byLabel[key]) {
+              byLabel[key] = { label: key, urls: [] };
+              groups.push(byLabel[key]);
+            }
+            if (byLabel[key].urls.indexOf(item.url) < 0) byLabel[key].urls.push(item.url);
+          });
           const line = document.createElement("p");
           line.className = "briefing-sources";
           line.appendChild(document.createTextNode("Sources: "));
-          links.forEach(function (item, i) {
-            if (i) line.appendChild(document.createTextNode(", "));
-            const a = document.createElement("a");
-            a.href = item.url;
-            a.target = "_blank";
-            a.rel = "noopener";
-            a.textContent = item.label;
-            line.appendChild(a);
+          groups.forEach(function (g, gi) {
+            if (gi) line.appendChild(document.createTextNode(", "));
+            line.appendChild(document.createTextNode(g.label));
+            if (g.urls.length === 1) {
+              line.appendChild(document.createTextNode(" ("));
+              const a = document.createElement("a");
+              a.href = g.urls[0];
+              a.target = "_blank";
+              a.rel = "noopener";
+              a.textContent = "1";
+              line.appendChild(a);
+              line.appendChild(document.createTextNode(")"));
+            } else {
+              line.appendChild(document.createTextNode(" ("));
+              g.urls.forEach(function (url, ui) {
+                if (ui) line.appendChild(document.createTextNode(", "));
+                const a = document.createElement("a");
+                a.href = url;
+                a.target = "_blank";
+                a.rel = "noopener";
+                a.textContent = String(ui + 1);
+                line.appendChild(a);
+              });
+              line.appendChild(document.createTextNode(")"));
+            }
           });
           col.appendChild(line);
         }
