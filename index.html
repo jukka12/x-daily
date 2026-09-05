@@ -245,7 +245,11 @@
       font-weight: 560;
       letter-spacing: -0.04em;
       line-height: 1;
+      color: var(--fg);
     }
+    .price.up { color: var(--up); }
+    .price.down { color: var(--down); }
+    .price.flat { color: var(--fg); }
 
     .date {
       margin-top: 10px;
@@ -1679,6 +1683,7 @@
 
       function blankCard(card, message) {
         card.price.textContent = "—";
+        card.price.className = "price flat";
         card.price.setAttribute("aria-busy", "false");
         card.date.textContent = "";
         card.spark.innerHTML = "";
@@ -1765,9 +1770,11 @@
           const pct = (diff / lastClose) * 100;
           const up = pct > 0.005;
           const down = pct < -0.005;
+          const dir = up ? "up" : down ? "down" : "flat";
           const sign = up ? "+" : "";
           card.change.textContent = sign + pct.toFixed(2) + "%";
-          card.todayBlock.className = "today-block " + (up ? "up" : down ? "down" : "flat");
+          card.todayBlock.className = "today-block " + dir;
+          card.price.className = "price " + dir;
           const gapSign = diff > 0.005 ? "+" : "−";
           const gapAbs = money(Math.abs(diff));
           card.gap.textContent = "$" + money(lastClose) + " → $" + money(todayPx)
@@ -1775,6 +1782,7 @@
         } else {
           card.change.textContent = "—";
           card.todayBlock.className = "today-block flat";
+          card.price.className = "price flat";
           card.gap.textContent = "—";
         }
 
