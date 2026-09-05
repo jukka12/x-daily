@@ -765,18 +765,98 @@
     }
     .page-foot a:hover { color: var(--fg); }
 
+    /* Compact side-by-side stock cards on smaller screens */
     @media (max-width: 900px) {
-      body { padding: 24px 18px 36px; }
+      body { padding: 20px 14px 36px; }
 
-      .pair { grid-template-columns: 1fr; }
+      .pair {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: 0;
+      }
 
       .col-tsla {
-        padding-right: 0;
-        padding-bottom: 28px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
+        padding-right: 14px;
+        padding-bottom: 0;
+        border-right: 1px solid var(--line);
+        border-bottom: 0;
       }
-      .col-spcx { padding-left: 0; padding-top: 28px; }
+      .col-spcx {
+        padding-left: 14px;
+        padding-top: 0;
+      }
+
+      .kicker { gap: 8px; align-items: flex-start; }
+      h1 {
+        font-size: 0.62rem;
+        letter-spacing: 0.16em;
+      }
+      .ticker {
+        margin-top: 4px;
+        font-size: 0.7rem;
+        letter-spacing: 0.08em;
+      }
+      .status {
+        font-size: 0.52rem;
+        padding: 4px 7px;
+        letter-spacing: 0.1em;
+      }
+
+      .price-block { margin-top: 14px; }
+      .label { font-size: 0.58rem; letter-spacing: 0.12em; }
+      .price {
+        margin-top: 4px;
+        font-size: clamp(1.35rem, 5.8vw, 2.15rem);
+      }
+      .date {
+        margin-top: 6px;
+        font-size: 0.7rem;
+      }
+      .spark {
+        margin: 10px 0 2px;
+        height: 36px;
+        min-height: 36px;
+      }
+
+      .today-block { margin-top: 12px; }
+      .today-row { gap: 8px; }
+      .today-label { font-size: 0.6rem; letter-spacing: 0.1em; }
+      .today-pct { font-size: clamp(0.95rem, 3.2vw, 1.25rem); }
+      .gap {
+        margin-top: 6px;
+        font-size: 0.68rem;
+        line-height: 1.3;
+      }
+
+      dl.facts {
+        margin-top: 14px;
+        gap: 8px 10px;
+        font-size: 0.75rem;
+      }
+      dl.facts dt { font-size: 0.55rem; letter-spacing: 0.08em; }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 16px 10px 32px; }
+
+      .col-tsla { padding-right: 10px; }
+      .col-spcx { padding-left: 10px; }
+
+      /* Ultra-compact: price + today only */
+      .pair h1 { display: none; }
+      .pair .spark { display: none; }
+      .pair .gap { display: none; }
+      .pair dl.facts { display: none; }
+      .pair .note { display: none; }
+      .pair .date { display: none; }
+
+      .price {
+        font-size: clamp(1.15rem, 7.2vw, 1.65rem);
+      }
+      .today-pct { font-size: clamp(0.85rem, 4vw, 1.05rem); }
+      .status {
+        font-size: 0.48rem;
+        padding: 3px 6px;
+      }
     }
 
     @media (max-width: 720px) {
