@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- theme via class theme-light -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,15 +8,31 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <style>
     :root {
-      --bg: #0e0e10;
-      --fg: #f2f2ee;
-      --muted: #8a8a84;
+      --bg: #0c0c0d;
+      --fg: #f3f3f1;
+      --muted: #8a8a86;
       --line: #2a2a2c;
       --chip: #3a3a3c;
       --up: #3ecf8e;
-      --down: #f07178;
+      --down: #e24b4b;
       --flat: #e6c56a;
       --purple: #b794f6;
+      --track: #2a2a2c;
+      --hover-line: #4a4a4c;
+    }
+    html.theme-light {
+      --bg: #f4f3ef;
+      --fg: #1c1c1e;
+      --muted: #6a6a64;
+      --line: #d8d7d0;
+      --chip: #c8c7bf;
+      --up: #0b8f62;
+      --down: #c62828;
+      --flat: #a67c00;
+      --purple: #6b4db8;
+      --track: #e2e1da;
+      --hover-line: #b0afa6;
+      color-scheme: light;
     }
     * { box-sizing: border-box; }
     body {
@@ -24,6 +41,7 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--fg);
+      color-scheme: dark;
       line-height: 1.45;
     }
     a { color: inherit; text-decoration: none; }
@@ -46,6 +64,18 @@
       color: var(--purple);
     }
     .back { color: var(--muted); font-size: 0.86rem; letter-spacing: 0.04em; }
+    .top-right { display: inline-flex; align-items: center; gap: 12px; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 34px; height: 34px; padding: 0; border-radius: 999px;
+      border: 1px solid var(--chip); background: var(--track); color: var(--fg); cursor: pointer;
+    }
+    .theme-toggle:hover { border-color: var(--hover-line); }
+    .theme-toggle svg { width: 18px; height: 18px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    html.theme-light .theme-toggle .icon-sun { display: block; }
+    html.theme-light .theme-toggle .icon-moon { display: none; }
     .lede {
       margin: 0 0 14px;
       color: var(--muted);
@@ -150,9 +180,22 @@
   </style>
 </head>
 <body>
+  <script>
+    try {
+      if (localStorage.getItem("xdaily-theme") === "light") {
+        document.documentElement.classList.add("theme-light");
+      }
+    } catch (e) {}
+  </script>
   <div class="top">
     <h1>X Daily · Roster</h1>
-    <a class="back" href="./">← X Daily</a>
+    <div class="top-right">
+      <a class="back" href="./">← X Daily</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" title="Switch light / dark" aria-label="Switch light and dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      </button>
+    </div>
   </div>
   <p class="lede" id="lede">Names that have come up while building X Daily.</p>
   <div class="legend" id="legend"></div>
@@ -270,6 +313,20 @@
           document.getElementById("rows").innerHTML =
             '<tr><td class="empty" colspan="5">Could not load roster.json</td></tr>';
         });
+      const tbtn = document.getElementById("theme-toggle");
+      if (tbtn) {
+        function applyTheme(light) {
+          document.documentElement.classList.toggle("theme-light", light);
+          try { localStorage.setItem("xdaily-theme", light ? "light" : "dark"); } catch (e) {}
+          tbtn.title = light ? "Switch to dark" : "Switch to light";
+        }
+        let light = false;
+        try { light = localStorage.getItem("xdaily-theme") === "light"; } catch (e) {}
+        applyTheme(light);
+        tbtn.addEventListener("click", function () {
+          applyTheme(!document.documentElement.classList.contains("theme-light"));
+        });
+      }
     })();
   </script>
 </body>

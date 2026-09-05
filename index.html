@@ -20,6 +20,41 @@
       --flat: #e6c56a;
       --purple: #b794f6;
       --spark: #8b8b87;
+      --sep: #5c5c58;
+      --soft: #c8c8c3;
+      --soft-strong: #d8d8d3;
+      --hover-line: #4a4a4c;
+      --track: #2a2a2c;
+      --knob: #c8c8c3;
+      --status-fg: #ffffff;
+      --error-border: #6a5414;
+      --unverified: #7a7a76;
+    }
+
+    /* Light: deeper greens/reds/gold/purple so Colors stay readable on pale bg */
+    html.theme-light {
+      --bg: #f4f3ef;
+      --fg: #1c1c1e;
+      --muted: #6a6a64;
+      --line: #d8d7d0;
+      --chip: #c8c7bf;
+      --up: #0b8f62;
+      --down: #c62828;
+      --live-bg: #0b7a54;
+      --warn: #a67c00;
+      --flat: #a67c00;
+      --purple: #6b4db8;
+      --spark: #7a7a74;
+      --sep: #a8a89f;
+      --soft: #4a4a46;
+      --soft-strong: #2e2e2c;
+      --hover-line: #b0afa6;
+      --track: #e2e1da;
+      --knob: #5a5a56;
+      --status-fg: #ffffff;
+      --error-border: #c9a227;
+      --unverified: #8a8a84;
+      color-scheme: light;
     }
 
     * { box-sizing: border-box; }
@@ -32,6 +67,7 @@
       color-scheme: dark;
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
+    html.theme-light, html.theme-light body { color-scheme: light; }
 
     body {
       padding: 32px 28px 48px;
@@ -78,7 +114,7 @@
       line-height: 1.45;
     }
     .clock-bar-left { min-width: 0; }
-    .clock-bar .sep { margin: 0 0.35em; color: #5c5c58; }
+    .clock-bar .sep { margin: 0 0.35em; color: var(--sep); }
     .clock-bar .sess { color: var(--muted); font-weight: 650; letter-spacing: 0.06em; }
     .clock-bar .sess.open { color: var(--up); }
     .clock-bar .sess.pre { color: var(--warn); }
@@ -107,7 +143,7 @@
       width: 34px;
       height: 18px;
       border-radius: 999px;
-      background: #2a2a2c;
+      background: var(--track);
       border: 1px solid var(--chip);
       transition: background 0.15s ease, border-color 0.15s ease;
     }
@@ -119,11 +155,11 @@
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #c8c8c3;
+      background: var(--knob);
       transition: transform 0.15s ease, background 0.15s ease;
     }
     .tone-switch input:checked + .tone-switch-track {
-      background: #1a3d2c;
+      background: color-mix(in srgb, var(--up) 28%, var(--track));
       border-color: var(--up);
     }
     .tone-switch input:checked + .tone-switch-track::after {
@@ -135,12 +171,45 @@
       outline-offset: 2px;
     }
 
+    .clock-bar-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border-radius: 999px;
+      border: 1px solid var(--chip);
+      background: var(--track);
+      color: var(--fg);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: var(--hover-line); }
+    .theme-toggle:focus-visible {
+      outline: 1px solid var(--flat);
+      outline-offset: 2px;
+    }
+    .theme-toggle svg { width: 18px; height: 18px; display: block; }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    html.theme-light .theme-toggle .icon-sun { display: block; }
+    html.theme-light .theme-toggle .icon-moon { display: none; }
+
+
     /* Tone colors only when html.tone-on — stock cards keep always-on colors */
     html:not(.tone-on) .headline.up,
     html:not(.tone-on) .headline.down,
     html:not(.tone-on) .headline.flat { color: var(--fg); }
     html:not(.tone-on) .headline.up:hover,
-    html:not(.tone-on) .headline.down:hover { filter: none; color: #fff; }
+    html:not(.tone-on) .headline.down:hover { filter: none; color: var(--fg); }
 
     html:not(.tone-on) .chip-status.up,
     html:not(.tone-on) .chip-status.down,
@@ -158,7 +227,7 @@
 
     html:not(.tone-on) .briefing-p.up,
     html:not(.tone-on) .briefing-p.down,
-    html:not(.tone-on) .briefing-p.flat { color: #c8c8c3; }
+    html:not(.tone-on) .briefing-p.flat { color: var(--soft); }
 
     html:not(.tone-on) .odds-pct.up,
     html:not(.tone-on) .odds-pct.down,
@@ -224,12 +293,12 @@
     }
 
     .status.live {
-      color: #fff;
+      color: var(--status-fg);
       background: var(--live-bg);
       border-color: var(--live-bg);
     }
 
-    .status.error { color: var(--warn); border-color: #6a5414; }
+    .status.error { color: var(--warn); border-color: var(--error-border); }
     .status.loading { color: var(--muted); }
 
     .clock {
@@ -241,7 +310,7 @@
       line-height: 1.45;
     }
 
-    .clock .sep { margin: 0 0.35em; color: #5c5c58; }
+    .clock .sep { margin: 0 0.35em; color: var(--sep); }
 
     .clock .sess { color: var(--muted); font-weight: 650; letter-spacing: 0.06em; }
     .clock .sess.open { color: var(--up); }
@@ -344,7 +413,7 @@
 
     dl.facts dd {
       margin: 0;
-      color: #d8d8d3;
+      color: var(--soft-strong);
       font-variant-numeric: tabular-nums;
       text-align: right;
     }
@@ -387,7 +456,7 @@
       color: inherit;
       line-height: 1.15;
     }
-    .odds-cell:hover { border-color: #4a4a4c; }
+    .odds-cell:hover { border-color: var(--hover-line); }
     .odds-label {
       font-size: 0.68rem;
       color: var(--muted);
@@ -459,7 +528,7 @@
       margin: 0 0 0.85em;
       font-size: 0.92rem;
       line-height: 1.55;
-      color: #c8c8c3;
+      color: var(--soft);
     }
 
     .briefing-p.up { color: var(--up); }
@@ -514,7 +583,7 @@
       text-align: center;
     }
 
-    .chip:hover, .tile:hover { border-color: #4a4a4c; }
+    .chip:hover, .tile:hover { border-color: var(--hover-line); }
 
     .chip-name {
       font-weight: 560;
@@ -550,7 +619,7 @@
     }
 
     .chip .unverified {
-      color: #7a7a76;
+      color: var(--unverified);
       font-size: 0.62rem;
       font-weight: 700;
       letter-spacing: 0.12em;
@@ -597,7 +666,7 @@
     }
 
     .headline:hover {
-      color: #fff;
+      color: var(--status-fg);
       text-decoration: underline;
     }
 
@@ -878,6 +947,9 @@
       if (localStorage.getItem("xdaily-tone-on") === "1") {
         document.documentElement.classList.add("tone-on");
       }
+      if (localStorage.getItem("xdaily-theme") === "light") {
+        document.documentElement.classList.add("theme-light");
+      }
     } catch (e) {}
   </script>
   <main class="board">
@@ -889,11 +961,22 @@
       <span class="sep">·</span>
       <span id="clock-session" class="sess">—</span>
       </div>
+      <div class="clock-bar-right">
       <label class="tone-switch" for="tone-toggle" title="Toggle tone colors">
         <span>Colors</span>
         <input type="checkbox" id="tone-toggle" />
         <span class="tone-switch-track" aria-hidden="true"></span>
       </label>
+      <button type="button" class="theme-toggle" id="theme-toggle" title="Switch light / dark" aria-label="Switch light and dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+          <path d="M21 14.3A8.5 8.5 0 0 1 9.7 3 7 7 0 1 0 21 14.3z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8 6 18M18 6l1.8-1.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        </svg>
+      </button>
+      </div>
     </div>
     <div class="pair">
     <section class="col-tsla">
@@ -2223,6 +2306,29 @@
           const next = !!box.checked;
           document.documentElement.classList.toggle("tone-on", next);
           try { localStorage.setItem("xdaily-tone-on", next ? "1" : "0"); } catch (e) {}
+        });
+      })();
+
+      (function initThemeToggle() {
+        const btn = document.getElementById("theme-toggle");
+        if (!btn) return;
+        function apply(light) {
+          document.documentElement.classList.toggle("theme-light", light);
+          try { localStorage.setItem("xdaily-theme", light ? "light" : "dark"); } catch (e) {}
+          btn.setAttribute("aria-pressed", light ? "true" : "false");
+          btn.title = light ? "Switch to dark" : "Switch to light";
+          requestAnimationFrame(function () {
+            Object.keys(cards).forEach(function (key) {
+              const card = cards[key];
+              if (card.sparkValues && card.sparkValues.length >= 2) sparkSvg(card, card.sparkValues);
+            });
+          });
+        }
+        let light = false;
+        try { light = localStorage.getItem("xdaily-theme") === "light"; } catch (e) {}
+        apply(light);
+        btn.addEventListener("click", function () {
+          apply(!document.documentElement.classList.contains("theme-light"));
         });
       })();
 
