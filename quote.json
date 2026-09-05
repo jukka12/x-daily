@@ -268,7 +268,7 @@
     }
   ],
   "briefing": {
-    "generated_at_utc": "2026-09-05T09:16:07Z",
+    "generated_at_utc": "2026-09-05T09:20:46Z",
     "analysts": {
       "body": "This week, Wall Street talk kept coming back to Tesla’s new Cybercab and to the race to build AI data centers. Dan Ives said on CNBC that the clash over U.S. AI data centers — tech companies vs. Washington — will stay a big theme into year-end as those huge sites keep getting built.\n\nGary Black thought Tesla’s Austin Cybercab event fell short of the hype. Tesla mostly said the car will join the robotaxi fleet, then let guests ride in the two-seat cabin with no pedals. He also noted how unusual it is for a company worth about $1.3 trillion to stay this expensive for so long, while bulls and bears still argue about when cars can drive with no human backup.\n\nCathie Wood stayed upbeat on self-driving and AI. She highlighted the idea that robotaxis could take trips away from Uber-style apps, and said many investors still don’t grasp how fast AI usage has grown — even while AI revenue is climbing.",
       "sources": [
@@ -320,7 +320,7 @@
       "tone": "flat"
     },
     "commentators": {
-      "body": "Tesla watchers on X filled feeds with Cybercab ride reports as paid service spread in Austin. Sawyer Merritt said he spent about three hours in Cybercab for roughly $93 — versus about $200 for similar Uber trips — and that Full Self-Driving V15 felt fine on a ~40-minute ride across town. He also said waits jumped from a few minutes to over an hour once more of the public piled in.\n\nFarzad teased a video on whether Cybercab can beat Uber. He hopes Tesla can prove the cars are safe enough to put thousands on Austin roads and widen the map so you can call one from home. Separately he kept covering AI chips and what it costs to build data centers in the U.S.\n\nWhole Mars Catalog shared cabin notes from Austin rides (sometimes with Sawyer). He liked the legroom and open floor with no big center console, said the Robotaxi app controls air, seats, lights, and Grok, and joked that a Model Y screen looks tiny next to Cybercab’s 22-inch display.",
+      "body": "Tesla watchers on X filled feeds with Cybercab ride reports as paid service spread in Austin. Sawyer Merritt said he spent about three hours in Cybercab for roughly $93 — clearly cheaper than about $200 for similar Uber trips — and that Full Self-Driving V15 felt fine on a ~40-minute ride across town. Wait times stretched past an hour once more of the public tried it, which was easy to expect: still few Cybercabs on the road and a lot of curiosity.\n\nFarzad teased a video on whether Cybercab can beat Uber. He hopes Tesla can prove the cars are safe enough to put thousands on Austin roads and widen the map so you can call one from home. Separately he kept covering AI chips and what it costs to build data centers in the U.S.\n\nWhole Mars Catalog shared cabin notes from Austin rides (sometimes with Sawyer). He liked the legroom and open floor with no big center console, said the Robotaxi app controls air, seats, lights, and Grok, and joked that a Model Y screen looks tiny next to Cybercab’s 22-inch display.",
       "sources": [
         {
           "name": "Sawyer Merritt",
@@ -361,8 +361,8 @@
       ],
       "paragraphs": [
         {
-          "text": "Tesla watchers on X filled feeds with Cybercab ride reports as paid service spread in Austin. Sawyer Merritt said he spent about three hours in Cybercab for roughly $93 — versus about $200 for similar Uber trips — and that Full Self-Driving V15 felt fine on a ~40-minute ride across town. He also said waits jumped from a few minutes to over an hour once more of the public piled in.",
-          "tone": "down"
+          "text": "Tesla watchers on X filled feeds with Cybercab ride reports as paid service spread in Austin. Sawyer Merritt said he spent about three hours in Cybercab for roughly $93 — clearly cheaper than about $200 for similar Uber trips — and that Full Self-Driving V15 felt fine on a ~40-minute ride across town. Wait times stretched past an hour once more of the public tried it, which was easy to expect: still few Cybercabs on the road and a lot of curiosity.",
+          "tone": "up"
         },
         {
           "text": "Farzad teased a video on whether Cybercab can beat Uber. He hopes Tesla can prove the cars are safe enough to put thousands on Austin roads and widen the map so you can call one from home. Separately he kept covering AI chips and what it costs to build data centers in the U.S.",
