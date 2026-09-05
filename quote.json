@@ -448,5 +448,60 @@
     "consensus_previous": null,
     "consensus_change": null,
     "consensus_direction": "flat"
+  },
+  "odds": {
+    "as_of_utc": "2026-09-05T07:20:23Z",
+    "source": "Polymarket",
+    "source_url": "https://polymarket.com",
+    "markets": [
+      {
+        "id": "merger-dec26",
+        "label": "TSLA\u2013SPCX merge",
+        "slug": "tesla-and-spacex-merger-officially-announced-by-december-31",
+        "url": "https://polymarket.com/event/tesla-and-spacex-merger-officially-announced-by-june-30",
+        "yes_pct": 16.5,
+        "previous_pct": 16.5,
+        "change_pp": 0.0,
+        "direction": "flat",
+        "deadline": "31.12.26",
+        "as_of_utc": "2026-09-05T07:20:23Z"
+      },
+      {
+        "id": "ca-robotaxi-26",
+        "label": "CA robotaxi",
+        "slug": "will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
+        "url": "https://polymarket.com/event/will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
+        "yes_pct": 20.0,
+        "previous_pct": 18.5,
+        "change_pp": 1.5,
+        "direction": "up",
+        "deadline": "31.12.26",
+        "as_of_utc": "2026-09-05T07:20:23Z"
+      },
+      {
+        "id": "optimus-26",
+        "label": "Optimus release",
+        "slug": "will-tesla-release-optimus-by-december-31-2026",
+        "url": "https://polymarket.com/event/will-tesla-release-optimus-by-june-30-2026",
+        "yes_pct": 3.5,
+        "previous_pct": 4.5,
+        "change_pp": -1.0,
+        "direction": "down",
+        "deadline": "31.12.26",
+        "as_of_utc": "2026-09-05T07:20:23Z"
+      },
+      {
+        "id": "starship-fl-26",
+        "label": "Starship Florida",
+        "slug": "will-the-spacex-starship-launch-from-florida-by-december-31-2026-20260617154758584",
+        "url": "https://polymarket.com/event/spacex-starship-florida-launch-by-20260617154757803",
+        "yes_pct": 18.0,
+        "previous_pct": 40.5,
+        "change_pp": -22.5,
+        "direction": "down",
+        "deadline": "31.12.26",
+        "as_of_utc": "2026-09-05T07:20:23Z"
+      }
+    ]
   }
 }

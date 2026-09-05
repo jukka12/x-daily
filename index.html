@@ -241,6 +241,74 @@
       margin: 0 0 14px;
     }
 
+
+    /* odds */
+    .odds-meta {
+      margin: -6px 0 12px;
+      font-size: 0.62rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .odds-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      width: 100%;
+    }
+    .odds-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      min-width: 0;
+      padding: 10px 8px;
+      border: 1px solid var(--chip);
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      line-height: 1.15;
+    }
+    .odds-cell:hover { border-color: #4a4a4c; }
+    .odds-label {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+    .odds-pct {
+      font-size: 1.05rem;
+      font-weight: 650;
+      font-variant-numeric: tabular-nums;
+    }
+    .odds-pct.up, .odds-pct.flat { color: var(--up); }
+    .odds-pct.down { color: var(--down); }
+    .odds-delta {
+      font-size: 0.62rem;
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      min-height: 0.85em;
+    }
+    .odds-delta.up { color: var(--up); }
+    .odds-delta.down { color: var(--down); }
+    .odds-deadline {
+      font-size: 0.58rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .odds-empty {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    @media (max-width: 720px) {
+      .odds-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
     .briefing-meta {
       margin: -6px 0 14px;
       font-size: 0.62rem;
@@ -662,6 +730,13 @@
       <div id="price-targets" class="pt-grid"></div>
     </section>
 
+
+    <section class="band" id="odds-band">
+      <h2 class="section-label">Odds</h2>
+      <p class="odds-meta" id="odds-meta" hidden></p>
+      <div id="odds" class="odds-grid"></div>
+    </section>
+
     <section class="band briefing" id="briefing-band">
       <h2 class="section-label">Briefing</h2>
       <p class="briefing-meta" id="briefing-meta" hidden></p>
@@ -742,6 +817,8 @@
         voices: document.getElementById("voices"),
         priceTargets: document.getElementById("price-targets"),
         ptConsensus: document.getElementById("pt-consensus"),
+        odds: document.getElementById("odds"),
+        oddsMeta: document.getElementById("odds-meta"),
         ptSource: document.getElementById("pt-source"),
         briefing: document.getElementById("briefing"),
         briefingMeta: document.getElementById("briefing-meta"),
@@ -1320,6 +1397,101 @@
         });
       }
 
+
+      function formatOddsDelta(pp) {
+        if (!Number.isFinite(pp) || pp === 0) return "";
+        const abs = Math.abs(pp);
+        const shown = abs >= 10 ? Math.round(abs) : (Math.round(abs * 10) / 10);
+        return (pp > 0 ? "+" : "\u2212") + shown + " pp";
+      }
+
+      function renderOdds(file) {
+        if (!el.odds) return;
+        const odds = file && file.odds;
+        if (!odds || typeof odds !== "object" || Array.isArray(odds)) {
+          if (el.oddsMeta) { el.oddsMeta.hidden = true; el.oddsMeta.textContent = ""; }
+          el.odds.innerHTML = "";
+          const p = document.createElement("p");
+          p.className = "odds-empty";
+          p.textContent = "No odds yet.";
+          el.odds.appendChild(p);
+          return;
+        }
+
+        if (el.oddsMeta) {
+          const when = parseUtc(odds.as_of_utc);
+          const src = odds.source != null ? String(odds.source).trim() : "Polymarket";
+          el.oddsMeta.textContent = when
+            ? src + " · " + formatHelsinki(when)
+            : src;
+          el.oddsMeta.hidden = false;
+        }
+
+        const list = Array.isArray(odds.markets) ? odds.markets.slice(0, 4) : [];
+        el.odds.innerHTML = "";
+        if (!list.length) {
+          const p = document.createElement("p");
+          p.className = "odds-empty";
+          p.textContent = "No odds yet.";
+          el.odds.appendChild(p);
+          return;
+        }
+
+        list.forEach(function (row) {
+          if (!row) return;
+          const label = row.label != null ? String(row.label).trim() : "";
+          const yes = Number(row.yes_pct);
+          if (!label || !Number.isFinite(yes)) return;
+          let direction = row.direction;
+          const change = Number(row.change_pp);
+          if (direction !== "up" && direction !== "down" && direction !== "flat") {
+            direction = Number.isFinite(change)
+              ? (change > 0 ? "up" : change < 0 ? "down" : "flat")
+              : "flat";
+          }
+
+          const a = document.createElement("a");
+          a.className = "odds-cell";
+          const href = safeUrl(row.url);
+          if (href) {
+            a.href = href;
+            a.target = "_blank";
+            a.rel = "noopener";
+          } else {
+            a.href = "#";
+            a.addEventListener("click", function (e) { e.preventDefault(); });
+          }
+
+          const nameEl = document.createElement("span");
+          nameEl.className = "odds-label";
+          nameEl.textContent = label;
+          a.appendChild(nameEl);
+
+          const pct = document.createElement("span");
+          pct.className = "odds-pct " + direction;
+          pct.textContent = (Math.round(yes * 10) / 10) + "%";
+          a.appendChild(pct);
+
+          const delta = document.createElement("span");
+          delta.className = "odds-delta";
+          if (direction === "up" || direction === "down") {
+            const text = formatOddsDelta(change);
+            if (text) {
+              delta.className = "odds-delta " + direction;
+              delta.textContent = text;
+            }
+          }
+          a.appendChild(delta);
+
+          const dl = document.createElement("span");
+          dl.className = "odds-deadline";
+          dl.textContent = row.deadline ? String(row.deadline) : "";
+          a.appendChild(dl);
+
+          el.odds.appendChild(a);
+        });
+      }
+
       function renderBriefing(file) {
         if (!el.briefing) return;
         const briefing = file && file.briefing;
@@ -1596,7 +1768,8 @@
             voices: file.voices,
             voices_url: file.voices_url,
             briefing: file.briefing,
-            price_targets: file.price_targets
+            price_targets: file.price_targets,
+            odds: file.odds
           };
         }
         return {
@@ -1606,7 +1779,8 @@
           voices: file && file.voices,
           voices_url: file && file.voices_url,
           briefing: file && file.briefing,
-          price_targets: file && file.price_targets
+          price_targets: file && file.price_targets,
+          odds: file && file.odds
         };
       }
 
@@ -1615,6 +1789,7 @@
         renderCard(cards.spcx, quoteState.quotes.spcx);
         renderVoices(quoteState);
         renderPriceTargets(quoteState);
+        renderOdds(quoteState);
         renderBriefing(quoteState);
         renderHeadlines(Array.isArray(quoteState.x_news) ? quoteState.x_news : null);
         renderStack(Array.isArray(quoteState.musk_stack) ? quoteState.musk_stack : null);
@@ -1634,6 +1809,7 @@
         setSessionClock("CLOSED");
         renderVoices({ voices: DEFAULT_VOICES });
         renderPriceTargets(null);
+        renderOdds(null);
         renderBriefing(null);
         renderHeadlines(null);
         renderStack(DEFAULT_STACK);
