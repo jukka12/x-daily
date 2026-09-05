@@ -213,13 +213,13 @@
     /* Stock cards: green/red always — never gated by Colors */
     html:not(.tone-on) .price.up { color: var(--up); }
     html:not(.tone-on) .price.down { color: var(--down); }
-    html:not(.tone-on) .price.flat { color: var(--fg); }
+    html:not(.tone-on) .price.flat { color: var(--flat); }
     html:not(.tone-on) .today-block.up .today-label,
     html:not(.tone-on) .today-block.up .today-pct { color: var(--up); }
     html:not(.tone-on) .today-block.down .today-label,
     html:not(.tone-on) .today-block.down .today-pct { color: var(--down); }
-    html:not(.tone-on) .today-block.flat .today-label { color: var(--muted); }
-    html:not(.tone-on) .today-block.flat .today-pct { color: var(--fg); }
+    html:not(.tone-on) .today-block.flat .today-label,
+    html:not(.tone-on) .today-block.flat .today-pct { color: var(--flat); }
 
     .kicker {
       display: flex;
@@ -300,7 +300,7 @@
     }
     .price.up { color: var(--up); }
     .price.down { color: var(--down); }
-    .price.flat { color: var(--fg); }
+    .price.flat { color: var(--flat); }
 
     .date {
       margin-top: 10px;
@@ -348,8 +348,8 @@
     .today-block.up .today-pct { color: var(--up); }
     .today-block.down .today-label,
     .today-block.down .today-pct { color: var(--down); }
-    .today-block.flat .today-label { color: var(--muted); }
-    .today-block.flat .today-pct { color: var(--fg); }
+    .today-block.flat .today-label,
+    .today-block.flat .today-pct { color: var(--flat); }
 
     .gap {
       margin-top: 10px;
@@ -383,7 +383,7 @@
     }
     dl.facts dd.up { color: var(--up); }
     dl.facts dd.down { color: var(--down); }
-    dl.facts dd.flat { color: var(--fg); }
+    dl.facts dd.flat { color: var(--flat); }
 
     .section-label {
       font-size: 0.68rem;
