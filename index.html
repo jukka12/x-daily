@@ -421,9 +421,10 @@
 
 
     .headlines {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      column-gap: 28px;
+      row-gap: 0;
       width: 100%;
       margin: 0;
       padding: 0;
@@ -435,6 +436,14 @@
       border-bottom: 1px solid var(--chip);
       margin: 0;
       padding: 0;
+      min-width: 0;
+    }
+
+    /* Laptop / wide: two columns; narrow stays one */
+    @media (min-width: 901px) {
+      .headlines {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
     }
 
     .headline {
