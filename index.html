@@ -455,6 +455,10 @@
       color: var(--fg);
       font-variant-numeric: tabular-nums;
     }
+    .pt-consensus.up,
+    .pt-consensus.flat { color: var(--up); }
+    .pt-consensus.down { color: var(--down); }
+    .pt-consensus .pt-delta { margin-left: 2px; }
 
     .pt-source {
       margin: 0;
@@ -1197,7 +1201,7 @@
         if (!el.priceTargets) return;
         const pt = file && file.price_targets;
         if (!pt || typeof pt !== "object" || Array.isArray(pt)) {
-          if (el.ptConsensus) el.ptConsensus.textContent = "Consensus —";
+          if (el.ptConsensus) { el.ptConsensus.className = "pt-consensus"; el.ptConsensus.textContent = "Consensus —"; }
           if (el.ptSource) el.ptSource.textContent = "";
           el.priceTargets.innerHTML = "";
           const p = document.createElement("p");
@@ -1209,9 +1213,39 @@
 
         const consensus = Number(pt.consensus);
         if (el.ptConsensus) {
-          el.ptConsensus.textContent = Number.isFinite(consensus)
-            ? "Consensus $" + Math.round(consensus)
-            : "Consensus —";
+          el.ptConsensus.className = "pt-consensus";
+          el.ptConsensus.innerHTML = "";
+          if (!Number.isFinite(consensus)) {
+            el.ptConsensus.textContent = "Consensus —";
+          } else {
+            let cDir = pt.consensus_direction;
+            const cChange = pt.consensus_change;
+            const cPrev = pt.consensus_previous == null ? null : Number(pt.consensus_previous);
+            if (cDir !== "up" && cDir !== "down" && cDir !== "flat") {
+              if (Number.isFinite(cPrev)) {
+                const d = consensus - cPrev;
+                cDir = d > 0 ? "up" : d < 0 ? "down" : "flat";
+              } else if (typeof cChange === "number" && Number.isFinite(cChange)) {
+                cDir = cChange > 0 ? "up" : cChange < 0 ? "down" : "flat";
+              } else {
+                cDir = "flat";
+              }
+            }
+            el.ptConsensus.className = "pt-consensus " + cDir;
+            el.ptConsensus.appendChild(document.createTextNode("Consensus $" + Math.round(consensus)));
+            if (cDir === "up" || cDir === "down") {
+              const delta = document.createElement("span");
+              const ch = Number.isFinite(Number(cChange))
+                ? Number(cChange)
+                : (Number.isFinite(cPrev) ? consensus - cPrev : NaN);
+              const text = formatPtDelta(ch);
+              if (text) {
+                delta.className = "pt-delta " + cDir;
+                delta.textContent = text;
+                el.ptConsensus.appendChild(delta);
+              }
+            }
+          }
         }
 
         if (el.ptSource) {

@@ -444,6 +444,9 @@
         "change": 0,
         "direction": "flat"
       }
-    ]
+    ],
+    "consensus_previous": null,
+    "consensus_change": null,
+    "consensus_direction": "flat"
   }
 }
