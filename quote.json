@@ -47,6 +47,27 @@
       "tone": "up"
     },
     {
+      "title": "Tesla Cybercab Robotaxi Launches Public Rides in Austin with Low Fares and High Praise",
+      "url": "https://x.com/i/trending/2096148546315837465",
+      "id": "2096148546315837465",
+      "date": "2026-09-05",
+      "tone": "up"
+    },
+    {
+      "title": "Cybercab's Butterfly Doors Spark Debate in Austin Rides",
+      "url": "https://x.com/i/trending/2096044416654016638",
+      "id": "2096044416654016638",
+      "date": "2026-09-05",
+      "tone": "down"
+    },
+    {
+      "title": "Tesla Cybercab Offers Public Rides in Austin with No Driver Needed",
+      "url": "https://x.com/i/trending/2095481807009423790",
+      "id": "2095481807009423790",
+      "date": "2026-09-05",
+      "tone": "up"
+    },
+    {
       "title": "Tesla Opens Interest Form for Cybercab Robotaxi Fleets",
       "url": "https://x.com/i/trending/2095681903084876202",
       "id": "2095681903084876202",
@@ -59,6 +80,27 @@
       "id": "2095887783898530045",
       "date": "2026-09-04",
       "tone": "down"
+    },
+    {
+      "title": "Jason Calacanis Calls for Slow Rollout of Self-Driving Cars",
+      "url": "https://x.com/i/trending/2095920033314570687",
+      "id": "2095920033314570687",
+      "date": "2026-09-04",
+      "tone": "down"
+    },
+    {
+      "title": "Uber Partners with Unions to Slow Robotaxi Rollout",
+      "url": "https://x.com/i/trending/2095551385429319853",
+      "id": "2095551385429319853",
+      "date": "2026-09-04",
+      "tone": "flat"
+    },
+    {
+      "title": "We've Quietly Adapted to a Miraculous Future",
+      "url": "https://x.com/i/trending/2096009330462019817",
+      "id": "2096009330462019817",
+      "date": "2026-09-04",
+      "tone": "flat"
     },
     {
       "title": "Tesla Launches Steering-Wheel-Free Cybercab Robotaxi in Austin",
@@ -82,27 +124,6 @@
       "tone": "up"
     },
     {
-      "title": "Tesla Owners Could Earn from Idle Cars in Robotaxi Fleet",
-      "url": "https://x.com/i/trending/2096080249897501162",
-      "id": "2096080249897501162",
-      "date": "2026-09-05",
-      "tone": "up"
-    },
-    {
-      "title": "Cybercab's Butterfly Doors Spark Debate in Austin Rides",
-      "url": "https://x.com/i/trending/2096044416654016638",
-      "id": "2096044416654016638",
-      "date": "2026-09-05",
-      "tone": "down"
-    },
-    {
-      "title": "Tesla Cybercab Launches Paid Robotaxi Rides in Austin",
-      "url": "https://x.com/i/trending/2095481807009423790",
-      "id": "2095481807009423790",
-      "date": "2026-09-05",
-      "tone": "up"
-    },
-    {
       "title": "Golden Tesla Cybercabs Spotted Testing in San Diego Ahead of Launch",
       "url": "https://x.com/i/trending/2095375598218862951",
       "id": "2095375598218862951",
@@ -115,27 +136,6 @@
       "id": "2094476412228948025",
       "date": "2026-09-02",
       "tone": "up"
-    },
-    {
-      "title": "Jason Calacanis Calls for Slow Rollout of Self-Driving Cars",
-      "url": "https://x.com/i/trending/2095920033314570687",
-      "id": "2095920033314570687",
-      "date": "2026-09-04",
-      "tone": "down"
-    },
-    {
-      "title": "Uber Partners with Unions to Slow Robotaxi Rollout",
-      "url": "https://x.com/i/trending/2095551385429319853",
-      "id": "2095551385429319853",
-      "date": "2026-09-04",
-      "tone": "flat"
-    },
-    {
-      "title": "We've Quietly Adapted to a Miraculous Future",
-      "url": "https://x.com/i/trending/2096009330462019817",
-      "id": "2096009330462019817",
-      "date": "2026-09-04",
-      "tone": "flat"
     },
     {
       "title": "Avride Triples Dallas Robotaxi Zone to 31 Square Miles with Uber",
@@ -237,16 +237,16 @@
     {
       "label": "Elon",
       "url": "https://x.com/elonmusk",
-      "quote": "The Sun is ~100% of solar system mass",
-      "quote_url": "https://x.com/elonmusk/status/2096079231214113027",
+      "quote": "It will only get better",
+      "quote_url": "https://x.com/elonmusk/status/2096138449250091368",
       "quote_date": "2026-09-05",
-      "tone": "flat"
+      "tone": "up"
     },
     {
       "label": "Wood",
       "url": "https://x.com/CathieDWood",
-      "quote": "Good for Robinhood: net new users build liquidity and crypto credibility",
-      "quote_url": "https://x.com/CathieDWood/status/2096108671180673044",
+      "quote": "Yes, welcome to the US Revolut",
+      "quote_url": "https://x.com/CathieDWood/status/2096130073837322361",
       "quote_date": "2026-09-05",
       "tone": "up"
     },
@@ -505,12 +505,12 @@
         "direction": "flat"
       }
     ],
-    "consensus_previous": null,
-    "consensus_change": null,
+    "consensus_previous": 401.74,
+    "consensus_change": 0,
     "consensus_direction": "flat"
   },
   "odds": {
-    "as_of_utc": "2026-09-05T07:20:23Z",
+    "as_of_utc": "2026-09-05T09:03:45Z",
     "source": "Polymarket",
     "source_url": "https://polymarket.com",
     "markets": [
@@ -524,31 +524,31 @@
         "change_pp": 0.0,
         "direction": "flat",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T07:20:23Z"
+        "as_of_utc": "2026-09-05T09:03:45Z"
       },
       {
         "id": "ca-robotaxi-26",
         "label": "CA robotaxi",
         "slug": "will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
         "url": "https://polymarket.com/event/will-tesla-launch-robotaxis-in-california-by-december-31-20260630142749586",
-        "yes_pct": 20.0,
+        "yes_pct": 21.0,
         "previous_pct": 18.5,
-        "change_pp": 1.5,
+        "change_pp": 2.5,
         "direction": "up",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T07:20:23Z"
+        "as_of_utc": "2026-09-05T09:03:45Z"
       },
       {
         "id": "optimus-26",
         "label": "Optimus release",
         "slug": "will-tesla-release-optimus-by-december-31-2026",
         "url": "https://polymarket.com/event/will-tesla-release-optimus-by-june-30-2026",
-        "yes_pct": 3.5,
-        "previous_pct": 4.5,
+        "yes_pct": 3.6,
+        "previous_pct": 4.6,
         "change_pp": -1.0,
         "direction": "down",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T07:20:23Z"
+        "as_of_utc": "2026-09-05T09:03:45Z"
       },
       {
         "id": "starship-fl-26",
@@ -556,11 +556,11 @@
         "slug": "will-the-spacex-starship-launch-from-florida-by-december-31-2026-20260617154758584",
         "url": "https://polymarket.com/event/spacex-starship-florida-launch-by-20260617154757803",
         "yes_pct": 18.0,
-        "previous_pct": 40.5,
-        "change_pp": -22.5,
-        "direction": "down",
+        "previous_pct": 18.0,
+        "change_pp": 0.0,
+        "direction": "flat",
         "deadline": "31.12.26",
-        "as_of_utc": "2026-09-05T07:20:23Z"
+        "as_of_utc": "2026-09-05T09:03:45Z"
       }
     ]
   },
